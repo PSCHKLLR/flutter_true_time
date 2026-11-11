@@ -1,0 +1,45 @@
+name: Xcode 27.2 qualification
+# Manual, trusted execution only; never run arbitrary fork PRs on a self-hosted Mac.
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  apple:
+    runs-on: [self-hosted, macOS, ARM64, xcode-27-2]
+    strategy:
+      fail-fast: false
+      matrix:
+        flutter: ['3.41.0', '3.47.9']
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: subosito/flutter-action@v2.23.0
+        with:
+          flutter-version: ${{ matrix.flutter }}
+          channel: stable
+      - name: Verify Apple toolchain
+        run: |
+          test "$(uname -m)" = arm64
+          xcodebuild -version | tee xcode-version.txt
+          grep 'Xcode 27.2' xcode-version.txt
+          flutter --version --machine > toolchain.json
+      - run: flutter pub get
+      - run: flutter test test test_flutter --no-pub
+      - run: flutter build ios --simulator --debug
+        working-directory: example
+      - run: flutter build ios --release --no-codesign
+        working-directory: example
+      - run: flutter build macos --release
+        working-directory: example
+      - name: List privacy resources for manual archive review
+        run: find example/build -name '*.xcprivacy' -print | tee privacy-resources.txt
+      - uses: actions/upload-artifact@v7.0.2
+        if: always()
+        with:
+          name: xcode-27-2-${{ matrix.flutter }}
+          path: |
+            xcode-version.txt
+            toolchain.json
+            privacy-resources.txt
+            example/build/ios/iphonesimulator/*.app
+            example/build/macos/Build/Products/Release/*.app

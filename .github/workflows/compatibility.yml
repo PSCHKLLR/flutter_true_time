@@ -1,0 +1,120 @@
+name: Compatibility checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  core:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-latest, macos-latest]
+        flutter: ['3.41.0', '3.47.9']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: subosito/flutter-action@v2.23.0
+        with:
+          flutter-version: ${{ matrix.flutter }}
+          channel: stable
+      - name: Resolve independently and record toolchain
+        shell: bash
+        run: |
+          rm -f pubspec.lock example/pubspec.lock
+          flutter --version --machine > toolchain.json
+          flutter pub get
+      - run: dart format --output=none --set-exit-if-changed lib test test_flutter example/integration_test tool example/lib example/test
+      - run: flutter analyze
+      - run: flutter test test test_flutter --no-pub --coverage
+      - run: flutter test --no-pub
+        working-directory: example
+      - uses: actions/upload-artifact@v7.0.2
+        if: always()
+        with:
+          name: core-${{ matrix.os }}-${{ matrix.flutter }}
+          path: |
+            toolchain.json
+            pubspec.lock
+            coverage/lcov.info
+  android:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {flutter: '3.41.0', lane: baseline}
+          - {flutter: '3.47.9', lane: current}
+          - {flutter: '3.47.9', lane: builtin}
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-java@v6.2.0
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: subosito/flutter-action@v2.23.0
+        with:
+          flutter-version: ${{ matrix.flutter }}
+          channel: stable
+      - run: flutter pub get
+      - run: dart run tool/configure_android.dart ${{ matrix.lane }}
+      - name: Record Android toolchain
+        run: |
+          flutter --version --machine > toolchain.json
+          java -version 2> java-version.txt
+      - run: flutter build apk --release
+        working-directory: example
+      - run: flutter build appbundle --release
+        working-directory: example
+      - name: Record resolved Gradle version
+        run: |
+          chmod +x example/android/gradlew
+          (cd example/android && ./gradlew --version) > gradle-version.txt
+      - uses: actions/upload-artifact@v7.0.2
+        with:
+          name: android-${{ matrix.lane }}
+          path: |
+            toolchain.json
+            java-version.txt
+            gradle-version.txt
+            example/android/gradle.properties
+            example/android/settings.gradle.kts
+            example/build/app/outputs/flutter-apk/*.apk
+            example/build/app/outputs/bundle/release/*.aab
+  web:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        flutter: ['3.41.0', '3.47.9']
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: subosito/flutter-action@v2.23.0
+        with:
+          flutter-version: ${{ matrix.flutter }}
+          channel: stable
+      - run: flutter pub get
+      - run: flutter build web --release
+        working-directory: example
+      - run: flutter build web --release --wasm
+        working-directory: example
+  desktop:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {os: windows-latest, target: windows}
+          - {os: ubuntu-24.04, target: linux}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: subosito/flutter-action@v2.23.0
+        with:
+          flutter-version: '3.47.9'
+          channel: stable
+      - if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev libsecret-1-dev libjsoncpp-dev
+      - run: flutter pub get
+      - run: flutter build ${{ matrix.target }} --release
+        working-directory: example

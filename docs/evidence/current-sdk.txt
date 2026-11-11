@@ -1,0 +1,84 @@
+Windows x64; Flutter 3.47.9 / Dart 3.13.7
+Independent dependency resolution (no inherited lock).
+
+Analyzing current...                                            
+No issues found! (ran in 17.0s)
+
+00:00 +0: loading WORKSPACE/work/qualification/current/test/engine_test.dart
+00:00 +0: WORKSPACE/work/qualification/current/test/engine_test.dart: unavailable clock never falls back to system time
+00:00 +1: WORKSPACE/work/qualification/current/test/engine_test.dart: offline hour advances UTC and increases uncertainty by 100 ppm
+00:00 +2: WORKSPACE/work/qualification/current/test/engine_test.dart: failed refresh retains a ready anchor
+00:00 +3: WORKSPACE/work/qualification/current/test/engine_test.dart: stale accuracy blocks strict reads but retains labeled estimates
+00:00 +4: WORKSPACE/work/qualification/current/test/engine_test.dart: age policy independently expires an anchor
+00:00 +5: WORKSPACE/work/qualification/current/test/engine_test.dart: epoch change invalidates even when new uptime is larger
+00:00 +6: WORKSPACE/work/qualification/current/test/engine_test.dart: regression after a read invalidates even above original anchor
+00:00 +7: WORKSPACE/work/qualification/current/test/engine_test.dart: suspend-safe native clock preserves elapsed time
+00:00 +8: WORKSPACE/work/qualification/current/test/engine_test.dart: session-only clock is unavailable through suspension
+00:00 +9: WORKSPACE/work/qualification/current/test/engine_test.dart: rogue outlier does not shift accepted consensus
+00:00 +10: WORKSPACE/work/qualification/current/test/engine_test.dart: same-provider sources fail diversity
+00:00 +11: WORKSPACE/work/qualification/current/test/engine_test.dart: empty and unknown provider groups do not satisfy diversity
+00:00 +12: WORKSPACE/work/qualification/current/test/engine_test.dart: duplicate endpoints are rejected before querying
+00:00 +13: WORKSPACE/work/qualification/current/test/engine_test.dart: equally supported disjoint clusters fail
+00:00 +14: WORKSPACE/work/qualification/current/test/engine_test.dart: concurrent callers share one query cycle
+00:00 +15: WORKSPACE/work/qualification/current/test/engine_test.dart: deadline bounds synchronization and late samples cannot overwrite state
+00:00 +16: WORKSPACE/work/qualification/current/test/engine_test.dart: invalidation rejects an in-flight cycle
+00:00 +17: WORKSPACE/work/qualification/current/test/engine_test.dart: new synchronization can correct UTC backward
+00:00 +18: WORKSPACE/work/qualification/current/test/engine_test.dart: storage failure does not discard an in-memory anchor
+00:00 +19: WORKSPACE/work/qualification/current/test/engine_test.dart: changed boot epoch rejects a stored anchor despite process restart
+00:00 +20: WORKSPACE/work/qualification/current/test/engine_test.dart: readiness has a typed timeout and cleans up its subscription
+00:00 +21: WORKSPACE/work/qualification/current/test/engine_test.dart: disposed engine releases a pending sync and rejects further operations
+00:00 +22: WORKSPACE/work/qualification/current/test/engine_test.dart: configuration rejects nonfinite drift and invalid quorum
+00:00 +23: WORKSPACE/work/qualification/current/test/enhancements_test.dart: clock quantization and sampling overhead bound uncertainty
+00:00 +24: WORKSPACE/work/qualification/current/test/enhancements_test.dart: clock quantization and sampling overhead bound uncertainty
+00:00 +25: WORKSPACE/work/qualification/current/test/enhancements_test.dart: clock quantization and sampling overhead bound uncertainty
+00:00 +26: WORKSPACE/work/qualification/current/test/enhancements_test.dart: clock quantization and sampling overhead bound uncertainty
+00:00 +27: WORKSPACE/work/qualification/current/test/enhancements_test.dart: clock quantization and sampling overhead bound uncertainty
+00:00 +28: WORKSPACE/work/qualification/current/test/enhancements_test.dart: clock quantization and sampling overhead bound uncertainty
+00:00 +29: WORKSPACE/work/qualification/current/test/enhancements_test.dart: resume replaces an invalidated cycle even without automatic refresh
+00:00 +30: WORKSPACE/work/qualification/current/test/enhancements_test.dart: native anchor remains readable but no refresh schedules in background
+00:00 +31: WORKSPACE/work/qualification/current/test/enhancements_test.dart: cycle deadline closes cooperative source resources
+00:00 +32: WORKSPACE/work/qualification/current/test/enhancements_test.dart: noncooperative futures retain permits across repeated cycle deadlines
+00:00 +33: WORKSPACE/work/qualification/current/test/enhancements_test.dart: disposal cancels cooperative transport resources
+00:00 +34: WORKSPACE/work/qualification/current/test/enhancements_test.dart: valid restored anchor completes readiness before the network responds
+00:00 +35: WORKSPACE/work/qualification/current/test/enhancements_test.dart: matching boot supports another process session; changed boot rejects it
+00:00 +36: WORKSPACE/work/qualification/current/test/enhancements_test.dart: restored backup with a new installation scope cannot restore trust
+00:00 +37: WORKSPACE/work/qualification/current/test/enhancements_test.dart: unavailable epoch capability fails closed after restart
+00:00 +38: WORKSPACE/work/qualification/current/test/enhancements_test.dart: restore rejects out-of-range UTC
+00:00 +39: WORKSPACE/work/qualification/current/test/enhancements_test.dart: restore rejects negative monotonic
+00:00 +40: WORKSPACE/work/qualification/current/test/enhancements_test.dart: restore rejects negative uncertainty
+00:00 +41: WORKSPACE/work/qualification/current/test/enhancements_test.dart: restore rejects unsupported schema
+00:00 +42: WORKSPACE/work/qualification/current/test/enhancements_test.dart: restore rejects unknown provider
+00:00 +43: WORKSPACE/work/qualification/current/test/enhancements_test.dart: restore rejects duplicate providers
+00:00 +44: WORKSPACE/work/qualification/current/test/enhancements_test.dart: restore rejects unconfigured source
+00:00 +45: WORKSPACE/work/qualification/current/test/enhancements_test.dart: restore rejects wrong clock domain
+00:00 +46: WORKSPACE/work/qualification/current/test/enhancements_test.dart: restore rejects changed policy
+00:00 +47: WORKSPACE/work/qualification/current/test/enhancements_test.dart: expired stored state is not restored as an offline estimate
+00:00 +48: WORKSPACE/work/qualification/current/test/enhancements_test.dart: caller timeout does not release the real persistent writer
+00:00 +49: WORKSPACE/work/qualification/current/test/enhancements_test.dart: disposal completes a cycle awaiting persistence without releasing writer ordering
+00:00 +50: WORKSPACE/work/qualification/current/test/enhancements_test.dart: wall-clock and timezone events do not change monotonic UTC
+00:00 +51: WORKSPACE/work/qualification/current/test/enhancements_test.dart: built-in source configurations have stable value identities
+00:00 +52: WORKSPACE/work/qualification/current/test/enhancements_test.dart: paused external events cannot hang disposal
+00:00 +53: WORKSPACE/work/qualification/current/test/enhancements_test.dart: persisted provider evidence must belong to the selected source ids
+00:01 +54: WORKSPACE/work/qualification/current/test/native_sources_test.dart: native platform clock produces same-epoch nondecreasing readings
+00:01 +55: WORKSPACE/work/qualification/current/test/native_sources_test.dart: loopback NTP validates a complete response
+00:01 +56: WORKSPACE/work/qualification/current/test/native_sources_test.dart: loopback NTP rejects nonce mismatch
+00:01 +57: WORKSPACE/work/qualification/current/test/native_sources_test.dart: silent loopback source times out and releases its socket
+00:01 +58: WORKSPACE/work/qualification/current/test/native_sources_test.dart: NTP cancellation closes its UDP socket before returning
+00:01 +59: WORKSPACE/work/qualification/current/test/ntp_test.dart: NTP unfolds era for 2026 without device time
+00:01 +60: WORKSPACE/work/qualification/current/test/ntp_test.dart: NTP unfolds era for 2040 without device time
+00:01 +61: WORKSPACE/work/qualification/current/test/ntp_test.dart: NTP unfolds era for 2100 without device time
+00:01 +62: WORKSPACE/work/qualification/current/test/ntp_test.dart: zero timestamp is rejected
+00:01 +63: WORKSPACE/work/qualification/current/test/sources_test.dart: HTTPS Date produces a UTC sample with coarse uncertainty
+00:01 +64: WORKSPACE/work/qualification/current/test/sources_test.dart: HTTPS excludes absent or cached time evidence {date: Wed, 11 Nov 2026 00:00:00 GMT}
+00:01 +65: WORKSPACE/work/qualification/current/test/sources_test.dart: HTTPS excludes absent or cached time evidence {date: Wed, 11 Nov 2026 00:00:00 GMT, cache-control: no-store, age: 42}
+00:01 +66: WORKSPACE/work/qualification/current/test/sources_test.dart: HTTPS excludes absent or cached time evidence {cache-control: no-store}
+00:01 +67: WORKSPACE/work/qualification/current/test/sources_test.dart: HTTPS excludes absent or cached time evidence {date: Wed, 31 Feb 2026 00:00:00 GMT, cache-control: no-store}
+00:01 +68: WORKSPACE/work/qualification/current/test/sources_test.dart: HTTPS redirects and insecure URLs are rejected
+00:01 +69: WORKSPACE/work/qualification/current/test/sources_test.dart: HTTP Date rejects weekday mismatch and normalized overflow
+00:01 +70: WORKSPACE/work/qualification/current/test/sources_test.dart: HTTPS cancellation closes the owned client immediately
+00:02 +71: WORKSPACE/work/qualification/current/test_flutter/facade_test.dart: equivalent newly constructed custom source configurations are idempotent
+00:02 +72: WORKSPACE/work/qualification/current/test_flutter/facade_test.dart: Flutter pause/resume invalidates and replaces a portable anchor
+00:02 +73: WORKSPACE/work/qualification/current/test_flutter/facade_test.dart: initial background state defers network work until resume
+00:02 +74: WORKSPACE/work/qualification/current/test_flutter/facade_test.dart: secure store isolates JSON records by application namespace
+00:02 +75: WORKSPACE/work/qualification/current/test_flutter/facade_test.dart: disposing while storage is pending releases deadline timers
+00:03 +76: All tests passed!

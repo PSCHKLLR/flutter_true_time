@@ -1,0 +1,12 @@
+00:00 +0: loading test/sources_test.dart
+Compiled 14,499,964 input bytes (9,490,625 characters source) to 1,215,035 characters JavaScript in 5.07 seconds
+
+00:00 +0: HTTPS Date produces a UTC sample with coarse uncertainty
+00:00 +1: HTTPS excludes absent or cached time evidence {date: Wed, 11 Nov 2026 00:00:00 GMT}
+00:00 +2: HTTPS excludes absent or cached time evidence {date: Wed, 11 Nov 2026 00:00:00 GMT, cache-control: no-store, age: 42}
+00:00 +3: HTTPS excludes absent or cached time evidence {cache-control: no-store}
+00:00 +4: HTTPS excludes absent or cached time evidence {date: Wed, 31 Feb 2026 00:00:00 GMT, cache-control: no-store}
+00:00 +5: HTTPS redirects and insecure URLs are rejected
+00:00 +6: HTTP Date rejects weekday mismatch and normalized overflow
+00:00 +7: HTTPS cancellation closes the owned client immediately
+00:00 +8: All tests passed!

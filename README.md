@@ -1,0 +1,93 @@
+# flutter_true_time
+
+Network-derived UTC timestamps for Flutter, anchored to a monotonic clock with explicit freshness and uncertainty. Version **0.1.0-dev.1** is a development candidate; publication is disabled until the qualification gates pass.
+
+This is an independently maintained rebuild of the trusted_time design/API baseline. It is not a drop-in replacement or an official upstream release. Historical license and NOTICE attribution is preserved in THIRD_PARTY_NOTICES.md.
+
+## Use in a Flutter app
+
+During development, add a path dependency to this folder:
+
+```yaml
+dependencies:
+  flutter_true_time:
+    path: ../flutter_true_time
+```
+
+```dart
+import 'package:flutter/widgets.dart';
+import 'package:flutter_true_time/flutter_true_time.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await TrustedTime.initialize(
+    persistence: PersistenceConfig(namespace: 'com.example.my_app'),
+  );
+  // Initialization starts a sync; it does not imply readiness.
+  try {
+    await TrustedTime.waitUntilReady();
+    final reading = TrustedTime.read();
+    debugPrint(reading.utc.toIso8601String());
+    debugPrint('Estimated uncertainty: ' + reading.uncertainty.toString());
+  } on TrustedTimeException catch (error) {
+    debugPrint(error.code); // Retry/show unavailable; never substitute system time.
+  }
+}
+```
+
+Omit persistence for an in-memory clock. Use an application-specific namespace and one writer per namespace/isolate; share an AnchorStore object when multiple engines intentionally share state. The Android bridge declares INTERNET permission through its library manifest. Sandboxed macOS applications need the network client entitlement.
+
+Native defaults query time.cloudflare.com and ntp.netnod.se (distinct configured provider labels). Network/server policies may prevent consensus. These servers are external services, and the labels do not cryptographically prove operational independence. See [Cloudflare](https://developers.cloudflare.com/time-services/ntp/usage/) and [Netnod](https://www.netnod.se/ntp/connect-to-ntp-servers).
+
+## Read contract
+
+| API | Result |
+| --- | --- |
+| now(), nowUnixMs(), nowIso() | Strict UTC; throws when unavailable or stale |
+| read() | UTC, uncertainty, anchor age, source/provider evidence, and restored origin; throws when unavailable |
+| estimate() | Labeled ready/stale reading, or null without a continuous anchor |
+| waitUntilReady() | Bounded wait, including an immediately usable restored anchor |
+| forceResync() | One shared bounded cycle; a replacement is queued after invalidation |
+| status / events | Availability, sync state, failures, restoration, and clock diagnostics |
+| dispose() | Releases timers/observation and cancels owned transport work |
+
+UTC may move backward after a correction. Use a monotonic timer for durations; these timestamps do not provide unique IDs or globally ordered events.
+
+Defaults remain: 30-minute foreground refresh, 3-second source timeout, 5-second cycle deadline, two sources from two named providers, 24-hour anchor-age limit, 5-second uncertainty limit, and 100-ppm drift budget. Uncertainty grows by 360 ms per offline hour at that budget, in addition to sampling and source error. This is an engineering estimate under stated assumptions, not an accuracy or security guarantee.
+
+## Persistence capability
+
+| Platform | Clock | Offline restore after app restart |
+| --- | --- | --- |
+| Android API 24+ | CLOCK_BOOTTIME | Only with matching boot count, no-backup installation marker, clock domain, and trust policy |
+| Linux | CLOCK_BOOTTIME | Only with a matching kernel boot UUID and application scope |
+| iOS/macOS | mach_continuous_time | Fresh online sync required by the default provider |
+| Windows | QueryPerformanceCounter | Fresh online sync required by the default provider |
+| Web | Session-only portable clock | Fresh online sync after page/browser restart |
+
+A reboot never authorizes reuse by comparing uptime alone. Missing epoch evidence, changed policy, expired/corrupt records, inaccessible storage, and restored backup mismatches fail closed. Apple removed app access to the iOS boot-session UUID; secure storage does not supply that proof.
+
+Storage writes are serialized until the actual backend operation settles. A caller timeout does not release that writer. An unresponsive backend can delay persistence; an otherwise valid in-memory clock continues. Opaque third-party sources that ignore cancellation retain their concurrency permit until their real Future settles.
+
+## Browser setup
+
+Supply at least two independently operated HttpsDateSource endpoints. Each must support HEAD, normal TLS verification, a Date header, Cache-Control: no-store, absent/zero Age, and CORS-exposed Date/Cache-Control/Age headers. Redirects, cached replies, and missing evidence are excluded.
+
+The demo accepts TRUE_TIME_HTTPS_A, TRUE_TIME_HTTPS_B, TRUE_TIME_PROVIDER_A, and TRUE_TIME_PROVIDER_B dart-defines. Missing browser configuration reports sourcesRequired instead of inventing trusted time.
+
+## Development and compatibility
+
+Minimum declared SDK: Flutter 3.41.0 / Dart 3.11.0. The qualification lanes pin Flutter 3.41.0 and 3.47.9. Read docs/COMPATIBILITY.md and docs/VALIDATION.md before relying on a platform-support claim; a target is not a passing result.
+
+```sh
+flutter pub get
+flutter analyze
+flutter test test test_flutter --coverage
+dart test test
+cd example
+flutter run -d windows
+```
+
+The Flutter-independent engine is exported from core.dart. Inject MonotonicClock, TimeSource, BootEpochProvider, AnchorStore, TimeScheduler, and WallClockReader for deterministic tests. Custom sources must expose an immutable configurationKey and honor CancellationSignal to release resources promptly.
+
+No NTS authentication, TLS bypass, system-clock modification, untrusted wall-clock fallback, or OS-managed background worker is included. See docs/SPECIFICATION.md, docs/REVIEW_REPORT.md, docs/MIGRATION.md, and docs/PUBLISHING.md.

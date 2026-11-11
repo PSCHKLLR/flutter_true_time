@@ -1,0 +1,46 @@
+name: flutter_true_time
+description: Reliable network-derived UTC timestamps with monotonic projection, explicit uncertainty, and safe offline restoration.
+version: 0.1.0-dev.1
+publish_to: none
+repository: https://github.com/PSCHKLLR/flutter_true_time
+issue_tracker: https://github.com/PSCHKLLR/flutter_true_time/issues
+environment:
+  sdk: '>=3.11.0 <4.0.0'
+  flutter: '>=3.41.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+  ffi: ^2.1.0
+  http: ^1.2.1
+  crypto: ^3.0.3
+  flutter_secure_storage: ^11.2.0
+dev_dependencies:
+  test: ^1.26.3
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  integration_test:
+    sdk: flutter
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: dev.pschkllr.flutter_true_time
+        pluginClass: FlutterTrueTimePlugin
+      ios:
+        dartPluginClass: FlutterTrueTimeDartPlugin
+        dartFileName: flutter_true_time_dart_plugin.dart
+      macos:
+        dartPluginClass: FlutterTrueTimeDartPlugin
+        dartFileName: flutter_true_time_dart_plugin.dart
+      windows:
+        dartPluginClass: FlutterTrueTimeDartPlugin
+        dartFileName: flutter_true_time_dart_plugin.dart
+      linux:
+        dartPluginClass: FlutterTrueTimeDartPlugin
+        dartFileName: flutter_true_time_dart_plugin.dart
+      web:
+        pluginClass: FlutterTrueTimeWeb
+        fileName: flutter_true_time_web.dart

@@ -1,0 +1,23 @@
+name: flutter_true_time_example
+description: Demonstration and qualification host for flutter_true_time.
+publish_to: none
+version: 0.1.0-dev.1
+environment:
+  sdk: '>=3.11.0 <4.0.0'
+  flutter: '>=3.41.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_true_time:
+    path: ../
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+flutter:
+  config:
+    enable-web: true
+    enable-windows-desktop: true
+  uses-material-design: true

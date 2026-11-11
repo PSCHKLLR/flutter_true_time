@@ -1,0 +1,88 @@
+{
+  "date": "2026-11-12",
+  "upstream": "https://github.com/PSCHKLLR/trusted_time",
+  "commit": "b6173c0eb54ce5946e10115b26b2b40296d37862",
+  "upstreamLicenseSha256": "03cefa9d3041362776626ffb43166cb2ba82c9dec8713bb2b02f96ff00d90005",
+  "upstreamNoticeSha256": "48c9d56444388782f82bb871a5ba0f9ed65e24f1a149794459fc0db4c9e9259c",
+  "upstreamDartFilesCompared": 26,
+  "localDartFilesCompared": 20,
+  "identicalDartFiles": [],
+  "method": "Exact complete-file SHA-256 comparison; this does not determine substantial similarity or provide legal clearance.",
+  "dependencyLicenses": [
+    {
+      "package": "crypto",
+      "licenseSha256": "ad6a71997da90924b2cfb1fb47ec46537f70faf469efe016168794ae45ed6888",
+      "licenseFile": "licenses/crypto.txt"
+    },
+    {
+      "package": "ffi",
+      "licenseSha256": "0371d1da6a57fb791db29d29b95333429205f51f3cb2eb3a0c12d91838a38744",
+      "licenseFile": "licenses/ffi.txt"
+    },
+    {
+      "package": "flutter",
+      "licenseSha256": "a3a9fd82f800a47377f7d3f60c60a5c91cae0495be8f329031e1448ce0f5dab9",
+      "licenseFile": "licenses/flutter.txt"
+    },
+    {
+      "package": "flutter_secure_storage",
+      "licenseSha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+      "licenseFile": "licenses/flutter_secure_storage.txt"
+    },
+    {
+      "package": "flutter_secure_storage_darwin",
+      "licenseSha256": "3754c516086c62307896512b68024837bee5d2bea42a55cfd03f7448b92b06c8",
+      "licenseFile": "licenses/flutter_secure_storage_darwin.txt"
+    },
+    {
+      "package": "flutter_secure_storage_linux",
+      "licenseSha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+      "licenseFile": "licenses/flutter_secure_storage_linux.txt"
+    },
+    {
+      "package": "flutter_secure_storage_platform_interface",
+      "licenseSha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+      "licenseFile": "licenses/flutter_secure_storage_platform_interface.txt"
+    },
+    {
+      "package": "flutter_secure_storage_web",
+      "licenseSha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+      "licenseFile": "licenses/flutter_secure_storage_web.txt"
+    },
+    {
+      "package": "flutter_secure_storage_windows",
+      "licenseSha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+      "licenseFile": "licenses/flutter_secure_storage_windows.txt"
+    },
+    {
+      "package": "flutter_web_plugins",
+      "licenseSha256": "a3a9fd82f800a47377f7d3f60c60a5c91cae0495be8f329031e1448ce0f5dab9",
+      "licenseFile": "licenses/flutter_web_plugins.txt"
+    },
+    {
+      "package": "http",
+      "licenseSha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+      "licenseFile": "licenses/http.txt"
+    },
+    {
+      "package": "jni",
+      "licenseSha256": "08a004aa8956c3cf3b24f7f69c966247233953e18e6afaa61191ea47b7eb70f6",
+      "licenseFile": "licenses/jni.txt"
+    },
+    {
+      "package": "jni_flutter",
+      "licenseSha256": "b1fcb475d67817411f335ac92872507011e574c4cb29cfdaaf7707b75641932c",
+      "licenseFile": "licenses/jni_flutter.txt"
+    },
+    {
+      "package": "path_provider",
+      "licenseSha256": "420f7739f169097f0aad1242045169cd643c8f1d94e62866fad265ae4c369b7d",
+      "licenseFile": "licenses/path_provider.txt"
+    },
+    {
+      "package": "win32",
+      "licenseSha256": "87ef8bccdd619f2345ba5b9026cf1d6cccb305e36ab83849a8a3af9293abde7e",
+      "licenseFile": "licenses/win32.txt"
+    }
+  ]
+}

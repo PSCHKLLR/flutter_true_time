@@ -1,0 +1,16 @@
+.dart_tool/
+build/
+coverage/
+.idea/
+*.iml
+**/local.properties
+**/.gradle/
+**/ephemeral/
+**/.plugin_symlinks/
+**/Pods/
+**/Generated.xcconfig
+**/flutter_export_environment.sh
+**/pubspec.lock
+.flutter-plugins-dependencies
+example/.flutter-plugins-dependencies
+**/GeneratedPluginRegistrant.*
