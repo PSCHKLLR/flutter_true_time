@@ -1,0 +1,297 @@
+{
+  "date": "2026-11-12",
+  "commit": "3849c56b414ae6f9218ec9ae86b95230434a6247",
+  "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+  "platform": "Windows x64",
+  "lanes": [
+    {
+      "lane": "baseline",
+      "flutter": "3.41.0",
+      "dart": "3.11.0",
+      "toolchain": [
+        "GRADLE=8.14",
+        "JAVA=17.0.21+9",
+        "AGP=8.11.1",
+        "KOTLIN_COMPILER=2.2.20",
+        "BUILT_IN_KOTLIN=false"
+      ],
+      "checks": [
+        {
+          "exitCode": 0,
+          "sha256": "af002020a5b0a1b6b96e5a4e0d3c0c02d3319f25f30b2efa427151004b97eee6",
+          "command": [
+            "flutter.bat",
+            "pub",
+            "get",
+            "--offline"
+          ],
+          "log": "resolve.txt",
+          "name": "resolve"
+        },
+        {
+          "exitCode": 0,
+          "sha256": "05e75f1f409f81d3bf28391197439325e9dc1d0a5b41a7d18be89beb2e43035f",
+          "command": [
+            "flutter.bat",
+            "pub",
+            "get",
+            "--offline"
+          ],
+          "log": "example-resolve.txt",
+          "name": "example-resolve"
+        },
+        {
+          "exitCode": 0,
+          "sha256": "50aacb04eb789aacf681d28fef77ed2b19d54143a806a923959f5ad392e4e311",
+          "command": [
+            "dart.exe",
+            "tool/configure_android.dart",
+            "baseline"
+          ],
+          "log": "android-configure.txt",
+          "name": "android-configure"
+        },
+        {
+          "exitCode": 0,
+          "sha256": "aaf9cdf90e91834e7b5c5c4f4ef7f7e366b652a317f1d57eb8141669aae6058b",
+          "command": [
+            "flutter.bat",
+            "build",
+            "apk",
+            "--release"
+          ],
+          "log": "android-apk.txt",
+          "name": "android-apk"
+        },
+        {
+          "exitCode": 0,
+          "sha256": "81ffb2a5545cf4383d599fa690efee51c82768ba0ee1d303ef43042ac83b391f",
+          "command": [
+            "flutter.bat",
+            "build",
+            "appbundle",
+            "--release"
+          ],
+          "log": "android-aab.txt",
+          "name": "android-aab"
+        },
+        {
+          "exitCode": 0,
+          "sha256": "baf7b07114a38d3e37416f3a790718555d21abb59b0c36afff63154d895fec93",
+          "command": [
+            "gradlew.bat",
+            "-q",
+            "--init-script",
+            "C:\\Users\\eoner\\Documents\\Codex\\2026-11-10\\i-g\\work\\report_android_versions.gradle",
+            ":app:trueTimeToolchainReport"
+          ],
+          "log": "android-toolchain.txt",
+          "name": "android-toolchain"
+        }
+      ],
+      "artifacts": [
+        {
+          "sha256": "5815f2c43f6b6c67b437273b9ad98a5d6c15388e86e0aaa6cf3d90ffb3d80e0e",
+          "file": "example/build/app/outputs/bundle/release/app-release.aab"
+        },
+        {
+          "sha256": "0be78acfdc887cc671f4da8a91dd5f9c2575f963bd16ee18652a247822f296e8",
+          "file": "example/build/app/outputs/flutter-apk/app-release.apk"
+        }
+      ]
+    },
+    {
+      "lane": "current",
+      "flutter": "3.47.9",
+      "dart": "3.13.7",
+      "toolchain": [
+        "GRADLE=9.3.1",
+        "JAVA=17.0.21+9",
+        "AGP=9.1.0",
+        "KOTLIN_COMPILER=2.4.0",
+        "BUILT_IN_KOTLIN=false"
+      ],
+      "checks": [
+        {
+          "command": [
+            "flutter.bat",
+            "pub",
+            "get",
+            "--offline"
+          ],
+          "name": "resolve",
+          "log": "resolve.txt",
+          "sha256": "712c3477a402381bfe26156c2c64f20a282833203ea118f12b976a13b41b65b4",
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "flutter.bat",
+            "pub",
+            "get",
+            "--offline"
+          ],
+          "name": "example-resolve",
+          "log": "example-resolve.txt",
+          "sha256": "e72824545df2b8f74a30e60c1dfaae5cc31a385026deada6c7fc64bdfb5ba4b7",
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "dart.exe",
+            "tool/configure_android.dart",
+            "current"
+          ],
+          "name": "android-configure",
+          "log": "android-configure.txt",
+          "sha256": "469e652fc5cc842cc1cdccadc48447d2c08906866a091da1a01c5ecbba11fb5e",
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "flutter.bat",
+            "build",
+            "apk",
+            "--release"
+          ],
+          "name": "android-apk",
+          "log": "android-apk.txt",
+          "sha256": "c6610667779fe8ee64a81d3d042146219a7cec5edf1973050376c0b9a4e84bce",
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "flutter.bat",
+            "build",
+            "appbundle",
+            "--release"
+          ],
+          "name": "android-aab",
+          "log": "android-aab.txt",
+          "sha256": "db63ba60de0b0387799a02d3da58fcc7ab911a573c3a48d695fe67912e976c6b",
+          "exitCode": 0
+        },
+        {
+          "command": [
+            "gradlew.bat",
+            "-q",
+            "--init-script",
+            "C:\\Users\\eoner\\Documents\\Codex\\2026-11-10\\i-g\\work\\report_android_versions.gradle",
+            ":app:trueTimeToolchainReport"
+          ],
+          "name": "android-toolchain",
+          "log": "android-toolchain.txt",
+          "sha256": "9006aead00be52debddaabf2e49dee0ecbfb9dfbeb68ac7a62d17606286a2e22",
+          "exitCode": 0
+        }
+      ],
+      "artifacts": [
+        {
+          "file": "example/build/app/outputs/bundle/release/app-release.aab",
+          "sha256": "924a7542380bb959c79cebb48ae06cb24e3a57e047c5a19d6c4a1255b119df61"
+        },
+        {
+          "file": "example/build/app/outputs/flutter-apk/app-release.apk",
+          "sha256": "ac5fcaf54c21961b549a741b6fdb2f2a43fb59476100f52240d2fa6b6ec865f6"
+        }
+      ]
+    },
+    {
+      "lane": "builtin",
+      "flutter": "3.47.9",
+      "dart": "3.13.7",
+      "toolchain": [
+        "GRADLE=9.3.1",
+        "JAVA=17.0.21+9",
+        "AGP=9.1.0",
+        "KOTLIN_COMPILER=2.4.0",
+        "BUILT_IN_KOTLIN=true"
+      ],
+      "checks": [
+        {
+          "name": "resolve",
+          "exitCode": 0,
+          "command": [
+            "flutter.bat",
+            "pub",
+            "get",
+            "--offline"
+          ],
+          "sha256": "712c3477a402381bfe26156c2c64f20a282833203ea118f12b976a13b41b65b4",
+          "log": "resolve.txt"
+        },
+        {
+          "name": "example-resolve",
+          "exitCode": 0,
+          "command": [
+            "flutter.bat",
+            "pub",
+            "get",
+            "--offline"
+          ],
+          "sha256": "e72824545df2b8f74a30e60c1dfaae5cc31a385026deada6c7fc64bdfb5ba4b7",
+          "log": "example-resolve.txt"
+        },
+        {
+          "name": "android-configure",
+          "exitCode": 0,
+          "command": [
+            "dart.exe",
+            "tool/configure_android.dart",
+            "builtin"
+          ],
+          "sha256": "5c05b315616ec0f0bb2ff3ebaeed5bd7fde23c26f707cce90eeddaa366b50147",
+          "log": "android-configure.txt"
+        },
+        {
+          "name": "android-apk",
+          "exitCode": 0,
+          "command": [
+            "flutter.bat",
+            "build",
+            "apk",
+            "--release"
+          ],
+          "sha256": "bc8f4ae042fa1bfb4adae705731bf2b602eb8021e1a817e8b223922c862cbc18",
+          "log": "android-apk.txt"
+        },
+        {
+          "name": "android-aab",
+          "exitCode": 0,
+          "command": [
+            "flutter.bat",
+            "build",
+            "appbundle",
+            "--release"
+          ],
+          "sha256": "d4105a562632d0def1c2379306c3c3597f0f8173a17fef0d5793f91270ef7a0a",
+          "log": "android-aab.txt"
+        },
+        {
+          "name": "android-toolchain",
+          "exitCode": 0,
+          "command": [
+            "gradlew.bat",
+            "-q",
+            "--init-script",
+            "C:\\Users\\eoner\\Documents\\Codex\\2026-11-10\\i-g\\work\\report_android_versions.gradle",
+            ":app:trueTimeToolchainReport"
+          ],
+          "sha256": "1d33ff98d9766693422fcddcf7eb297ccdeddcb73a6589f955c28d3ba06b874e",
+          "log": "android-toolchain.txt"
+        }
+      ],
+      "artifacts": [
+        {
+          "sha256": "b4f0ee97e707dc7278bd6fcd2f512913c18fa52c6ee90e48f51a85d7e0429a13",
+          "file": "example/build/app/outputs/bundle/release/app-release.aab"
+        },
+        {
+          "sha256": "3522f42a26096c494bc4dda314095e6afeb6d52457dc649986005fd7a8936a0b",
+          "file": "example/build/app/outputs/flutter-apk/app-release.apk"
+        }
+      ]
+    }
+  ],
+  "scope": "Local release builds with debug signing. Linux CI NDK retry verification remains open."
+}

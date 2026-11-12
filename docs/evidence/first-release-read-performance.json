@@ -1,0 +1,295 @@
+{
+  "date": "2026-11-12",
+  "commit": "3849c56b414ae6f9218ec9ae86b95230434a6247",
+  "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+  "host": "Windows x64 10.0.19045; Intel Core i5-7300HQ",
+  "dart": "3.13.7",
+  "nativeAot": {
+    "command": "dart compile exe tool/benchmark.dart",
+    "executableSha256": "82c329b6200c9af2f911d33f0426c540f1839c3143f1c9d5dae2ae193b91adfd",
+    "output": [
+      "Run 1",
+      "Clock adapter: windows.qpc.us.v1",
+      "now: 10000 warmup reads, 25 batches of 10000 reads, median 0.458 µs/read, p95 0.518 µs/read across batches, checksum 70257",
+      "read: 10000 warmup reads, 25 batches of 10000 reads, median 0.459 µs/read, p95 0.509 µs/read across batches, checksum 158419",
+      "Run 2",
+      "Clock adapter: windows.qpc.us.v1",
+      "now: 10000 warmup reads, 25 batches of 10000 reads, median 0.487 µs/read, p95 0.563 µs/read across batches, checksum 105473",
+      "read: 10000 warmup reads, 25 batches of 10000 reads, median 0.498 µs/read, p95 0.670 µs/read across batches, checksum 32453",
+      "Run 3",
+      "Clock adapter: windows.qpc.us.v1",
+      "now: 10000 warmup reads, 25 batches of 10000 reads, median 0.484 µs/read, p95 0.598 µs/read across batches, checksum 123809",
+      "read: 10000 warmup reads, 25 batches of 10000 reads, median 0.487 µs/read, p95 0.536 µs/read across batches, checksum 39622"
+    ]
+  },
+  "browser": {
+    "method": "Standalone optimized Dart core compiled with dart compile js -O2 and dart compile wasm -O2. A two-source local fixture initializes the anchor. Headless Chrome collects latency across batches with performance.now, outside sampling.",
+    "allocationMethod": "Chrome V8 sampling heap profiler includes sampled allocations collected by minor and major GC. The driver sums profiler-reported sample sizes for compiled Dart JS frames. This is a sampled estimate, with compiler optimization and attribution limits. No allocation counts or WASM allocations were inferred.",
+    "fixture": "docs/evidence/browser-read-fixture.dart.txt",
+    "driver": "docs/evidence/browser-read-profile.mjs",
+    "fixtures": [
+      {
+        "file": "docs/evidence/browser-read-fixture.dart.txt",
+        "sha256": "c73a1610116acd1595480fb03020625011834cd7ddd7976e0afad3d3e134d92a"
+      },
+      {
+        "file": "docs/evidence/browser-read-profile.mjs",
+        "sha256": "c8a3c3f55a785fb72e7b5a5a3007cf7c8262432cf96274efc2fb561d589a9a56"
+      }
+    ],
+    "binaries": [
+      {
+        "file": "read.js",
+        "sha256": "de3662fb1fe8860a5c35f87aea2b928081813071234bb455c72171ea9a8bf505"
+      },
+      {
+        "file": "read.wasm",
+        "sha256": "40eacee77259cf9b634b45a4c5f551504b29573b368cd3f10694f7bdacf8bcd6"
+      }
+    ],
+    "runs": [
+      {
+        "browser": "Chrome/157.0.8103.40",
+        "results": [
+          {
+            "mode": "js",
+            "clockDomain": "portable.stopwatch.v1",
+            "readings": [
+              {
+                "api": "now",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.2,
+                  "p95Microseconds": 0.21000000238418579,
+                  "checksum": 23936
+                },
+                "allocation": {
+                  "calls": 500000,
+                  "samplingIntervalBytes": 512,
+                  "matchingSampleEntries": 143117,
+                  "reportedBytes": 87980628,
+                  "reportedBytesPerRead": 175.961256,
+                  "checksum": 193797
+                }
+              },
+              {
+                "api": "read",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.2,
+                  "p95Microseconds": 0.2399999976158142,
+                  "checksum": 468442
+                },
+                "allocation": {
+                  "calls": 500000,
+                  "samplingIntervalBytes": 512,
+                  "matchingSampleEntries": 141917,
+                  "reportedBytes": 74301384,
+                  "reportedBytesPerRead": 148.602768,
+                  "checksum": 4162334
+                }
+              }
+            ]
+          },
+          {
+            "mode": "wasm",
+            "clockDomain": "portable.stopwatch.v1",
+            "readings": [
+              {
+                "api": "now",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.45999999940395353,
+                  "p95Microseconds": 0.5,
+                  "checksum": 66740
+                },
+                "allocation": null
+              },
+              {
+                "api": "read",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.45999999940395353,
+                  "p95Microseconds": 0.4900000005960464,
+                  "checksum": 282736
+                },
+                "allocation": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "browser": "Chrome/157.0.8103.40",
+        "results": [
+          {
+            "mode": "js",
+            "clockDomain": "portable.stopwatch.v1",
+            "readings": [
+              {
+                "api": "now",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.19000000059604644,
+                  "p95Microseconds": 0.25,
+                  "checksum": 15588
+                },
+                "allocation": {
+                  "calls": 500000,
+                  "samplingIntervalBytes": 512,
+                  "matchingSampleEntries": 144139,
+                  "reportedBytes": 88616980,
+                  "reportedBytesPerRead": 177.23396,
+                  "checksum": 436484
+                }
+              },
+              {
+                "api": "read",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.2,
+                  "p95Microseconds": 0.22000000178813933,
+                  "checksum": 505126
+                },
+                "allocation": {
+                  "calls": 500000,
+                  "samplingIntervalBytes": 512,
+                  "matchingSampleEntries": 141404,
+                  "reportedBytes": 74034816,
+                  "reportedBytesPerRead": 148.069632,
+                  "checksum": 724129
+                }
+              }
+            ]
+          },
+          {
+            "mode": "wasm",
+            "clockDomain": "portable.stopwatch.v1",
+            "readings": [
+              {
+                "api": "now",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.47000000178813933,
+                  "p95Microseconds": 0.5299999982118606,
+                  "checksum": 1973308
+                },
+                "allocation": null
+              },
+              {
+                "api": "read",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.45,
+                  "p95Microseconds": 0.4799999982118607,
+                  "checksum": 299229
+                },
+                "allocation": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "browser": "Chrome/157.0.8103.40",
+        "results": [
+          {
+            "mode": "js",
+            "clockDomain": "portable.stopwatch.v1",
+            "readings": [
+              {
+                "api": "now",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.19000000059604644,
+                  "p95Microseconds": 0.2,
+                  "checksum": 2070104
+                },
+                "allocation": {
+                  "calls": 500000,
+                  "samplingIntervalBytes": 512,
+                  "matchingSampleEntries": 143101,
+                  "reportedBytes": 87964260,
+                  "reportedBytesPerRead": 175.92852,
+                  "checksum": 119852
+                }
+              },
+              {
+                "api": "read",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.2,
+                  "p95Microseconds": 0.22000000178813933,
+                  "checksum": 11915
+                },
+                "allocation": {
+                  "calls": 500000,
+                  "samplingIntervalBytes": 512,
+                  "matchingSampleEntries": 141372,
+                  "reportedBytes": 74016860,
+                  "reportedBytesPerRead": 148.03372,
+                  "checksum": 377250
+                }
+              }
+            ]
+          },
+          {
+            "mode": "wasm",
+            "clockDomain": "portable.stopwatch.v1",
+            "readings": [
+              {
+                "api": "now",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.45,
+                  "p95Microseconds": 0.4900000005960464,
+                  "checksum": 24548
+                },
+                "allocation": null
+              },
+              {
+                "api": "read",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.45,
+                  "p95Microseconds": 0.4900000005960464,
+                  "checksum": 384829
+                },
+                "allocation": null
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "open": [
+    "Representative mobile release builds",
+    "Native allocation measurements",
+    "WASM allocation measurements"
+  ]
+}

@@ -1,0 +1,2495 @@
+{
+  "date": "2026-11-12",
+  "commit": "3849c56b414ae6f9218ec9ae86b95230434a6247",
+  "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+  "method": "Resolved releaseRuntimeClasspath offline in the three existing, source-verified Android build lanes. Checked cached Maven POM declarations and parent metadata, inspected cached JAR/AAR notices when artifact hashes matched, and independently checked APK/AAB hashes, native libraries, and decoded Flutter notice headings.",
+  "scope": "Android release example binaries and Maven runtime modules. This records metadata and packaging observations for owner review.",
+  "modules": [
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20",
+      "mavenMetadata": {
+        "pomSha256": "3a462214a336e995687769531b1e37b0c81d8e10c9949cd5ea7ae1d7803a0232",
+        "licenses": [
+          {
+            "name": "The Apache License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.annotation:annotation:1.8.1",
+      "mavenMetadata": {
+        "pomSha256": "b71225974ec087eb96c25ef6819f55b1c22f530e85ca446ba735fb66ed04ff5c",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.lifecycle:lifecycle-viewmodel:2.7.0",
+      "mavenMetadata": {
+        "pomSha256": "700f289173adcd0c6144da0c692c4e40b0a83af5a1392c544da982f4aabbd48e",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.activity:activity:1.8.1",
+      "mavenMetadata": {
+        "pomSha256": "c0ccbb0f6bd3f3a4fe338811dd8aee19b4919f4197613ee801bf33dd6dd702d7",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1",
+      "mavenMetadata": {
+        "pomSha256": "046b010fc7a0e43d2bfc73a9de7675de5541006cbce96163121746034d69d723",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.lifecycle:lifecycle-common:2.7.0",
+      "mavenMetadata": {
+        "pomSha256": "8a7c2448917f84fa6793dfe8563b49c96562d6e86eed19c642ef300d5cd16bc0",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.window:window-java:1.2.0",
+      "mavenMetadata": {
+        "pomSha256": "73570afdc9db596396a92beefe4de5d22afac7eab112c4ab30737bb7f884a1fd",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.lifecycle:lifecycle-common-java8:2.7.0",
+      "mavenMetadata": {
+        "pomSha256": "c29de269fca03230d0fb5ebf9c9560950b9f9bcd540ed7fcf85c08beca1afddb",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.savedstate:savedstate:1.2.1",
+      "mavenMetadata": {
+        "pomSha256": "0d33bc285df1e12f22780f1624a6f0b38ea2a6181b0955ec6641caf620c50cbf",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.annotation:annotation-jvm:1.8.2",
+      "mavenMetadata": {
+        "pomSha256": "7d3b2860ea36511153a9713559dab60d77f72167fadc9c1c3198c23035fbc480",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.annotation:annotation-experimental:1.4.0",
+      "mavenMetadata": {
+        "pomSha256": "41d2b9d879fc9221acda8e873ec7d26b153b9b8e04770ac79491e0576baef038",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.collection:collection:1.1.0",
+      "mavenMetadata": {
+        "pomSha256": "67e9066ca4acfdc6e3cc508293c31ba0398057ff118e4f70b1e1813c9a3456d1",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "io.flutter:x86_64_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+      "mavenMetadata": {
+        "pomSha256": "2df17ceb4cfa0b9729d8e5876b77ec5a6d08bc33d66bd08d2818127d27155eee",
+        "licenses": [],
+        "issue": "No license declaration found in cached POM chain"
+      }
+    },
+    {
+      "coordinate": "androidx.arch.core:core-runtime:2.2.0",
+      "mavenMetadata": {
+        "pomSha256": "0f953706598140d9d8735cdd5aeb1fa35933f4e2f31c0bf3eb81a053a4c8c1a5",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.interpolator:interpolator:1.0.0",
+      "mavenMetadata": {
+        "pomSha256": "0ddc07cc39699f48ecd9ec894b5830c0f09e22e82959294edf37217224c88b7b",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.core:core:1.13.1",
+      "mavenMetadata": {
+        "pomSha256": "527abfa5a8d6af748b37e1c0162d1633a2d5ea4387b0205a8b436b6214ba1cf6",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.lifecycle:lifecycle-livedata-core:2.7.0",
+      "mavenMetadata": {
+        "pomSha256": "d8e8a0ccedc798db560c637df432159cb05ec3ad18f9b8f6648f59bd4580acd6",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "com.google.code.gson:gson:2.13.2",
+      "mavenMetadata": {
+        "pomSha256": "3aa06aa7c0f9af092961a42d09578e4324be146348a0ee6ed47857f7c2677b76",
+        "licenses": [
+          {
+            "name": "Apache-2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "com.google.guava:listenablefuture:1.0",
+      "mavenMetadata": {
+        "pomSha256": "53873caf26bc1ed8a567ea6c939ab2aaa3f47a5e32d5cade95ddf5080d23238a",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ],
+        "parent": "com.google.guava:guava-parent:26.0-android",
+        "parentMetadata": {
+          "pomSha256": "f8698ab46ca996ce889c1afc8ca4f25eb8ac6b034dc898d4583742360016cc04",
+          "licenses": [
+            {
+              "name": "The Apache Software License, Version 2.0",
+              "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "coordinate": "androidx.loader:loader:1.0.0",
+      "mavenMetadata": {
+        "pomSha256": "c978d550808b47434aa49a63164110a50b55b0bcc6160a93a2e37d5110df8c5e",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.viewpager:viewpager:1.0.0",
+      "mavenMetadata": {
+        "pomSha256": "1f72f836339d03c6eb013f65075e76ca87075a577578eb4f95f74a3a5d253128",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-stdlib-common:2.4.0",
+      "mavenMetadata": {
+        "pomSha256": "fd1a658edbed7880ac3e0a0dbd20ae1a46c987e40af544e3a6b110825bbefcf5",
+        "licenses": [
+          {
+            "name": "Apache-2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.arch.core:core-common:2.2.0",
+      "mavenMetadata": {
+        "pomSha256": "1e17d4af8d6425be2a69f8af4d654a87e0456259a9eef1542869bcb023547e28",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.profileinstaller:profileinstaller:1.3.1",
+      "mavenMetadata": {
+        "pomSha256": "08263eb70a814a7cb26d11d3a83825f84c29f3e4b59f9134724e0e02e2bbd768",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "io.flutter:arm64_v8a_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+      "mavenMetadata": {
+        "pomSha256": "25c4fc9d44b64390189d3cea9d3cebdfab1a4eaca879c2f94b7107396871ab55",
+        "licenses": [],
+        "issue": "No license declaration found in cached POM chain"
+      }
+    },
+    {
+      "coordinate": "io.flutter:arm64_v8a_release:1.0.0-3452d735bd38224ef2db85ca763d862d6326b17f",
+      "mavenMetadata": {
+        "pomSha256": "23f76cccf6117be3197ac9a9035702605ad66c5c19b54d29c8b63fe4c494f5c1",
+        "licenses": [],
+        "issue": "No license declaration found in cached POM chain"
+      }
+    },
+    {
+      "coordinate": "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1",
+      "mavenMetadata": {
+        "pomSha256": "80f47d014115258758d4e1c5e4c9238c9eed36d2249d1d25858a934b29aba5df",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "io.flutter:flutter_embedding_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+      "mavenMetadata": {
+        "pomSha256": "41872988c39554cf793f38c7108bb303c86f6790aae5dcf4f8bf4144669e47f3",
+        "licenses": [],
+        "issue": "No license declaration found in cached POM chain"
+      }
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-stdlib-common:2.2.20",
+      "mavenMetadata": {
+        "pomSha256": "fd789cb32e2410ecc683b8739f7b75003d09da33330c3f8a65c269db6b2f6c75",
+        "licenses": [
+          {
+            "name": "Apache-2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "com.getkeepsafe.relinker:relinker:1.4.5",
+      "mavenMetadata": {
+        "pomSha256": "099e4e007b80700c25190b81ac7b256f42b04f1e829dbd0673f0c415e9613426",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.lifecycle:lifecycle-livedata:2.7.0",
+      "mavenMetadata": {
+        "pomSha256": "69885fd126b6866da760421636cb31cbf0fc5195f9962f45b9775c2d18496fc8",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.concurrent:concurrent-futures:1.1.0",
+      "mavenMetadata": {
+        "pomSha256": "748a34eb5d13d19d187adecaea82667fded5f1b0b98a655e13ed2e4a8b3d8ae6",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0",
+      "mavenMetadata": {
+        "pomSha256": "df0107a734b53080a2847bfabbf8e127958b765f6d5a0d5e028281af3964623f",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-stdlib:2.2.20",
+      "mavenMetadata": {
+        "pomSha256": "4a8b086e6431bcf623637f52b2ff192e1adb913838742e5c0eea70a8dee429c4",
+        "licenses": [
+          {
+            "name": "Apache-2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "com.google.code.findbugs:jsr305:3.0.2",
+      "mavenMetadata": {
+        "pomSha256": "19889dbdf1b254b2601a5ee645b8147a974644882297684c798afe5d63d78dfe",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.core:core-ktx:1.13.1",
+      "mavenMetadata": {
+        "pomSha256": "31cc345b8c6cdd2046dcf67872df8a8cb4f44ea0cade4df80002caa7e3b71809",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "io.flutter:x86_64_release:1.0.0-3452d735bd38224ef2db85ca763d862d6326b17f",
+      "mavenMetadata": {
+        "pomSha256": "ab5764d1beb9248c0aa0514b10c7f136a660951cbf608272223067cf2e7fc0b2",
+        "licenses": [],
+        "issue": "No license declaration found in cached POM chain"
+      }
+    },
+    {
+      "coordinate": "androidx.lifecycle:lifecycle-runtime:2.7.0",
+      "mavenMetadata": {
+        "pomSha256": "fec5849eef5069ae19f0c6270d76421485f461f1025c90277b05ddd713c7e365",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.window.extensions.core:core:1.0.0",
+      "mavenMetadata": {
+        "pomSha256": "ec7573c61c1f9f510f6e5bcad2683b4dcb401fee75426c0f57b41490836791c8",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20",
+      "mavenMetadata": {
+        "pomSha256": "3622d106578cddcc0a9ec20f8ce815f7f49ff542f640228d2141fcaf80616b06",
+        "licenses": [
+          {
+            "name": "The Apache License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.exifinterface:exifinterface:1.4.1",
+      "mavenMetadata": {
+        "pomSha256": "944e867584e20748613cc7610bd5fa10a968cc98cb59fdfdb863e9f0201df289",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "com.google.errorprone:error_prone_annotations:2.41.0",
+      "mavenMetadata": {
+        "pomSha256": "a151df1e2e0b48618d8b06a180748a29b3abb39b1b2396f6a1c879a727488c6e",
+        "licenses": [
+          {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "com.google.crypto.tink:tink-android:1.23.0",
+      "mavenMetadata": {
+        "pomSha256": "a2d27e7207e6a25764859b62924fc7b972f41884ce272cead9b946c15a1f410f",
+        "licenses": [
+          {
+            "name": "Apache License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.7.1",
+      "mavenMetadata": {
+        "pomSha256": "b925aa988c40a5c7aa0c77b21373feb18c39414926bd51c76ef44434f5bae9c2",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.lifecycle:lifecycle-process:2.7.0",
+      "mavenMetadata": {
+        "pomSha256": "7b07a80cb709396b69b071ea1a9177846ed699b4b44bebb1f9bad8bbbf21a23d",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0",
+      "mavenMetadata": {
+        "pomSha256": "67502b56b0695b2c2a1c8ff2b93ebd23b6c3d0c214f1ea3b96211eca98960fc4",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.versionedparcelable:versionedparcelable:1.1.1",
+      "mavenMetadata": {
+        "pomSha256": "5f51e65873ca612de3838fa90d2ee95b8d040efd31b9c390a19bf94d615cdb2f",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.window:window:1.2.0",
+      "mavenMetadata": {
+        "pomSha256": "280c00e2495e1d5749b1c0ab59fc728a2964ccb33f5e11880857ee2efe4ec15b",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "io.flutter:armeabi_v7a_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+      "mavenMetadata": {
+        "pomSha256": "2cf5f4d83df6ed9a1ab2ed6ac2bc19a55361b8de4d9293ce46ae5b4e1915a3f5",
+        "licenses": [],
+        "issue": "No license declaration found in cached POM chain"
+      }
+    },
+    {
+      "coordinate": "androidx.startup:startup-runtime:1.1.1",
+      "mavenMetadata": {
+        "pomSha256": "f4114b5c6859bb1bc3caf281cb6d6f25998fa7f7292c64ceaea74a93210e746b",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "androidx.fragment:fragment:1.7.1",
+      "mavenMetadata": {
+        "pomSha256": "18bbbd3a53f8c1f026be496a847d9607ae06da9cb0f85f47f702fd27e2bd3906",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "org.jspecify:jspecify:1.0.0",
+      "mavenMetadata": {
+        "pomSha256": "cdab929a3b95211f43d2090c5e2d0dfe8465960e378bc32b35841dab324433a6",
+        "licenses": [
+          {
+            "name": "The Apache License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "org.jetbrains:annotations:23.0.0",
+      "mavenMetadata": {
+        "pomSha256": "c9490f655132328df2cfbcfdf743f53fc3916d6c1d10437175a6ca6e3a67771c",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1",
+      "mavenMetadata": {
+        "pomSha256": "85c19db10dbc448a04663cdfb478243eda0a8d6b127f108f19955b16d489b35d",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-stdlib:2.4.0",
+      "mavenMetadata": {
+        "pomSha256": "8194ff79a9ee24a7fa3f74a6b179c04a1859de8b987a4f0983056e59451721de",
+        "licenses": [
+          {
+            "name": "Apache-2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "io.flutter:flutter_embedding_release:1.0.0-3452d735bd38224ef2db85ca763d862d6326b17f",
+      "mavenMetadata": {
+        "pomSha256": "4d6311e2ed08d66d0fa820df21d698a3c368dc944d62504b4a800a879fc2ad49",
+        "licenses": [],
+        "issue": "No license declaration found in cached POM chain"
+      }
+    },
+    {
+      "coordinate": "androidx.customview:customview:1.0.0",
+      "mavenMetadata": {
+        "pomSha256": "ce9e47b87184f5bd5e139e9becd5b26476d42d78c31bf2fdedc37acb41b9ad49",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    },
+    {
+      "coordinate": "io.flutter:armeabi_v7a_release:1.0.0-3452d735bd38224ef2db85ca763d862d6326b17f",
+      "mavenMetadata": {
+        "pomSha256": "dabc78120f671f3347995e4c8f166d5a67ba184d4be9674dc9cee0ed378eb92f",
+        "licenses": [],
+        "issue": "No license declaration found in cached POM chain"
+      }
+    },
+    {
+      "coordinate": "androidx.tracing:tracing:1.2.0",
+      "mavenMetadata": {
+        "pomSha256": "f34bec4eb58871d31002901377108aaa1ebfe77fa6d882b8b86200b158e26ea1",
+        "licenses": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      }
+    }
+  ],
+  "modulesWithoutCachedLicenseDeclaration": [
+    "io.flutter:x86_64_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+    "io.flutter:arm64_v8a_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+    "io.flutter:arm64_v8a_release:1.0.0-3452d735bd38224ef2db85ca763d862d6326b17f",
+    "io.flutter:flutter_embedding_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+    "io.flutter:x86_64_release:1.0.0-3452d735bd38224ef2db85ca763d862d6326b17f",
+    "io.flutter:armeabi_v7a_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+    "io.flutter:flutter_embedding_release:1.0.0-3452d735bd38224ef2db85ca763d862d6326b17f",
+    "io.flutter:armeabi_v7a_release:1.0.0-3452d735bd38224ef2db85ca763d862d6326b17f"
+  ],
+  "lanes": [
+    {
+      "lane": "baseline",
+      "modules": [
+        "androidx.activity:activity:1.8.1",
+        "androidx.annotation:annotation-experimental:1.4.0",
+        "androidx.annotation:annotation-jvm:1.8.2",
+        "androidx.annotation:annotation:1.8.1",
+        "androidx.arch.core:core-common:2.2.0",
+        "androidx.arch.core:core-runtime:2.2.0",
+        "androidx.collection:collection:1.1.0",
+        "androidx.concurrent:concurrent-futures:1.1.0",
+        "androidx.core:core-ktx:1.13.1",
+        "androidx.core:core:1.13.1",
+        "androidx.customview:customview:1.0.0",
+        "androidx.exifinterface:exifinterface:1.4.1",
+        "androidx.fragment:fragment:1.7.1",
+        "androidx.interpolator:interpolator:1.0.0",
+        "androidx.lifecycle:lifecycle-common-java8:2.7.0",
+        "androidx.lifecycle:lifecycle-common:2.7.0",
+        "androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0",
+        "androidx.lifecycle:lifecycle-livedata-core:2.7.0",
+        "androidx.lifecycle:lifecycle-livedata:2.7.0",
+        "androidx.lifecycle:lifecycle-process:2.7.0",
+        "androidx.lifecycle:lifecycle-runtime:2.7.0",
+        "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0",
+        "androidx.lifecycle:lifecycle-viewmodel:2.7.0",
+        "androidx.loader:loader:1.0.0",
+        "androidx.profileinstaller:profileinstaller:1.3.1",
+        "androidx.savedstate:savedstate:1.2.1",
+        "androidx.startup:startup-runtime:1.1.1",
+        "androidx.tracing:tracing:1.2.0",
+        "androidx.versionedparcelable:versionedparcelable:1.1.1",
+        "androidx.viewpager:viewpager:1.0.0",
+        "androidx.window.extensions.core:core:1.0.0",
+        "androidx.window:window-java:1.2.0",
+        "androidx.window:window:1.2.0",
+        "com.getkeepsafe.relinker:relinker:1.4.5",
+        "com.google.code.findbugs:jsr305:3.0.2",
+        "com.google.code.gson:gson:2.13.2",
+        "com.google.crypto.tink:tink-android:1.23.0",
+        "com.google.errorprone:error_prone_annotations:2.41.0",
+        "com.google.guava:listenablefuture:1.0",
+        "io.flutter:arm64_v8a_release:1.0.0-3452d735bd38224ef2db85ca763d862d6326b17f",
+        "io.flutter:armeabi_v7a_release:1.0.0-3452d735bd38224ef2db85ca763d862d6326b17f",
+        "io.flutter:flutter_embedding_release:1.0.0-3452d735bd38224ef2db85ca763d862d6326b17f",
+        "io.flutter:x86_64_release:1.0.0-3452d735bd38224ef2db85ca763d862d6326b17f",
+        "org.jetbrains.kotlin:kotlin-stdlib-common:2.2.20",
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20",
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20",
+        "org.jetbrains.kotlin:kotlin-stdlib:2.2.20",
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1",
+        "org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.7.1",
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1",
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1",
+        "org.jetbrains:annotations:23.0.0",
+        "org.jspecify:jspecify:1.0.0"
+      ],
+      "resolvedArtifacts": [
+        {
+          "module": "androidx.activity:activity:1.8.1",
+          "file": "activity-1.8.1.aar",
+          "sha256": "66bc2c13bd91fb8ea09e445b21f784d3e5d3a9ec9b180cd07e0e9208c2f939c6",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.annotation:annotation-experimental:1.4.0",
+          "file": "annotation-experimental-1.4.0.aar",
+          "sha256": "c6eb7e676011ec65b32428373d450debdfc45179c4f8b3a752174fb87c17b08a",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.annotation:annotation-jvm:1.8.2",
+          "file": "annotation-jvm-1.8.2.jar",
+          "sha256": "9aab326d9492800991854360ac248f493ce7f7c3183519309b78ace9e240f6f6",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.arch.core:core-common:2.2.0",
+          "file": "core-common-2.2.0.jar",
+          "sha256": "65308a06b1c00ee186cb9e19321383f043b993813f1522c47f4a3e3303bdba41",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.arch.core:core-runtime:2.2.0",
+          "file": "core-runtime-2.2.0.aar",
+          "sha256": "a1be5e0caa2b07623862af6ae21b3ab0718123245184d0e30dea81b53f990a47",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.collection:collection:1.1.0",
+          "file": "collection-1.1.0.jar",
+          "sha256": "632a0e5407461de774409352940e292a291037724207a787820c77daf7d33b72",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.concurrent:concurrent-futures:1.1.0",
+          "file": "concurrent-futures-1.1.0.jar",
+          "sha256": "0ce067c514a0d1049d1bebdf709e344ed3266fe9744275682937cdcb13334e9e",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.core:core-ktx:1.13.1",
+          "file": "core-ktx-1.13.1.aar",
+          "sha256": "19ba50d094c7368ede1b4ccf1195ceb83e35970736593f823e5af716f8d05d70",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.core:core:1.13.1",
+          "file": "core-1.13.1.aar",
+          "sha256": "2c27de199535675005553066597a4b20fa1eea7c228ab4ef6b32b5fe39ca1f59",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.core:core:1.13.1",
+          "file": "core-1.13.1.aar",
+          "sha256": "2c27de199535675005553066597a4b20fa1eea7c228ab4ef6b32b5fe39ca1f59",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.customview:customview:1.0.0",
+          "file": "customview-1.0.0.aar",
+          "sha256": "20e5b8f6526a34595a604f56718da81167c0b40a7a94a57daa355663f2594df2",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.exifinterface:exifinterface:1.4.1",
+          "file": "exifinterface-1.4.1.aar",
+          "sha256": "17e17a6b86bb54074d3a7ecfa695ab920eaff4cf667a8371ed82e377580cfcf6",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": [
+            {
+              "entry": "META-INF/androidx/exifinterface/exifinterface/LICENSE.txt",
+              "bytes": 10175,
+              "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0"
+            }
+          ]
+        },
+        {
+          "module": "androidx.fragment:fragment:1.7.1",
+          "file": "fragment-1.7.1.aar",
+          "sha256": "7ddebe9d830a04963733dcb340cab4bac1e69dfca797a6d59aa7bc56282150af",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.interpolator:interpolator:1.0.0",
+          "file": "interpolator-1.0.0.aar",
+          "sha256": "33193135a64fe21fa2c35eec6688f1a76e512606c0fc83dc1b689e37add7732a",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-common-java8:2.7.0",
+          "file": "lifecycle-common-java8-2.7.0.jar",
+          "sha256": "c6deada2fac53b8ea6523dbda77597b128006674616f140f04df23264c6d1aa3",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-common:2.7.0",
+          "file": "lifecycle-common-2.7.0.jar",
+          "sha256": "533ded8ee0645a18f6653da53fe1ec5a15430e7f36a737d45e410531f30f3318",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0",
+          "file": "lifecycle-livedata-core-ktx-2.7.0.aar",
+          "sha256": "a97f4c2191ebdd32f99ac229597bd1a92446b01cd1a088d13494cc05cabf0def",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-livedata-core:2.7.0",
+          "file": "lifecycle-livedata-core-2.7.0.aar",
+          "sha256": "af8e11b87e030d6e3107ed39adcf01fa10d6259eb15c43cba6e7b4e3ffaedf27",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-livedata:2.7.0",
+          "file": "lifecycle-livedata-2.7.0.aar",
+          "sha256": "9affa24c6160dc8cadaac9422d4f714e5009537d0243afc4bc74b5b7cf0de4ad",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-process:2.7.0",
+          "file": "lifecycle-process-2.7.0.aar",
+          "sha256": "6fb33d9473a4933da9d98a0b12b606127e80681bd9b90309ccd2c2230863b939",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-runtime:2.7.0",
+          "file": "lifecycle-runtime-2.7.0.aar",
+          "sha256": "81c6fb1dbb6a3cd7dc827d7b08e1c8142ed3a400a3422441108480e22f8937c4",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0",
+          "file": "lifecycle-viewmodel-savedstate-2.7.0.aar",
+          "sha256": "57c578862e219e360c6957ff0bca6f169707b1e5582d4fa593e284f7f63e33f6",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-viewmodel:2.7.0",
+          "file": "lifecycle-viewmodel-2.7.0.aar",
+          "sha256": "4e1d92e289920cd7b50e3671b9191bd413407349cda6f602b0285464f41c1c82",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-viewmodel:2.7.0",
+          "file": "lifecycle-viewmodel-2.7.0.aar",
+          "sha256": "4e1d92e289920cd7b50e3671b9191bd413407349cda6f602b0285464f41c1c82",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.loader:loader:1.0.0",
+          "file": "loader-1.0.0.aar",
+          "sha256": "11f735cb3b55c458d470bed9e25254375b518b4b1bad6926783a7026db0f5025",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.profileinstaller:profileinstaller:1.3.1",
+          "file": "profileinstaller-1.3.1.aar",
+          "sha256": "d0e402ec31f24028a1dc7eb6a0a3f9d9635c1459392cd734396343b73d673948",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.savedstate:savedstate:1.2.1",
+          "file": "savedstate-1.2.1.aar",
+          "sha256": "21a7d4bcf6bdb94ad7b9283801529300b4fbb8808ca4f191e0cdce6fd8e4705a",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.startup:startup-runtime:1.1.1",
+          "file": "startup-runtime-1.1.1.aar",
+          "sha256": "e0a6329a371262fe4c450372b70fdaf33b769ef6917094723787cfce896b1dd3",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.tracing:tracing:1.2.0",
+          "file": "tracing-1.2.0.aar",
+          "sha256": "6faa90390d1fdbf0adb9a99bf99de67b94c6c6f35aea9510593a9d17973736a2",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.versionedparcelable:versionedparcelable:1.1.1",
+          "file": "versionedparcelable-1.1.1.aar",
+          "sha256": "57e8d93260d18d5b9007c9eed3c64ad159de90c8609ebfc74a347cbd514535a4",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.viewpager:viewpager:1.0.0",
+          "file": "viewpager-1.0.0.aar",
+          "sha256": "147af4e14a1984010d8f155e5e19d781f03c1d70dfed02a8e0d18428b8fc8682",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.window.extensions.core:core:1.0.0",
+          "file": "core-1.0.0.aar",
+          "sha256": "3100854b2dc0de5c4d88b47e1c5db30801770c821dca28189443b7624f4008ae",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.window:window-java:1.2.0",
+          "file": "window-java-1.2.0.aar",
+          "sha256": "e3defb5ee3857757505d7ad66275dc3a0b014169301b89d6e4eec03b0e45bcab",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.window:window:1.2.0",
+          "file": "window-1.2.0.aar",
+          "sha256": "a834c217d973112777533daf1281dab33bd778fadd2d66bebc39b5fe81a890ac",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "com.getkeepsafe.relinker:relinker:1.4.5",
+          "file": "relinker-1.4.5.aar",
+          "sha256": "b03b4d113a9fef79400ae854c17757c2915725e6ffd1d61116eadaeb5613374a",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "com.google.code.findbugs:jsr305:3.0.2",
+          "file": "jsr305-3.0.2.jar",
+          "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "com.google.code.gson:gson:2.13.2",
+          "file": "gson-2.13.2.jar",
+          "sha256": "dd0ce1b55a3ed2080cb70f9c655850cda86c206862310009dcb5e5c95265a5e0",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "com.google.crypto.tink:tink-android:1.23.0",
+          "file": "tink-android-1.23.0.jar",
+          "sha256": "c656918451b01c45ce5b20c7b6d4c388f956f61b3a3528e769048c8944c42f9e",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "com.google.errorprone:error_prone_annotations:2.41.0",
+          "file": "error_prone_annotations-2.41.0.jar",
+          "sha256": "a56e782b5b50811ac204073a355a21d915a2107fce13ec711331ad036f660fcc",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "com.google.guava:listenablefuture:1.0",
+          "file": "listenablefuture-1.0.jar",
+          "sha256": "e4ad7607e5c0477c6f890ef26a49cb8d1bb4dffb650bab4502afee64644e3069",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "io.flutter:arm64_v8a_release:1.0.0-3452d735bd38224ef2db85ca763d862d6326b17f",
+          "file": "arm64_v8a_release-1.0.0-3452d735bd38224ef2db85ca763d862d6326b17f.jar",
+          "sha256": "3339d6c363debe2784492b115ef8d8340ac8775eef5483f1d017652e04aa4739",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "io.flutter:armeabi_v7a_release:1.0.0-3452d735bd38224ef2db85ca763d862d6326b17f",
+          "file": "armeabi_v7a_release-1.0.0-3452d735bd38224ef2db85ca763d862d6326b17f.jar",
+          "sha256": "67061e4c70486a7c20c9f73a48febcd290ac3012fb6236b61dddf3a1ee6fb5e7",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "io.flutter:flutter_embedding_release:1.0.0-3452d735bd38224ef2db85ca763d862d6326b17f",
+          "file": "flutter_embedding_release-1.0.0-3452d735bd38224ef2db85ca763d862d6326b17f.jar",
+          "sha256": "afc344c86888b6bd6b0dfbe37e3a67055448b7206fab56571159c25d7c77bee9",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "io.flutter:x86_64_release:1.0.0-3452d735bd38224ef2db85ca763d862d6326b17f",
+          "file": "x86_64_release-1.0.0-3452d735bd38224ef2db85ca763d862d6326b17f.jar",
+          "sha256": "5a10dc40dba0caa33bf9a3f056db921e9469df78015cb77933c4dea6b9b1a978",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20",
+          "file": "kotlin-stdlib-jdk7-1.8.20.jar",
+          "sha256": "af1ec40c3b951afdcc0c2a0173c7b81763c5281c2d5bafbf0a8544a24c5dcc0c",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20",
+          "file": "kotlin-stdlib-jdk8-1.8.20.jar",
+          "sha256": "e398b67977622718bf18ff99b739c7d9da060f33fb458a2e25203221c16af010",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "org.jetbrains.kotlin:kotlin-stdlib:2.2.20",
+          "file": "kotlin-stdlib-2.2.20.jar",
+          "sha256": "8836ccffd3585fadda9901244b20d42901d2f3cd581058d8434e2ffabcf3a3e7",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1",
+          "file": "kotlinx-coroutines-android-1.7.1.jar",
+          "sha256": "107313760c18f8da174e8d8103504a468e806e88f7b55a84bd1c0eaeea118e9a",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1",
+          "file": "kotlinx-coroutines-core-jvm-1.7.1.jar",
+          "sha256": "7496cffdd3eb10109acdda1c3212f6ac7815789e09380dc9e2ccdec496dba3fc",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "org.jetbrains:annotations:23.0.0",
+          "file": "annotations-23.0.0.jar",
+          "sha256": "7b0f19724082cbfcbc66e5abea2b9bc92cf08a1ea11e191933ed43801eb3cd05",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "org.jspecify:jspecify:1.0.0",
+          "file": "jspecify-1.0.0.jar",
+          "sha256": "1fad6e6be7557781e4d33729d49ae1cdc8fdda6fe477bb0cc68ce351eafdfbab",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        }
+      ],
+      "archives": [
+        {
+          "file": "example/build/app/outputs/bundle/release/app-release.aab",
+          "sha256": "5815f2c43f6b6c67b437273b9ad98a5d6c15388e86e0aaa6cf3d90ffb3d80e0e",
+          "nativeBinaries": [
+            {
+              "entry": "base/lib/arm64-v8a/libapp.so",
+              "bytes": 3277744,
+              "sha256": "866baa601f772f21bc61b5175fdb986b49e394ab8f5091450e39edd2303512fa"
+            },
+            {
+              "entry": "base/lib/arm64-v8a/libdartjni.so",
+              "bytes": 131400,
+              "sha256": "9f792a020874babbc93d8cdd43ec270f5b2e65b8260313557f19521caf42d130"
+            },
+            {
+              "entry": "base/lib/arm64-v8a/libflutter.so",
+              "bytes": 11316480,
+              "sha256": "ac5d13b275d83ba47ec27e1bf14f24cc9e9f6584d9ab498573117be1c94686c2"
+            },
+            {
+              "entry": "base/lib/armeabi-v7a/libapp.so",
+              "bytes": 3605084,
+              "sha256": "397ed47a0cdc4117c33ef3db4a3f0481ded6b2e6a54bcb6baa8eb3286235965f"
+            },
+            {
+              "entry": "base/lib/armeabi-v7a/libdartjni.so",
+              "bytes": 81600,
+              "sha256": "e170cd0397423057d2ce13262041a2bf8f1c35d3d55fd7e09f2e8baa4a9a0026"
+            },
+            {
+              "entry": "base/lib/armeabi-v7a/libflutter.so",
+              "bytes": 8275708,
+              "sha256": "2a732f8faa3492c9b788f303cba06e7f82649630222d5a0ccee3c67d50303ac7"
+            },
+            {
+              "entry": "base/lib/x86_64/libapp.so",
+              "bytes": 3343280,
+              "sha256": "bae335d7a469b540bb9be2ce7350b1582e1c0e9eab5396a1bd2e93e8227570cb"
+            },
+            {
+              "entry": "base/lib/x86_64/libdartjni.so",
+              "bytes": 116792,
+              "sha256": "27871e0f581d04f772c89ef8b82df57ac024a1d8b34873b98e85d439c00b3415"
+            },
+            {
+              "entry": "base/lib/x86_64/libflutter.so",
+              "bytes": 12563376,
+              "sha256": "acfe0996713eda2043c49ba241bd791e6bbebe2ec60949d894667ffa97509720"
+            }
+          ],
+          "packagedNotices": [
+            {
+              "entry": "base/assets/flutter_assets/NOTICES.Z",
+              "bytes": 106866,
+              "sha256": "1d315bae2a6f053c73fdb48acfcce91499c44f1d9dd2041dfdf5eeb92d80d5a0"
+            }
+          ],
+          "flutterNoticeIndex": {
+            "entry": "base/assets/flutter_assets/NOTICES.Z",
+            "uncompressedCharacters": 1361236,
+            "verifiedHeadings": [
+              "boringssl",
+              "dart",
+              "flutter",
+              "harfbuzz",
+              "icu",
+              "jni",
+              "skia"
+            ]
+          }
+        },
+        {
+          "file": "example/build/app/outputs/flutter-apk/app-release.apk",
+          "sha256": "0be78acfdc887cc671f4da8a91dd5f9c2575f963bd16ee18652a247822f296e8",
+          "nativeBinaries": [
+            {
+              "entry": "lib/arm64-v8a/libapp.so",
+              "bytes": 3277744,
+              "sha256": "866baa601f772f21bc61b5175fdb986b49e394ab8f5091450e39edd2303512fa"
+            },
+            {
+              "entry": "lib/arm64-v8a/libdartjni.so",
+              "bytes": 131400,
+              "sha256": "9f792a020874babbc93d8cdd43ec270f5b2e65b8260313557f19521caf42d130"
+            },
+            {
+              "entry": "lib/arm64-v8a/libflutter.so",
+              "bytes": 11316480,
+              "sha256": "ac5d13b275d83ba47ec27e1bf14f24cc9e9f6584d9ab498573117be1c94686c2"
+            },
+            {
+              "entry": "lib/armeabi-v7a/libapp.so",
+              "bytes": 3605084,
+              "sha256": "397ed47a0cdc4117c33ef3db4a3f0481ded6b2e6a54bcb6baa8eb3286235965f"
+            },
+            {
+              "entry": "lib/armeabi-v7a/libdartjni.so",
+              "bytes": 81600,
+              "sha256": "e170cd0397423057d2ce13262041a2bf8f1c35d3d55fd7e09f2e8baa4a9a0026"
+            },
+            {
+              "entry": "lib/armeabi-v7a/libflutter.so",
+              "bytes": 8275708,
+              "sha256": "2a732f8faa3492c9b788f303cba06e7f82649630222d5a0ccee3c67d50303ac7"
+            },
+            {
+              "entry": "lib/x86_64/libapp.so",
+              "bytes": 3343280,
+              "sha256": "bae335d7a469b540bb9be2ce7350b1582e1c0e9eab5396a1bd2e93e8227570cb"
+            },
+            {
+              "entry": "lib/x86_64/libdartjni.so",
+              "bytes": 116792,
+              "sha256": "27871e0f581d04f772c89ef8b82df57ac024a1d8b34873b98e85d439c00b3415"
+            },
+            {
+              "entry": "lib/x86_64/libflutter.so",
+              "bytes": 12563376,
+              "sha256": "acfe0996713eda2043c49ba241bd791e6bbebe2ec60949d894667ffa97509720"
+            }
+          ],
+          "packagedNotices": [
+            {
+              "entry": "assets/flutter_assets/NOTICES.Z",
+              "bytes": 106866,
+              "sha256": "1d315bae2a6f053c73fdb48acfcce91499c44f1d9dd2041dfdf5eeb92d80d5a0"
+            }
+          ],
+          "flutterNoticeIndex": {
+            "entry": "assets/flutter_assets/NOTICES.Z",
+            "uncompressedCharacters": 1361236,
+            "verifiedHeadings": [
+              "boringssl",
+              "dart",
+              "flutter",
+              "harfbuzz",
+              "icu",
+              "jni",
+              "skia"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "lane": "current",
+      "modules": [
+        "androidx.activity:activity:1.8.1",
+        "androidx.annotation:annotation-experimental:1.4.0",
+        "androidx.annotation:annotation-jvm:1.8.2",
+        "androidx.annotation:annotation:1.8.1",
+        "androidx.arch.core:core-common:2.2.0",
+        "androidx.arch.core:core-runtime:2.2.0",
+        "androidx.collection:collection:1.1.0",
+        "androidx.concurrent:concurrent-futures:1.1.0",
+        "androidx.core:core-ktx:1.13.1",
+        "androidx.core:core:1.13.1",
+        "androidx.customview:customview:1.0.0",
+        "androidx.exifinterface:exifinterface:1.4.1",
+        "androidx.fragment:fragment:1.7.1",
+        "androidx.interpolator:interpolator:1.0.0",
+        "androidx.lifecycle:lifecycle-common-java8:2.7.0",
+        "androidx.lifecycle:lifecycle-common:2.7.0",
+        "androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0",
+        "androidx.lifecycle:lifecycle-livedata-core:2.7.0",
+        "androidx.lifecycle:lifecycle-livedata:2.7.0",
+        "androidx.lifecycle:lifecycle-process:2.7.0",
+        "androidx.lifecycle:lifecycle-runtime:2.7.0",
+        "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0",
+        "androidx.lifecycle:lifecycle-viewmodel:2.7.0",
+        "androidx.loader:loader:1.0.0",
+        "androidx.profileinstaller:profileinstaller:1.3.1",
+        "androidx.savedstate:savedstate:1.2.1",
+        "androidx.startup:startup-runtime:1.1.1",
+        "androidx.tracing:tracing:1.2.0",
+        "androidx.versionedparcelable:versionedparcelable:1.1.1",
+        "androidx.viewpager:viewpager:1.0.0",
+        "androidx.window.extensions.core:core:1.0.0",
+        "androidx.window:window-java:1.2.0",
+        "androidx.window:window:1.2.0",
+        "com.getkeepsafe.relinker:relinker:1.4.5",
+        "com.google.code.findbugs:jsr305:3.0.2",
+        "com.google.code.gson:gson:2.13.2",
+        "com.google.crypto.tink:tink-android:1.23.0",
+        "com.google.errorprone:error_prone_annotations:2.41.0",
+        "com.google.guava:listenablefuture:1.0",
+        "io.flutter:arm64_v8a_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+        "io.flutter:armeabi_v7a_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+        "io.flutter:flutter_embedding_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+        "io.flutter:x86_64_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+        "org.jetbrains.kotlin:kotlin-stdlib-common:2.4.0",
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20",
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20",
+        "org.jetbrains.kotlin:kotlin-stdlib:2.4.0",
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1",
+        "org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.7.1",
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1",
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1",
+        "org.jetbrains:annotations:23.0.0",
+        "org.jspecify:jspecify:1.0.0"
+      ],
+      "resolvedArtifacts": [
+        {
+          "module": "androidx.activity:activity:1.8.1",
+          "file": "activity-1.8.1.aar",
+          "sha256": "66bc2c13bd91fb8ea09e445b21f784d3e5d3a9ec9b180cd07e0e9208c2f939c6",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.annotation:annotation-experimental:1.4.0",
+          "file": "annotation-experimental-1.4.0.aar",
+          "sha256": "c6eb7e676011ec65b32428373d450debdfc45179c4f8b3a752174fb87c17b08a",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.annotation:annotation-jvm:1.8.2",
+          "file": "annotation-jvm-1.8.2.jar",
+          "sha256": "9aab326d9492800991854360ac248f493ce7f7c3183519309b78ace9e240f6f6",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.arch.core:core-common:2.2.0",
+          "file": "core-common-2.2.0.jar",
+          "sha256": "65308a06b1c00ee186cb9e19321383f043b993813f1522c47f4a3e3303bdba41",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.arch.core:core-runtime:2.2.0",
+          "file": "core-runtime-2.2.0.aar",
+          "sha256": "a1be5e0caa2b07623862af6ae21b3ab0718123245184d0e30dea81b53f990a47",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.collection:collection:1.1.0",
+          "file": "collection-1.1.0.jar",
+          "sha256": "632a0e5407461de774409352940e292a291037724207a787820c77daf7d33b72",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.concurrent:concurrent-futures:1.1.0",
+          "file": "concurrent-futures-1.1.0.jar",
+          "sha256": "0ce067c514a0d1049d1bebdf709e344ed3266fe9744275682937cdcb13334e9e",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.core:core-ktx:1.13.1",
+          "file": "core-ktx-1.13.1.aar",
+          "sha256": "19ba50d094c7368ede1b4ccf1195ceb83e35970736593f823e5af716f8d05d70",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.core:core:1.13.1",
+          "file": "core-1.13.1.aar",
+          "sha256": "2c27de199535675005553066597a4b20fa1eea7c228ab4ef6b32b5fe39ca1f59",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.core:core:1.13.1",
+          "file": "core-1.13.1.aar",
+          "sha256": "2c27de199535675005553066597a4b20fa1eea7c228ab4ef6b32b5fe39ca1f59",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.customview:customview:1.0.0",
+          "file": "customview-1.0.0.aar",
+          "sha256": "20e5b8f6526a34595a604f56718da81167c0b40a7a94a57daa355663f2594df2",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.exifinterface:exifinterface:1.4.1",
+          "file": "exifinterface-1.4.1.aar",
+          "sha256": "17e17a6b86bb54074d3a7ecfa695ab920eaff4cf667a8371ed82e377580cfcf6",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": [
+            {
+              "entry": "META-INF/androidx/exifinterface/exifinterface/LICENSE.txt",
+              "bytes": 10175,
+              "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0"
+            }
+          ]
+        },
+        {
+          "module": "androidx.fragment:fragment:1.7.1",
+          "file": "fragment-1.7.1.aar",
+          "sha256": "7ddebe9d830a04963733dcb340cab4bac1e69dfca797a6d59aa7bc56282150af",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.interpolator:interpolator:1.0.0",
+          "file": "interpolator-1.0.0.aar",
+          "sha256": "33193135a64fe21fa2c35eec6688f1a76e512606c0fc83dc1b689e37add7732a",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-common-java8:2.7.0",
+          "file": "lifecycle-common-java8-2.7.0.jar",
+          "sha256": "c6deada2fac53b8ea6523dbda77597b128006674616f140f04df23264c6d1aa3",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-common:2.7.0",
+          "file": "lifecycle-common-2.7.0.jar",
+          "sha256": "533ded8ee0645a18f6653da53fe1ec5a15430e7f36a737d45e410531f30f3318",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0",
+          "file": "lifecycle-livedata-core-ktx-2.7.0.aar",
+          "sha256": "a97f4c2191ebdd32f99ac229597bd1a92446b01cd1a088d13494cc05cabf0def",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-livedata-core:2.7.0",
+          "file": "lifecycle-livedata-core-2.7.0.aar",
+          "sha256": "af8e11b87e030d6e3107ed39adcf01fa10d6259eb15c43cba6e7b4e3ffaedf27",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-livedata:2.7.0",
+          "file": "lifecycle-livedata-2.7.0.aar",
+          "sha256": "9affa24c6160dc8cadaac9422d4f714e5009537d0243afc4bc74b5b7cf0de4ad",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-process:2.7.0",
+          "file": "lifecycle-process-2.7.0.aar",
+          "sha256": "6fb33d9473a4933da9d98a0b12b606127e80681bd9b90309ccd2c2230863b939",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-runtime:2.7.0",
+          "file": "lifecycle-runtime-2.7.0.aar",
+          "sha256": "81c6fb1dbb6a3cd7dc827d7b08e1c8142ed3a400a3422441108480e22f8937c4",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0",
+          "file": "lifecycle-viewmodel-savedstate-2.7.0.aar",
+          "sha256": "57c578862e219e360c6957ff0bca6f169707b1e5582d4fa593e284f7f63e33f6",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-viewmodel:2.7.0",
+          "file": "lifecycle-viewmodel-2.7.0.aar",
+          "sha256": "4e1d92e289920cd7b50e3671b9191bd413407349cda6f602b0285464f41c1c82",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-viewmodel:2.7.0",
+          "file": "lifecycle-viewmodel-2.7.0.aar",
+          "sha256": "4e1d92e289920cd7b50e3671b9191bd413407349cda6f602b0285464f41c1c82",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.loader:loader:1.0.0",
+          "file": "loader-1.0.0.aar",
+          "sha256": "11f735cb3b55c458d470bed9e25254375b518b4b1bad6926783a7026db0f5025",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.profileinstaller:profileinstaller:1.3.1",
+          "file": "profileinstaller-1.3.1.aar",
+          "sha256": "d0e402ec31f24028a1dc7eb6a0a3f9d9635c1459392cd734396343b73d673948",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.savedstate:savedstate:1.2.1",
+          "file": "savedstate-1.2.1.aar",
+          "sha256": "21a7d4bcf6bdb94ad7b9283801529300b4fbb8808ca4f191e0cdce6fd8e4705a",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.startup:startup-runtime:1.1.1",
+          "file": "startup-runtime-1.1.1.aar",
+          "sha256": "e0a6329a371262fe4c450372b70fdaf33b769ef6917094723787cfce896b1dd3",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.tracing:tracing:1.2.0",
+          "file": "tracing-1.2.0.aar",
+          "sha256": "6faa90390d1fdbf0adb9a99bf99de67b94c6c6f35aea9510593a9d17973736a2",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.versionedparcelable:versionedparcelable:1.1.1",
+          "file": "versionedparcelable-1.1.1.aar",
+          "sha256": "57e8d93260d18d5b9007c9eed3c64ad159de90c8609ebfc74a347cbd514535a4",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.viewpager:viewpager:1.0.0",
+          "file": "viewpager-1.0.0.aar",
+          "sha256": "147af4e14a1984010d8f155e5e19d781f03c1d70dfed02a8e0d18428b8fc8682",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.window.extensions.core:core:1.0.0",
+          "file": "core-1.0.0.aar",
+          "sha256": "3100854b2dc0de5c4d88b47e1c5db30801770c821dca28189443b7624f4008ae",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.window:window-java:1.2.0",
+          "file": "window-java-1.2.0.aar",
+          "sha256": "e3defb5ee3857757505d7ad66275dc3a0b014169301b89d6e4eec03b0e45bcab",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.window:window:1.2.0",
+          "file": "window-1.2.0.aar",
+          "sha256": "a834c217d973112777533daf1281dab33bd778fadd2d66bebc39b5fe81a890ac",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "com.getkeepsafe.relinker:relinker:1.4.5",
+          "file": "relinker-1.4.5.aar",
+          "sha256": "b03b4d113a9fef79400ae854c17757c2915725e6ffd1d61116eadaeb5613374a",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "com.google.code.findbugs:jsr305:3.0.2",
+          "file": "jsr305-3.0.2.jar",
+          "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "com.google.code.gson:gson:2.13.2",
+          "file": "gson-2.13.2.jar",
+          "sha256": "dd0ce1b55a3ed2080cb70f9c655850cda86c206862310009dcb5e5c95265a5e0",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "com.google.crypto.tink:tink-android:1.23.0",
+          "file": "tink-android-1.23.0.jar",
+          "sha256": "c656918451b01c45ce5b20c7b6d4c388f956f61b3a3528e769048c8944c42f9e",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "com.google.errorprone:error_prone_annotations:2.41.0",
+          "file": "error_prone_annotations-2.41.0.jar",
+          "sha256": "a56e782b5b50811ac204073a355a21d915a2107fce13ec711331ad036f660fcc",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "com.google.guava:listenablefuture:1.0",
+          "file": "listenablefuture-1.0.jar",
+          "sha256": "e4ad7607e5c0477c6f890ef26a49cb8d1bb4dffb650bab4502afee64644e3069",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "io.flutter:arm64_v8a_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+          "file": "arm64_v8a_release-1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7.jar",
+          "sha256": "b7acf0d2e33f4bf6eaacb335df1812d9c6e894a5342fb78e92840ece6d6d8cc4",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "io.flutter:armeabi_v7a_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+          "file": "armeabi_v7a_release-1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7.jar",
+          "sha256": "36bd9abbe929328804a04795d2baa68ede8f0fd4fd6dba1f4072305ccaf874ec",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "io.flutter:flutter_embedding_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+          "file": "flutter_embedding_release-1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7.jar",
+          "sha256": "859b7c9bf06e1c0844c0be381c37d1b5d2d2f4823c8a241075eef89b2b06ae6d",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "io.flutter:x86_64_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+          "file": "x86_64_release-1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7.jar",
+          "sha256": "5a4a0062365c2eaec1af59378d82fa5c57bd156383fd5bb5fec51e1bdc8270f8",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20",
+          "file": "kotlin-stdlib-jdk7-1.8.20.jar",
+          "sha256": "af1ec40c3b951afdcc0c2a0173c7b81763c5281c2d5bafbf0a8544a24c5dcc0c",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20",
+          "file": "kotlin-stdlib-jdk8-1.8.20.jar",
+          "sha256": "e398b67977622718bf18ff99b739c7d9da060f33fb458a2e25203221c16af010",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "org.jetbrains.kotlin:kotlin-stdlib:2.4.0",
+          "file": "kotlin-stdlib-2.4.0.jar",
+          "sha256": "ccb14ff83fabcb11458b798dbc9824748ccdffeec79c9aba789e6ed1cda86b1c",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1",
+          "file": "kotlinx-coroutines-android-1.7.1.jar",
+          "sha256": "107313760c18f8da174e8d8103504a468e806e88f7b55a84bd1c0eaeea118e9a",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1",
+          "file": "kotlinx-coroutines-core-jvm-1.7.1.jar",
+          "sha256": "7496cffdd3eb10109acdda1c3212f6ac7815789e09380dc9e2ccdec496dba3fc",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "org.jetbrains:annotations:23.0.0",
+          "file": "annotations-23.0.0.jar",
+          "sha256": "7b0f19724082cbfcbc66e5abea2b9bc92cf08a1ea11e191933ed43801eb3cd05",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "org.jspecify:jspecify:1.0.0",
+          "file": "jspecify-1.0.0.jar",
+          "sha256": "1fad6e6be7557781e4d33729d49ae1cdc8fdda6fe477bb0cc68ce351eafdfbab",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        }
+      ],
+      "archives": [
+        {
+          "file": "example/build/app/outputs/bundle/release/app-release.aab",
+          "sha256": "924a7542380bb959c79cebb48ae06cb24e3a57e047c5a19d6c4a1255b119df61",
+          "nativeBinaries": [
+            {
+              "entry": "base/lib/arm64-v8a/libapp.so",
+              "bytes": 3277704,
+              "sha256": "c6b9eebebff296498a2fa2e46a72d333787aa1cc1b17299dd199a4bfda946d39"
+            },
+            {
+              "entry": "base/lib/arm64-v8a/libdartjni.so",
+              "bytes": 131400,
+              "sha256": "85e87b79a7d1b31696cc57d5350574be1f0fe27425be332fa90107362a038ed3"
+            },
+            {
+              "entry": "base/lib/arm64-v8a/libflutter.so",
+              "bytes": 11763360,
+              "sha256": "86b660128f3a3b6220c32d4d637f8198b2083f60c36c55ff025d3dba1a64d0f8"
+            },
+            {
+              "entry": "base/lib/armeabi-v7a/libapp.so",
+              "bytes": 3703368,
+              "sha256": "03ee86b2e4968ee7c3699969ff07e14d5d1591ebf0321f9385cd8514038f9e88"
+            },
+            {
+              "entry": "base/lib/armeabi-v7a/libdartjni.so",
+              "bytes": 81600,
+              "sha256": "f4c281a49386c728b3ecc4408bb257c69213bb060e0d2d06904b9624dff6fd6b"
+            },
+            {
+              "entry": "base/lib/armeabi-v7a/libflutter.so",
+              "bytes": 8625652,
+              "sha256": "d96888c4a096874f949ff71fa490c54f38398462a19e28c7caccbb166cda7c5b"
+            },
+            {
+              "entry": "base/lib/x86_64/libapp.so",
+              "bytes": 3408776,
+              "sha256": "a508bfb43c0f8094e48a651adddf3301a82aca7e9ed37c9b7b0dc0cca0ee4466"
+            },
+            {
+              "entry": "base/lib/x86_64/libdartjni.so",
+              "bytes": 116792,
+              "sha256": "653090ffa3597615de1bd6ff72dbab1900b19f5e47b6a5c624bc7825a59fc8ff"
+            },
+            {
+              "entry": "base/lib/x86_64/libflutter.so",
+              "bytes": 13074608,
+              "sha256": "cdc3311b5dd2bce3bbf4b5c64d294aa936c2153012965b426862b91e14f1db3b"
+            }
+          ],
+          "packagedNotices": [
+            {
+              "entry": "base/assets/flutter_assets/NOTICES.Z",
+              "bytes": 100378,
+              "sha256": "2b22e6416ccabd81a2dd6d37ec9ddfb0aaa4f86bbab48da7741aa1c6ffff234b"
+            }
+          ],
+          "flutterNoticeIndex": {
+            "entry": "base/assets/flutter_assets/NOTICES.Z",
+            "uncompressedCharacters": 1335750,
+            "verifiedHeadings": [
+              "boringssl",
+              "dart",
+              "flutter",
+              "harfbuzz",
+              "icu",
+              "jni",
+              "skia"
+            ]
+          }
+        },
+        {
+          "file": "example/build/app/outputs/flutter-apk/app-release.apk",
+          "sha256": "ac5fcaf54c21961b549a741b6fdb2f2a43fb59476100f52240d2fa6b6ec865f6",
+          "nativeBinaries": [
+            {
+              "entry": "lib/arm64-v8a/libapp.so",
+              "bytes": 3277704,
+              "sha256": "c6b9eebebff296498a2fa2e46a72d333787aa1cc1b17299dd199a4bfda946d39"
+            },
+            {
+              "entry": "lib/arm64-v8a/libdartjni.so",
+              "bytes": 131400,
+              "sha256": "85e87b79a7d1b31696cc57d5350574be1f0fe27425be332fa90107362a038ed3"
+            },
+            {
+              "entry": "lib/arm64-v8a/libflutter.so",
+              "bytes": 11763360,
+              "sha256": "86b660128f3a3b6220c32d4d637f8198b2083f60c36c55ff025d3dba1a64d0f8"
+            },
+            {
+              "entry": "lib/armeabi-v7a/libapp.so",
+              "bytes": 3703368,
+              "sha256": "03ee86b2e4968ee7c3699969ff07e14d5d1591ebf0321f9385cd8514038f9e88"
+            },
+            {
+              "entry": "lib/armeabi-v7a/libdartjni.so",
+              "bytes": 81600,
+              "sha256": "f4c281a49386c728b3ecc4408bb257c69213bb060e0d2d06904b9624dff6fd6b"
+            },
+            {
+              "entry": "lib/armeabi-v7a/libflutter.so",
+              "bytes": 8625652,
+              "sha256": "d96888c4a096874f949ff71fa490c54f38398462a19e28c7caccbb166cda7c5b"
+            },
+            {
+              "entry": "lib/x86_64/libapp.so",
+              "bytes": 3408776,
+              "sha256": "a508bfb43c0f8094e48a651adddf3301a82aca7e9ed37c9b7b0dc0cca0ee4466"
+            },
+            {
+              "entry": "lib/x86_64/libdartjni.so",
+              "bytes": 116792,
+              "sha256": "653090ffa3597615de1bd6ff72dbab1900b19f5e47b6a5c624bc7825a59fc8ff"
+            },
+            {
+              "entry": "lib/x86_64/libflutter.so",
+              "bytes": 13074608,
+              "sha256": "cdc3311b5dd2bce3bbf4b5c64d294aa936c2153012965b426862b91e14f1db3b"
+            }
+          ],
+          "packagedNotices": [
+            {
+              "entry": "assets/flutter_assets/NOTICES.Z",
+              "bytes": 100378,
+              "sha256": "2b22e6416ccabd81a2dd6d37ec9ddfb0aaa4f86bbab48da7741aa1c6ffff234b"
+            }
+          ],
+          "flutterNoticeIndex": {
+            "entry": "assets/flutter_assets/NOTICES.Z",
+            "uncompressedCharacters": 1335750,
+            "verifiedHeadings": [
+              "boringssl",
+              "dart",
+              "flutter",
+              "harfbuzz",
+              "icu",
+              "jni",
+              "skia"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "lane": "builtin",
+      "modules": [
+        "androidx.activity:activity:1.8.1",
+        "androidx.annotation:annotation-experimental:1.4.0",
+        "androidx.annotation:annotation-jvm:1.8.2",
+        "androidx.annotation:annotation:1.8.1",
+        "androidx.arch.core:core-common:2.2.0",
+        "androidx.arch.core:core-runtime:2.2.0",
+        "androidx.collection:collection:1.1.0",
+        "androidx.concurrent:concurrent-futures:1.1.0",
+        "androidx.core:core-ktx:1.13.1",
+        "androidx.core:core:1.13.1",
+        "androidx.customview:customview:1.0.0",
+        "androidx.exifinterface:exifinterface:1.4.1",
+        "androidx.fragment:fragment:1.7.1",
+        "androidx.interpolator:interpolator:1.0.0",
+        "androidx.lifecycle:lifecycle-common-java8:2.7.0",
+        "androidx.lifecycle:lifecycle-common:2.7.0",
+        "androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0",
+        "androidx.lifecycle:lifecycle-livedata-core:2.7.0",
+        "androidx.lifecycle:lifecycle-livedata:2.7.0",
+        "androidx.lifecycle:lifecycle-process:2.7.0",
+        "androidx.lifecycle:lifecycle-runtime:2.7.0",
+        "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0",
+        "androidx.lifecycle:lifecycle-viewmodel:2.7.0",
+        "androidx.loader:loader:1.0.0",
+        "androidx.profileinstaller:profileinstaller:1.3.1",
+        "androidx.savedstate:savedstate:1.2.1",
+        "androidx.startup:startup-runtime:1.1.1",
+        "androidx.tracing:tracing:1.2.0",
+        "androidx.versionedparcelable:versionedparcelable:1.1.1",
+        "androidx.viewpager:viewpager:1.0.0",
+        "androidx.window.extensions.core:core:1.0.0",
+        "androidx.window:window-java:1.2.0",
+        "androidx.window:window:1.2.0",
+        "com.getkeepsafe.relinker:relinker:1.4.5",
+        "com.google.code.findbugs:jsr305:3.0.2",
+        "com.google.code.gson:gson:2.13.2",
+        "com.google.crypto.tink:tink-android:1.23.0",
+        "com.google.errorprone:error_prone_annotations:2.41.0",
+        "com.google.guava:listenablefuture:1.0",
+        "io.flutter:arm64_v8a_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+        "io.flutter:armeabi_v7a_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+        "io.flutter:flutter_embedding_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+        "io.flutter:x86_64_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+        "org.jetbrains.kotlin:kotlin-stdlib-common:2.4.0",
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20",
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20",
+        "org.jetbrains.kotlin:kotlin-stdlib:2.4.0",
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1",
+        "org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.7.1",
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1",
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1",
+        "org.jetbrains:annotations:23.0.0",
+        "org.jspecify:jspecify:1.0.0"
+      ],
+      "resolvedArtifacts": [
+        {
+          "module": "androidx.activity:activity:1.8.1",
+          "file": "activity-1.8.1.aar",
+          "sha256": "66bc2c13bd91fb8ea09e445b21f784d3e5d3a9ec9b180cd07e0e9208c2f939c6",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.annotation:annotation-experimental:1.4.0",
+          "file": "annotation-experimental-1.4.0.aar",
+          "sha256": "c6eb7e676011ec65b32428373d450debdfc45179c4f8b3a752174fb87c17b08a",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.annotation:annotation-jvm:1.8.2",
+          "file": "annotation-jvm-1.8.2.jar",
+          "sha256": "9aab326d9492800991854360ac248f493ce7f7c3183519309b78ace9e240f6f6",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.arch.core:core-common:2.2.0",
+          "file": "core-common-2.2.0.jar",
+          "sha256": "65308a06b1c00ee186cb9e19321383f043b993813f1522c47f4a3e3303bdba41",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.arch.core:core-runtime:2.2.0",
+          "file": "core-runtime-2.2.0.aar",
+          "sha256": "a1be5e0caa2b07623862af6ae21b3ab0718123245184d0e30dea81b53f990a47",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.collection:collection:1.1.0",
+          "file": "collection-1.1.0.jar",
+          "sha256": "632a0e5407461de774409352940e292a291037724207a787820c77daf7d33b72",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.concurrent:concurrent-futures:1.1.0",
+          "file": "concurrent-futures-1.1.0.jar",
+          "sha256": "0ce067c514a0d1049d1bebdf709e344ed3266fe9744275682937cdcb13334e9e",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.core:core-ktx:1.13.1",
+          "file": "core-ktx-1.13.1.aar",
+          "sha256": "19ba50d094c7368ede1b4ccf1195ceb83e35970736593f823e5af716f8d05d70",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.core:core:1.13.1",
+          "file": "core-1.13.1.aar",
+          "sha256": "2c27de199535675005553066597a4b20fa1eea7c228ab4ef6b32b5fe39ca1f59",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.core:core:1.13.1",
+          "file": "core-1.13.1.aar",
+          "sha256": "2c27de199535675005553066597a4b20fa1eea7c228ab4ef6b32b5fe39ca1f59",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.customview:customview:1.0.0",
+          "file": "customview-1.0.0.aar",
+          "sha256": "20e5b8f6526a34595a604f56718da81167c0b40a7a94a57daa355663f2594df2",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.exifinterface:exifinterface:1.4.1",
+          "file": "exifinterface-1.4.1.aar",
+          "sha256": "17e17a6b86bb54074d3a7ecfa695ab920eaff4cf667a8371ed82e377580cfcf6",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": [
+            {
+              "entry": "META-INF/androidx/exifinterface/exifinterface/LICENSE.txt",
+              "bytes": 10175,
+              "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0"
+            }
+          ]
+        },
+        {
+          "module": "androidx.fragment:fragment:1.7.1",
+          "file": "fragment-1.7.1.aar",
+          "sha256": "7ddebe9d830a04963733dcb340cab4bac1e69dfca797a6d59aa7bc56282150af",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.interpolator:interpolator:1.0.0",
+          "file": "interpolator-1.0.0.aar",
+          "sha256": "33193135a64fe21fa2c35eec6688f1a76e512606c0fc83dc1b689e37add7732a",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-common-java8:2.7.0",
+          "file": "lifecycle-common-java8-2.7.0.jar",
+          "sha256": "c6deada2fac53b8ea6523dbda77597b128006674616f140f04df23264c6d1aa3",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-common:2.7.0",
+          "file": "lifecycle-common-2.7.0.jar",
+          "sha256": "533ded8ee0645a18f6653da53fe1ec5a15430e7f36a737d45e410531f30f3318",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0",
+          "file": "lifecycle-livedata-core-ktx-2.7.0.aar",
+          "sha256": "a97f4c2191ebdd32f99ac229597bd1a92446b01cd1a088d13494cc05cabf0def",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-livedata-core:2.7.0",
+          "file": "lifecycle-livedata-core-2.7.0.aar",
+          "sha256": "af8e11b87e030d6e3107ed39adcf01fa10d6259eb15c43cba6e7b4e3ffaedf27",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-livedata:2.7.0",
+          "file": "lifecycle-livedata-2.7.0.aar",
+          "sha256": "9affa24c6160dc8cadaac9422d4f714e5009537d0243afc4bc74b5b7cf0de4ad",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-process:2.7.0",
+          "file": "lifecycle-process-2.7.0.aar",
+          "sha256": "6fb33d9473a4933da9d98a0b12b606127e80681bd9b90309ccd2c2230863b939",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-runtime:2.7.0",
+          "file": "lifecycle-runtime-2.7.0.aar",
+          "sha256": "81c6fb1dbb6a3cd7dc827d7b08e1c8142ed3a400a3422441108480e22f8937c4",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0",
+          "file": "lifecycle-viewmodel-savedstate-2.7.0.aar",
+          "sha256": "57c578862e219e360c6957ff0bca6f169707b1e5582d4fa593e284f7f63e33f6",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-viewmodel:2.7.0",
+          "file": "lifecycle-viewmodel-2.7.0.aar",
+          "sha256": "4e1d92e289920cd7b50e3671b9191bd413407349cda6f602b0285464f41c1c82",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.lifecycle:lifecycle-viewmodel:2.7.0",
+          "file": "lifecycle-viewmodel-2.7.0.aar",
+          "sha256": "4e1d92e289920cd7b50e3671b9191bd413407349cda6f602b0285464f41c1c82",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.loader:loader:1.0.0",
+          "file": "loader-1.0.0.aar",
+          "sha256": "11f735cb3b55c458d470bed9e25254375b518b4b1bad6926783a7026db0f5025",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.profileinstaller:profileinstaller:1.3.1",
+          "file": "profileinstaller-1.3.1.aar",
+          "sha256": "d0e402ec31f24028a1dc7eb6a0a3f9d9635c1459392cd734396343b73d673948",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.savedstate:savedstate:1.2.1",
+          "file": "savedstate-1.2.1.aar",
+          "sha256": "21a7d4bcf6bdb94ad7b9283801529300b4fbb8808ca4f191e0cdce6fd8e4705a",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.startup:startup-runtime:1.1.1",
+          "file": "startup-runtime-1.1.1.aar",
+          "sha256": "e0a6329a371262fe4c450372b70fdaf33b769ef6917094723787cfce896b1dd3",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.tracing:tracing:1.2.0",
+          "file": "tracing-1.2.0.aar",
+          "sha256": "6faa90390d1fdbf0adb9a99bf99de67b94c6c6f35aea9510593a9d17973736a2",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.versionedparcelable:versionedparcelable:1.1.1",
+          "file": "versionedparcelable-1.1.1.aar",
+          "sha256": "57e8d93260d18d5b9007c9eed3c64ad159de90c8609ebfc74a347cbd514535a4",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.viewpager:viewpager:1.0.0",
+          "file": "viewpager-1.0.0.aar",
+          "sha256": "147af4e14a1984010d8f155e5e19d781f03c1d70dfed02a8e0d18428b8fc8682",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.window.extensions.core:core:1.0.0",
+          "file": "core-1.0.0.aar",
+          "sha256": "3100854b2dc0de5c4d88b47e1c5db30801770c821dca28189443b7624f4008ae",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.window:window-java:1.2.0",
+          "file": "window-java-1.2.0.aar",
+          "sha256": "e3defb5ee3857757505d7ad66275dc3a0b014169301b89d6e4eec03b0e45bcab",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "androidx.window:window:1.2.0",
+          "file": "window-1.2.0.aar",
+          "sha256": "a834c217d973112777533daf1281dab33bd778fadd2d66bebc39b5fe81a890ac",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "com.getkeepsafe.relinker:relinker:1.4.5",
+          "file": "relinker-1.4.5.aar",
+          "sha256": "b03b4d113a9fef79400ae854c17757c2915725e6ffd1d61116eadaeb5613374a",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "com.google.code.findbugs:jsr305:3.0.2",
+          "file": "jsr305-3.0.2.jar",
+          "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "com.google.code.gson:gson:2.13.2",
+          "file": "gson-2.13.2.jar",
+          "sha256": "dd0ce1b55a3ed2080cb70f9c655850cda86c206862310009dcb5e5c95265a5e0",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "com.google.crypto.tink:tink-android:1.23.0",
+          "file": "tink-android-1.23.0.jar",
+          "sha256": "c656918451b01c45ce5b20c7b6d4c388f956f61b3a3528e769048c8944c42f9e",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "com.google.errorprone:error_prone_annotations:2.41.0",
+          "file": "error_prone_annotations-2.41.0.jar",
+          "sha256": "a56e782b5b50811ac204073a355a21d915a2107fce13ec711331ad036f660fcc",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "com.google.guava:listenablefuture:1.0",
+          "file": "listenablefuture-1.0.jar",
+          "sha256": "e4ad7607e5c0477c6f890ef26a49cb8d1bb4dffb650bab4502afee64644e3069",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "io.flutter:arm64_v8a_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+          "file": "arm64_v8a_release-1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7.jar",
+          "sha256": "b7acf0d2e33f4bf6eaacb335df1812d9c6e894a5342fb78e92840ece6d6d8cc4",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "io.flutter:armeabi_v7a_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+          "file": "armeabi_v7a_release-1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7.jar",
+          "sha256": "36bd9abbe929328804a04795d2baa68ede8f0fd4fd6dba1f4072305ccaf874ec",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "io.flutter:flutter_embedding_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+          "file": "flutter_embedding_release-1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7.jar",
+          "sha256": "859b7c9bf06e1c0844c0be381c37d1b5d2d2f4823c8a241075eef89b2b06ae6d",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "io.flutter:x86_64_release:1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7",
+          "file": "x86_64_release-1.0.0-89c39edfdfae2949f6806e4a315c0c08522238b7.jar",
+          "sha256": "5a4a0062365c2eaec1af59378d82fa5c57bd156383fd5bb5fec51e1bdc8270f8",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20",
+          "file": "kotlin-stdlib-jdk7-1.8.20.jar",
+          "sha256": "af1ec40c3b951afdcc0c2a0173c7b81763c5281c2d5bafbf0a8544a24c5dcc0c",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20",
+          "file": "kotlin-stdlib-jdk8-1.8.20.jar",
+          "sha256": "e398b67977622718bf18ff99b739c7d9da060f33fb458a2e25203221c16af010",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "org.jetbrains.kotlin:kotlin-stdlib:2.4.0",
+          "file": "kotlin-stdlib-2.4.0.jar",
+          "sha256": "ccb14ff83fabcb11458b798dbc9824748ccdffeec79c9aba789e6ed1cda86b1c",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1",
+          "file": "kotlinx-coroutines-android-1.7.1.jar",
+          "sha256": "107313760c18f8da174e8d8103504a468e806e88f7b55a84bd1c0eaeea118e9a",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1",
+          "file": "kotlinx-coroutines-core-jvm-1.7.1.jar",
+          "sha256": "7496cffdd3eb10109acdda1c3212f6ac7815789e09380dc9e2ccdec496dba3fc",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "org.jetbrains:annotations:23.0.0",
+          "file": "annotations-23.0.0.jar",
+          "sha256": "7b0f19724082cbfcbc66e5abea2b9bc92cf08a1ea11e191933ed43801eb3cd05",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        },
+        {
+          "module": "org.jspecify:jspecify:1.0.0",
+          "file": "jspecify-1.0.0.jar",
+          "sha256": "1fad6e6be7557781e4d33729d49ae1cdc8fdda6fe477bb0cc68ce351eafdfbab",
+          "noticeInspection": "Inspected archive and nested JARs below 40 MB",
+          "embeddedNotices": []
+        }
+      ],
+      "archives": [
+        {
+          "file": "example/build/app/outputs/bundle/release/app-release.aab",
+          "sha256": "b4f0ee97e707dc7278bd6fcd2f512913c18fa52c6ee90e48f51a85d7e0429a13",
+          "nativeBinaries": [
+            {
+              "entry": "base/lib/arm64-v8a/libapp.so",
+              "bytes": 3277704,
+              "sha256": "7c8132e887b9367e8a8d0fbd46d7b4892132f66e5debcdd6584d0f2af6dc0307"
+            },
+            {
+              "entry": "base/lib/arm64-v8a/libdartjni.so",
+              "bytes": 131400,
+              "sha256": "2cf33699c8a9591273afa862b127aeb4b8b7f5e876fae7c6eec0bcd6deec9362"
+            },
+            {
+              "entry": "base/lib/arm64-v8a/libflutter.so",
+              "bytes": 11763360,
+              "sha256": "86b660128f3a3b6220c32d4d637f8198b2083f60c36c55ff025d3dba1a64d0f8"
+            },
+            {
+              "entry": "base/lib/armeabi-v7a/libapp.so",
+              "bytes": 3703368,
+              "sha256": "d28ff3c14ec15139cf4e5ddfdaf62768419faa39914c5023605564a7e2761442"
+            },
+            {
+              "entry": "base/lib/armeabi-v7a/libdartjni.so",
+              "bytes": 81600,
+              "sha256": "ec9c161c8bdb98ca9c5bdee5233f61f9f71f76a77ba15eb5dbad0038524ada72"
+            },
+            {
+              "entry": "base/lib/armeabi-v7a/libflutter.so",
+              "bytes": 8625652,
+              "sha256": "d96888c4a096874f949ff71fa490c54f38398462a19e28c7caccbb166cda7c5b"
+            },
+            {
+              "entry": "base/lib/x86_64/libapp.so",
+              "bytes": 3408776,
+              "sha256": "d32081e2a3bbfeae86bc886e7460bcf48cd15ddf309eb18fd28309d04913fc68"
+            },
+            {
+              "entry": "base/lib/x86_64/libdartjni.so",
+              "bytes": 116792,
+              "sha256": "10ac888e5954593ae62cb3d0d36f75519f0ad1b62d9f7fbaa936f2cf6a5249e9"
+            },
+            {
+              "entry": "base/lib/x86_64/libflutter.so",
+              "bytes": 13074608,
+              "sha256": "cdc3311b5dd2bce3bbf4b5c64d294aa936c2153012965b426862b91e14f1db3b"
+            }
+          ],
+          "packagedNotices": [
+            {
+              "entry": "base/assets/flutter_assets/NOTICES.Z",
+              "bytes": 100378,
+              "sha256": "2b22e6416ccabd81a2dd6d37ec9ddfb0aaa4f86bbab48da7741aa1c6ffff234b"
+            }
+          ],
+          "flutterNoticeIndex": {
+            "entry": "base/assets/flutter_assets/NOTICES.Z",
+            "uncompressedCharacters": 1335750,
+            "verifiedHeadings": [
+              "boringssl",
+              "dart",
+              "flutter",
+              "harfbuzz",
+              "icu",
+              "jni",
+              "skia"
+            ]
+          }
+        },
+        {
+          "file": "example/build/app/outputs/flutter-apk/app-release.apk",
+          "sha256": "3522f42a26096c494bc4dda314095e6afeb6d52457dc649986005fd7a8936a0b",
+          "nativeBinaries": [
+            {
+              "entry": "lib/arm64-v8a/libapp.so",
+              "bytes": 3277704,
+              "sha256": "7c8132e887b9367e8a8d0fbd46d7b4892132f66e5debcdd6584d0f2af6dc0307"
+            },
+            {
+              "entry": "lib/arm64-v8a/libdartjni.so",
+              "bytes": 131400,
+              "sha256": "2cf33699c8a9591273afa862b127aeb4b8b7f5e876fae7c6eec0bcd6deec9362"
+            },
+            {
+              "entry": "lib/arm64-v8a/libflutter.so",
+              "bytes": 11763360,
+              "sha256": "86b660128f3a3b6220c32d4d637f8198b2083f60c36c55ff025d3dba1a64d0f8"
+            },
+            {
+              "entry": "lib/armeabi-v7a/libapp.so",
+              "bytes": 3703368,
+              "sha256": "d28ff3c14ec15139cf4e5ddfdaf62768419faa39914c5023605564a7e2761442"
+            },
+            {
+              "entry": "lib/armeabi-v7a/libdartjni.so",
+              "bytes": 81600,
+              "sha256": "ec9c161c8bdb98ca9c5bdee5233f61f9f71f76a77ba15eb5dbad0038524ada72"
+            },
+            {
+              "entry": "lib/armeabi-v7a/libflutter.so",
+              "bytes": 8625652,
+              "sha256": "d96888c4a096874f949ff71fa490c54f38398462a19e28c7caccbb166cda7c5b"
+            },
+            {
+              "entry": "lib/x86_64/libapp.so",
+              "bytes": 3408776,
+              "sha256": "d32081e2a3bbfeae86bc886e7460bcf48cd15ddf309eb18fd28309d04913fc68"
+            },
+            {
+              "entry": "lib/x86_64/libdartjni.so",
+              "bytes": 116792,
+              "sha256": "10ac888e5954593ae62cb3d0d36f75519f0ad1b62d9f7fbaa936f2cf6a5249e9"
+            },
+            {
+              "entry": "lib/x86_64/libflutter.so",
+              "bytes": 13074608,
+              "sha256": "cdc3311b5dd2bce3bbf4b5c64d294aa936c2153012965b426862b91e14f1db3b"
+            }
+          ],
+          "packagedNotices": [
+            {
+              "entry": "assets/flutter_assets/NOTICES.Z",
+              "bytes": 100378,
+              "sha256": "2b22e6416ccabd81a2dd6d37ec9ddfb0aaa4f86bbab48da7741aa1c6ffff234b"
+            }
+          ],
+          "flutterNoticeIndex": {
+            "entry": "assets/flutter_assets/NOTICES.Z",
+            "uncompressedCharacters": 1335750,
+            "verifiedHeadings": [
+              "boringssl",
+              "dart",
+              "flutter",
+              "harfbuzz",
+              "icu",
+              "jni",
+              "skia"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "open": [
+    "Human redistribution and upstream provenance review",
+    "Native license obligations and notice completeness, including Apple CocoaPods or SwiftPM archives and desktop binaries"
+  ],
+  "resolverFixture": {
+    "path": "docs/evidence/android-provenance.init.gradle.txt",
+    "sha256": "c07b5075a0ee677c039df0af37e5801bb874c5b34b7d363e81eca518b4d137b9",
+    "command": "gradlew -q --offline -I <copied fixture> :app:firstReleaseRuntimeInventory"
+  },
+  "flutterMetadataGap": "The eight coordinates without cached license declarations are the Flutter embedding and ABI-specific engine artifacts for the two pinned SDK revisions. Both SDKs included the inspected Flutter notice headings in every built archive.",
+  "dartHostedInventory": {
+    "catalog": "docs/DEPENDENCY_LICENSES.json",
+    "catalogSha256": "27174466149e61d0f8f123a23bd62530af04f6e88e6cfd3c4a092038502a59f4",
+    "verifiedNoticeFiles": 115,
+    "resolutions": [
+      {
+        "lane": "minimum",
+        "lock": "pubspec.lock",
+        "hosted": 87,
+        "missing": [],
+        "lockSha256": "d67b8b1c695038342de91ad43626ae089a1b0ae1fd3bdd075d855ac2cb7606d2"
+      },
+      {
+        "lane": "minimum",
+        "lock": "example-pubspec.lock",
+        "hosted": 62,
+        "missing": [],
+        "lockSha256": "33b7a0155bb7d34f6d902272d3b40384e9befe0171e42b3bed7c1238bc247606"
+      },
+      {
+        "lane": "current",
+        "lock": "pubspec.lock",
+        "hosted": 87,
+        "missing": [],
+        "lockSha256": "b117709da391a7a7120451cc83da8e7942ac3ce31f3e3c7fd76230b5aa0d051c"
+      },
+      {
+        "lane": "current",
+        "lock": "example-pubspec.lock",
+        "hosted": 62,
+        "missing": [],
+        "lockSha256": "558016251fc911b272e23031467e5bbd19362d89c241687a38157c3f9c4e2b39"
+      },
+      {
+        "lane": "builtin",
+        "lock": "pubspec.lock",
+        "hosted": 87,
+        "missing": [],
+        "lockSha256": "b117709da391a7a7120451cc83da8e7942ac3ce31f3e3c7fd76230b5aa0d051c"
+      },
+      {
+        "lane": "builtin",
+        "lock": "example-pubspec.lock",
+        "hosted": 62,
+        "missing": [],
+        "lockSha256": "558016251fc911b272e23031467e5bbd19362d89c241687a38157c3f9c4e2b39"
+      },
+      {
+        "lane": "core-no-host-3.41.0",
+        "lock": "pubspec.lock",
+        "hosted": 87,
+        "missing": [],
+        "lockSha256": "d67b8b1c695038342de91ad43626ae089a1b0ae1fd3bdd075d855ac2cb7606d2"
+      },
+      {
+        "lane": "core-no-host-3.41.0",
+        "lock": "example/pubspec.lock",
+        "hosted": 62,
+        "missing": [],
+        "lockSha256": "33b7a0155bb7d34f6d902272d3b40384e9befe0171e42b3bed7c1238bc247606"
+      },
+      {
+        "lane": "core-no-host-3.47.9",
+        "lock": "pubspec.lock",
+        "hosted": 87,
+        "missing": [],
+        "lockSha256": "c62849090a06f2f4bcf0d9a79d1e3f9f48887383f16e021bea9be9cf06a1220b"
+      },
+      {
+        "lane": "core-no-host-3.47.9",
+        "lock": "example/pubspec.lock",
+        "hosted": 62,
+        "missing": [],
+        "lockSha256": "099d5df689c64dde9c04cec116c97f7d2c38142db992ae177ec881099cf93303"
+      }
+    ]
+  }
+}

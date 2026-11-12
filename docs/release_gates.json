@@ -715,31 +715,40 @@
       "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
     },
     "android_baseline": {
-      "status": "pending",
-      "note": "Source changed; fresh qualification evidence required.",
+      "status": "passed",
+      "note": "Windows APK and AAB passed against the revised fingerprint with pinned JDK 17 and verified Gradle toolchain and artifact hashes. The revised Linux workflow awaits a hosted run.",
       "historicalEvidence": {
         "evidence": "docs/evidence/first-release-qualification.json",
         "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
         "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
-      }
+      },
+      "evidence": "docs/evidence/first-release-android-workflow-rebuilds.json",
+      "sha256": "e857130f743272c16537dbce599ae8b8f39550fb1b84cb207c9057f20f94b363",
+      "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
     },
     "android_current": {
-      "status": "pending",
-      "note": "Source changed; fresh qualification evidence required.",
+      "status": "passed",
+      "note": "Windows APK and AAB passed against the revised fingerprint with pinned JDK 17 and verified Gradle toolchain and artifact hashes. The revised Linux workflow awaits a hosted run.",
       "historicalEvidence": {
         "evidence": "docs/evidence/first-release-qualification.json",
         "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
         "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
-      }
+      },
+      "evidence": "docs/evidence/first-release-android-workflow-rebuilds.json",
+      "sha256": "e857130f743272c16537dbce599ae8b8f39550fb1b84cb207c9057f20f94b363",
+      "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
     },
     "android_builtin_kotlin": {
-      "status": "pending",
-      "note": "Source changed; fresh qualification evidence required.",
+      "status": "passed",
+      "note": "Windows APK and AAB passed against the revised fingerprint with pinned JDK 17 and verified Gradle toolchain and artifact hashes. The revised Linux workflow awaits a hosted run.",
       "historicalEvidence": {
         "evidence": "docs/evidence/first-release-qualification.json",
         "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
         "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
-      }
+      },
+      "evidence": "docs/evidence/first-release-android-workflow-rebuilds.json",
+      "sha256": "e857130f743272c16537dbce599ae8b8f39550fb1b84cb207c9057f20f94b363",
+      "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
     },
     "apple_xcode": {
       "status": "blocked",
@@ -769,13 +778,16 @@
       }
     },
     "web_js_wasm_browser": {
-      "status": "pending",
-      "note": "Source changed; fresh qualification evidence required.",
+      "status": "passed",
+      "note": "Both pinned Flutter SDKs passed live HTTPS/CORS qualification in Chrome JS and WASM. The browser rejected cache, CORS and redirect controls, aborted a delayed fetch, and left an existing stored anchor unavailable after offline reload.",
       "historicalEvidence": {
         "evidence": "docs/evidence/first-release-browser-startup.json",
         "sha256": "1e8ba13be0a7fa162cd9532bbf3d86a9ff60f24f436c46fe1b1beb8b3082b523",
         "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
-      }
+      },
+      "evidence": "docs/evidence/first-release-web-live.json",
+      "sha256": "faccde24058dc9d7284ca96ebcacb88f92a0afc7b9eebbe78c20c71655bf9137",
+      "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
     },
     "physical_lifecycle": {
       "status": "blocked",
@@ -805,13 +817,16 @@
       }
     },
     "provenance_dependencies": {
-      "status": "pending",
-      "note": "Source changed; fresh qualification evidence required.",
+      "status": "partial",
+      "note": "Verified Dart notice hashes and coverage across 10 local lockfiles. Inventoried 59 Android runtime Maven modules and inspected six built archives. Human clearance and remaining native obligations are open.",
       "historicalEvidence": {
         "evidence": "docs/evidence/first-release-qualification.json",
         "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
         "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
-      }
+      },
+      "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+      "evidence": "docs/evidence/first-release-android-provenance.json",
+      "sha256": "73517d07838d780beffdd161570653c59ad1c23b58325b0a748f9cfda475d465"
     },
     "owned_repository_security": {
       "status": "blocked",
@@ -843,13 +858,16 @@
       "note": "Source changed; fresh qualification evidence required."
     },
     "read_performance": {
-      "status": "pending",
-      "note": "Source changed; fresh qualification evidence required.",
+      "status": "partial",
+      "note": "Windows Dart AOT and browser optimized JS/WASM latency measured. JS V8 allocation samples recorded. Native and WASM allocation evidence and representative mobile release builds remain open.",
       "historicalEvidence": {
         "evidence": "docs/evidence/first-release-qualification.json",
         "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
         "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
-      }
+      },
+      "evidence": "docs/evidence/first-release-read-performance.json",
+      "sha256": "bbf04b361ce0c6ef3dc80d9601b80b6bb5b231f3b15d3ebdc92f3c863d3ee993",
+      "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
     }
   }
 }

@@ -86,5 +86,6 @@
     }
   ],
   "resolvedDependencyInventory": "DEPENDENCY_LICENSES.json",
-  "legalReviewStatus": "Dart/Flutter license collection complete; native binaries/Maven/CocoaPods and human redistribution/provenance clearance pending"
+  "androidNativeEvidence": "evidence/first-release-android-provenance.json",
+  "legalReviewStatus": "Dart notice hashes and current local lockfile coverage verified. Android Maven metadata and packaged notices inventoried. Native redistribution obligations, Apple and desktop artifacts, and human provenance review remain open."
 }
