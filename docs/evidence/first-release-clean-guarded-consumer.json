@@ -1,0 +1,144 @@
+{
+  "date": "2026-11-12",
+  "sourceCommit": "dae0a16c7c6d7813f06c0179c748692e3bdc8665",
+  "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+  "scope": "Guarded Pub-selection preflight from a successful pinned dry run. Files copied byte for byte into an isolated dependency for each new external consumer. The publish_to guard remained in the selected package. The files were staged from the audited clean checkout. This run covers Flutter consumer tests and Web builds. Native candidate builds and approval are pending.",
+  "browserVersion": "157.0.8103.40",
+  "selectedFileCount": 165,
+  "guardedSelectedDigest": "f0553f24e299cba83275bbf27840dc01779afaab026e3bfcc9e5f85043db754e",
+  "cleanCheckoutEvidence": "docs/evidence/first-release-clean-checkout.json",
+  "cleanCheckoutEvidenceSha256": "1d189a42842633de1aaa581fa86de6304767753b30a29e792d34514fb86cf776",
+  "guardedPubspecSha256": "683ca3f13163c62bab48b13c2a0d344edb3762de7cd4003029bac966ed2687a1",
+  "consumerMain": [
+    "import 'package:flutter/material.dart';",
+    "import 'package:flutter_true_time/flutter_true_time.dart';",
+    "",
+    "void main() {",
+    "  var status = 'unexpected';",
+    "  try {",
+    "    TrustedTime.read();",
+    "  } on TrustedTimeException catch (error) {",
+    "    status = error.code;",
+    "  }",
+    "  runApp(MaterialApp(home: Scaffold(body: Text('Selected package consumer: $status'))));",
+    "}",
+    "",
+    "Future<void> checkFacade() => TrustedTime.dispose();"
+  ],
+  "consumerTests": [
+    "import 'package:flutter_test/flutter_test.dart';",
+    "import 'package:flutter_true_time/core.dart';",
+    "import 'package:flutter_true_time/flutter_true_time.dart';",
+    "import 'package:preflight_consumer/main.dart' as app;",
+    "",
+    "class FixtureSource implements TimeSource {",
+    "  const FixtureSource(this.id);",
+    "  @override",
+    "  final String id;",
+    "  @override",
+    "  String get endpoint => id;",
+    "  @override",
+    "  String get providerGroup => id;",
+    "  @override",
+    "  String get configurationKey => id;",
+    "",
+    "  @override",
+    "  Future<TimeSample> query(",
+    "    MonotonicClock clock,",
+    "    Duration timeout, {",
+    "    CancellationSignal? cancellation,",
+    "  }) async {",
+    "    final at = clock.snapshot();",
+    "    return TimeSample(",
+    "      utc: DateTime.utc(2026, 11, 12).add(at.elapsed),",
+    "      at: at,",
+    "      uncertainty: const Duration(milliseconds: 5),",
+    "    );",
+    "  }",
+    "}",
+    "",
+    "void main() {",
+    "  test('external consumer receives the uninitialized facade error', () {",
+    "    expect(() => TrustedTime.read(), throwsA(isA<TrustedTimeException>().having((error) => error.code, 'code', 'uninitialized')));",
+    "  });",
+    "  test('external consumer syncs from two independent fixture sources', () async {",
+    "    final engine = TrustedTimeEngine(",
+    "      sources: const [FixtureSource('one'), FixtureSource('two')],",
+    "      autoRefresh: false,",
+    "    );",
+    "    addTearDown(engine.dispose);",
+    "    expect((await engine.sync()).success, isTrue);",
+    "    final reading = engine.read();",
+    "    expect(reading.availability, TimeAvailability.ready);",
+    "    expect(reading.providerGroups, unorderedEquals(['one', 'two']));",
+    "    expect(reading.utc.isUtc, isTrue);",
+    "    expect(reading.uncertainty, greaterThanOrEqualTo(Duration.zero));",
+    "  });",
+    "  testWidgets('consumer starts', (tester) async {",
+    "    app.main();",
+    "    await tester.pumpAndSettle();",
+    "    expect(find.text('Selected package consumer: uninitialized'), findsOneWidget);",
+    "  });",
+    "}"
+  ],
+  "sdkLanes": [
+    {
+      "flutter": "3.41.0",
+      "dart": "3.11.0",
+      "consumerDependencyRoot": "../../package",
+      "pubspecLockSha256": "48097d9a954754233f83c86e44cc737fc9418f0b381c01341c1d90c3d8bb5610",
+      "testsPassed": 3,
+      "web": [
+        {
+          "mode": "js",
+          "artifactSha256": "149aa328b53d990d6b806a7c1afcc11e5c461d28f9ea7335738f329cecb25e93",
+          "browser": {
+            "rendered": true,
+            "jsLoaded": true,
+            "wasmLoaded": false,
+            "uncaughtErrors": []
+          }
+        },
+        {
+          "mode": "wasm",
+          "artifactSha256": "2e2dd1aba2aee4705b9bb1b35b011879f5d123360f6df7613861e45a403e7fe3",
+          "browser": {
+            "rendered": true,
+            "jsLoaded": false,
+            "wasmLoaded": true,
+            "uncaughtErrors": []
+          }
+        }
+      ]
+    },
+    {
+      "flutter": "3.47.9",
+      "dart": "3.13.7",
+      "consumerDependencyRoot": "../../package",
+      "pubspecLockSha256": "9e0a6c509b96b98f28b4877f904cc8b8a85f83d650744db32006a62ba3727c01",
+      "testsPassed": 3,
+      "web": [
+        {
+          "mode": "js",
+          "artifactSha256": "fdecf2a186fc7ef316e793da62c8267f57f0e8a46966293e8b561df50bb5e56a",
+          "browser": {
+            "rendered": true,
+            "jsLoaded": true,
+            "wasmLoaded": false,
+            "uncaughtErrors": []
+          }
+        },
+        {
+          "mode": "wasm",
+          "artifactSha256": "b9b129a3f95ec95805f1215f49fb8b9e2c29d4b54d4e95b0a02ea9f18655f593",
+          "browser": {
+            "rendered": true,
+            "jsLoaded": false,
+            "wasmLoaded": true,
+            "uncaughtErrors": []
+          }
+        }
+      ]
+    }
+  ]
+}
