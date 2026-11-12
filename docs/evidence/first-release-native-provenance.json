@@ -1,0 +1,437 @@
+{
+  "date": "2026-11-12",
+  "sourceCommit": "2762e53bdb25a1a35442ca093fbf7f1c54202720",
+  "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+  "scope": "Preliminary native provenance inventory. Windows SDK cache artifacts and regular PE imports were inspected. Linux and Apple entries describe cached source declarations selected by the lockfiles. Completed desktop and Apple archives, platform redistribution obligations, and human rights clearance remain open.",
+  "androidEvidence": {
+    "path": "docs/evidence/first-release-android-provenance.json",
+    "sha256": "73517d07838d780beffdd161570653c59ad1c23b58325b0a748f9cfda475d465",
+    "runtimeMavenModules": 59
+  },
+  "windowsSdkArtifacts": [
+    {
+      "flutter": "3.41.0",
+      "dart": "3.11.0",
+      "engineRevision": "3452d735bd38224ef2db85ca763d862d6326b17f",
+      "artifacts": [
+        {
+          "path": "windows-x64-release/flutter_windows.dll",
+          "sha256": "d3b43a11850159ac1e1f73bdf0caa8db728a958467ef49b72c5772eecd3e95f4",
+          "bytes": 20802048
+        },
+        {
+          "path": "windows-x64/icudtl.dat",
+          "sha256": "998367809a821d595928089c197b3f7959f0420f81f79d4d0daee53378492ed5",
+          "bytes": 862304
+        },
+        {
+          "path": "windows-x64-release/license.windows_flutter.md",
+          "sha256": "2fe00d08d435ccbfb42e776f7e2c2fd2532122c34350689d8cddcba1852b4d9f",
+          "bytes": 578
+        },
+        {
+          "path": "windows-x64/license.artifacts.md",
+          "sha256": "76f6865c3aa419f80937e3c056a25842da915aa5a04a81769b7068c1fbf0e7ef",
+          "bytes": 572
+        },
+        {
+          "path": "pkg/sky_engine/license",
+          "sha256": "1d531df6b9d1142fa3f6abc518cfab21adc6570ae11631c40a7ba366c93d2eaa",
+          "bytes": 1305039
+        }
+      ],
+      "regularPeImportDlls": [
+        "ADVAPI32.dll",
+        "api-ms-win-core-path-l1-1-0.dll",
+        "api-ms-win-core-synch-l1-2-0.dll",
+        "bcrypt.dll",
+        "CRYPT32.dll",
+        "d3d9.dll",
+        "dxgi.dll",
+        "GDI32.dll",
+        "IMM32.dll",
+        "IPHLPAPI.DLL",
+        "KERNEL32.dll",
+        "ntdll.dll",
+        "ole32.dll",
+        "OLEACC.dll",
+        "OLEAUT32.dll",
+        "OPENGL32.dll",
+        "PROPSYS.dll",
+        "PSAPI.DLL",
+        "RPCRT4.dll",
+        "SHLWAPI.dll",
+        "UIAutomationCore.DLL",
+        "USER32.dll",
+        "WINMM.dll",
+        "WS2_32.dll"
+      ],
+      "checkedEngineNoticeLabels": [
+        "boringssl",
+        "harfbuzz",
+        "icu",
+        "skia"
+      ]
+    },
+    {
+      "flutter": "3.47.9",
+      "dart": "3.13.7",
+      "engineRevision": "89c39edfdfae2949f6806e4a315c0c08522238b7",
+      "artifacts": [
+        {
+          "path": "windows-x64-release/flutter_windows.dll",
+          "sha256": "30494fb08f9f101a8fbe42568110aaa160efbd7341f3cfe877dc14214be3a233",
+          "bytes": 21289472
+        },
+        {
+          "path": "windows-x64/icudtl.dat",
+          "sha256": "325a86063d26334c2eabe1743cea073b612540fbf3d8fc2ef0b5708e3763a8c7",
+          "bytes": 864880
+        },
+        {
+          "path": "windows-x64-release/license.windows_flutter.md",
+          "sha256": "92955eaca09c4038ccd99edc1b825394428eb8e61d17c3802e2ce95e8cbeb63e",
+          "bytes": 578
+        },
+        {
+          "path": "windows-x64/license.artifacts.md",
+          "sha256": "5deb4bde1863d51979e9eb5a0be7f7ab529bf208fd90d43fcba0358f7d9521a5",
+          "bytes": 572
+        },
+        {
+          "path": "pkg/sky_engine/license",
+          "sha256": "3c0040023a5789bf56d6bf41fd44f08b21758523d41f128fb7dd6beb398d1191",
+          "bytes": 1269349
+        }
+      ],
+      "regularPeImportDlls": [
+        "ADVAPI32.dll",
+        "api-ms-win-core-path-l1-1-0.dll",
+        "api-ms-win-core-synch-l1-2-0.dll",
+        "bcrypt.dll",
+        "CRYPT32.dll",
+        "d3d9.dll",
+        "dxgi.dll",
+        "GDI32.dll",
+        "IMM32.dll",
+        "IPHLPAPI.DLL",
+        "KERNEL32.dll",
+        "ntdll.dll",
+        "ole32.dll",
+        "OLEACC.dll",
+        "OLEAUT32.dll",
+        "OPENGL32.dll",
+        "PROPSYS.dll",
+        "PSAPI.DLL",
+        "RPCRT4.dll",
+        "SHLWAPI.dll",
+        "UIAutomationCore.DLL",
+        "USER32.dll",
+        "WINMM.dll",
+        "WS2_32.dll"
+      ],
+      "checkedEngineNoticeLabels": [
+        "boringssl",
+        "harfbuzz",
+        "icu",
+        "skia"
+      ]
+    }
+  ],
+  "nativeBuildDeclarations": {
+    "flutter_secure_storage_windows": "Builds the C++ plugin from source and links Flutter and its wrapper. Source declares version.lib and bcrypt.lib. CMake lists no bundled auxiliary libraries and limits GoogleTest to the test target.",
+    "flutter_secure_storage_linux": "Builds the C++ plugin from source and links Flutter, GTK and libsecret-1 >= 0.18.4. CMake lists no bundled auxiliary libraries and limits GoogleTest to the test target.",
+    "flutter_secure_storage_darwin": "Declares Flutter or FlutterMacOS for CocoaPods and no external package dependency in SwiftPM. Both packaging routes declare the plugin privacy resources.",
+    "objective_c": "Native-asset hook compiles C and Objective-C sources for iOS and macOS and declares objective_c.dylib as a bundled dynamic asset."
+  },
+  "lockfileSourceChecks": [
+    {
+      "lock": "external-consumer-3.41.0",
+      "lockSha256": "48097d9a954754233f83c86e44cc737fc9418f0b381c01341c1d90c3d8bb5610",
+      "package": "flutter_secure_storage_windows",
+      "version": "4.2.2",
+      "archiveSha256": "471951813a97006d899db4948acc654a4f28c440083ea08178935ce20b173ec1",
+      "licenseFile": "docs/licenses/resolved/flutter_secure_storage_windows-4.2.2-55dafb084270-LICENSE.txt",
+      "licenseSha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+      "declarationFiles": [
+        {
+          "path": "windows/CMakeLists.txt",
+          "sha256": "4a2f8955d46d092b3e8a93dd721053e20cb13c8a75b0b3a1ba3fc951d07df41b"
+        },
+        {
+          "path": "windows/flutter_secure_storage_windows_plugin.cpp",
+          "sha256": "a832d629ac72979e0ae4c0012517e5af10f8eda0af045efac38746945034fa67"
+        }
+      ]
+    },
+    {
+      "lock": "external-consumer-3.41.0",
+      "lockSha256": "48097d9a954754233f83c86e44cc737fc9418f0b381c01341c1d90c3d8bb5610",
+      "package": "flutter_secure_storage_linux",
+      "version": "3.0.3",
+      "archiveSha256": "caa75bd78f017422912e3a904933113b2428eb79f981ac37acd2dd2a700458ea",
+      "licenseFile": "docs/licenses/resolved/flutter_secure_storage_linux-3.0.3-55dafb084270-LICENSE.txt",
+      "licenseSha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+      "declarationFiles": [
+        {
+          "path": "linux/CMakeLists.txt",
+          "sha256": "b139f8afb0a19009886a3e4e650f2b5ae7bed21b694423c209807d9dd7cf1b37"
+        }
+      ]
+    },
+    {
+      "lock": "external-consumer-3.41.0",
+      "lockSha256": "48097d9a954754233f83c86e44cc737fc9418f0b381c01341c1d90c3d8bb5610",
+      "package": "flutter_secure_storage_darwin",
+      "version": "0.4.3",
+      "archiveSha256": "a031ceac9b070e62ef183cd7f7d1a8798ebde402d5049f0fe6eb3a51bd797a21",
+      "licenseFile": "docs/licenses/resolved/flutter_secure_storage_darwin-0.4.3-3754c516086c-LICENSE.txt",
+      "licenseSha256": "3754c516086c62307896512b68024837bee5d2bea42a55cfd03f7448b92b06c8",
+      "declarationFiles": [
+        {
+          "path": "darwin/flutter_secure_storage_darwin.podspec",
+          "sha256": "61285edb1b63e7c32da558d9923b60ce227bd73013c800dbaae5f009793bfeb2"
+        },
+        {
+          "path": "darwin/flutter_secure_storage_darwin/Package.swift",
+          "sha256": "9611d5065efffaf2336a48a284412736ee814b71782cf898d9a812aeea11d443"
+        },
+        {
+          "path": "darwin/flutter_secure_storage_darwin/Sources/flutter_secure_storage_darwin/Resources/PrivacyInfo.xcprivacy",
+          "sha256": "47226a29608df206ad0a110e6afeb5a77ff575ac1df9c76bfdb2d6dfb3fafed1"
+        }
+      ]
+    },
+    {
+      "lock": "external-consumer-3.41.0",
+      "lockSha256": "48097d9a954754233f83c86e44cc737fc9418f0b381c01341c1d90c3d8bb5610",
+      "package": "objective_c",
+      "version": "9.5.0",
+      "archiveSha256": "b7fb95a6d9a4f009edd63dc5ac69f07420b23a16161c6dd8660290b59c602e8e",
+      "licenseFile": "docs/licenses/resolved/objective_c-9.5.0-1cda25a8de68-LICENSE.txt",
+      "licenseSha256": "1cda25a8de6880c5338de0b4a06ee89e8537c213eb1379c16a4c035bfd198b5c",
+      "declarationFiles": [
+        {
+          "path": "hook/build.dart",
+          "sha256": "aa8cd26a22f3d5f7cb1e769f6de647bae2b485db4576a43743c20f9a34301f7e"
+        }
+      ]
+    },
+    {
+      "lock": "example-3.41.0",
+      "lockSha256": "33b7a0155bb7d34f6d902272d3b40384e9befe0171e42b3bed7c1238bc247606",
+      "package": "flutter_secure_storage_windows",
+      "version": "4.2.2",
+      "archiveSha256": "471951813a97006d899db4948acc654a4f28c440083ea08178935ce20b173ec1",
+      "licenseFile": "docs/licenses/resolved/flutter_secure_storage_windows-4.2.2-55dafb084270-LICENSE.txt",
+      "licenseSha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+      "declarationFiles": [
+        {
+          "path": "windows/CMakeLists.txt",
+          "sha256": "4a2f8955d46d092b3e8a93dd721053e20cb13c8a75b0b3a1ba3fc951d07df41b"
+        },
+        {
+          "path": "windows/flutter_secure_storage_windows_plugin.cpp",
+          "sha256": "a832d629ac72979e0ae4c0012517e5af10f8eda0af045efac38746945034fa67"
+        }
+      ]
+    },
+    {
+      "lock": "example-3.41.0",
+      "lockSha256": "33b7a0155bb7d34f6d902272d3b40384e9befe0171e42b3bed7c1238bc247606",
+      "package": "flutter_secure_storage_linux",
+      "version": "3.0.3",
+      "archiveSha256": "caa75bd78f017422912e3a904933113b2428eb79f981ac37acd2dd2a700458ea",
+      "licenseFile": "docs/licenses/resolved/flutter_secure_storage_linux-3.0.3-55dafb084270-LICENSE.txt",
+      "licenseSha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+      "declarationFiles": [
+        {
+          "path": "linux/CMakeLists.txt",
+          "sha256": "b139f8afb0a19009886a3e4e650f2b5ae7bed21b694423c209807d9dd7cf1b37"
+        }
+      ]
+    },
+    {
+      "lock": "example-3.41.0",
+      "lockSha256": "33b7a0155bb7d34f6d902272d3b40384e9befe0171e42b3bed7c1238bc247606",
+      "package": "flutter_secure_storage_darwin",
+      "version": "0.4.3",
+      "archiveSha256": "a031ceac9b070e62ef183cd7f7d1a8798ebde402d5049f0fe6eb3a51bd797a21",
+      "licenseFile": "docs/licenses/resolved/flutter_secure_storage_darwin-0.4.3-3754c516086c-LICENSE.txt",
+      "licenseSha256": "3754c516086c62307896512b68024837bee5d2bea42a55cfd03f7448b92b06c8",
+      "declarationFiles": [
+        {
+          "path": "darwin/flutter_secure_storage_darwin.podspec",
+          "sha256": "61285edb1b63e7c32da558d9923b60ce227bd73013c800dbaae5f009793bfeb2"
+        },
+        {
+          "path": "darwin/flutter_secure_storage_darwin/Package.swift",
+          "sha256": "9611d5065efffaf2336a48a284412736ee814b71782cf898d9a812aeea11d443"
+        },
+        {
+          "path": "darwin/flutter_secure_storage_darwin/Sources/flutter_secure_storage_darwin/Resources/PrivacyInfo.xcprivacy",
+          "sha256": "47226a29608df206ad0a110e6afeb5a77ff575ac1df9c76bfdb2d6dfb3fafed1"
+        }
+      ]
+    },
+    {
+      "lock": "example-3.41.0",
+      "lockSha256": "33b7a0155bb7d34f6d902272d3b40384e9befe0171e42b3bed7c1238bc247606",
+      "package": "objective_c",
+      "version": "9.5.0",
+      "archiveSha256": "b7fb95a6d9a4f009edd63dc5ac69f07420b23a16161c6dd8660290b59c602e8e",
+      "licenseFile": "docs/licenses/resolved/objective_c-9.5.0-1cda25a8de68-LICENSE.txt",
+      "licenseSha256": "1cda25a8de6880c5338de0b4a06ee89e8537c213eb1379c16a4c035bfd198b5c",
+      "declarationFiles": [
+        {
+          "path": "hook/build.dart",
+          "sha256": "aa8cd26a22f3d5f7cb1e769f6de647bae2b485db4576a43743c20f9a34301f7e"
+        }
+      ]
+    },
+    {
+      "lock": "external-consumer-3.47.9",
+      "lockSha256": "9e0a6c509b96b98f28b4877f904cc8b8a85f83d650744db32006a62ba3727c01",
+      "package": "flutter_secure_storage_windows",
+      "version": "4.2.2",
+      "archiveSha256": "471951813a97006d899db4948acc654a4f28c440083ea08178935ce20b173ec1",
+      "licenseFile": "docs/licenses/resolved/flutter_secure_storage_windows-4.2.2-55dafb084270-LICENSE.txt",
+      "licenseSha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+      "declarationFiles": [
+        {
+          "path": "windows/CMakeLists.txt",
+          "sha256": "4a2f8955d46d092b3e8a93dd721053e20cb13c8a75b0b3a1ba3fc951d07df41b"
+        },
+        {
+          "path": "windows/flutter_secure_storage_windows_plugin.cpp",
+          "sha256": "a832d629ac72979e0ae4c0012517e5af10f8eda0af045efac38746945034fa67"
+        }
+      ]
+    },
+    {
+      "lock": "external-consumer-3.47.9",
+      "lockSha256": "9e0a6c509b96b98f28b4877f904cc8b8a85f83d650744db32006a62ba3727c01",
+      "package": "flutter_secure_storage_linux",
+      "version": "3.0.3",
+      "archiveSha256": "caa75bd78f017422912e3a904933113b2428eb79f981ac37acd2dd2a700458ea",
+      "licenseFile": "docs/licenses/resolved/flutter_secure_storage_linux-3.0.3-55dafb084270-LICENSE.txt",
+      "licenseSha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+      "declarationFiles": [
+        {
+          "path": "linux/CMakeLists.txt",
+          "sha256": "b139f8afb0a19009886a3e4e650f2b5ae7bed21b694423c209807d9dd7cf1b37"
+        }
+      ]
+    },
+    {
+      "lock": "external-consumer-3.47.9",
+      "lockSha256": "9e0a6c509b96b98f28b4877f904cc8b8a85f83d650744db32006a62ba3727c01",
+      "package": "flutter_secure_storage_darwin",
+      "version": "0.4.3",
+      "archiveSha256": "a031ceac9b070e62ef183cd7f7d1a8798ebde402d5049f0fe6eb3a51bd797a21",
+      "licenseFile": "docs/licenses/resolved/flutter_secure_storage_darwin-0.4.3-3754c516086c-LICENSE.txt",
+      "licenseSha256": "3754c516086c62307896512b68024837bee5d2bea42a55cfd03f7448b92b06c8",
+      "declarationFiles": [
+        {
+          "path": "darwin/flutter_secure_storage_darwin.podspec",
+          "sha256": "61285edb1b63e7c32da558d9923b60ce227bd73013c800dbaae5f009793bfeb2"
+        },
+        {
+          "path": "darwin/flutter_secure_storage_darwin/Package.swift",
+          "sha256": "9611d5065efffaf2336a48a284412736ee814b71782cf898d9a812aeea11d443"
+        },
+        {
+          "path": "darwin/flutter_secure_storage_darwin/Sources/flutter_secure_storage_darwin/Resources/PrivacyInfo.xcprivacy",
+          "sha256": "47226a29608df206ad0a110e6afeb5a77ff575ac1df9c76bfdb2d6dfb3fafed1"
+        }
+      ]
+    },
+    {
+      "lock": "external-consumer-3.47.9",
+      "lockSha256": "9e0a6c509b96b98f28b4877f904cc8b8a85f83d650744db32006a62ba3727c01",
+      "package": "objective_c",
+      "version": "9.5.0",
+      "archiveSha256": "b7fb95a6d9a4f009edd63dc5ac69f07420b23a16161c6dd8660290b59c602e8e",
+      "licenseFile": "docs/licenses/resolved/objective_c-9.5.0-1cda25a8de68-LICENSE.txt",
+      "licenseSha256": "1cda25a8de6880c5338de0b4a06ee89e8537c213eb1379c16a4c035bfd198b5c",
+      "declarationFiles": [
+        {
+          "path": "hook/build.dart",
+          "sha256": "aa8cd26a22f3d5f7cb1e769f6de647bae2b485db4576a43743c20f9a34301f7e"
+        }
+      ]
+    },
+    {
+      "lock": "example-3.47.9",
+      "lockSha256": "099d5df689c64dde9c04cec116c97f7d2c38142db992ae177ec881099cf93303",
+      "package": "flutter_secure_storage_windows",
+      "version": "4.2.2",
+      "archiveSha256": "471951813a97006d899db4948acc654a4f28c440083ea08178935ce20b173ec1",
+      "licenseFile": "docs/licenses/resolved/flutter_secure_storage_windows-4.2.2-55dafb084270-LICENSE.txt",
+      "licenseSha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+      "declarationFiles": [
+        {
+          "path": "windows/CMakeLists.txt",
+          "sha256": "4a2f8955d46d092b3e8a93dd721053e20cb13c8a75b0b3a1ba3fc951d07df41b"
+        },
+        {
+          "path": "windows/flutter_secure_storage_windows_plugin.cpp",
+          "sha256": "a832d629ac72979e0ae4c0012517e5af10f8eda0af045efac38746945034fa67"
+        }
+      ]
+    },
+    {
+      "lock": "example-3.47.9",
+      "lockSha256": "099d5df689c64dde9c04cec116c97f7d2c38142db992ae177ec881099cf93303",
+      "package": "flutter_secure_storage_linux",
+      "version": "3.0.3",
+      "archiveSha256": "caa75bd78f017422912e3a904933113b2428eb79f981ac37acd2dd2a700458ea",
+      "licenseFile": "docs/licenses/resolved/flutter_secure_storage_linux-3.0.3-55dafb084270-LICENSE.txt",
+      "licenseSha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+      "declarationFiles": [
+        {
+          "path": "linux/CMakeLists.txt",
+          "sha256": "b139f8afb0a19009886a3e4e650f2b5ae7bed21b694423c209807d9dd7cf1b37"
+        }
+      ]
+    },
+    {
+      "lock": "example-3.47.9",
+      "lockSha256": "099d5df689c64dde9c04cec116c97f7d2c38142db992ae177ec881099cf93303",
+      "package": "flutter_secure_storage_darwin",
+      "version": "0.4.3",
+      "archiveSha256": "a031ceac9b070e62ef183cd7f7d1a8798ebde402d5049f0fe6eb3a51bd797a21",
+      "licenseFile": "docs/licenses/resolved/flutter_secure_storage_darwin-0.4.3-3754c516086c-LICENSE.txt",
+      "licenseSha256": "3754c516086c62307896512b68024837bee5d2bea42a55cfd03f7448b92b06c8",
+      "declarationFiles": [
+        {
+          "path": "darwin/flutter_secure_storage_darwin.podspec",
+          "sha256": "61285edb1b63e7c32da558d9923b60ce227bd73013c800dbaae5f009793bfeb2"
+        },
+        {
+          "path": "darwin/flutter_secure_storage_darwin/Package.swift",
+          "sha256": "9611d5065efffaf2336a48a284412736ee814b71782cf898d9a812aeea11d443"
+        },
+        {
+          "path": "darwin/flutter_secure_storage_darwin/Sources/flutter_secure_storage_darwin/Resources/PrivacyInfo.xcprivacy",
+          "sha256": "47226a29608df206ad0a110e6afeb5a77ff575ac1df9c76bfdb2d6dfb3fafed1"
+        }
+      ]
+    },
+    {
+      "lock": "example-3.47.9",
+      "lockSha256": "099d5df689c64dde9c04cec116c97f7d2c38142db992ae177ec881099cf93303",
+      "package": "objective_c",
+      "version": "9.6.4",
+      "archiveSha256": "c965d264fd4b0b4dd402dce9d049b70656bf98d3ca108b9bc55d2544ceadbe5e",
+      "licenseFile": "docs/licenses/resolved/objective_c-9.6.4-1cda25a8de68-LICENSE.txt",
+      "licenseSha256": "1cda25a8de6880c5338de0b4a06ee89e8537c213eb1379c16a4c035bfd198b5c",
+      "declarationFiles": [
+        {
+          "path": "hook/build.dart",
+          "sha256": "8aa3018cbc51f28d8368819f86d3846ac5ddb972b738caa846ea7c47ba68b67a"
+        }
+      ]
+    }
+  ]
+}

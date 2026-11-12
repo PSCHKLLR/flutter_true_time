@@ -818,15 +818,15 @@
     },
     "provenance_dependencies": {
       "status": "partial",
-      "note": "Verified Dart notice hashes and coverage across 10 local lockfiles. Inventoried 59 Android runtime Maven modules and inspected six built archives. Human clearance and remaining native obligations are open.",
+      "note": "Verified Dart notice hashes and local lockfile coverage. Inventoried Android build archives, pinned Windows SDK binaries and notices, and cached native plugin build declarations. Final desktop and Apple archive inspection, redistribution obligations, and human clearance remain open.",
       "historicalEvidence": {
         "evidence": "docs/evidence/first-release-qualification.json",
         "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
         "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
       },
       "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
-      "evidence": "docs/evidence/first-release-android-provenance.json",
-      "sha256": "73517d07838d780beffdd161570653c59ad1c23b58325b0a748f9cfda475d465"
+      "evidence": "docs/evidence/first-release-native-provenance.json",
+      "sha256": "99c0b717232dd6c117c03c0ccf30e0e190dd85bd1046ded0d7b17a8660a39024"
     },
     "owned_repository_security": {
       "status": "blocked",
