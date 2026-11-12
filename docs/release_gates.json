@@ -859,14 +859,14 @@
     },
     "read_performance": {
       "status": "partial",
-      "note": "Windows AOT and browser latency, Chrome JS and WASM samples, native AOT GC telemetry, and standalone WASM V8 heap telemetry are recorded. Direct native allocation profiling and representative mobile measurements remain open.",
+      "note": "Windows AOT and browser latency and allocation observations are recorded. Flutter AOT profile counters identify managed allocations but do not establish stable totals. Representative release-build allocation and mobile measurements remain open.",
       "historicalEvidence": {
         "evidence": "docs/evidence/first-release-qualification.json",
         "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
         "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
       },
       "evidence": "docs/evidence/first-release-read-performance.json",
-      "sha256": "75eea0df168e5ff230ed4cb2cb7cb6ec127c4ab6d1fd07ad39b7d96b850d6a35",
+      "sha256": "a1472942127104d0ad9c281c20ee4753bf00d1d9fdff98a31d3bbdf1caf26dd7",
       "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
     }
   }

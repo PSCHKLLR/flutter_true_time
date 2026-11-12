@@ -884,5 +884,38 @@
         ]
       }
     ]
+  },
+  "windowsFlutterAotProfile": {
+    "flutter": "3.47.9",
+    "dart": "3.13.7",
+    "mode": "Windows x64 Flutter AOT profile with the headless desktop embedder",
+    "clockAdapter": "Windows default monotonic adapter (QPC)",
+    "aotSha256": "152f4a356176f0862df76b037fe7a6be2ae0a384d4abb1dee3b9c88c6816d340",
+    "engineSha256": "062bc2428d2bc018413d799a09b6c661be7a4dea63dac7bbe4ffa4a96d4b9e5d",
+    "method": "Warm up 2,000 calls per case, request GC, reset the VM service class allocation profile, run the measured batch, then subtract the initial class counters from the final counters. Compare the no-read baseline with now(), read(), and a retained-object control. The short run repeated 100, 200 and 400 calls twice. The earlier long run used 1,000, 3,000 and 5,000 calls.",
+    "result": "Both 100-call paths in the first short series showed 99 ClockSnapshot and 198 Duration allocations. The 400-call retained-object control in that series showed 400 marker instances and 6,400 marker bytes. Other batches showed counter discontinuities, including negative deltas and retained-marker undercounts.",
+    "limits": "Class deltas are direct managed-heap observations under instrumentation. Counter discontinuities make aggregate allocations per call unreliable. Native allocations, product-mode allocations and representative mobile measurements remain unverified.",
+    "evidenceFiles": [
+      {
+        "path": "docs/evidence/windows-profile-read-fixture.dart.txt",
+        "sha256": "8e216bc730c2ad82d7583827505eb9bb5afc9e936ca1e6663e9729b700a73837"
+      },
+      {
+        "path": "docs/evidence/windows-profile-read-host.dart.txt",
+        "sha256": "86ca9831c20bc9e4e79c7824a73a595945d4af1ded5434397ac895788033ac3f"
+      },
+      {
+        "path": "docs/evidence/windows-profile-read-client.dart.txt",
+        "sha256": "c7beac4ff3ae14d3c5c409644ea6624ce24ffea814ad9995f7376cfc2efbb5ac"
+      },
+      {
+        "path": "docs/evidence/windows-profile-read-short.json",
+        "sha256": "10b39a0422f0a8414b23b830288efe26c3b7fc23e652b74b0485940ff51038c4"
+      },
+      {
+        "path": "docs/evidence/windows-profile-read-long.json",
+        "sha256": "83375d6bfbc1d670b9c485cd8c51d1107e8f034c60a3d878950416b666ec5778"
+      }
+    ]
   }
 }

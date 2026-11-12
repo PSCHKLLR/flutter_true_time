@@ -1,0 +1,71 @@
+import 'dart:ffi';
+import 'dart:io';
+
+import 'package:ffi/ffi.dart';
+
+final class EngineProperties extends Struct {
+  external Pointer<Utf16> assets;
+  external Pointer<Utf16> icu;
+  external Pointer<Utf16> aot;
+  external Pointer<Utf8> entrypoint;
+  @Int32()
+  external int argc;
+  external Pointer<Pointer<Utf8>> argv;
+  @Int32()
+  external int gpu;
+  @Int32()
+  external int thread;
+  @Int32()
+  external int accessibility;
+  @Int32()
+  external int impeller;
+  @Bool()
+  external bool flutterGpu;
+}
+
+void main(List<String> args) {
+  final [dll, assets, icu, aot, ready, stop] = args;
+  final flutter = DynamicLibrary.open(dll);
+  final create = flutter.lookupFunction<
+      Pointer<Void> Function(Pointer<EngineProperties>),
+      Pointer<Void> Function(Pointer<EngineProperties>)>('FlutterDesktopEngineCreate');
+  final run = flutter.lookupFunction<
+      Bool Function(Pointer<Void>, Pointer<Utf8>),
+      bool Function(Pointer<Void>, Pointer<Utf8>)>('FlutterDesktopEngineRun');
+  final destroy = flutter.lookupFunction<
+      Bool Function(Pointer<Void>),
+      bool Function(Pointer<Void>)>('FlutterDesktopEngineDestroy');
+  final user32 = DynamicLibrary.open('user32.dll');
+  final peek = user32.lookupFunction<
+      Int32 Function(Pointer<Void>, Pointer<Void>, Uint32, Uint32, Uint32),
+      int Function(Pointer<Void>, Pointer<Void>, int, int, int)>('PeekMessageW');
+  final dispatch = user32.lookupFunction<
+      IntPtr Function(Pointer<Void>),
+      int Function(Pointer<Void>)>('DispatchMessageW');
+  using((arena) {
+    final properties = arena<EngineProperties>();
+    final argv = arena<Pointer<Utf8>>(1);
+    argv[0] = ready.toNativeUtf8(allocator: arena);
+    properties.ref
+      ..assets = assets.toNativeUtf16(allocator: arena)
+      ..icu = icu.toNativeUtf16(allocator: arena)
+      ..aot = aot.toNativeUtf16(allocator: arena)
+      ..argc = 1
+      ..argv = argv;
+    final engine = create(properties);
+    if (engine == nullptr) throw StateError('Failed to create Flutter engine');
+    try {
+      if (!run(engine, nullptr)) throw StateError('Failed to run Flutter engine');
+      final message = arena<Uint64>(6).cast<Void>();
+      final timer = Stopwatch()..start();
+      while (timer.elapsed < const Duration(seconds: 180) && !File(stop).existsSync()) {
+        while (peek(message, nullptr, 0, 0, 1) != 0) {
+          dispatch(message);
+        }
+        sleep(const Duration(milliseconds: 1));
+      }
+    } finally {
+      if (!destroy(engine)) throw StateError('Failed to destroy Flutter engine');
+    }
+  });
+}

@@ -1,0 +1,91 @@
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+
+Future<void> main(List<String> args) async {
+  final [host, dll, assets, icu, aot, work, packages] = args;
+  final ready = File('$work/vm-ready.txt');
+  final stop = File('$work/vm-stop.txt');
+  for (final file in [ready, stop]) {
+    if (file.existsSync()) file.deleteSync();
+  }
+  final process = await Process.start(
+    Platform.resolvedExecutable,
+    ['--packages=$packages', host, dll, assets, icu, aot, ready.path, stop.path],
+    environment: {
+      'FLUTTER_ENGINE_SWITCHES': '2',
+      'FLUTTER_ENGINE_SWITCH_1': 'vm-service-port=0',
+      'FLUTTER_ENGINE_SWITCH_2': 'vm-service-host=127.0.0.1',
+    },
+  );
+  process.stdout.transform(utf8.decoder).listen((message) {
+    if (!message.contains('VM service is listening')) stderr.write(message);
+  });
+  process.stderr.transform(utf8.decoder).listen(stderr.write);
+  try {
+    final startup = Stopwatch()..start();
+    while (!ready.existsSync() && startup.elapsed < const Duration(seconds: 15)) {
+      await Future<void>.delayed(const Duration(milliseconds: 250));
+    }
+    final server = Uri.parse(ready.readAsStringSync());
+    if (server.host != '127.0.0.1') throw StateError('Expected a loopback service');
+    final ws = await WebSocket.connect(server.replace(scheme: 'ws', path: '${server.path}ws').toString());
+    final responses = StreamIterator<Object?>(ws);
+    try {
+      var id = 0;
+      Future<Map<String, dynamic>> rpc(String method, [Map<String, Object>? params]) async {
+        ws.add(jsonEncode({'jsonrpc': '2.0', 'id': ++id, 'method': method, 'params': params ?? {}}));
+        while (await responses.moveNext().timeout(const Duration(seconds: 25))) {
+          final response = jsonDecode(responses.current! as String) as Map<String, dynamic>;
+          if (response['id'] != id) continue;
+          if (response.containsKey('error')) throw StateError('$method: ${response['error']}');
+          return response['result'] as Map<String, dynamic>;
+        }
+        throw StateError('Service disconnected');
+      }
+
+      final vm = await rpc('getVM');
+      final isolates = vm['isolates'] as List<dynamic>;
+      final isolate = isolates.single as Map<String, dynamic>;
+      final isolateId = isolate['id'] as String;
+      final results = <Object>[];
+      for (final count in [100, 200, 400, 100, 200, 400]) {
+        for (final mode in ['baseline', 'now', 'read', 'control']) {
+          final measure = {'isolateId': isolateId, 'mode': mode, 'calls': '2000'};
+          await rpc('ext.true_time.measure', measure);
+          await rpc('getAllocationProfile', {'isolateId': isolateId, 'gc': true});
+          final initial = await rpc('getAllocationProfile', {'isolateId': isolateId, 'reset': true});
+          final initialMembers = (initial['members'] as List<dynamic>).cast<Map<String, dynamic>>();
+          final initialCounts = {
+            for (final entry in initialMembers) entry['class']['id']: entry,
+          };
+          final checksum = await rpc('ext.true_time.measure', {...measure, 'calls': count.toString()});
+          final profile = await rpc('getAllocationProfile', {'isolateId': isolateId});
+          final members = (profile['members'] as List<dynamic>).cast<Map<String, dynamic>>();
+          final classes = [
+            for (final member in members)
+              if ((member['instancesAccumulated'] as int) != (initialCounts[member['class']['id']]?['instancesAccumulated'] ?? 0))
+                {
+                  'class': member['class']['name'],
+                  'instances': (member['instancesAccumulated'] as int) - (initialCounts[member['class']['id']]?['instancesAccumulated'] as int? ?? 0),
+                  'bytes': (member['accumulatedSize'] as int) - (initialCounts[member['class']['id']]?['accumulatedSize'] as int? ?? 0),
+                },
+          ];
+          results.add({'mode': mode, 'calls': count, 'checksum': checksum, 'classes': classes});
+        }
+      }
+      stdout.writeln(const JsonEncoder.withIndent('  ').convert(results));
+    } finally {
+      unawaited(responses.cancel());
+      unawaited(ws.close());
+    }
+  } finally {
+    stop.writeAsStringSync('done');
+    final exit = await process.exitCode.timeout(const Duration(seconds: 25), onTimeout: () {
+      process.kill();
+      return -1;
+    });
+    if (ready.existsSync()) ready.deleteSync();
+    if (exit != 0) throw StateError('Host exited with $exit');
+  }
+}
