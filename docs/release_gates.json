@@ -691,27 +691,27 @@
   },
   "gates": {
     "minimum_sdk": {
-      "status": "partial",
-      "note": "Windows analysis, 110 core and facade tests, and two example tests passed without changing the new source digest. Hosted Linux and macOS evidence is pending.",
+      "status": "passed",
+      "note": "Flutter 3.41.0 passed formatting, analysis, core and facade tests, and the example suite on Windows, Linux, and macOS in run 43236480244.",
       "historicalEvidence": {
         "evidence": "docs/evidence/first-release-ci-compatibility.json",
         "sha256": "ed47df7d0bc2e0b922cf26a00def59cc7318392d11ed4c327ca0af692dda0f87",
         "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
       },
-      "evidence": "docs/evidence/first-release-ci-workflow-validation.json",
-      "sha256": "d15fa395c030c0eaaa1fb869b52c9a9b83b2681bd7cbe15fc91041a23f054515",
+      "evidence": "docs/evidence/first-release-current-hosted-compatibility.json",
+      "sha256": "a8670ada3a6483184e1cbebbc7a8f633d89b94c5b094c0dd378d0c02fbc07dda",
       "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
     },
     "current_sdk": {
-      "status": "partial",
-      "note": "Windows analysis, 110 core and facade tests, and two example tests passed without changing the new source digest. Hosted Linux and macOS evidence is pending.",
+      "status": "passed",
+      "note": "Flutter 3.47.9 passed formatting, analysis, core and facade tests, and the example suite on Windows, Linux, and macOS in run 43236480244.",
       "historicalEvidence": {
         "evidence": "docs/evidence/first-release-ci-compatibility.json",
         "sha256": "ed47df7d0bc2e0b922cf26a00def59cc7318392d11ed4c327ca0af692dda0f87",
         "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
       },
-      "evidence": "docs/evidence/first-release-ci-workflow-validation.json",
-      "sha256": "d15fa395c030c0eaaa1fb869b52c9a9b83b2681bd7cbe15fc91041a23f054515",
+      "evidence": "docs/evidence/first-release-current-hosted-compatibility.json",
+      "sha256": "a8670ada3a6483184e1cbebbc7a8f633d89b94c5b094c0dd378d0c02fbc07dda",
       "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
     },
     "android_baseline": {
@@ -760,22 +760,28 @@
       }
     },
     "windows_release": {
-      "status": "pending",
-      "note": "Source changed; fresh qualification evidence required.",
+      "status": "passed",
+      "note": "Windows release builds passed on both pinned Flutter SDKs in run 43236480244.",
       "historicalEvidence": {
         "evidence": "docs/evidence/first-release-ci-compatibility.json",
         "sha256": "ed47df7d0bc2e0b922cf26a00def59cc7318392d11ed4c327ca0af692dda0f87",
         "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
-      }
+      },
+      "evidence": "docs/evidence/first-release-current-hosted-compatibility.json",
+      "sha256": "a8670ada3a6483184e1cbebbc7a8f633d89b94c5b094c0dd378d0c02fbc07dda",
+      "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
     },
     "linux_release": {
-      "status": "pending",
-      "note": "Source changed; fresh qualification evidence required.",
+      "status": "passed",
+      "note": "Linux release builds passed on both pinned Flutter SDKs in run 43236480244.",
       "historicalEvidence": {
         "evidence": "docs/evidence/first-release-ci-compatibility.json",
         "sha256": "ed47df7d0bc2e0b922cf26a00def59cc7318392d11ed4c327ca0af692dda0f87",
         "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
-      }
+      },
+      "evidence": "docs/evidence/first-release-current-hosted-compatibility.json",
+      "sha256": "a8670ada3a6483184e1cbebbc7a8f633d89b94c5b094c0dd378d0c02fbc07dda",
+      "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
     },
     "web_js_wasm_browser": {
       "status": "passed",
