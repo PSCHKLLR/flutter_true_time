@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-12",
+  "commit": "22507ec541580c2a66571d3690f2645e5d61f699",
+  "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+  "browser": "Chrome 157.0.8103.40 (Windows x64, headless)",
+  "method": "Served release builds on loopback, checked for a rendered Flutter canvas and verified the loaded application entrypoint. All 31 tracked browser inputs matched both build checkouts byte for byte.",
+  "results": [
+    {
+      "flutter": "3.41.0",
+      "mode": "JS",
+      "entrypoint": "main.dart.js",
+      "entrypointSha256": "56a1f26f8769f4ad0e44f87d59d754d02f416007e55972a05fc4fa1183335c77",
+      "rendered": true,
+      "runtimeErrors": []
+    },
+    {
+      "flutter": "3.41.0",
+      "mode": "WASM",
+      "entrypoint": "main.dart.wasm",
+      "entrypointSha256": "255556d5294cacc7dcf47324978c458c7e07544eadac321be76a70522e7bb321",
+      "rendered": true,
+      "runtimeErrors": []
+    },
+    {
+      "flutter": "3.47.9",
+      "mode": "JS",
+      "entrypoint": "main.dart.js",
+      "entrypointSha256": "5bc2ea12bf561c0b0f739ddee69c5711215058003ccb00e4eab96f88e978f187",
+      "rendered": true,
+      "runtimeErrors": []
+    },
+    {
+      "flutter": "3.47.9",
+      "mode": "WASM",
+      "entrypoint": "main.dart.wasm",
+      "entrypointSha256": "66047dc41d438abbf7b8ed6b5a72a7556b2e79fb3dab8bbb64c7e086d8099f02",
+      "rendered": true,
+      "runtimeErrors": []
+    }
+  ],
+  "liveHttpsCors": "Open",
+  "offlineReloadAfterSuccessfulSync": "Open"
+}

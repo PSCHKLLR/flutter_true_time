@@ -1,8 +1,16 @@
 # First-release validation
 
+The revised CI workflows resolve Dart dependencies without preparing native example hosts in core jobs. They compare the source fingerprint before and after analysis and tests. Apple build jobs capture both the input fingerprint and the prepared-host fingerprint. Android jobs install the NDK required by both pinned Flutter versions before invoking Gradle, with up to three install attempts.
+
+On Windows, both pinned SDKs passed analysis, 110 core and facade tests, and two example tests with the revised workflow sequence. Both copies preserved the new source fingerprint. A mock `sdkmanager` verified the retry behavior. Hosted validation remains open. The results below apply to `22507ec` and earlier source fingerprints. [Workflow validation](evidence/first-release-ci-workflow-validation.json)
+
 The first public release remains blocked. The guarded Pub preview succeeded with zero warnings and selected 165 files. The payload includes the top-level license and complete upstream and Flutter template notices. [Release gates](release_gates.json) · [Current qualification evidence](evidence/first-release-qualification.json)
 
-Both pinned SDKs passed Windows formatting and analysis, 110 core and facade tests, two example tests, and eight mocked Chrome source tests. Windows release builds require a suitable Visual Studio C++ toolchain. Web JS and WASM compilation ran on both SDKs. The live endpoint and offline reload checks remain open.
+Both pinned SDKs passed Windows formatting and analysis, 110 core and facade tests, two example tests, and eight mocked Chrome source tests. The local Windows release builds require a suitable Visual Studio C++ toolchain. All four Web release builds rendered in Chrome with their intended JS or WASM entrypoint and no uncaught runtime errors. Live HTTPS/CORS and offline reload after a successful sync remain open. [Browser startup evidence](evidence/first-release-browser-startup.json)
+
+GitHub Actions passed all six SDK core jobs and all four Windows and Linux release build jobs on `22507ec`. The archive hashes matched GitHub's published digests. Nine artifacts recorded the release fingerprint. The Flutter 3.41.0 macOS artifact recorded two new Podfiles and four changed xcconfig files, so the minimum-SDK gate remains partial. [CI artifact review](evidence/first-release-ci-compatibility.json)
+
+The overall compatibility run failed on the Android current lane. The Linux runner's `sdkmanager` rejected the downloaded NDK 28.2.13676358 ZIP during project configuration. This lane built both artifacts in the recorded Windows qualification. [Failed GitHub job](https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43212797316/job/131164401671)
 
 The baseline, current, and built-in Kotlin Android lanes each produced a release APK and AAB on JDK 17. The current evidence records each artifact hash and the Gradle, AGP, and Kotlin versions reported by the build.
 

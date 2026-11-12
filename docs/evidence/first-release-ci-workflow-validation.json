@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-12",
+  "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+  "platform": "Windows x64",
+  "sdkChecks": [
+    {
+      "flutter": "3.41.0",
+      "dart": "3.11.0",
+      "analysis": "passed",
+      "coreAndFacadeTests": 110,
+      "exampleTests": 2,
+      "sourceDigestPreserved": true
+    },
+    {
+      "flutter": "3.47.9",
+      "dart": "3.13.7",
+      "analysis": "passed",
+      "coreAndFacadeTests": 110,
+      "exampleTests": 2,
+      "sourceDigestPreserved": true
+    }
+  ],
+  "resolution": "Fresh isolated checkouts with no lockfiles; dart pub get --example --offline. The workflow uses the same command with network resolution.",
+  "workflowSyntax": "Parsed both YAML files and checked multiline Bash scripts with bash -n.",
+  "ndkInstallTest": "A mock sdkmanager verified immediate success, recovery on the third attempt, and failure after three exhausted attempts for NDK 28.2.13676358.",
+  "packageNameCheck": {
+    "url": "https://pub.dev/api/packages/flutter_true_time",
+    "httpStatus": 404
+  },
+  "hostedValidation": "Pending for the revised workflows."
+}

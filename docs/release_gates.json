@@ -2,7 +2,7 @@
   "schema": 2,
   "version": "0.1.0-dev.1",
   "developmentInputs": false,
-  "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+  "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -10,11 +10,11 @@
     },
     ".github/workflows/apple-qualification.yml": {
       "mode": "utf8-lf",
-      "sha256": "3c21a4b486d9c56da27a9e4fb0478aa08ac818360e5846f6469c6ab337703b69"
+      "sha256": "3ccc6f8883b40da8f7f7f7ace4f2e6788411e348762a273c9146dff1f6cd02d6"
     },
     ".github/workflows/compatibility.yml": {
       "mode": "utf8-lf",
-      "sha256": "c6d98f171527cbadfb49eb174279f3c2839a2a38803b467ede2b7eebc13ce7bf"
+      "sha256": "8c8b5d71b72b797a47754b12634f5d5c687247ff9126163ecfabed5bfbbf440f"
     },
     ".pubignore": {
       "mode": "utf8-lf",
@@ -692,153 +692,164 @@
   "gates": {
     "minimum_sdk": {
       "status": "partial",
-      "note": "Windows formatting and analysis, 110 core/facade tests, and two example tests passed. Linux and macOS SDK checks are open.",
+      "note": "Windows analysis, 110 core and facade tests, and two example tests passed without changing the new source digest. Hosted Linux and macOS evidence is pending.",
       "historicalEvidence": {
-        "evidence": "docs/evidence/enhancement-minimum.json",
-        "sha256": "da1ea23a8e2e39652c60bac541ee7715b5202b704394c700aea546b89d583274",
-        "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4"
+        "evidence": "docs/evidence/first-release-ci-compatibility.json",
+        "sha256": "ed47df7d0bc2e0b922cf26a00def59cc7318392d11ed4c327ca0af692dda0f87",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
       },
-      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
-      "evidence": "docs/evidence/first-release-qualification.json",
-      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
+      "evidence": "docs/evidence/first-release-ci-workflow-validation.json",
+      "sha256": "d15fa395c030c0eaaa1fb869b52c9a9b83b2681bd7cbe15fc91041a23f054515",
+      "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
     },
     "current_sdk": {
       "status": "partial",
-      "note": "Windows formatting and analysis, 110 core/facade tests, and two example tests passed. Linux and macOS SDK checks are open.",
+      "note": "Windows analysis, 110 core and facade tests, and two example tests passed without changing the new source digest. Hosted Linux and macOS evidence is pending.",
       "historicalEvidence": {
-        "evidence": "docs/evidence/enhancement-current.json",
-        "sha256": "6c6bf41b7cd48d55797c3b1e6bc8cf1f73cfd518145a1134c3394bb8538c5aac",
-        "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4"
+        "evidence": "docs/evidence/first-release-ci-compatibility.json",
+        "sha256": "ed47df7d0bc2e0b922cf26a00def59cc7318392d11ed4c327ca0af692dda0f87",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
       },
-      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
-      "evidence": "docs/evidence/first-release-qualification.json",
-      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
+      "evidence": "docs/evidence/first-release-ci-workflow-validation.json",
+      "sha256": "d15fa395c030c0eaaa1fb869b52c9a9b83b2681bd7cbe15fc91041a23f054515",
+      "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
     },
     "android_baseline": {
-      "status": "passed",
-      "note": "Pinned JDK 17 APK and AAB builds passed. The Gradle toolchain was verified and artifact hashes recorded.",
+      "status": "pending",
+      "note": "Source changed; fresh qualification evidence required.",
       "historicalEvidence": {
-        "evidence": "docs/evidence/enhancement-minimum.json",
-        "sha256": "da1ea23a8e2e39652c60bac541ee7715b5202b704394c700aea546b89d583274",
-        "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4"
-      },
-      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
-      "evidence": "docs/evidence/first-release-qualification.json",
-      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
+        "evidence": "docs/evidence/first-release-qualification.json",
+        "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
+      }
     },
     "android_current": {
-      "status": "passed",
-      "note": "Pinned JDK 17 APK and AAB builds passed. The Gradle toolchain was verified and artifact hashes recorded.",
+      "status": "pending",
+      "note": "Source changed; fresh qualification evidence required.",
       "historicalEvidence": {
-        "evidence": "docs/evidence/enhancement-current.json",
-        "sha256": "6c6bf41b7cd48d55797c3b1e6bc8cf1f73cfd518145a1134c3394bb8538c5aac",
-        "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4"
-      },
-      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
-      "evidence": "docs/evidence/first-release-qualification.json",
-      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
+        "evidence": "docs/evidence/first-release-qualification.json",
+        "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
+      }
     },
     "android_builtin_kotlin": {
-      "status": "passed",
-      "note": "Pinned JDK 17 APK and AAB builds passed. The Gradle toolchain was verified and artifact hashes recorded.",
+      "status": "pending",
+      "note": "Source changed; fresh qualification evidence required.",
       "historicalEvidence": {
-        "evidence": "docs/evidence/enhancement-builtin.json",
-        "sha256": "51f30605ac1fd1c320014b65c504fa6ca9d7b10150e632b4259d84265d18470f",
-        "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4"
-      },
-      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
-      "evidence": "docs/evidence/first-release-qualification.json",
-      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
+        "evidence": "docs/evidence/first-release-qualification.json",
+        "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
+      }
     },
     "apple_xcode": {
       "status": "blocked",
-      "note": "Apple silicon Xcode 27.2 runner and iOS/macOS outputs are required.",
-      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
-      "evidence": "docs/evidence/first-release-qualification.json",
-      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
+      "note": "Source changed; fresh qualification evidence required.",
+      "historicalEvidence": {
+        "evidence": "docs/evidence/first-release-qualification.json",
+        "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
+      }
     },
     "windows_release": {
-      "status": "blocked",
-      "note": "Both pinned SDK attempts reported that a suitable Visual Studio toolchain was unavailable.",
-      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
-      "evidence": "docs/evidence/first-release-qualification.json",
-      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
+      "status": "pending",
+      "note": "Source changed; fresh qualification evidence required.",
+      "historicalEvidence": {
+        "evidence": "docs/evidence/first-release-ci-compatibility.json",
+        "sha256": "ed47df7d0bc2e0b922cf26a00def59cc7318392d11ed4c327ca0af692dda0f87",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
+      }
     },
     "linux_release": {
-      "status": "blocked",
-      "note": "A Linux runner with desktop build dependencies is required.",
-      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
-      "evidence": "docs/evidence/first-release-qualification.json",
-      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
+      "status": "pending",
+      "note": "Source changed; fresh qualification evidence required.",
+      "historicalEvidence": {
+        "evidence": "docs/evidence/first-release-ci-compatibility.json",
+        "sha256": "ed47df7d0bc2e0b922cf26a00def59cc7318392d11ed4c327ca0af692dda0f87",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
+      }
     },
     "web_js_wasm_browser": {
-      "status": "partial",
-      "note": "Both pinned SDKs compiled JS/WASM and passed mocked Chrome source tests. Live independent HTTPS/CORS and offline reload evidence is open.",
+      "status": "pending",
+      "note": "Source changed; fresh qualification evidence required.",
       "historicalEvidence": {
-        "evidence": "docs/evidence/enhancement-browser-startup.json",
-        "sha256": "d7a81db4973f06abbc7d2c15f963fc5f65a5fb2f6687c76b60478a324d72806e",
-        "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4"
-      },
-      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
-      "evidence": "docs/evidence/first-release-qualification.json",
-      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
+        "evidence": "docs/evidence/first-release-browser-startup.json",
+        "sha256": "1e8ba13be0a7fa162cd9532bbf3d86a9ff60f24f436c46fe1b1beb8b3082b523",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
+      }
     },
     "physical_lifecycle": {
       "status": "blocked",
-      "note": "Physical Android and iOS devices and desktop suspend evidence are required. ADB listed no devices.",
-      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
-      "evidence": "docs/evidence/first-release-qualification.json",
-      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
+      "note": "Source changed; fresh qualification evidence required.",
+      "historicalEvidence": {
+        "evidence": "docs/evidence/first-release-qualification.json",
+        "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
+      }
     },
     "persistence_native": {
       "status": "blocked",
-      "note": "Same-boot, reboot, backup, native keyring and storage failure qualification need native environments.",
-      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
-      "evidence": "docs/evidence/first-release-qualification.json",
-      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
+      "note": "Source changed; fresh qualification evidence required.",
+      "historicalEvidence": {
+        "evidence": "docs/evidence/first-release-qualification.json",
+        "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
+      }
     },
     "apple_privacy_archive": {
       "status": "blocked",
-      "note": "Review actual Apple outputs and privacy declarations on the qualified Xcode runner.",
-      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
-      "evidence": "docs/evidence/first-release-qualification.json",
-      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
+      "note": "Source changed; fresh qualification evidence required.",
+      "historicalEvidence": {
+        "evidence": "docs/evidence/first-release-qualification.json",
+        "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
+      }
     },
     "provenance_dependencies": {
-      "status": "partial",
-      "note": "Pinned upstream and collected license hashes matched. Human and native dependency redistribution review is open.",
-      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
-      "evidence": "docs/evidence/first-release-qualification.json",
-      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
+      "status": "pending",
+      "note": "Source changed; fresh qualification evidence required.",
+      "historicalEvidence": {
+        "evidence": "docs/evidence/first-release-qualification.json",
+        "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
+      }
     },
     "owned_repository_security": {
       "status": "blocked",
-      "note": "Repository returned HTTP 200 and private reporting was disabled. Maintainer and authorized uploader access remain unverified.",
-      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
-      "evidence": "docs/evidence/first-release-qualification.json",
-      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
+      "note": "Source changed; fresh qualification evidence required.",
+      "historicalEvidence": {
+        "evidence": "docs/evidence/first-release-qualification.json",
+        "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
+      }
     },
     "name_availability": {
       "status": "passed",
-      "note": "Public package API returned HTTP 404 on 12 November 2026. Recheck immediately before publication.",
-      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
-      "evidence": "docs/evidence/first-release-qualification.json",
-      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
+      "note": "The public registry returned HTTP 404 on 12 November 2026. Recheck the name before publication.",
+      "historicalEvidence": {
+        "evidence": "docs/evidence/first-release-qualification.json",
+        "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
+      },
+      "evidence": "docs/evidence/first-release-ci-workflow-validation.json",
+      "sha256": "d15fa395c030c0eaaa1fb869b52c9a9b83b2681bd7cbe15fc91041a23f054515",
+      "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
     },
     "archive_consumer": {
       "status": "blocked",
-      "note": "Create and test the exact isolated candidate after technical qualification."
+      "note": "Source changed; fresh qualification evidence required."
     },
     "owner_archive_approval": {
       "status": "blocked",
-      "note": "Owner approval must identify the exact Pub-selected digest after consumer qualification."
+      "note": "Source changed; fresh qualification evidence required."
     },
     "read_performance": {
-      "status": "partial",
-      "note": "Windows AOT latency smoke recorded. Representative release-build latency and allocation evidence is open.",
-      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
-      "evidence": "docs/evidence/first-release-qualification.json",
-      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
+      "status": "pending",
+      "note": "Source changed; fresh qualification evidence required.",
+      "historicalEvidence": {
+        "evidence": "docs/evidence/first-release-qualification.json",
+        "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
+      }
     }
   }
 }
