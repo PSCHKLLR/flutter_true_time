@@ -824,7 +824,7 @@
     },
     "provenance_dependencies": {
       "status": "partial",
-      "note": "Verified Dart notice hashes and local lockfile coverage. Inventoried Android build archives, pinned Windows SDK binaries and notices, and cached native plugin build declarations. Final desktop and Apple archive inspection, redistribution obligations, and human clearance remain open.",
+      "note": "Verified Dart notice hashes against local and hosted lockfiles. Inventoried Android build archives, pinned Windows SDK binaries and notices, and cached native plugin build declarations. Final desktop and Apple archive inspection, redistribution obligations, and human clearance remain open.",
       "historicalEvidence": {
         "evidence": "docs/evidence/first-release-qualification.json",
         "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
@@ -832,7 +832,7 @@
       },
       "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
       "evidence": "docs/evidence/first-release-native-provenance.json",
-      "sha256": "99c0b717232dd6c117c03c0ccf30e0e190dd85bd1046ded0d7b17a8660a39024"
+      "sha256": "5a3cbedc3ebc417bfb79d9500061eb5498458908ce2e23c0714b26c7e9667a0e"
     },
     "owned_repository_security": {
       "status": "blocked",

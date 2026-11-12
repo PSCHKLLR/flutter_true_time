@@ -1,0 +1,108 @@
+{
+  "sourceCommit": "2da5fb4854dd75dfb01b41863b735c1b2ddab24e",
+  "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+  "run": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43236480244",
+  "runEvidence": "docs/evidence/first-release-current-hosted-compatibility.json",
+  "runEvidenceSha256": "a8670ada3a6483184e1cbebbc7a8f633d89b94c5b094c0dd378d0c02fbc07dda",
+  "catalog": "docs/DEPENDENCY_LICENSES.json",
+  "catalogSha256": "27174466149e61d0f8f123a23bd62530af04f6e88e6cfd3c4a092038502a59f4",
+  "scope": "Resolved hosted Dart package versions and all corresponding recorded license-file hashes. Human redistribution review and final native archives remain open.",
+  "lockfiles": [
+    {
+      "lock": "core-macos-latest-3.41.0-example.lock",
+      "sha256": "33b7a0155bb7d34f6d902272d3b40384e9befe0171e42b3bed7c1238bc247606",
+      "hostedPackages": 62,
+      "missing": []
+    },
+    {
+      "lock": "core-macos-latest-3.41.0-root.lock",
+      "sha256": "d67b8b1c695038342de91ad43626ae089a1b0ae1fd3bdd075d855ac2cb7606d2",
+      "hostedPackages": 87,
+      "missing": []
+    },
+    {
+      "lock": "core-macos-latest-3.47.9-example.lock",
+      "sha256": "099d5df689c64dde9c04cec116c97f7d2c38142db992ae177ec881099cf93303",
+      "hostedPackages": 62,
+      "missing": []
+    },
+    {
+      "lock": "core-macos-latest-3.47.9-root.lock",
+      "sha256": "c62849090a06f2f4bcf0d9a79d1e3f9f48887383f16e021bea9be9cf06a1220b",
+      "hostedPackages": 87,
+      "missing": []
+    },
+    {
+      "lock": "core-ubuntu-24.04-3.41.0-example.lock",
+      "sha256": "33b7a0155bb7d34f6d902272d3b40384e9befe0171e42b3bed7c1238bc247606",
+      "hostedPackages": 62,
+      "missing": []
+    },
+    {
+      "lock": "core-ubuntu-24.04-3.41.0-root.lock",
+      "sha256": "d67b8b1c695038342de91ad43626ae089a1b0ae1fd3bdd075d855ac2cb7606d2",
+      "hostedPackages": 87,
+      "missing": []
+    },
+    {
+      "lock": "core-ubuntu-24.04-3.47.9-example.lock",
+      "sha256": "099d5df689c64dde9c04cec116c97f7d2c38142db992ae177ec881099cf93303",
+      "hostedPackages": 62,
+      "missing": []
+    },
+    {
+      "lock": "core-ubuntu-24.04-3.47.9-root.lock",
+      "sha256": "c62849090a06f2f4bcf0d9a79d1e3f9f48887383f16e021bea9be9cf06a1220b",
+      "hostedPackages": 87,
+      "missing": []
+    },
+    {
+      "lock": "core-windows-latest-3.41.0-example.lock",
+      "sha256": "33b7a0155bb7d34f6d902272d3b40384e9befe0171e42b3bed7c1238bc247606",
+      "hostedPackages": 62,
+      "missing": []
+    },
+    {
+      "lock": "core-windows-latest-3.41.0-root.lock",
+      "sha256": "d67b8b1c695038342de91ad43626ae089a1b0ae1fd3bdd075d855ac2cb7606d2",
+      "hostedPackages": 87,
+      "missing": []
+    },
+    {
+      "lock": "core-windows-latest-3.47.9-example.lock",
+      "sha256": "099d5df689c64dde9c04cec116c97f7d2c38142db992ae177ec881099cf93303",
+      "hostedPackages": 62,
+      "missing": []
+    },
+    {
+      "lock": "core-windows-latest-3.47.9-root.lock",
+      "sha256": "c62849090a06f2f4bcf0d9a79d1e3f9f48887383f16e021bea9be9cf06a1220b",
+      "hostedPackages": 87,
+      "missing": []
+    },
+    {
+      "lock": "desktop-linux-3.41.0-root.lock",
+      "sha256": "d67b8b1c695038342de91ad43626ae089a1b0ae1fd3bdd075d855ac2cb7606d2",
+      "hostedPackages": 87,
+      "missing": []
+    },
+    {
+      "lock": "desktop-linux-3.47.9-root.lock",
+      "sha256": "b117709da391a7a7120451cc83da8e7942ac3ce31f3e3c7fd76230b5aa0d051c",
+      "hostedPackages": 87,
+      "missing": []
+    },
+    {
+      "lock": "desktop-windows-3.41.0-root.lock",
+      "sha256": "d67b8b1c695038342de91ad43626ae089a1b0ae1fd3bdd075d855ac2cb7606d2",
+      "hostedPackages": 87,
+      "missing": []
+    },
+    {
+      "lock": "desktop-windows-3.47.9-root.lock",
+      "sha256": "b117709da391a7a7120451cc83da8e7942ac3ce31f3e3c7fd76230b5aa0d051c",
+      "hostedPackages": 87,
+      "missing": []
+    }
+  ]
+}

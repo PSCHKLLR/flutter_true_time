@@ -433,5 +433,10 @@
         }
       ]
     }
-  ]
+  ],
+  "hostedDartLicenseEvidence": {
+    "path": "docs/evidence/first-release-hosted-license-coverage.json",
+    "sha256": "ee23b379a71d42dd2b00e044ffa59e520d30791891d97acabda1fa204c03921a",
+    "lockfiles": 16
+  }
 }
