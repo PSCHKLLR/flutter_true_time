@@ -1,237 +1,780 @@
 {
-  "schema": 1,
+  "schema": 2,
   "version": "0.1.0-dev.1",
-  "recordedAt": "2026-11-12",
+  "developmentInputs": true,
+  "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4",
+  "inputs": {
+    ".gitattributes": {
+      "mode": "utf8-lf",
+      "sha256": "f935b1749bfe535cd77fa4a4bad01f90f87742d96c8fd1a8e82658497caa51e8"
+    },
+    ".github/workflows/apple-qualification.yml": {
+      "mode": "utf8-lf",
+      "sha256": "d5de4dacd53ebda32a654155cbcf373ed22c0a07ab4fc2f484d3f9c45fb82415"
+    },
+    ".github/workflows/compatibility.yml": {
+      "mode": "utf8-lf",
+      "sha256": "44498100ee5afce61efe4b22343b29f422dff2d8a565c00db31b244f20df8f61"
+    },
+    ".pubignore": {
+      "mode": "utf8-lf",
+      "sha256": "6d4ea9a73c5d6cfb705d29b11810f1bb86128228a904a4ca3f26fe2551b3ef27"
+    },
+    "LICENSE": {
+      "mode": "utf8-lf",
+      "sha256": "8559fae0e5a580e7a7f3bd45fb56798d32ff7b40fdff89d3ec9b23483a9f6cfc"
+    },
+    "THIRD_PARTY_NOTICES.md": {
+      "mode": "utf8-lf",
+      "sha256": "7f19c1ef47f18b790a971a9b4d8f3c27d180744b26518a5883b100702ccb3c5d"
+    },
+    "analysis_options.yaml": {
+      "mode": "utf8-lf",
+      "sha256": "e7ac31ed88f71506116672ea1e5338c443f7a4e5492e4d3e1faf3c1949fff302"
+    },
+    "android/build.gradle.kts": {
+      "mode": "utf8-lf",
+      "sha256": "11339fa2331e82d5bb693999c4dae10f0a52c8ad293b7a451ad586f39a3ef680"
+    },
+    "android/src/main/AndroidManifest.xml": {
+      "mode": "utf8-lf",
+      "sha256": "678647a824ef7ab16066708585790ab265135d32fdf84bcd918a4b050f8891b9"
+    },
+    "android/src/main/java/dev/pschkllr/flutter_true_time/FlutterTrueTimePlugin.java": {
+      "mode": "utf8-lf",
+      "sha256": "b757eb206e1ea62edac04bdb48f6de51c836045c585f70933ef4b0e81cbc4285"
+    },
+    "example/analysis_options.yaml": {
+      "mode": "utf8-lf",
+      "sha256": "105655beaab249596a6391c635161cbb516b49dae09f05f499a91215116e0531"
+    },
+    "example/android/.gitignore": {
+      "mode": "utf8-lf",
+      "sha256": "b027c9de1011765c015e5819bf857c0d75bfcd0886fb01721c091159012e50f1"
+    },
+    "example/android/app/build.gradle.kts": {
+      "mode": "utf8-lf",
+      "sha256": "d5ea4fc932273523dd0b3fbf8cc3872e162be4b9734167f3471a58f31b81406d"
+    },
+    "example/android/app/src/debug/AndroidManifest.xml": {
+      "mode": "utf8-lf",
+      "sha256": "30b0832ed8b92dfbd6ae2abfa939ccf26333d37600056b1572bd4a397a18a74b"
+    },
+    "example/android/app/src/main/AndroidManifest.xml": {
+      "mode": "utf8-lf",
+      "sha256": "7f803d83de93cf423f741e79a794b3f7a2cd7870e33e5e4add432dd6d0f9a02d"
+    },
+    "example/android/app/src/main/kotlin/dev/pschkllr/flutter_true_time_example/MainActivity.kt": {
+      "mode": "utf8-lf",
+      "sha256": "822e0bd2a2a87988247b0fc5ff527ef86219ebbfe2e94fa815214edef55c5271"
+    },
+    "example/android/app/src/main/res/drawable-v21/launch_background.xml": {
+      "mode": "utf8-lf",
+      "sha256": "7ca6d5cec2169c5a98661a119db23a6f3399c8fef2256ff04f3a642831282478"
+    },
+    "example/android/app/src/main/res/drawable/launch_background.xml": {
+      "mode": "utf8-lf",
+      "sha256": "94433756fe10005ddd6fc55cc5c0b1e9f3c10b66a08ceac795ece6713d34e28a"
+    },
+    "example/android/app/src/main/res/mipmap-hdpi/ic_launcher.png": {
+      "mode": "binary",
+      "sha256": "6a7c8f0d703e3682108f9662f813302236240d3f8f638bb391e32bfb96055fef"
+    },
+    "example/android/app/src/main/res/mipmap-mdpi/ic_launcher.png": {
+      "mode": "binary",
+      "sha256": "c7c0c0189145e4e32a401c61c9bdc615754b0264e7afae24e834bb81049eaf81"
+    },
+    "example/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png": {
+      "mode": "binary",
+      "sha256": "e14aa40904929bf313fded22cf7e7ffcbf1d1aac4263b5ef1be8bfce650397aa"
+    },
+    "example/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png": {
+      "mode": "binary",
+      "sha256": "4d470bf22d5c17d84edc5f82516d1ba8a1c09559cd761cefb792f86d9f52b540"
+    },
+    "example/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png": {
+      "mode": "binary",
+      "sha256": "3c34e1f298d0c9ea3455d46db6b7759c8211a49e9ec6e44b635fc5c87dfb4180"
+    },
+    "example/android/app/src/main/res/values-night/styles.xml": {
+      "mode": "utf8-lf",
+      "sha256": "8c5bad5152f217e837519f9c15211d19f39bd45f5f67faf6dd81cb4b299e518f"
+    },
+    "example/android/app/src/main/res/values/styles.xml": {
+      "mode": "utf8-lf",
+      "sha256": "937d7c82f539c72eb94fd3a3773f29b3d3fef1997213c92cb632298cedf4bda9"
+    },
+    "example/android/app/src/profile/AndroidManifest.xml": {
+      "mode": "utf8-lf",
+      "sha256": "30b0832ed8b92dfbd6ae2abfa939ccf26333d37600056b1572bd4a397a18a74b"
+    },
+    "example/android/build.gradle.kts": {
+      "mode": "utf8-lf",
+      "sha256": "6a26dba2cb8dfba1e74f540b0d17a89d96c1301d3c3bfda14348bed257fddcba"
+    },
+    "example/android/gradle.properties": {
+      "mode": "utf8-lf",
+      "sha256": "0ed6faa6060f40486c1a82f05cc3badca38aa26377991f92d4acf38798205896"
+    },
+    "example/android/gradle/wrapper/gradle-wrapper.properties": {
+      "mode": "utf8-lf",
+      "sha256": "297c9e63b6fa6e7e8b221900fa1787c1a0e38869d8957da66389fd0f6b00f78e"
+    },
+    "example/android/settings.gradle.kts": {
+      "mode": "utf8-lf",
+      "sha256": "cc9b50cde66875f20dbeb1da1fcfc36577d97c0730564b1dc5334c36d6ebd45e"
+    },
+    "example/integration_test/platform_clock_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "eb589a17a2bbf99dd0e0cc6bd9b1d729ea4127eee81cfe9292e41aa9287d3856"
+    },
+    "example/integration_test/restart_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "08b8ef24b1f5f11f7c32cdf6e195cc4441b52c7336438287394708878fca0032"
+    },
+    "example/ios/.gitignore": {
+      "mode": "utf8-lf",
+      "sha256": "37380775aeb2499662b7aca80f4ac4c95ae827c3ba2bfa179aa3e9af4812c623"
+    },
+    "example/ios/Flutter/AppFrameworkInfo.plist": {
+      "mode": "utf8-lf",
+      "sha256": "e87ae089c89689e52111f3d33bcbf8e32b318bfe479dcba29e220c46cac479d2"
+    },
+    "example/ios/Flutter/Debug.xcconfig": {
+      "mode": "utf8-lf",
+      "sha256": "a82d7765b37116ee4821d2cd1d65942febf8032353757ffb0826eabde785b4a6"
+    },
+    "example/ios/Flutter/Release.xcconfig": {
+      "mode": "utf8-lf",
+      "sha256": "a82d7765b37116ee4821d2cd1d65942febf8032353757ffb0826eabde785b4a6"
+    },
+    "example/ios/Runner.xcodeproj/project.pbxproj": {
+      "mode": "utf8-lf",
+      "sha256": "85d58469b665286175aa3696263420c3d7c5a61ff27f9e8f35d8393e6bd5b7f3"
+    },
+    "example/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata": {
+      "mode": "utf8-lf",
+      "sha256": "7f3b00b5c3fdb45242d7b87e1e5c4e25d1fa8129a16c94295ecc4e8ea2235c5f"
+    },
+    "example/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist": {
+      "mode": "utf8-lf",
+      "sha256": "dfa0f9bb85b95ccba9c6811adadf8cb407fb5d52088e89db83ebc308ec448542"
+    },
+    "example/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings": {
+      "mode": "utf8-lf",
+      "sha256": "11b247bc6796892d67c9a821d18604db4dd6a880981b34f38460b9866e6b247f"
+    },
+    "example/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme": {
+      "mode": "utf8-lf",
+      "sha256": "2dd28b879e66081e28a3324cf2bee7ab2f70be9a3e50e08926b7366dadff7d6e"
+    },
+    "example/ios/Runner.xcworkspace/contents.xcworkspacedata": {
+      "mode": "utf8-lf",
+      "sha256": "46c3c9702ff7c5584e11c954d943cfb6e07fb26e3fbd072ddbc0f388aa352de1"
+    },
+    "example/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist": {
+      "mode": "utf8-lf",
+      "sha256": "dfa0f9bb85b95ccba9c6811adadf8cb407fb5d52088e89db83ebc308ec448542"
+    },
+    "example/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings": {
+      "mode": "utf8-lf",
+      "sha256": "11b247bc6796892d67c9a821d18604db4dd6a880981b34f38460b9866e6b247f"
+    },
+    "example/ios/Runner/AppDelegate.swift": {
+      "mode": "utf8-lf",
+      "sha256": "451c6d9ba0a2b3ff43092ea349c60fa79a91f1158b915eb29dbdd357cb95d7b8"
+    },
+    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json": {
+      "mode": "utf8-lf",
+      "sha256": "3b1e214f466ffedff74baa5598ad5c4421130eea6bc8d57b8fe23435e8280ae4"
+    },
+    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png": {
+      "mode": "binary",
+      "sha256": "7770183009e914112de7d8ef1d235a6a30c5834424858e0d2f8253f6b8d31926"
+    },
+    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png": {
+      "mode": "binary",
+      "sha256": "cab10a0d391ec5bc09ef50ce49e8ad401cee7ef03707ec0923a222c5c2b3d212"
+    },
+    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png": {
+      "mode": "binary",
+      "sha256": "b9ad02cf6576a04d1b6806ac02a2431481b448dd0c2e505ce25842d1f7c4730b"
+    },
+    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png": {
+      "mode": "binary",
+      "sha256": "c6e6d3b215ae744a9c391f4c4d44157eff5e739d6ad6c39f9bfa5df66dddd267"
+    },
+    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png": {
+      "mode": "binary",
+      "sha256": "5dee24dc104ac76dc162e42ae0beb163d426bf365562ee28ba7b3ad368559a60"
+    },
+    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png": {
+      "mode": "binary",
+      "sha256": "a9b21eb6f4271385655a8771f76e29eef8c1107d7879cbcfc567e6619d1f716a"
+    },
+    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png": {
+      "mode": "binary",
+      "sha256": "e677d701ffe4af7bc2935098d6b3984cc9ab7ace573e6900955a5535b12410cf"
+    },
+    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png": {
+      "mode": "binary",
+      "sha256": "b9ad02cf6576a04d1b6806ac02a2431481b448dd0c2e505ce25842d1f7c4730b"
+    },
+    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png": {
+      "mode": "binary",
+      "sha256": "7c61c42fc7b657d9cf314d32a4ec458f0647c3aaf360be1b9377857266ec2499"
+    },
+    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png": {
+      "mode": "binary",
+      "sha256": "19be171481dc71a0b2803ebcd01dd8b0c5fd5778dee34c0a3cabc948c225f24e"
+    },
+    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png": {
+      "mode": "binary",
+      "sha256": "19be171481dc71a0b2803ebcd01dd8b0c5fd5778dee34c0a3cabc948c225f24e"
+    },
+    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png": {
+      "mode": "binary",
+      "sha256": "4209a49e44a92ec40a327d3455eb1b1c153ee83d75de1c2be0a12ab18b2ff9de"
+    },
+    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png": {
+      "mode": "binary",
+      "sha256": "836c918cb613249eba0483a6b02fa3df3c1c0a89a315ee4d3b88509b83c7ab73"
+    },
+    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png": {
+      "mode": "binary",
+      "sha256": "41c7d42f6e61f8fe7f30b1ffa2256aecbc9682be06d18c4a3062043e1a2e547c"
+    },
+    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png": {
+      "mode": "binary",
+      "sha256": "5d7e5bdf01b93802bc973345b3a78c038907147625035952a08a115a563b7f81"
+    },
+    "example/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json": {
+      "mode": "utf8-lf",
+      "sha256": "ccc7950fd5f5b82067c85f667940a9d59189151460761ece8098ca78daa19469"
+    },
+    "example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png": {
+      "mode": "binary",
+      "sha256": "93ae7d494fad0fb30cbf3ae746a39c4bc7a0f8bbf87fbb587a3f3c01f3c5ce20"
+    },
+    "example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png": {
+      "mode": "binary",
+      "sha256": "93ae7d494fad0fb30cbf3ae746a39c4bc7a0f8bbf87fbb587a3f3c01f3c5ce20"
+    },
+    "example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png": {
+      "mode": "binary",
+      "sha256": "93ae7d494fad0fb30cbf3ae746a39c4bc7a0f8bbf87fbb587a3f3c01f3c5ce20"
+    },
+    "example/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md": {
+      "mode": "utf8-lf",
+      "sha256": "a985b626c4f7546a8ba392d135e9226c3547c8e2b46895f5f2bdf40d7b14ef9f"
+    },
+    "example/ios/Runner/Base.lproj/LaunchScreen.storyboard": {
+      "mode": "utf8-lf",
+      "sha256": "857e61203b3deafb05766d8fcda898b86a7cb6f3d5e385ecc9926c4d698215e9"
+    },
+    "example/ios/Runner/Base.lproj/Main.storyboard": {
+      "mode": "utf8-lf",
+      "sha256": "fd367b6c43006d61b730f674970dd48b9f662c8f2264e52ffc1558102a2c9f2d"
+    },
+    "example/ios/Runner/Info.plist": {
+      "mode": "utf8-lf",
+      "sha256": "9ab43ab53b1ba73600c8fe355364673cca07d9dc4ef071a4d529cb2b973b975a"
+    },
+    "example/ios/Runner/Runner-Bridging-Header.h": {
+      "mode": "utf8-lf",
+      "sha256": "1a8d11d01d1cc92c650c9c9ed35299240052d4683a15a719a2315ef44185e074"
+    },
+    "example/ios/Runner/SceneDelegate.swift": {
+      "mode": "utf8-lf",
+      "sha256": "add68b905971dedfcc0d0b5b7118030de5925ba8c081ad9815463699e3a444ad"
+    },
+    "example/ios/RunnerTests/RunnerTests.swift": {
+      "mode": "utf8-lf",
+      "sha256": "5e8f4908dacea6f29b2a790e4d38bf5fded69096063f9a27a2f21584d62b30c0"
+    },
+    "example/lib/main.dart": {
+      "mode": "utf8-lf",
+      "sha256": "5b50463d50ddbc4c046e9a924d8c6d672babe9dfa84cd1abf80123cc6cd07891"
+    },
+    "example/linux/.gitignore": {
+      "mode": "utf8-lf",
+      "sha256": "5ded4f1a9d10d34bf6ee5beb0711d88ee2ef07b0f07ace9ed77935a246e8eb82"
+    },
+    "example/linux/CMakeLists.txt": {
+      "mode": "utf8-lf",
+      "sha256": "19be66644ade323cc65d2a981f6aa05bcc3abaed3263ec792e42826a405abd33"
+    },
+    "example/linux/flutter/CMakeLists.txt": {
+      "mode": "utf8-lf",
+      "sha256": "787189e2623313cfee590a0b553338eb9fc68b3af922ddd77c5d39c75f989aeb"
+    },
+    "example/linux/runner/CMakeLists.txt": {
+      "mode": "utf8-lf",
+      "sha256": "8cdcfd911e770fd7d511c97c7bce6559486a815352a47c953f7ef632e236d2cc"
+    },
+    "example/linux/runner/main.cc": {
+      "mode": "utf8-lf",
+      "sha256": "ea23f7cdf74091d63bba29ef60486370b766157b848f0cfe62bd8b1c1695a0c1"
+    },
+    "example/linux/runner/my_application.cc": {
+      "mode": "utf8-lf",
+      "sha256": "5b93fd0b9855740520eee56d35a5837d95f59dc0f4812c8c06f4578225c34bee"
+    },
+    "example/linux/runner/my_application.h": {
+      "mode": "utf8-lf",
+      "sha256": "a4218d7ac0db8a9a6716daf216b2d4fc6bdc7ac647e3183078b2c962ebdfcf70"
+    },
+    "example/macos/.gitignore": {
+      "mode": "utf8-lf",
+      "sha256": "ffec1a0bbd70547186b82ad4e49089bafab2de309b89de97c776d70debb179fa"
+    },
+    "example/macos/Flutter/Flutter-Debug.xcconfig": {
+      "mode": "utf8-lf",
+      "sha256": "62290ad8e938bf410206d8c7e131262696b58a6df110d39faf3399396ffe61b1"
+    },
+    "example/macos/Flutter/Flutter-Release.xcconfig": {
+      "mode": "utf8-lf",
+      "sha256": "62290ad8e938bf410206d8c7e131262696b58a6df110d39faf3399396ffe61b1"
+    },
+    "example/macos/Runner.xcodeproj/project.pbxproj": {
+      "mode": "utf8-lf",
+      "sha256": "07012b0d631feca5035ea657323fb4971331b786763f560ee06b450630fa87b4"
+    },
+    "example/macos/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist": {
+      "mode": "utf8-lf",
+      "sha256": "dfa0f9bb85b95ccba9c6811adadf8cb407fb5d52088e89db83ebc308ec448542"
+    },
+    "example/macos/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme": {
+      "mode": "utf8-lf",
+      "sha256": "42b1f94803bdd23a136c23fccaadaad7591acad017afe58a5636c55b60b2bf58"
+    },
+    "example/macos/Runner.xcworkspace/contents.xcworkspacedata": {
+      "mode": "utf8-lf",
+      "sha256": "46c3c9702ff7c5584e11c954d943cfb6e07fb26e3fbd072ddbc0f388aa352de1"
+    },
+    "example/macos/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist": {
+      "mode": "utf8-lf",
+      "sha256": "dfa0f9bb85b95ccba9c6811adadf8cb407fb5d52088e89db83ebc308ec448542"
+    },
+    "example/macos/Runner/AppDelegate.swift": {
+      "mode": "utf8-lf",
+      "sha256": "ce9dbe45a57c59e85519da50a26c471615b9c8cdd85a8f4a39d2e480e62a4af4"
+    },
+    "example/macos/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json": {
+      "mode": "utf8-lf",
+      "sha256": "bc6ba8105ca69651aeeb77358851590de295dca04681a1d58c0f449641c242f3"
+    },
+    "example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_1024.png": {
+      "mode": "binary",
+      "sha256": "6232e5815af17e25e0268b2fec7aea9e068cc92ec709e9605c2b31df4ff2a313"
+    },
+    "example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_128.png": {
+      "mode": "binary",
+      "sha256": "15591f03f31313af6fd644ed0512106cc04365130b8b73244f1cfa6dddfb4400"
+    },
+    "example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_16.png": {
+      "mode": "binary",
+      "sha256": "cc6928b5adfc00dbf526192e2705dd9af641cdf20ab4c6c7ca7cd4936dca59f0"
+    },
+    "example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_256.png": {
+      "mode": "binary",
+      "sha256": "416efd77cde932d42ef34168da24dd428a495b1f4f34bbbd125a18d2add186a2"
+    },
+    "example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_32.png": {
+      "mode": "binary",
+      "sha256": "ae8c4458e41f1e28b1e851ed87d3268d4a0351ceea427fa2a84cc94ddfb6d4c5"
+    },
+    "example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_512.png": {
+      "mode": "binary",
+      "sha256": "0a91c6c1bf242e54ee179e34629e9ef3e8a6d286c0fce01e302280a8be9277e6"
+    },
+    "example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_64.png": {
+      "mode": "binary",
+      "sha256": "6ad229623498e5f1277800db3ab7cb11faf85eb2569e1213f7d8e55003c07b42"
+    },
+    "example/macos/Runner/Base.lproj/MainMenu.xib": {
+      "mode": "utf8-lf",
+      "sha256": "be9e9ef8469d3262370e0f0b855ed163cbf9c8362c59e330b2ffe63b86fa42f4"
+    },
+    "example/macos/Runner/Configs/AppInfo.xcconfig": {
+      "mode": "utf8-lf",
+      "sha256": "5cc214f044404d30677e4d739efef178bec092ed47948564b496775f75b1ffd1"
+    },
+    "example/macos/Runner/Configs/Debug.xcconfig": {
+      "mode": "utf8-lf",
+      "sha256": "8067d533ef6593760baad9a9855a786a7a77470fcc3f0925ec04fe43bc1ac4b0"
+    },
+    "example/macos/Runner/Configs/Release.xcconfig": {
+      "mode": "utf8-lf",
+      "sha256": "7a6a4b4d973a23052fa0a0388dd261e32d311d7b66ba1bfc3b914b361808ac61"
+    },
+    "example/macos/Runner/Configs/Warnings.xcconfig": {
+      "mode": "utf8-lf",
+      "sha256": "0e341a392b16ad302d12890aa3dac9257a6c10ece685437604259a85341645a3"
+    },
+    "example/macos/Runner/DebugProfile.entitlements": {
+      "mode": "utf8-lf",
+      "sha256": "658a8d351a819faad03df2a4da417ae52bee8f16d5a10203d50505b3af315a99"
+    },
+    "example/macos/Runner/Info.plist": {
+      "mode": "utf8-lf",
+      "sha256": "f253e89c512b3a9a81bc5cdd7a14bf932470f835f261654a808ea4549cd94aad"
+    },
+    "example/macos/Runner/MainFlutterWindow.swift": {
+      "mode": "utf8-lf",
+      "sha256": "65c9613c11bcedfa51416b16c975d8ba6ff12b405fc19d60db8755d92e86d9fe"
+    },
+    "example/macos/Runner/Release.entitlements": {
+      "mode": "utf8-lf",
+      "sha256": "b043dea477bbd5da1552ef2f436a0cb644b884bb2568a9f831bd4ee362f9e99b"
+    },
+    "example/macos/RunnerTests/RunnerTests.swift": {
+      "mode": "utf8-lf",
+      "sha256": "6bc180bc77c7def7a21d197233e25dff42cc493ab9d294632edafc18fdf0ac44"
+    },
+    "example/pubspec.yaml": {
+      "mode": "utf8-lf",
+      "sha256": "86ea89fea4df19f37322303a2fae96054868e939fc5d54e52ed9ba406eaa4df4"
+    },
+    "example/test/widget_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "3c8a9d569123edfbb029adb9790a7549a1627c36cece3611273df5c218f95642"
+    },
+    "example/web/favicon.png": {
+      "mode": "binary",
+      "sha256": "7ab2525f4b86b65d3e4c70358a17e5a1aaf6f437f99cbcc046dad73d59bb9015"
+    },
+    "example/web/icons/Icon-192.png": {
+      "mode": "binary",
+      "sha256": "3dce99077602f70421c1c6b2a240bc9b83d64d86681d45f2154143310c980be3"
+    },
+    "example/web/icons/Icon-512.png": {
+      "mode": "binary",
+      "sha256": "baccb205ae45f0b421be1657259b4943ac40c95094ab877f3bcbe12cd544dcbe"
+    },
+    "example/web/icons/Icon-maskable-192.png": {
+      "mode": "binary",
+      "sha256": "d2c842e22a9f4ec9d996b23373a905c88d9a203b220c5c151885ad621f974b5c"
+    },
+    "example/web/icons/Icon-maskable-512.png": {
+      "mode": "binary",
+      "sha256": "6aee06cdcab6b2aef74b1734c4778f4421d2da100b0ff9e52b21b55240202929"
+    },
+    "example/web/index.html": {
+      "mode": "utf8-lf",
+      "sha256": "fd69da1d8cdb17607c0f3424192ed08ee10893f3a51b879c38f68dc4f28f854c"
+    },
+    "example/web/manifest.json": {
+      "mode": "utf8-lf",
+      "sha256": "3b31ceee72d7baa4fccc6a58ffda0b544b92c0c9345202a75c2385032e369cc2"
+    },
+    "example/windows/.gitignore": {
+      "mode": "utf8-lf",
+      "sha256": "96345475f1a3c66bd32d28178fba151ab1506b35b1f7857b8f7651863093ea11"
+    },
+    "example/windows/CMakeLists.txt": {
+      "mode": "utf8-lf",
+      "sha256": "c2e9439bc0073c03a878f38c656b7a6af1aa181e8af185b65f3fc4cc0caf1fdc"
+    },
+    "example/windows/flutter/CMakeLists.txt": {
+      "mode": "utf8-lf",
+      "sha256": "1fe418971b6f41bb35ceb3d64113a835f3f6f171ecaa707bf232492b57a588d6"
+    },
+    "example/windows/runner/CMakeLists.txt": {
+      "mode": "utf8-lf",
+      "sha256": "34119ec122e36940235ef4bc245fcfb43b6960ed443e28af1a8d833a81209b9e"
+    },
+    "example/windows/runner/Runner.rc": {
+      "mode": "utf8-lf",
+      "sha256": "c7f8c559c97874146fcbfc290713d0b1ad28135c8f118a0360c96f9124512e88"
+    },
+    "example/windows/runner/flutter_window.cpp": {
+      "mode": "utf8-lf",
+      "sha256": "dd185884c0b5301d400b58f12ebb36b1c8b326531597e531b40e44a6eeb0e943"
+    },
+    "example/windows/runner/flutter_window.h": {
+      "mode": "utf8-lf",
+      "sha256": "38e0fcd3a0b83895852ec295cb70d90179c0dcd40d58f065eb5232a4ecd84898"
+    },
+    "example/windows/runner/main.cpp": {
+      "mode": "utf8-lf",
+      "sha256": "aa3d519044a15c07c7c1b44e32f136955f24dc25e18fe4f7bd1aa0dd7dc00cb4"
+    },
+    "example/windows/runner/resource.h": {
+      "mode": "utf8-lf",
+      "sha256": "1fa98588b04561590ba1cf0521ab86a9db4a878312f21c9d5861d965ddd8d1ae"
+    },
+    "example/windows/runner/resources/app_icon.ico": {
+      "mode": "binary",
+      "sha256": "c098d3fc85cacff98b8e69811b48e9f0d852fcee278132d794411d978869cbf8"
+    },
+    "example/windows/runner/runner.exe.manifest": {
+      "mode": "utf8-lf",
+      "sha256": "825d243e9fa1542619909c1b72d09b3ed7c1f3b225bb8367c125835e5dc3f8aa"
+    },
+    "example/windows/runner/utils.cpp": {
+      "mode": "utf8-lf",
+      "sha256": "dc2ee94d43116f959a4abd42557f71d07acc631abbffe03b11489dbeed35bedb"
+    },
+    "example/windows/runner/utils.h": {
+      "mode": "utf8-lf",
+      "sha256": "95a7f7dddb832997cefa937a96f89472332277e75734a5de553610760b744b03"
+    },
+    "example/windows/runner/win32_window.cpp": {
+      "mode": "utf8-lf",
+      "sha256": "9065f31ccf746cf8b390121f958f9e959033af864aed779597066625ed56bc36"
+    },
+    "example/windows/runner/win32_window.h": {
+      "mode": "utf8-lf",
+      "sha256": "7dd03746b19dcf3542829b2f6e8ed40a2714ce5f2cb3b0e23f0118a2fcf62d62"
+    },
+    "lib/core.dart": {
+      "mode": "utf8-lf",
+      "sha256": "cfd44b11ab0c51021a8c220ffb4c8b33f672f65caf3e23e474feea96cbcea9cd"
+    },
+    "lib/flutter_true_time.dart": {
+      "mode": "utf8-lf",
+      "sha256": "6c5e9dfa379982da906e4c684fbf625705dd4c0d218df121a2870a50491dfd64"
+    },
+    "lib/flutter_true_time_dart_plugin.dart": {
+      "mode": "utf8-lf",
+      "sha256": "04a85f123e9fab12ebce04c43cddfb57c7fbcf1ff4dd8eb58605065f97454b46"
+    },
+    "lib/flutter_true_time_web.dart": {
+      "mode": "utf8-lf",
+      "sha256": "c36f15f47a87f99956498555479eddc56610640239b78771430797c6e762fcd7"
+    },
+    "lib/src/cancellation.dart": {
+      "mode": "utf8-lf",
+      "sha256": "d4de34a57b6efa671debdf03a0dc4cd0334f6b76e2af9f6832508f492268d7b5"
+    },
+    "lib/src/clock.dart": {
+      "mode": "utf8-lf",
+      "sha256": "24851a1a139405e7a88f45882ddd3f2a040757a58b57e0d74dde0a93e1cb9603"
+    },
+    "lib/src/clock_native.dart": {
+      "mode": "utf8-lf",
+      "sha256": "da92479d62b753d747c04b1fe9e05ca05a749dbcac536ab8918e79a715ee6b7e"
+    },
+    "lib/src/clock_portable.dart": {
+      "mode": "utf8-lf",
+      "sha256": "b29e3c6197bf29f6a5748bc9d659b881123f1143b1c6e5acefba6081ec13d943"
+    },
+    "lib/src/diagnostics.dart": {
+      "mode": "utf8-lf",
+      "sha256": "ff35fca58b010be3d9ed321f6d738ca114881a2cad790aeb2f549ba5983c0e83"
+    },
+    "lib/src/engine.dart": {
+      "mode": "utf8-lf",
+      "sha256": "31d68f28183914006e77db0bb467ccdc3833f948ca3784c1bc8d5f7249ee82ec"
+    },
+    "lib/src/epoch_io.dart": {
+      "mode": "utf8-lf",
+      "sha256": "e07835bf8d6fb6f2ed546a200d0d890df491f091b2c6e8e96bad87391d680a92"
+    },
+    "lib/src/epoch_platform.dart": {
+      "mode": "utf8-lf",
+      "sha256": "ee0960eae43c7bee737a02b4d78d3da049d1f58448a515682191af8f0a83987e"
+    },
+    "lib/src/epoch_portable.dart": {
+      "mode": "utf8-lf",
+      "sha256": "39058ec0e912d5325270e1f7a2eb7c31d1d8d5e8f5bfd5c6c6befda6b7a55533"
+    },
+    "lib/src/facade.dart": {
+      "mode": "utf8-lf",
+      "sha256": "7f46aa9443029f3b0c472f5b8d65833d66d95afb3d6377f3bb882bd72cc503d0"
+    },
+    "lib/src/models.dart": {
+      "mode": "utf8-lf",
+      "sha256": "49319c686d58b3abc036f897fc9067fbfcab3b0e1889f7ddbead78858c6fcafd"
+    },
+    "lib/src/ntp_io.dart": {
+      "mode": "utf8-lf",
+      "sha256": "bf751f50dd636dbc114a5ca9186d8ef38945334869163250e8c5e1634d7c39ea"
+    },
+    "lib/src/ntp_stub.dart": {
+      "mode": "utf8-lf",
+      "sha256": "8c5ba6af8e7372f8fa25fa2a520eec90d97b6208b7549012c267b79e81412049"
+    },
+    "lib/src/persistence.dart": {
+      "mode": "utf8-lf",
+      "sha256": "a3148a1ae42d515b11a8649a81d9a311fe34c2c28bbfc41f2b41c79bccb28b5a"
+    },
+    "lib/src/provider_group.dart": {
+      "mode": "utf8-lf",
+      "sha256": "3edc20dd8b347dd02d4cbc711ac3770461bc8cdcb959aaac7f673d97818237a9"
+    },
+    "lib/src/secure_store.dart": {
+      "mode": "utf8-lf",
+      "sha256": "619232fc454ab9d072e04f48997faecb8669762aa1afd5f7206049a3216e4594"
+    },
+    "lib/src/sources.dart": {
+      "mode": "utf8-lf",
+      "sha256": "96e0681b2f15f661ae36cbef97095e17c64534c677039031c61628cf36a0d443"
+    },
+    "pubspec.yaml": {
+      "mode": "utf8-lf-development-guard",
+      "sha256": "75aa63b6a2f2d027bb03d467b8a0ed52419e16c73a0c6812255b59d3663008bd"
+    },
+    "test/configure_android_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "c87fa8d20c5cab2d6cf5b6979463400d23c7d7bffad4b40d86c9d00d3eb7df34"
+    },
+    "test/engine_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "03fdacdb45e75aa7842f373fc08f2045510fa34c404e92aacb78b196c0ff009c"
+    },
+    "test/enhancements_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "95aa386328749e5f517e1219642665eb30ae217c6480bc327c4a298c91175092"
+    },
+    "test/first_release_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "60ec1571f01f283a85333ec1b1cee9bdcf2a2e35c2429bf6ce53c450df9fc1f0"
+    },
+    "test/helpers.dart": {
+      "mode": "utf8-lf",
+      "sha256": "69259ee77b48527d2ca51482d389bc9c95a82d68d3ca3c949c7b10d4fe0b3218"
+    },
+    "test/native_sources_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "771b7b83747ad1d764d11d900ea65fe937409a812bc4661004c8ef1e71dd590b"
+    },
+    "test/ntp_ownership_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "61d6c68f06a4a29b5e28bb30564a31d28f59e1082d1d899d87f8d5f7140acf79"
+    },
+    "test/ntp_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "ccdc4cc1813a7da6268662fe0e2aed3adfaf6182ec19e0ba91d8768e32dc9b97"
+    },
+    "test/release_verification_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "de7cd4221eeec29a5ea3aec0ffd1486c1d1f35d3c6466743556011a34c085bcc"
+    },
+    "test/sources_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "10073684f5cdd77abdf6b8123483b5acb1196074485a206de4e955f1e8586bac"
+    },
+    "test_flutter/facade_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "5bb2f592080d4bd397d2bc450fc12d93442ef8644dab5a3a0089ce99cd4a4e08"
+    },
+    "tool/benchmark.dart": {
+      "mode": "utf8-lf",
+      "sha256": "8532b5909c488b9aec09efae5d15f02a193e7baa646966433a77d9bb4fbce565"
+    },
+    "tool/configure_android.dart": {
+      "mode": "utf8-lf",
+      "sha256": "a386c91423d291684368cb297663ec6f2978d9cda5e957e379fe594521342cd5"
+    },
+    "tool/release_check.dart": {
+      "mode": "utf8-lf",
+      "sha256": "4a8dde35109c368878f3970071791a555d3eb0972b13116e471df75ad104e525"
+    },
+    "tool/release_support.dart": {
+      "mode": "utf8-lf",
+      "sha256": "84f193e422e7a753cbe77ff90b567954777a0fae002f41a6b2f4a50496d32867"
+    },
+    "tool/source_digest.dart": {
+      "mode": "utf8-lf",
+      "sha256": "56808bb764e42251bd1d0ba43c69fddc6de1dea7911d1034699ef90362daefe6"
+    },
+    "tool/update_release_manifest.dart": {
+      "mode": "utf8-lf",
+      "sha256": "d87681b68a1cfb51bc7906c74f555747aad75d84ac8f6f1f04766b829f630f65"
+    },
+    "tool/web_smoke.dart": {
+      "mode": "utf8-lf",
+      "sha256": "bbdce2df7dbdb897a5f740c42479799cb7276b7c4d5b29c7c787974d81347767"
+    }
+  },
   "gates": {
     "minimum_sdk": {
       "status": "partial",
-      "evidence": "docs/evidence/minimum-sdk.txt",
-      "sha256": "19c9a64a09a66e45bfa7e740a99616e304ee65c6d7362c2bad911aa98cbcd699",
-      "note": "Windows independent resolution, clean analysis, 76 tests. Other CI operating systems pending."
+      "evidence": "docs/evidence/enhancement-minimum.json",
+      "sha256": "da1ea23a8e2e39652c60bac541ee7715b5202b704394c700aea546b89d583274",
+      "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4",
+      "note": "Windows resolution, analysis, 106 core/facade tests, example test, and 8 Chrome source tests passed. Linux/macOS core lanes pending."
     },
     "current_sdk": {
       "status": "partial",
-      "evidence": "docs/evidence/current-sdk.txt",
-      "sha256": "b07de289e9ea2d7b4c6965db356b986e867766e95b325de152b5399aa9e20085",
-      "note": "Windows independent resolution, clean analysis, 76 tests. Other CI operating systems pending."
+      "evidence": "docs/evidence/enhancement-current.json",
+      "sha256": "6c6bf41b7cd48d55797c3b1e6bc8cf1f73cfd518145a1134c3394bb8538c5aac",
+      "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4",
+      "note": "Windows resolution, analysis, 106 core/facade tests, example test, and 8 Chrome source tests passed. Linux/macOS core lanes pending."
     },
     "android_baseline": {
-      "status": "partial",
-      "evidence": "docs/evidence/android-apk.txt",
-      "sha256": "6ca23fc60b71b7aab8de58a7efdd4040390c574dd65aee4936dace01c6c206ed",
-      "note": "APK and AAB passed on Flutter 3.41.8 / JDK 21. Exact Flutter 3.41.0 / JDK 17 lane not qualified."
+      "status": "passed",
+      "evidence": "docs/evidence/enhancement-minimum.json",
+      "sha256": "da1ea23a8e2e39652c60bac541ee7715b5202b704394c700aea546b89d583274",
+      "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4",
+      "note": "Both release artifact builds passed with exact verified toolchain; device/persistence qualification is a separate gate."
     },
     "android_current": {
-      "status": "pending",
-      "note": "See VALIDATION.md and PUBLISHING.md; complete evidence before release."
+      "status": "passed",
+      "evidence": "docs/evidence/enhancement-current.json",
+      "sha256": "6c6bf41b7cd48d55797c3b1e6bc8cf1f73cfd518145a1134c3394bb8538c5aac",
+      "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4",
+      "note": "Both release artifact builds passed with exact verified toolchain; device/persistence qualification is a separate gate."
     },
     "android_builtin_kotlin": {
-      "status": "pending",
-      "note": "See VALIDATION.md and PUBLISHING.md; complete evidence before release."
+      "status": "passed",
+      "evidence": "docs/evidence/enhancement-builtin.json",
+      "sha256": "51f30605ac1fd1c320014b65c504fa6ca9d7b10150e632b4259d84265d18470f",
+      "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4",
+      "note": "Both release artifact builds passed with exact verified toolchain; device/persistence qualification is a separate gate."
     },
     "apple_xcode": {
-      "status": "pending",
-      "note": "See VALIDATION.md and PUBLISHING.md; complete evidence before release."
+      "status": "blocked",
+      "note": "Requires Apple silicon Mac with Xcode 27.2."
     },
     "windows_release": {
-      "status": "pending",
-      "note": "See VALIDATION.md and PUBLISHING.md; complete evidence before release."
+      "status": "blocked",
+      "note": "Both pinned Windows release attempts lack a suitable Visual Studio toolchain."
     },
     "linux_release": {
-      "status": "pending",
-      "note": "See VALIDATION.md and PUBLISHING.md; complete evidence before release."
+      "status": "blocked",
+      "note": "No usable Linux runner here."
     },
     "web_js_wasm_browser": {
       "status": "partial",
-      "evidence": "docs/evidence/browser-core.txt",
-      "sha256": "08bac1d8dce7715512f74cff504177b40c3cf9cc3adae10bfbc9484930919e24",
-      "note": "JS/WASM example builds passed on Flutter 3.41.8; 8 mocked HTTPS tests passed in Chrome on Dart 3.11.0. Complete SDK matrix and live endpoint/browser qualification pending."
+      "evidence": "docs/evidence/enhancement-browser-startup.json",
+      "sha256": "d7a81db4973f06abbc7d2c15f963fc5f65a5fb2f6687c76b60478a324d72806e",
+      "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4",
+      "note": "Both pinned SDKs built and rendered JS/WASM with verified entrypoints. Mocked Chrome source tests passed. Live HTTPS/CORS endpoints absent."
     },
     "physical_lifecycle": {
-      "status": "pending",
-      "note": "See VALIDATION.md and PUBLISHING.md; complete evidence before release."
+      "status": "blocked",
+      "note": "Requires connected physical Android/iOS devices."
     },
     "persistence_native": {
-      "status": "pending",
-      "note": "See VALIDATION.md and PUBLISHING.md; complete evidence before release."
+      "status": "blocked",
+      "note": "Native restart harness supplied; devices/keyrings and backup execution unavailable."
     },
     "apple_privacy_archive": {
-      "status": "pending",
-      "note": "See VALIDATION.md and PUBLISHING.md; complete evidence before release."
+      "status": "blocked",
+      "note": "Static API/resource inventory complete; Mac archive inspection unavailable."
     },
     "provenance_dependencies": {
-      "status": "pending",
-      "note": "See VALIDATION.md and PUBLISHING.md; complete evidence before release."
+      "status": "partial",
+      "note": "All 94 resolved Dart/Flutter package licenses per SDK collected; Android runtime graphs recorded. Human provenance/native binary/Maven/CocoaPods rights audit remains."
     },
     "owned_repository_security": {
-      "status": "pending",
-      "note": "See VALIDATION.md and PUBLISHING.md; complete evidence before release."
+      "status": "blocked",
+      "note": "Public repository verified; private vulnerability reporting disabled and maintainer/uploader access unverified."
     },
     "name_availability": {
       "status": "pending",
-      "note": "See VALIDATION.md and PUBLISHING.md; complete evidence before release."
+      "note": "Public API returned 404 on 12 November 2026; recheck immediately before release."
     },
     "archive_consumer": {
-      "status": "pending",
-      "note": "See VALIDATION.md and PUBLISHING.md; complete evidence before release."
+      "status": "blocked",
+      "note": "Blocked by earlier platform/provenance/security gates; no publication candidate created."
     },
     "owner_archive_approval": {
-      "status": "pending",
-      "note": "See VALIDATION.md and PUBLISHING.md; complete evidence before release."
+      "status": "blocked",
+      "note": "Blocked until an exact candidate exists."
     }
-  },
-  "sourceSha256": {
-    "LICENSE": "8559fae0e5a580e7a7f3bd45fb56798d32ff7b40fdff89d3ec9b23483a9f6cfc",
-    "THIRD_PARTY_NOTICES.md": "7f19c1ef47f18b790a971a9b4d8f3c27d180744b26518a5883b100702ccb3c5d",
-    "android/build.gradle.kts": "8632f3fdd652366a2a393272806037158d540c366b19475bdf7026c0425467d8",
-    "android/src/main/AndroidManifest.xml": "678647a824ef7ab16066708585790ab265135d32fdf84bcd918a4b050f8891b9",
-    "android/src/main/java/dev/pschkllr/flutter_true_time/FlutterTrueTimePlugin.java": "b757eb206e1ea62edac04bdb48f6de51c836045c585f70933ef4b0e81cbc4285",
-    "example/android/.gitignore": "c9af75dbc2c8aa867476a09426c80b178c4aeed8b9393ae48503eedfa3273d71",
-    "example/android/app/build.gradle.kts": "9914a6fcb8d0a34e2fe23781d30f4821c8c0d0778ab6e86082b90d41118f01c2",
-    "example/android/app/src/debug/AndroidManifest.xml": "b01a4541a8144c15bc617bab7eb267c99fa1476368fbbda5a12cdbf4e316a34c",
-    "example/android/app/src/main/AndroidManifest.xml": "667c80b90d12df39584914db7b785c534ad235afd4784d7e0cc00864444d951a",
-    "example/android/app/src/main/kotlin/dev/pschkllr/flutter_true_time_example/MainActivity.kt": "a906b9a201f4fd68260d7b5a65834a8d549060ea8ba7678836753388ed450fb4",
-    "example/android/app/src/main/res/drawable-v21/launch_background.xml": "dca312ec77de83e43ef70a825c299b51451247286c29167d62f19165750b8793",
-    "example/android/app/src/main/res/drawable/launch_background.xml": "2df60e2cfbee873ce2858088cf003e6b93498f2f568476da437610467ea1a9d7",
-    "example/android/app/src/main/res/mipmap-hdpi/ic_launcher.png": "6a7c8f0d703e3682108f9662f813302236240d3f8f638bb391e32bfb96055fef",
-    "example/android/app/src/main/res/mipmap-mdpi/ic_launcher.png": "c7c0c0189145e4e32a401c61c9bdc615754b0264e7afae24e834bb81049eaf81",
-    "example/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png": "e14aa40904929bf313fded22cf7e7ffcbf1d1aac4263b5ef1be8bfce650397aa",
-    "example/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png": "4d470bf22d5c17d84edc5f82516d1ba8a1c09559cd761cefb792f86d9f52b540",
-    "example/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png": "3c34e1f298d0c9ea3455d46db6b7759c8211a49e9ec6e44b635fc5c87dfb4180",
-    "example/android/app/src/main/res/values-night/styles.xml": "ea763597dc1a84c8034251caee98d7753e0fbf57340ffc94677427de4b537516",
-    "example/android/app/src/main/res/values/styles.xml": "cca15a99b59380a548bf6a890f7ca5380ee509b1f9bbb2f5f9ec3589fa25c2f7",
-    "example/android/app/src/profile/AndroidManifest.xml": "b01a4541a8144c15bc617bab7eb267c99fa1476368fbbda5a12cdbf4e316a34c",
-    "example/android/build.gradle.kts": "218f400e3fff31c9c986a2535dfb974560e1b4d33cc27b7c1fee96a2b7e44454",
-    "example/android/gradle.properties": "b932bd114f32c2e13063dac5feb0e6092207689b324c9a9ae478597b3d84e1ac",
-    "example/android/gradle/wrapper/gradle-wrapper.jar": "16caeaf66d57a0d1d2087fef6a97efa62de8da69afa5b908f40db35afc4342da",
-    "example/android/gradle/wrapper/gradle-wrapper.properties": "1220fdd333a881e47441de07b23f9dd1ebd35459730543ae429cf249847d91bf",
-    "example/android/gradlew": "ec56c02543666d92d9ac5ae7fcc48f88ce4de0deb8b7f9b39928ca46f68c1b2b",
-    "example/android/gradlew.bat": "c13c6e91b9a517783976de213d46398c661ea9e17651376d7301e839eaedcc62",
-    "example/android/settings.gradle.kts": "11db1314c5ade5ebc4cc179048573b57054c2f543d99cbc42c6f5eda4f71f04d",
-    "example/ios/.gitignore": "e85b4db8ba6ed14708e5f7d3c60336e5a3067ce11329b84aa8ba5d98603ee253",
-    "example/ios/Flutter/AppFrameworkInfo.plist": "b51c32ecf8ed012b58dd735ba89ef03189c4c9e7a540b1c8efc53481914acc25",
-    "example/ios/Flutter/Debug.xcconfig": "c0d1da54718e75f2028962b689258ecc741abf7cdaed50483aa5225264d0a7d7",
-    "example/ios/Flutter/Release.xcconfig": "c0d1da54718e75f2028962b689258ecc741abf7cdaed50483aa5225264d0a7d7",
-    "example/ios/Runner.xcodeproj/project.pbxproj": "c61f1ab33bdbdf35ca1845dbbc6299513c082f7798fdf275745092c9e226d3dc",
-    "example/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata": "ac28b35c2b940210bec0fff8e424b07fd0efe9112ab178a10533583f251a386c",
-    "example/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist": "d557c2c32fc6258ec28981fa45dc847b76c9968beb90a2e26d13ef9c4ea45c30",
-    "example/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings": "dd64c0308ab2971c456871b990b24a008bdc3ece09833e8dbe9675e33a496e74",
-    "example/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme": "570c49fd61c67330efb75097018d1b0df0c68d03667631105a5acf5621112b1b",
-    "example/ios/Runner.xcworkspace/contents.xcworkspacedata": "706a4c812f2a1e220e6785c27580020d58048e2ae4d30d1280f3c43344ce6b38",
-    "example/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist": "d557c2c32fc6258ec28981fa45dc847b76c9968beb90a2e26d13ef9c4ea45c30",
-    "example/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings": "dd64c0308ab2971c456871b990b24a008bdc3ece09833e8dbe9675e33a496e74",
-    "example/ios/Runner/AppDelegate.swift": "54a5e98d6c3e8a79413ad50607b83aac8ded8828bc913eda1fe86bb33a66cd5d",
-    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json": "5f8b941b774bde4496d73347c1f79cbdd786bb76fbdab9ed1f3f0cb78a0fb0d3",
-    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png": "7770183009e914112de7d8ef1d235a6a30c5834424858e0d2f8253f6b8d31926",
-    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png": "cab10a0d391ec5bc09ef50ce49e8ad401cee7ef03707ec0923a222c5c2b3d212",
-    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png": "b9ad02cf6576a04d1b6806ac02a2431481b448dd0c2e505ce25842d1f7c4730b",
-    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png": "c6e6d3b215ae744a9c391f4c4d44157eff5e739d6ad6c39f9bfa5df66dddd267",
-    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png": "5dee24dc104ac76dc162e42ae0beb163d426bf365562ee28ba7b3ad368559a60",
-    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png": "a9b21eb6f4271385655a8771f76e29eef8c1107d7879cbcfc567e6619d1f716a",
-    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png": "e677d701ffe4af7bc2935098d6b3984cc9ab7ace573e6900955a5535b12410cf",
-    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png": "b9ad02cf6576a04d1b6806ac02a2431481b448dd0c2e505ce25842d1f7c4730b",
-    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png": "7c61c42fc7b657d9cf314d32a4ec458f0647c3aaf360be1b9377857266ec2499",
-    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png": "19be171481dc71a0b2803ebcd01dd8b0c5fd5778dee34c0a3cabc948c225f24e",
-    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png": "19be171481dc71a0b2803ebcd01dd8b0c5fd5778dee34c0a3cabc948c225f24e",
-    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png": "4209a49e44a92ec40a327d3455eb1b1c153ee83d75de1c2be0a12ab18b2ff9de",
-    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png": "836c918cb613249eba0483a6b02fa3df3c1c0a89a315ee4d3b88509b83c7ab73",
-    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png": "41c7d42f6e61f8fe7f30b1ffa2256aecbc9682be06d18c4a3062043e1a2e547c",
-    "example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png": "5d7e5bdf01b93802bc973345b3a78c038907147625035952a08a115a563b7f81",
-    "example/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json": "fbd112a9f3b541a1d811f71ac8e4fe68b6176687d973a5f4d99b7aa4a722e94e",
-    "example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png": "93ae7d494fad0fb30cbf3ae746a39c4bc7a0f8bbf87fbb587a3f3c01f3c5ce20",
-    "example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png": "93ae7d494fad0fb30cbf3ae746a39c4bc7a0f8bbf87fbb587a3f3c01f3c5ce20",
-    "example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png": "93ae7d494fad0fb30cbf3ae746a39c4bc7a0f8bbf87fbb587a3f3c01f3c5ce20",
-    "example/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md": "853ac958e2416fe2540f6f61165283a3618b71a7ba5f85f65ac41c2158dfcd21",
-    "example/ios/Runner/Base.lproj/LaunchScreen.storyboard": "bc3644fbb251ff1e18de25a4932c927850ae1a025be3dd1447940429633fe4b2",
-    "example/ios/Runner/Base.lproj/Main.storyboard": "dcea4686c02065e56217fd19fcfb73d7509b41872e7486126149d47a18559363",
-    "example/ios/Runner/Info.plist": "ffaa3784ab6e6f468aba0cb53f4392595485d1d0260e38c768a7a56877391936",
-    "example/ios/Runner/Runner-Bridging-Header.h": "efe657d8b27f7f8595a0d416bffb33fe7d93bd2869d81f7353b556c439d7a1a7",
-    "example/ios/Runner/SceneDelegate.swift": "edce811c671ca0a6ccb14753e14e16deb0d89a0adf4f1b685e362d87d8f4c366",
-    "example/ios/RunnerTests/RunnerTests.swift": "c0e04141287eb7f9c9f3d31cf5be8cb626a9ea71351206c9121578e8b8f480c3",
-    "example/lib/main.dart": "5b50463d50ddbc4c046e9a924d8c6d672babe9dfa84cd1abf80123cc6cd07891",
-    "example/linux/.gitignore": "d7bbeac6ba86e2d94d8ccc63a1a2fbbac5ee7467f52f75c168165412d6ac3b60",
-    "example/linux/CMakeLists.txt": "57381ff7f0d7638b261adca160373096bae104692928b752910db5250a1a4d4c",
-    "example/linux/flutter/CMakeLists.txt": "4eb17836308c1cd53f6b2bb8edb3b7b30610bff3b1d9df7fecc9317f9109700c",
-    "example/linux/flutter/generated_plugin_registrant.cc": "5f32195a1a5b9687b595d608c88809f808ffbc2fffb6e91cb0f4877ed15214f1",
-    "example/linux/flutter/generated_plugin_registrant.h": "00f93bb5b1faefdede8f6065df327522900fb0b8efee86bacf424fd947ed14bb",
-    "example/linux/flutter/generated_plugins.cmake": "5b20fca1d1b37a1856e007cf87215cb7acdc52898adb8a6bb78c8701a6d9865f",
-    "example/linux/runner/CMakeLists.txt": "81ecf2604c50f480c23d460b2ddf653ecd39df29cc5b2fe4913f1a59f008a5a7",
-    "example/linux/runner/main.cc": "905b4dfa4eab584c1eb6244899b7d5ef56d0bceaf3bffb5ea335ed7e0ba3c549",
-    "example/linux/runner/my_application.cc": "c8f19e9516eb2481333f5e6a63d3de4aa6d3865dedb7279a97464e22e1d68ca8",
-    "example/linux/runner/my_application.h": "880393cb82d7feaaa95d9acd6c2317749afae0e17ea5f5ee44b456bc081b5987",
-    "example/macos/.gitignore": "236a523a43625a2d63af3cd0f2ce8600a3668846f8cb278c1c7c5cbfd4aa4088",
-    "example/macos/Flutter/Flutter-Debug.xcconfig": "7e9b3ee3961b7d7718b418ceaed812a5f06a4e4cec894aae712a78e159c32ab0",
-    "example/macos/Flutter/Flutter-Release.xcconfig": "7e9b3ee3961b7d7718b418ceaed812a5f06a4e4cec894aae712a78e159c32ab0",
-    "example/macos/Runner.xcodeproj/project.pbxproj": "a73f1f0765a3bafd7152d4ba8cc9708db84853284952f252c175a6b53077d255",
-    "example/macos/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist": "d557c2c32fc6258ec28981fa45dc847b76c9968beb90a2e26d13ef9c4ea45c30",
-    "example/macos/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme": "86a8143ef15d436dafa9921fc0555e3ea38b03515d82d2da694dccbdabf96fcf",
-    "example/macos/Runner.xcworkspace/contents.xcworkspacedata": "706a4c812f2a1e220e6785c27580020d58048e2ae4d30d1280f3c43344ce6b38",
-    "example/macos/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist": "d557c2c32fc6258ec28981fa45dc847b76c9968beb90a2e26d13ef9c4ea45c30",
-    "example/macos/Runner/AppDelegate.swift": "5b9cbdcb563ad8578a99b7c283958490e4af537322e9092fe1efbb3c29ab3e1b",
-    "example/macos/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json": "992ba63d183dfb8f8e3af38ac203d834d23c004da1417c438b4c5a3d7d1d7103",
-    "example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_1024.png": "6232e5815af17e25e0268b2fec7aea9e068cc92ec709e9605c2b31df4ff2a313",
-    "example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_128.png": "15591f03f31313af6fd644ed0512106cc04365130b8b73244f1cfa6dddfb4400",
-    "example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_16.png": "cc6928b5adfc00dbf526192e2705dd9af641cdf20ab4c6c7ca7cd4936dca59f0",
-    "example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_256.png": "416efd77cde932d42ef34168da24dd428a495b1f4f34bbbd125a18d2add186a2",
-    "example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_32.png": "ae8c4458e41f1e28b1e851ed87d3268d4a0351ceea427fa2a84cc94ddfb6d4c5",
-    "example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_512.png": "0a91c6c1bf242e54ee179e34629e9ef3e8a6d286c0fce01e302280a8be9277e6",
-    "example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_64.png": "6ad229623498e5f1277800db3ab7cb11faf85eb2569e1213f7d8e55003c07b42",
-    "example/macos/Runner/Base.lproj/MainMenu.xib": "776c35481f6581f14148b90071558b25f6ce6262e771988985e9fe8d3e70a472",
-    "example/macos/Runner/Configs/AppInfo.xcconfig": "ec2d9c8ad82e00111a483604cfa1f5b267cd8265d525ceac1beabb0bb46898bf",
-    "example/macos/Runner/Configs/Debug.xcconfig": "86be603022e2a385dd7884fce4cc29255676c3dda579d3d4a56c958bf1e57de0",
-    "example/macos/Runner/Configs/Release.xcconfig": "d1bf3f0349aadd5c58ee9d46c0ce4ce45467127c438936e9bb481d861d296565",
-    "example/macos/Runner/Configs/Warnings.xcconfig": "aa8ded4c14068cb05f51f5446509fe56805cf1e29961ad6d5a97233bb0632bc1",
-    "example/macos/Runner/DebugProfile.entitlements": "4354c4cfb90aa84764c00acca1aa1f93235828507f9628af7144fe9f6919ebe6",
-    "example/macos/Runner/Info.plist": "047f9cb0f1122c04589483beaedbbe23492fdc8946b94e09bb13080736af4f93",
-    "example/macos/Runner/MainFlutterWindow.swift": "8178ad756f958f986f794a8bb06e321a6630ceaaf8f235b3b4ae3936e415dc7c",
-    "example/macos/Runner/Release.entitlements": "faf117d27f425fbcabcc085cf9a53379eadd02ccfec7f690304c1458e6a1a0f0",
-    "example/macos/RunnerTests/RunnerTests.swift": "8a0ff977c64ceac0750fffa48087988b7b4125d1b1c49019221e7fffb574423e",
-    "example/pubspec.yaml": "86ea89fea4df19f37322303a2fae96054868e939fc5d54e52ed9ba406eaa4df4",
-    "example/web/favicon.png": "7ab2525f4b86b65d3e4c70358a17e5a1aaf6f437f99cbcc046dad73d59bb9015",
-    "example/web/icons/Icon-192.png": "3dce99077602f70421c1c6b2a240bc9b83d64d86681d45f2154143310c980be3",
-    "example/web/icons/Icon-512.png": "baccb205ae45f0b421be1657259b4943ac40c95094ab877f3bcbe12cd544dcbe",
-    "example/web/icons/Icon-maskable-192.png": "d2c842e22a9f4ec9d996b23373a905c88d9a203b220c5c151885ad621f974b5c",
-    "example/web/icons/Icon-maskable-512.png": "6aee06cdcab6b2aef74b1734c4778f4421d2da100b0ff9e52b21b55240202929",
-    "example/web/index.html": "926174b30141d5453a2fe50c095b077ed9ccdbe4a2bd5497200e783716563b1f",
-    "example/web/manifest.json": "34a3f8fb8cded4ee194cfd49a3df62a6bc1c57e4017ef1f35bc2c760e5214043",
-    "example/windows/.gitignore": "955e3110cb16494ee76e1cd5df47e2c212309eb94a49a123fe87f718de413cb8",
-    "example/windows/CMakeLists.txt": "c7b3234af0c28230a870ba345b646285985bb8f7f3000fe37f21ab84168cb98f",
-    "example/windows/flutter/CMakeLists.txt": "bd05e3268b2f246bcbafdb778165fe67a7bafdba04eb73599502563a67b8ae7e",
-    "example/windows/flutter/generated_plugin_registrant.cc": "8ba051e6051c70ceb18ecbdaaffa7e280f2874eb249fa80b7202a9333b5fba17",
-    "example/windows/flutter/generated_plugin_registrant.h": "dbc11635d7b1ba1887adf40df5b83d634e9c3ab0bee34510c71528bb4d73602a",
-    "example/windows/flutter/generated_plugins.cmake": "c6c0f0c5e484a957961e8653dc9a19a240b799b9fcd7d1120d7ff7d0f2f23afe",
-    "example/windows/runner/CMakeLists.txt": "d765fdd05f63ad099e585a2cced0cbff13ec3229b7de68c8681b2107db850089",
-    "example/windows/runner/Runner.rc": "5153d4db622245cfcfaa1b79b2243e68b52f3fdeb773fdc6aeb29126bd8415dc",
-    "example/windows/runner/flutter_window.cpp": "d615eedc06ae37321e59c2c00c7687d1887dcd97904eb7225fafd8dcb5b83da6",
-    "example/windows/runner/flutter_window.h": "0252b804f5da380c7709cbe1daff2b8d18daf6c49d7e6dd43e5af3c99c19f56c",
-    "example/windows/runner/main.cpp": "4ace01d81026babee5f86e205b18b7fbed7037fdb54aed1aad58c9efe7936b89",
-    "example/windows/runner/resource.h": "d0e8bf7835468b4b6b1f8f0747f2e8f25c19841f2df2ac60aaa584ddae3aa7c6",
-    "example/windows/runner/resources/app_icon.ico": "c098d3fc85cacff98b8e69811b48e9f0d852fcee278132d794411d978869cbf8",
-    "example/windows/runner/runner.exe.manifest": "639a56233fcd8cbcb8bbefcd93e4680ec2664f32d9acfb3d2ec1d8726a96e090",
-    "example/windows/runner/utils.cpp": "fbb18524c22593d0ce7869b0733e237be38e668fe045e3023bcf2d0b31784fa3",
-    "example/windows/runner/utils.h": "832e246b6758253f89016fb0374b30791242e97ad950d27fc678b3d9feacfdc4",
-    "example/windows/runner/win32_window.cpp": "4e4f4dcf8e86ea6e097562cb3476039e693449bd8045367538afee579c017511",
-    "example/windows/runner/win32_window.h": "d154cf89ba85f820631a9b5bedacbe64fc5815e428fe6bc5da579ce649f69841",
-    "lib/core.dart": "cfd44b11ab0c51021a8c220ffb4c8b33f672f65caf3e23e474feea96cbcea9cd",
-    "lib/flutter_true_time.dart": "6c5e9dfa379982da906e4c684fbf625705dd4c0d218df121a2870a50491dfd64",
-    "lib/flutter_true_time_dart_plugin.dart": "04a85f123e9fab12ebce04c43cddfb57c7fbcf1ff4dd8eb58605065f97454b46",
-    "lib/flutter_true_time_web.dart": "c36f15f47a87f99956498555479eddc56610640239b78771430797c6e762fcd7",
-    "lib/src/cancellation.dart": "d4de34a57b6efa671debdf03a0dc4cd0334f6b76e2af9f6832508f492268d7b5",
-    "lib/src/clock.dart": "24851a1a139405e7a88f45882ddd3f2a040757a58b57e0d74dde0a93e1cb9603",
-    "lib/src/clock_native.dart": "da92479d62b753d747c04b1fe9e05ca05a749dbcac536ab8918e79a715ee6b7e",
-    "lib/src/clock_portable.dart": "b29e3c6197bf29f6a5748bc9d659b881123f1143b1c6e5acefba6081ec13d943",
-    "lib/src/diagnostics.dart": "ff35fca58b010be3d9ed321f6d738ca114881a2cad790aeb2f549ba5983c0e83",
-    "lib/src/engine.dart": "39e942f777f18be1c14c295fea9fb5bc0a8c68dbe3de0183897f39a139899971",
-    "lib/src/epoch_io.dart": "e07835bf8d6fb6f2ed546a200d0d890df491f091b2c6e8e96bad87391d680a92",
-    "lib/src/epoch_platform.dart": "ee0960eae43c7bee737a02b4d78d3da049d1f58448a515682191af8f0a83987e",
-    "lib/src/epoch_portable.dart": "39058ec0e912d5325270e1f7a2eb7c31d1d8d5e8f5bfd5c6c6befda6b7a55533",
-    "lib/src/facade.dart": "7f46aa9443029f3b0c472f5b8d65833d66d95afb3d6377f3bb882bd72cc503d0",
-    "lib/src/models.dart": "49319c686d58b3abc036f897fc9067fbfcab3b0e1889f7ddbead78858c6fcafd",
-    "lib/src/ntp_io.dart": "ff3eea0f7349b5b1bd4ec23b473bd28f0d290d4f9e922733d202aab6f32438e9",
-    "lib/src/ntp_stub.dart": "8c5ba6af8e7372f8fa25fa2a520eec90d97b6208b7549012c267b79e81412049",
-    "lib/src/persistence.dart": "e4a878f2791ed23d6a1541c603a5f1c2357ee16ff34bcfed7b6f6f3e00bc2d2a",
-    "lib/src/secure_store.dart": "619232fc454ab9d072e04f48997faecb8669762aa1afd5f7206049a3216e4594",
-    "lib/src/sources.dart": "96e0681b2f15f661ae36cbef97095e17c64534c677039031c61628cf36a0d443",
-    "pubspec.yaml": "683ca3f13163c62bab48b13c2a0d344edb3762de7cd4003029bac966ed2687a1"
   }
 }

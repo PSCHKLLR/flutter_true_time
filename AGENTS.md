@@ -15,6 +15,7 @@ Core tests are in test/, Flutter-specific tests in test_flutter/, device checks 
 - dart test test: run only Flutter-independent core tests.
 - flutter run -d windows inside example/: run the demo.
 - dart run tool/configure_android.dart baseline: select the approved Android host lane.
+- dart run tool/update_release_manifest.dart: regenerate canonical tracked inputs and invalidate stale evidence. Use --development for an untracked implementation snapshot.
 - dart run tool/release_check.dart: verify publication gates; pending gates intentionally fail.
 
 ## Coding Style & Naming Conventions

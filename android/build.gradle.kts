@@ -8,7 +8,7 @@ plugins { id("com.android.library") }
 group = "dev.pschkllr.flutter_true_time"
 version = "0.1.0-dev.1"
 allprojects { repositories { google(); mavenCentral() } }
-android {
+extensions.configure<com.android.build.api.dsl.LibraryExtension> {
     namespace = "dev.pschkllr.flutter_true_time"
     compileSdk = 36
     defaultConfig { minSdk = 24 }

@@ -1,0 +1,15 @@
+Running Gradle task 'assembleRelease'...                        
+flutter.bat : WARNING: Your Android app project: app located at: WORKSPACE\work\enh
+ancement-qualification\current\example\android\app\build.gradle.kts
+At WORKSPACE\work\run_enhancement_lane.ps1:23 char:3
++   & "$flutterSdk\bin\flutter.bat" @Arguments *> $logPath
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: Your A...uild.gradle.kts:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+applies the Kotlin Gradle Plugin, which will cause build failures in future versions of Flutter.
+Please migrate your app to Built-in Kotlin using this guide: 
+https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-app-developers
+
+Running Gradle task 'assembleRelease'...                           16.4s
+√ Built build\app\outputs\flutter-apk\app-release.apk (42.6MB)

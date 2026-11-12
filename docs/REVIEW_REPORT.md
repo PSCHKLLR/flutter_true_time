@@ -27,3 +27,19 @@ See VALIDATION.md for actual executed checks, COMPATIBILITY.md for targets and l
 ## Host qualification corrections
 
 Android release compilation exposed a stale integration_test registration when --no-pub bypassed platform regeneration. Normal release commands passed APK compilation; workflows now regenerate tooling. The built-in Kotlin host removes the legacy kotlinOptions block and inherits the Java 17 compilation target. These fixes do not establish JDK 17 or AGP 9 qualification. See VALIDATION.md for executed results.
+
+## First-release enhancement review (12 November 2026)
+
+The five additional P2 findings have implementation and regression coverage:
+
+| Finding | Correction | Regression coverage |
+| --- | --- | --- |
+| Restore skipped while syncing | Restore alongside pending queries, preserve a fresh anchor, guard continuity generation | Resume/explicit sync during delayed load; network wins; disposal/invalidation |
+| Deadline discarded accepted quorum | Cancel remaining work and evaluate accepted evidence | Quorum before deadline, late response isolation, existing no-quorum/concurrency tests |
+| Unobserved NTP errors | Early cancellation/argument checks, immediate response-future observation | Pre-cancel, invalid arguments, thrown/zero-byte send and resource cleanup |
+| Mixed-case unknown provider evidence | Shared canonical named-group filter | Unknown casing/whitespace, source count, persisted restore, real-name case sensitivity |
+| Nonportable release fingerprints | Tracked canonical inputs, generated-file exclusion, digest-bound evidence | LF/CRLF, binary changes, untracked inputs, stale/corrupt evidence, read-only checker |
+
+The complete suite has 106 tests. Executed SDK/build results and remaining blockers are recorded in VALIDATION.md; this report does not certify unexecuted native/device gates.
+
+Android qualification also exposed deprecated AGP/Kotlin DSL accessors and an insufficient built-in compiler default. Typed extensions, compilerOptions and settings-level KGP alignment resolved these without bypassing Flutter checks. Exact baseline/current/built-in APK and AAB builds passed on JDK 17.

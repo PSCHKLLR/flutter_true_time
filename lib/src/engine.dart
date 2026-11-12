@@ -6,6 +6,7 @@ import 'diagnostics.dart';
 import 'models.dart';
 import 'persistence.dart';
 import 'sources.dart';
+import 'provider_group.dart';
 
 abstract interface class ScheduledTask {
   void cancel();
@@ -215,12 +216,14 @@ class TrustedTimeEngine {
       );
       return;
     }
+    final lookupGeneration = _generation;
     try {
       final epoch = await _lifetime.withTimeout(
         epochProvider.currentEpoch(clock.capabilities),
         config.sourceTimeout,
       );
       if (!_disposed &&
+          lookupGeneration == _generation &&
           epoch != null &&
           epoch.isValid &&
           epoch.clockDomain == clock.capabilities.domain) {
@@ -245,6 +248,7 @@ class TrustedTimeEngine {
   }
 
   Future<void> _initialize() async {
+    final restorationGeneration = _generation;
     await _ensureEpoch();
     if (store != null && !_disposed) {
       try {
@@ -255,13 +259,13 @@ class TrustedTimeEngine {
         if (!_disposed &&
             value != null &&
             _anchor == null &&
-            _inFlight == null) {
+            restorationGeneration == _generation) {
           final record = AnchorRecord.fromMap(value), current = _snapshot();
           _sequence = max(_sequence, record.sequence);
           final acceptedIds = sources.map((s) => s.id).toSet();
           final acceptedGroups = sources
-              .map((s) => s.providerGroup.trim())
-              .where((g) => g.isNotEmpty && g.toLowerCase() != 'unknown')
+              .map((s) => knownProviderGroup(s.providerGroup))
+              .whereType<String>()
               .toSet();
           if (_epoch != null &&
               record.epoch == _epoch &&
@@ -306,8 +310,8 @@ class TrustedTimeEngine {
   bool _sameSelectedGroups(AnchorRecord record) {
     final byId = {for (final source in sources) source.id: source};
     final selected = record.sourceIds
-        .map((id) => byId[id]!.providerGroup.trim())
-        .where((g) => g.isNotEmpty && g.toLowerCase() != 'unknown')
+        .map((id) => knownProviderGroup(byId[id]!.providerGroup))
+        .whereType<String>()
         .toSet();
     return selected.length == record.providerGroups.length &&
         record.providerGroups.every(selected.contains);
@@ -584,7 +588,10 @@ class TrustedTimeEngine {
           (_) => worker(),
         ),
       );
-      cycle.signal.throwIfCancelled();
+      // A deadline closes collection, but already accepted evidence remains usable.
+      if (cycle.signal.isCancelled && cycle.signal.reason != 'deadline') {
+        cycle.signal.throwIfCancelled();
+      }
       final reference = _snapshot();
       if (cycle.generation != _generation ||
           reference.sessionId != initial.sessionId ||
@@ -599,7 +606,7 @@ class TrustedTimeEngine {
       _lastError = null;
       estimate();
       _emit(TimeEventKind.synchronized);
-      if (store != null) {
+      if (store != null && !cycle.signal.isCancelled) {
         final record = AnchorRecord(
           utc: anchor.utc,
           monotonic: anchor.at.elapsed,
@@ -687,8 +694,8 @@ class TrustedTimeEngine {
           .where((i) => i.low <= point && point <= i.high)
           .toList();
       final groups = active
-          .map((i) => i.source.providerGroup.trim())
-          .where((g) => g.isNotEmpty && g.toLowerCase() != 'unknown')
+          .map((i) => knownProviderGroup(i.source.providerGroup))
+          .whereType<String>()
           .toSet();
       if (active.length < config.minimumSources ||
           groups.length < config.minimumProviderGroups) {
@@ -744,8 +751,8 @@ class TrustedTimeEngine {
       List.unmodifiable(first.map((i) => i.source.id).toList()..sort()),
       List.unmodifiable(
         first
-            .map((i) => i.source.providerGroup.trim())
-            .where((g) => g.isNotEmpty && g != 'unknown')
+            .map((i) => knownProviderGroup(i.source.providerGroup))
+            .whereType<String>()
             .toSet()
             .toList()
           ..sort(),

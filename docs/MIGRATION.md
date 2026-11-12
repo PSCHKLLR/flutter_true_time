@@ -13,3 +13,5 @@ This is a new package identity, not a compatible update to the existing pub.dev 
 - UTC corrections can go backward. Use a monotonic timer for elapsed durations and a separate identifier/order mechanism for events.
 
 No NTS authLevel, timezone helper, legacy testing override, or OS background-sync API is emulated. isAuthenticated remains false. Use independent injected engines in tests, and dispose every facade instance in tearDown.
+
+First-release fixes preserve public APIs and anchor schema v2. Repository release metadata moves to schema 2; regenerate it with dart run tool/update_release_manifest.dart (use --development only for untracked implementation inputs). Old test evidence remains historical until requalified against the new source digest. Real provider labels remain case sensitive; any casing of unknown is excluded from group evidence.

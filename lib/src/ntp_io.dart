@@ -13,7 +13,13 @@ Future<TimeSample> queryNtp(
   MonotonicClock clock,
   Duration timeout, {
   CancellationSignal? cancellation,
+  // Internal transport seam for deterministic send-failure/resource tests.
+  Future<RawDatagramSocket> Function(InternetAddress address, int port)?
+  bindSocket,
 }) async {
+  cancellation?.throwIfCancelled();
+  if (port < 1 || port > 65535) throw ArgumentError.value(port, 'port');
+  if (timeout <= Duration.zero) throw ArgumentError.value(timeout, 'timeout');
   RawDatagramSocket? socket;
   Completer<TimeSample>? pending;
   var expired = false;
@@ -37,7 +43,7 @@ Future<TimeSample> queryNtp(
       throw const TrustedTimeException('dns', 'No server address');
     }
     final address = addresses.first;
-    final bound = await RawDatagramSocket.bind(
+    final bound = await (bindSocket ?? RawDatagramSocket.bind)(
       address.type == InternetAddressType.IPv6
           ? InternetAddress.anyIPv6
           : InternetAddress.anyIPv4,
@@ -56,6 +62,10 @@ Future<TimeSample> queryNtp(
     bound.writeEventsEnabled = false;
     final start = clock.snapshot();
     final result = Completer<TimeSample>();
+    // Observe errors even if send throws before the response is awaited.
+    unawaited(
+      result.future.then<void>((_) {}, onError: (Object _, StackTrace _) {}),
+    );
     pending = result;
     final subscription = bound.listen(
       (event) {

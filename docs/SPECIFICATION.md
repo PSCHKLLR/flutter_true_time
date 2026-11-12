@@ -1,4 +1,4 @@
-# flutter_true_time specification — revision 0.2
+# flutter_true_time specification — revision 0.3
 
 Status: implementation specification for 0.1.0-dev.1. Date: 12 November 2026.
 
@@ -51,3 +51,9 @@ Preserve TrustedTime initialize/now/read/estimate/waitUntilReady/forceResync/sta
 The initial target is all six Flutter platforms. Minimum declared SDK is Flutter 3.41.0/Dart 3.11.0; current qualification is pinned to Flutter 3.47.9. Android API 24, iOS 15, and macOS 12 are deployment floors. Android AGP/KGP/Gradle host combinations and Xcode 27.2 builds require recorded evidence. A passing core compiler check does not qualify an app build or device behavior.
 
 NTS, timezone formatting helpers, OS background workers, private boot-identity APIs, and approximate wall-clock restart estimates are deferred. Publishing remains disabled until the all-platform, provenance, privacy, namespace, repository, and owner-approval gates pass.
+
+## First-release corrections
+
+Valid restored state may complete readiness while a query is pending; it cannot replace a fresh network anchor or survive invalidated restoration continuity. The cycle deadline closes sample collection and cancels pending work, then consensus evaluates samples already accepted before that cutoff. Disposal/continuity cancellation still discards the cycle. Named provider evidence is trimmed and excludes unknown case-insensitively throughout live and stored state; real names retain case sensitivity. NTP validates arguments/cancellation before transport setup and observes every response future on send failure and cleanup.
+
+Release verification uses schema-2 repository metadata, canonical LF UTF-8 text/binary hashes, tracked-input inventory, and source-bound evidence. Generated wrappers/registrants are excluded. The exact development publish_to: none line is excluded only from the runtime fingerprint so its later removal does not invalidate equivalent runtime tests; candidate bytes require separate archive approval. Public APIs and anchor-record schema remain unchanged.

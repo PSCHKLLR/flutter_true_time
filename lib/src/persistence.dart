@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:crypto/crypto.dart';
 import 'clock.dart';
+import 'provider_group.dart';
 
 class BootEpoch {
   const BootEpoch({
@@ -152,10 +153,7 @@ class AnchorRecord {
         groups.isEmpty ||
         groups.toSet().length != groups.length ||
         ids.any((s) => s.trim().isEmpty) ||
-        groups.any(
-          (s) =>
-              s.trim().isEmpty || s != s.trim() || s.toLowerCase() == 'unknown',
-        )) {
+        groups.any((s) => knownProviderGroup(s) != s)) {
       throw const FormatException('Invalid persisted anchor');
     }
     final epoch = value['epoch'] == null

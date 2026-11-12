@@ -1,0 +1,3 @@
+00:00 +0: loading WORKSPACE/work/enhancement-qualification/minimum/example/test/widget_test.dart
+00:00 +0: demo renders UTC without public network requests
+00:00 +1: All tests passed!

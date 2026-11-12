@@ -1,0 +1,108 @@
+00:00 +0: loading WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart
+00:00 +0: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +1: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +2: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +3: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +4: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +5: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +6: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +7: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +8: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +9: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +10: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +11: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +12: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +13: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +14: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +15: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +16: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +17: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +18: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +19: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +20: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +21: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +22: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +23: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +24: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +25: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +26: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +27: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:00 +28: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +29: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +30: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +31: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +32: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +33: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +34: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +35: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +36: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +37: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +38: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +39: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +40: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +41: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +42: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +43: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +44: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +45: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +46: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +47: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +48: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +49: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +50: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +51: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +52: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +53: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:01 +54: WORKSPACE/work/enhancement-qualification/current/test/configure_android_test.dart: host lane round trips remove legacy DSL and align built-in compiler in settings
+00:02 +55: WORKSPACE/work/enhancement-qualification/current/test/first_release_test.dart: restore during pending explicit synchronization
+00:02 +56: WORKSPACE/work/enhancement-qualification/current/test/first_release_test.dart: restore during pending resume
+00:02 +57: WORKSPACE/work/enhancement-qualification/current/test/first_release_test.dart: a successful network anchor wins over a delayed stored record
+00:02 +58: WORKSPACE/work/enhancement-qualification/current/test/first_release_test.dart: delayed restoration is rejected after continuity loss
+00:02 +59: WORKSPACE/work/enhancement-qualification/current/test/first_release_test.dart: delayed restoration is rejected after disposal
+00:02 +60: WORKSPACE/work/enhancement-qualification/current/test/first_release_test.dart: deadline retains a quorum and ignores a late noncooperative response
+00:02 +61: WORKSPACE/work/enhancement-qualification/current/test/first_release_test.dart: deadline retains a quorum and ignores a late noncooperative response
+00:02 +62: WORKSPACE/work/enhancement-qualification/current/test/native_sources_test.dart: loopback NTP validates a complete response
+00:02 +63: WORKSPACE/work/enhancement-qualification/current/test/native_sources_test.dart: loopback NTP validates a complete response
+00:02 +64: WORKSPACE/work/enhancement-qualification/current/test/native_sources_test.dart: loopback NTP validates a complete response
+00:02 +65: WORKSPACE/work/enhancement-qualification/current/test/native_sources_test.dart: loopback NTP validates a complete response
+00:02 +66: WORKSPACE/work/enhancement-qualification/current/test/native_sources_test.dart: loopback NTP validates a complete response
+00:02 +67: WORKSPACE/work/enhancement-qualification/current/test/native_sources_test.dart: loopback NTP validates a complete response
+00:02 +68: WORKSPACE/work/enhancement-qualification/current/test/native_sources_test.dart: loopback NTP validates a complete response
+00:02 +69: WORKSPACE/work/enhancement-qualification/current/test/native_sources_test.dart: loopback NTP validates a complete response
+00:02 +70: WORKSPACE/work/enhancement-qualification/current/test/native_sources_test.dart: loopback NTP rejects nonce mismatch
+00:02 +71: WORKSPACE/work/enhancement-qualification/current/test/native_sources_test.dart: silent loopback source times out and releases its socket
+00:03 +72: WORKSPACE/work/enhancement-qualification/current/test/native_sources_test.dart: NTP cancellation closes its UDP socket before returning
+00:03 +73: WORKSPACE/work/enhancement-qualification/current/test/ntp_ownership_test.dart: pre-cancelled NTP query starts no transport and emits no secondary error
+00:03 +74: WORKSPACE/work/enhancement-qualification/current/test/ntp_ownership_test.dart: reject invalid NTP port 0 before transport setup
+00:03 +75: WORKSPACE/work/enhancement-qualification/current/test/ntp_ownership_test.dart: reject invalid NTP port -1 before transport setup
+00:03 +76: WORKSPACE/work/enhancement-qualification/current/test/ntp_ownership_test.dart: reject invalid NTP port 65536 before transport setup
+00:03 +77: WORKSPACE/work/enhancement-qualification/current/test/ntp_ownership_test.dart: reject nonpositive NTP timeout 0:00:00.000000
+00:03 +78: WORKSPACE/work/enhancement-qualification/current/test/ntp_ownership_test.dart: reject nonpositive NTP timeout -0:00:00.000001
+00:03 +79: WORKSPACE/work/enhancement-qualification/current/test/ntp_ownership_test.dart: NTP send failure (false) is observed once and releases resources
+00:03 +80: WORKSPACE/work/enhancement-qualification/current/test/ntp_ownership_test.dart: NTP send failure (true) is observed once and releases resources
+00:03 +81: WORKSPACE/work/enhancement-qualification/current/test/ntp_test.dart: NTP unfolds era for 2026 without device time
+00:03 +82: WORKSPACE/work/enhancement-qualification/current/test/ntp_test.dart: NTP unfolds era for 2040 without device time
+00:03 +83: WORKSPACE/work/enhancement-qualification/current/test/ntp_test.dart: NTP unfolds era for 2100 without device time
+00:03 +84: WORKSPACE/work/enhancement-qualification/current/test/ntp_test.dart: zero timestamp is rejected
+00:04 +85: WORKSPACE/work/enhancement-qualification/current/test/release_verification_test.dart: tracked LF/CRLF checkouts produce identical digests
+00:04 +86: WORKSPACE/work/enhancement-qualification/current/test/release_verification_test.dart: tracked LF/CRLF checkouts produce identical digests
+00:04 +87: WORKSPACE/work/enhancement-qualification/current/test/release_verification_test.dart: tracked LF/CRLF checkouts produce identical digests
+00:04 +88: WORKSPACE/work/enhancement-qualification/current/test/release_verification_test.dart: tracked LF/CRLF checkouts produce identical digests
+00:04 +89: WORKSPACE/work/enhancement-qualification/current/test/release_verification_test.dart: tracked LF/CRLF checkouts produce identical digests
+00:04 +90: WORKSPACE/work/enhancement-qualification/current/test/release_verification_test.dart: tracked LF/CRLF checkouts produce identical digests
+00:04 +91: WORKSPACE/work/enhancement-qualification/current/test/release_verification_test.dart: tracked LF/CRLF checkouts produce identical digests
+00:04 +92: WORKSPACE/work/enhancement-qualification/current/test/release_verification_test.dart: tracked LF/CRLF checkouts produce identical digests
+00:04 +93: WORKSPACE/work/enhancement-qualification/current/test/release_verification_test.dart: tracked LF/CRLF checkouts produce identical digests
+00:05 +94: WORKSPACE/work/enhancement-qualification/current/test/release_verification_test.dart: ignored wrappers and generated registrants do not affect inputs
+00:05 +95: WORKSPACE/work/enhancement-qualification/current/test/release_verification_test.dart: ignored wrappers and generated registrants do not affect inputs
+00:05 +96: WORKSPACE/work/enhancement-qualification/current/test/release_verification_test.dart: ignored wrappers and generated registrants do not affect inputs
+00:05 +97: WORKSPACE/work/enhancement-qualification/current/test/release_verification_test.dart: ignored wrappers and generated registrants do not affect inputs
+00:05 +98: WORKSPACE/work/enhancement-qualification/current/test/release_verification_test.dart: ignored wrappers and generated registrants do not affect inputs
+00:05 +99: WORKSPACE/work/enhancement-qualification/current/test_flutter/facade_test.dart: disposing while storage is pending releases deadline timers
+00:06 +100: WORKSPACE/work/enhancement-qualification/current/test/release_verification_test.dart: binary and real text changes invalidate fingerprints
+00:06 +101: WORKSPACE/work/enhancement-qualification/current/test/release_verification_test.dart: checker is read-only and accepts matching reviewed evidence
+00:06 +102: WORKSPACE/work/enhancement-qualification/current/test/release_verification_test.dart: untracked runtime files cannot silently bypass release verification
+00:07 +103: WORKSPACE/work/enhancement-qualification/current/test/release_verification_test.dart: development snapshots remain blocked even with passed evidence
+00:07 +104: WORKSPACE/work/enhancement-qualification/current/test/release_verification_test.dart: stale source and corrupted evidence fail closed
+00:08 +105: WORKSPACE/work/enhancement-qualification/current/test/release_verification_test.dart: development guard removal preserves runtime digest but requires candidate mode
+00:09 +106: All tests passed!

@@ -1,0 +1,39 @@
+{
+  "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4",
+  "chrome": "157.0.8103.40",
+  "cases": [
+    {
+      "artifact": "work/web-artifacts/minimum/js",
+      "startup": "passed",
+      "rendered": true,
+      "appWasmLoaded": false,
+      "appJsLoaded": true,
+      "errors": []
+    },
+    {
+      "artifact": "work/web-artifacts/minimum/wasm",
+      "startup": "passed",
+      "rendered": true,
+      "appWasmLoaded": true,
+      "appJsLoaded": false,
+      "errors": []
+    },
+    {
+      "artifact": "work/web-artifacts/current/js",
+      "startup": "passed",
+      "rendered": true,
+      "appWasmLoaded": false,
+      "appJsLoaded": true,
+      "errors": []
+    },
+    {
+      "artifact": "work/web-artifacts/current/wasm",
+      "startup": "passed",
+      "rendered": true,
+      "appWasmLoaded": true,
+      "appJsLoaded": false,
+      "errors": []
+    }
+  ],
+  "remaining": "Caller-operated HTTPS/CORS endpoints were not supplied."
+}

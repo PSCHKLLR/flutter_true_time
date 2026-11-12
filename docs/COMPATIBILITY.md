@@ -1,27 +1,26 @@
-# Compatibility targets
+# Compatibility targets and evidence
 
-Targets are pinned for qualification, not claims of completed platform support. See VALIDATION.md for executed checks.
+Targets below describe the agreed qualification matrix. See VALIDATION.md for evidence and DEVICE_QUALIFICATION.md for physical and live-network procedures.
 
-| Lane | Target | Current evidence |
+| Lane | Pinned target | Current evidence |
 | --- | --- | --- |
-| Minimum SDK | Flutter 3.41.0 / Dart 3.11.0 | Windows resolution, analysis, 76 tests passed |
-| Current SDK | Flutter 3.47.9 / Dart 3.13.7 | Windows resolution, analysis, 76 tests passed |
-| Android baseline | AGP 8.11.1 / Gradle 8.14 / KGP 2.2.20 / JDK 17 | APK/AAB passed on JDK 21 / Flutter 3.41.8; specified JDK 17 lane pending |
-| Android current | AGP 9.1.0 / Gradle 9.3.1 / KGP 2.4.0 / JDK 17 | Host configuration provided; build pending |
-| Android built-in Kotlin | AGP 9.1.0 / Gradle 9.3.1 / no legacy Kotlin plugin | Host configuration provided; build pending |
-| Apple | Xcode 27.2 / Apple silicon; iOS 15+, macOS 12+ | UIScene hosts supplied; Mac builds/device checks blocked here |
-| Windows | x64 / QPC | Unit/native clock tests pass; release host pending |
-| Linux | x64 / BOOTTIME | Host supplied; release and keyring checks pending |
-| Web | JavaScript and WebAssembly | See build evidence; browser/network qualification pending |
+| Minimum SDK | Flutter 3.41.0 / Dart 3.11.0 | Windows analysis and 106 tests pass; Linux/macOS pending |
+| Current SDK | Flutter 3.47.9 / Dart 3.13.7 | Windows analysis and 106 tests pass; Linux/macOS pending |
+| Android baseline | AGP 8.11.1 / Gradle 8.14 / Kotlin 2.2.20 / JDK 17 | APK/AAB passed and versions verified |
+| Android current | AGP 9.1.0 / Gradle 9.3.1 / Kotlin 2.4.0 / JDK 17 | APK/AAB passed and versions verified |
+| Android built-in Kotlin | AGP 9.1.0 / Gradle 9.3.1 / Kotlin compiler 2.4.0 / JDK 17; no legacy plugin | APK/AAB passed; compiler alignment is in settings classpath |
+| Apple | Xcode 27.2 / Apple silicon, both SDKs; iOS 15+, macOS 12+ | Blocked; no Mac or archive/device evidence |
+| Windows | x64 / QPC, both SDKs | Core tests pass; release builds blocked by missing Visual Studio toolchain |
+| Linux | x64 / BOOTTIME, both SDKs | Blocked; release/keyring/epoch execution unavailable |
+| Web | JS/WASM on both SDKs | All four built and rendered in Chrome; live HTTPS/CORS pending |
 
-Android API 24 is the minimum. Kotlin versions describe the host: the package bridge uses Java 17. Secure-storage native dependencies must pass every applicable lane. Apple's privacy manifest and final archive inspection remain release gates.
+Android API 24 remains the floor. The package bridge uses Java 17; Kotlin versions describe example hosts. Modern typed AGP extension configuration and compilerOptions replace deprecated DSL accessors. Built-in Kotlin alignment upgrades the AGP runtime compiler without applying the legacy Android Kotlin plugin; no dependency-validation bypass was used. [Android runtime KGP guidance](https://developer.android.com/build/releases/agp-9-0-0-release-notes#runtime-dependency-on-kotlin-gradle-plugin)
 
-| Platform | UTC after successful sync | Restore after app restart by default |
-| --- | --- | --- |
-| Android | Planned | Same verified boot and installation only |
-| Linux | Planned | Same verified kernel boot UUID only |
-| iOS / macOS | Planned | Unavailable without a separately qualified epoch provider |
-| Windows | QPC exercised on this machine | Unavailable without a separately qualified epoch provider |
-| Web | Explicit HTTPS sources required | Never across page/browser restart |
+| Platform | Restore after app restart by default |
+| --- | --- |
+| Android | Only matching verified boot and installation |
+| Linux | Only matching verified kernel boot UUID and application scope |
+| iOS/macOS and Windows | Unavailable without a separately qualified epoch provider |
+| Web | Never across page/browser restart |
 
-All six platforms must pass the release gates before broad support is advertised. CI files are recipes, not test evidence.
+All six-platform and native persistence gates remain required before release. Build success does not qualify physical behavior.

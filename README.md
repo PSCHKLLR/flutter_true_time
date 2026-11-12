@@ -91,3 +91,5 @@ flutter run -d windows
 The Flutter-independent engine is exported from core.dart. Inject MonotonicClock, TimeSource, BootEpochProvider, AnchorStore, TimeScheduler, and WallClockReader for deterministic tests. Custom sources must expose an immutable configurationKey and honor CancellationSignal to release resources promptly.
 
 No NTS authentication, TLS bypass, system-clock modification, untrusted wall-clock fallback, or OS-managed background worker is included. See docs/SPECIFICATION.md, docs/REVIEW_REPORT.md, docs/MIGRATION.md, and docs/PUBLISHING.md.
+
+Release tooling is repository-only: run dart run tool/update_release_manifest.dart after staging new inputs, then dart run tool/release_check.dart. During implementation, --development records untracked inputs but cannot authorize a release. See docs/DEVICE_QUALIFICATION.md for native restart/lifecycle/browser procedures. The checker stays read-only and requires evidence bound to the current canonical source digest.

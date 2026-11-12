@@ -1,33 +1,24 @@
-# Validation record
+# Validation record: first-release enhancements
 
-12 November 2026; Windows x64. Commands were executed locally, not inferred from workflow definitions.
+12 November 2026; Windows x64. Current source digest: bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4.
 
 | Check | Result |
 | --- | --- |
-| Flutter 3.41.0 / Dart 3.11.0, independently resolved graph | Analysis clean; all 76 core/facade tests passed |
-| Flutter 3.47.9 / Dart 3.13.7, independently resolved graph | Analysis clean; all 76 core/facade tests passed |
-| Installed Flutter 3.41.8 / Dart 3.11.5 | 76 tests passed with coverage; example widget test passed |
-| Complete Flutter web JavaScript application | Release build passed (3.41.8) |
-| Complete Flutter web WebAssembly application | Release build passed (3.41.8); nonfatal missing Cupertino font-family warning emitted |
-| Native Windows clock / local transports | Exercised by VM tests; local NTP cancellation releases the UDP port, HTTPS cancellation closes its client |
-| Windows release host | Blocked: suitable Visual Studio toolchain unavailable |
-| Android release APK / AAB | Passed on Flutter 3.41.8, AGP 8.11.1 / Gradle 8.14 / KGP 2.2.20, JDK 21; API 24 floor. Required JDK 17 lanes and AGP 9 remain pending |
-| Android device qualification | No connected device; some SDK licenses remain unaccepted. No physical lifecycle/restoration qualification |
-| Apple Xcode 27.2 / iOS / macOS | Blocked: no Mac/Xcode runner available here |
-| Linux native host/keyring | Not executed on this Windows host |
-| Physical lifecycle, same-boot app restart, backup restore, unavailable keyrings | Pending device/native integration qualification |
-| Chrome core source tests / Dart 3.11.0 | 8 HTTPS validation/cancellation tests passed with mocked HTTP transport |
-| Flutter-rendered Chrome test attempt | Stalled during test loading; stopped without executing tests. Not a pass |
-| Remote CI | Not executed; workflows supplied for qualification |
+| Flutter 3.41.0 / Dart 3.11.0 | Independent resolution; analysis clean; 106 tests and example widget test passed |
+| Flutter 3.47.9 / Dart 3.13.7 | Independent resolution; analysis clean; 106 tests and example widget test passed |
+| Android baseline | APK and AAB passed; AGP 8.11.1, Gradle 8.14, Kotlin 2.2.20, JDK 17.0.21+9 |
+| Android current | APK and AAB passed; AGP 9.1.0, Gradle 9.3.1, Kotlin 2.4.0, JDK 17.0.21+9 |
+| Android built-in Kotlin | APK and AAB passed; same current versions, built-in enabled, legacy Android Kotlin plugin absent |
+| Web JS/WASM | Both release variants built on both pinned SDKs; all four rendered in Chrome 157.0.8103.40 with intended entrypoints and no uncaught page errors |
+| Chrome source regression | 8 mocked HTTPS/cancellation tests passed per SDK; live HTTPS/CORS blocked because caller-operated endpoints were unavailable |
+| Source portability | Fresh LF and Windows-autocrlf clones produced identical canonical digests; Linux checkout execution still pending |
+| Windows release | Both exact SDK attempts blocked by missing suitable Visual Studio toolchain |
+| Linux / Apple | Blocked: no Linux environment or Apple silicon Xcode 27.2 runner available here |
+| Physical lifecycle, native storage, reboot/backup | Blocked: devices/keyrings unavailable; executable restart harness supplied |
+| GitHub qualification workflows | Updated and syntax checked locally; enhanced revision not pushed or run remotely |
 
-Tests use injected clocks, sources, epochs and storage, plus loopback UDP; they do not prove public providers' availability or independence. Web builds without configured endpoints exercise compilation, not CORS or live synchronization. Secure-storage namespace behavior is mocked in facade tests; native keychain/keyring behavior remains unqualified.
+The five review corrections have regression coverage, including delayed restoration, quorum retention at deadline, NTP error cleanup, unknown provider labels, and source/evidence tampering. The Android configuration round-trip test also checks AGP settings classpath alignment and modern Kotlin compiler options. Android artifacts use the generated debug signing configuration for compilation checks only.
 
-Regressions cover all nine review findings, outstanding transport cancellation, noncooperative query permits, timed-out writes, background cycles, restored readiness, malformed/expired/policy-mismatched records, boot/install mismatch, equivalent sources, and pending timeout cleanup on disposal. No numeric coverage promise is made.
+Exact commands, exit codes, resolved dependency locks, runtime Maven graphs, artifact hashes, and toolchains are in evidence/enhancement-minimum.json, evidence/enhancement-current.json, and evidence/enhancement-builtin.json. Browser and checkout records are in evidence/enhancement-browser-startup.json and evidence/enhancement-checkout-portability.json. Older evidence files are historical.
 
-The gate file remains fail-closed. Do not advertise all six platforms or Xcode compatibility until platform builds, browser execution, physical lifecycle, privacy and archive checks have evidence. Re-run the exact SDK lanes after changing dependency constraints or runtime code.
-
-Workflow YAML files were parsed successfully, Android lane configuration round-tripped through current/built-in/baseline in an isolated copy, and final Dart formatting/static analysis were clean. The release checker exits 1 for pending gates as intended.
-
-The first Android attempts failed because --no-pub skipped release plugin regeneration and retained a dev-only integration-test registration. Normal flutter build regenerated the registrant and the APK and AAB passed. Host-build workflows now omit --no-pub. The built-in Kotlin configuration also removes the legacy kotlinOptions DSL and inherits Java 17 target compatibility; its AGP 9 build remains pending.
-
-The example release artifacts use the generated debug signing configuration for compilation checks; they are not store-ready uploads. No signing credentials were added.
+Release verification remains fail-closed. Only the three Android build gates pass. Remaining gates require cross-OS qualification, real browser endpoints, native/device and Apple archive checks, provenance review, repository security/uploader verification, and candidate/owner review. No publication candidate, tag, or upload was created.

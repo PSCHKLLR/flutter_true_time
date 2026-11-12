@@ -1,0 +1,164 @@
+{
+  "date": "2026-11-12",
+  "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4",
+  "os": "Windows x64",
+  "flutter": {
+    "version": "3.41.0",
+    "dart": "3.11.0",
+    "frameworkRevision": "44a626f4f0027bc38a46dc68aed5964b05a83c18",
+    "engineRevision": "3452d735bd38224ef2db85ca763d862d6326b17f"
+  },
+  "android": {
+    "GRADLE": "8.14",
+    "JAVA": "17.0.21+9",
+    "AGP": "8.11.1",
+    "KOTLIN_COMPILER": "2.2.20",
+    "BUILT_IN_KOTLIN": "false"
+  },
+  "androidConfiguration": "Configured Android lane: baseline (AGP 8.11.1, Gradle 8.14)",
+  "checks": [
+    {
+      "name": "resolve",
+      "command": [
+        "flutter",
+        "pub",
+        "get"
+      ],
+      "exitCode": 0,
+      "log": "docs/evidence/enhancement-minimum-resolve.txt",
+      "sha256": "8b12919783243d69565aec67a4b3b071005b13354f3a490a9379903f45f90011"
+    },
+    {
+      "name": "analyze",
+      "command": [
+        "flutter",
+        "analyze",
+        "--no-pub"
+      ],
+      "exitCode": 0,
+      "log": "docs/evidence/enhancement-minimum-analyze.txt",
+      "sha256": "1c33b4cfac9f22d5b17ad5fc508cace93dfa4e9d5addef34745d04f2db96ce7e"
+    },
+    {
+      "name": "tests",
+      "command": [
+        "flutter",
+        "test",
+        "test",
+        "test_flutter",
+        "--no-pub",
+        "--reporter",
+        "expanded"
+      ],
+      "exitCode": 0,
+      "log": "docs/evidence/enhancement-minimum-tests.txt",
+      "sha256": "a2b2ba0aa6ea2f3e650bc4f7ed32f8515d6e7b35e15992ea6f6c40125dde84e4"
+    },
+    {
+      "name": "example-tests",
+      "command": [
+        "flutter",
+        "test",
+        "--no-pub"
+      ],
+      "exitCode": 0,
+      "log": "docs/evidence/enhancement-minimum-example-tests.txt",
+      "sha256": "ef1b0fdd499b9d41612e1f1f1b4f436d87fa7359c061a07959793d789adb1657"
+    },
+    {
+      "name": "chrome",
+      "command": [
+        "flutter",
+        "pub",
+        "run",
+        "test:test",
+        "--platform",
+        "chrome",
+        "--timeout",
+        "30s",
+        "test/sources_test.dart"
+      ],
+      "exitCode": 0,
+      "log": "docs/evidence/enhancement-minimum-chrome.txt",
+      "sha256": "369d2554e88f453a366c9c8573bb93850412ae52059e4bdd5988ad680c650166"
+    },
+    {
+      "name": "android-apk",
+      "command": [
+        "flutter",
+        "build",
+        "apk",
+        "--release"
+      ],
+      "exitCode": 0,
+      "log": "docs/evidence/enhancement-minimum-android-apk.txt",
+      "sha256": "3fda3cd33d25319ab4d81038f99dc12fc80389dac1030cbf42b3309bc17693b9"
+    },
+    {
+      "name": "android-aab",
+      "command": [
+        "flutter",
+        "build",
+        "appbundle",
+        "--release"
+      ],
+      "exitCode": 0,
+      "log": "docs/evidence/enhancement-minimum-android-aab.txt",
+      "sha256": "773053c972294989c6ed5b8e6cf434d2935cd2ab2210aa619c4c4a47195156ae"
+    },
+    {
+      "name": "web-js",
+      "command": [
+        "flutter",
+        "build",
+        "web",
+        "--release"
+      ],
+      "exitCode": 0,
+      "log": "docs/evidence/enhancement-minimum-web-js.txt",
+      "sha256": "cb8bad5b70049e44f5663b2d8a9af7cdae7ab8fbee94ae67e6e6702423671144"
+    },
+    {
+      "name": "web-wasm",
+      "command": [
+        "flutter",
+        "build",
+        "web",
+        "--release",
+        "--wasm"
+      ],
+      "exitCode": 0,
+      "log": "docs/evidence/enhancement-minimum-web-wasm.txt",
+      "sha256": "a391277c3b141ddedf7c2c881abe9fc86f1cfe5c17983dea2fe948f8ed40b580"
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "app-release.apk",
+      "bytes": 43248994,
+      "sha256": "642ec707b9ed4d169ece238b285cc48fda321d0714bcefe35dc9b5868ee07fb6",
+      "signing": "generated example debug signing; compilation evidence only"
+    },
+    {
+      "name": "app-release.aab",
+      "bytes": 39028828,
+      "sha256": "4083eb7335c3f4b2a9f3329290e46bd685ffe2d03197937d2be93e932f43eceb",
+      "signing": "generated example debug signing; compilation evidence only"
+    }
+  ],
+  "resolvedDependencyLocks": [
+    {
+      "file": "docs/evidence/enhancement-minimum-pubspec.lock.txt",
+      "sha256": "d67b8b1c695038342de91ad43626ae089a1b0ae1fd3bdd075d855ac2cb7606d2"
+    },
+    {
+      "file": "docs/evidence/enhancement-minimum-example-pubspec.lock.txt",
+      "sha256": "33b7a0155bb7d34f6d902272d3b40384e9befe0171e42b3bed7c1238bc247606"
+    }
+  ],
+  "androidRuntimeDependencies": {
+    "file": "docs/evidence/enhancement-minimum-android-runtime.txt",
+    "sha256": "305b6061acd6380dd8ab6b59ce81cc17da6f3bbc9cf5d8e664f9e324a12a4d9e",
+    "review": "resolved graph captured; redistribution audit remains pending"
+  }
+}

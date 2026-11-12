@@ -11,3 +11,5 @@ Optional persistence uses a typed version-2 complete record and a serialized bac
 Android's small Java bootstrap plugin reads BOOT_COUNT and an AtomicFile installation marker in noBackupFilesDir. Linux reads the kernel boot UUID. Other platforms use Dart-only registrations and deliberately report no verified restart epoch. Public hot-path clock sampling uses conditional FFI adapters; web imports neither sockets nor native FFI.
 
 SwiftPM/native Apple resources are supplied by the storage dependency; this package has no custom Swift binary or private sysctl. Final Apple privacy/resource behavior is an archive-level qualification gate.
+
+A deadline is a collection cutoff, not an automatic rejection of valid collected evidence. Restoration can run alongside network work but never replaces a fresh anchor. Provider-group normalization is shared by live consensus and record validation. Release fingerprints normalize tracked text inputs; exact archive hashes and owner approval are separate repository-only records.

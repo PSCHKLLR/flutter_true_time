@@ -1,0 +1,85 @@
+{
+  "date": "2026-11-12",
+  "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4",
+  "os": "Windows x64",
+  "flutter": {
+    "version": "3.47.9",
+    "dart": "3.13.7",
+    "frameworkRevision": "c197ca5199e9ee5661e865596c9c07294dfab51c",
+    "engineRevision": "89c39edfdfae2949f6806e4a315c0c08522238b7"
+  },
+  "android": {
+    "GRADLE": "9.3.1",
+    "JAVA": "17.0.21+9",
+    "AGP": "9.1.0",
+    "KOTLIN_COMPILER": "2.4.0",
+    "BUILT_IN_KOTLIN": "true"
+  },
+  "androidConfiguration": "Configured Android lane: builtin (AGP 9.1.0, Gradle 9.3.1)",
+  "checks": [
+    {
+      "name": "resolve",
+      "command": [
+        "flutter",
+        "pub",
+        "get"
+      ],
+      "exitCode": 0,
+      "log": "docs/evidence/enhancement-builtin-resolve.txt",
+      "sha256": "62e58fa549e295ca63c1005da769256dbf04a33b2f4851304c870070aceeef26"
+    },
+    {
+      "name": "android-apk",
+      "command": [
+        "flutter",
+        "build",
+        "apk",
+        "--release"
+      ],
+      "exitCode": 0,
+      "log": "docs/evidence/enhancement-builtin-android-apk.txt",
+      "sha256": "9ae872bdb9d28f5ee7cac4894c786f069ed55d5260cad5e5b30ad0652c78ec4a"
+    },
+    {
+      "name": "android-aab",
+      "command": [
+        "flutter",
+        "build",
+        "appbundle",
+        "--release"
+      ],
+      "exitCode": 0,
+      "log": "docs/evidence/enhancement-builtin-android-aab.txt",
+      "sha256": "e07a738196d58329619b38364c780d598457b0b41f511349af5764c149bdbcbd"
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "app-release.apk",
+      "bytes": 44700454,
+      "sha256": "3bd343371e57ab55a2a8c23ad1285a11ddc66479ce6d8b24862a6a8164229e37",
+      "signing": "generated example debug signing; compilation evidence only"
+    },
+    {
+      "name": "app-release.aab",
+      "bytes": 44828514,
+      "sha256": "150c3f97c7f20713df369c3a2c5541a6c71d8c08d23b50c4b77053e9d5bd8c72",
+      "signing": "generated example debug signing; compilation evidence only"
+    }
+  ],
+  "resolvedDependencyLocks": [
+    {
+      "file": "docs/evidence/enhancement-builtin-pubspec.lock.txt",
+      "sha256": "c62849090a06f2f4bcf0d9a79d1e3f9f48887383f16e021bea9be9cf06a1220b"
+    },
+    {
+      "file": "docs/evidence/enhancement-builtin-example-pubspec.lock.txt",
+      "sha256": "099d5df689c64dde9c04cec116c97f7d2c38142db992ae177ec881099cf93303"
+    }
+  ],
+  "androidRuntimeDependencies": {
+    "file": "docs/evidence/enhancement-builtin-android-runtime.txt",
+    "sha256": "a43b3feacf773f7bd512a3867b3f61577393334431d86546d7cca76e6e5692a2",
+    "review": "resolved graph captured; redistribution audit remains pending"
+  }
+}

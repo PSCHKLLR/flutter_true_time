@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-12",
+  "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4",
+  "repository": {
+    "status": 200,
+    "name": "PSCHKLLR/flutter_true_time",
+    "public": true,
+    "privateVulnerabilityReporting": false,
+    "adminControl": "unverified",
+    "uploaderAccess": "unverified"
+  },
+  "pubDev": {
+    "httpStatus": 404,
+    "note": "Point-in-time lookup; recheck before publication."
+  }
+}

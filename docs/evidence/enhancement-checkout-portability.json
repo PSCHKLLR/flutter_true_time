@@ -1,0 +1,14 @@
+[
+  {
+    "checkout": "lf",
+    "core.autocrlf": "false",
+    "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4",
+    "status": "passed"
+  },
+  {
+    "checkout": "windows_autocrlf",
+    "core.autocrlf": "true",
+    "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4",
+    "status": "passed"
+  }
+]

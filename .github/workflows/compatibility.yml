@@ -26,6 +26,7 @@ jobs:
           flutter --version --machine > toolchain.json
           flutter pub get
       - run: dart format --output=none --set-exit-if-changed lib test test_flutter example/integration_test tool example/lib example/test
+      - run: dart run tool/source_digest.dart > source-fingerprint.json
       - run: flutter analyze
       - run: flutter test test test_flutter --no-pub --coverage
       - run: flutter test --no-pub
@@ -36,6 +37,7 @@ jobs:
           name: core-${{ matrix.os }}-${{ matrix.flutter }}
           path: |
             toolchain.json
+            source-fingerprint.json
             pubspec.lock
             coverage/lcov.info
   android:
@@ -58,6 +60,9 @@ jobs:
           flutter-version: ${{ matrix.flutter }}
           channel: stable
       - run: flutter pub get
+      - name: Select JDK 17 for Flutter
+        run: flutter config --jdk-dir "$JAVA_HOME"
+      - run: dart run tool/source_digest.dart > source-fingerprint.json
       - run: dart run tool/configure_android.dart ${{ matrix.lane }}
       - name: Record Android toolchain
         run: |
@@ -76,6 +81,8 @@ jobs:
           name: android-${{ matrix.lane }}
           path: |
             toolchain.json
+            source-fingerprint.json
+            pubspec.lock
             java-version.txt
             gradle-version.txt
             example/android/gradle.properties
@@ -95,26 +102,51 @@ jobs:
           flutter-version: ${{ matrix.flutter }}
           channel: stable
       - run: flutter pub get
+      - run: flutter --version --machine > toolchain.json
+      - run: dart run tool/source_digest.dart > source-fingerprint.json
+      - run: flutter pub run test:test --platform chrome test/sources_test.dart
+        env:
+          CHROME_EXECUTABLE: /usr/bin/google-chrome
       - run: flutter build web --release
         working-directory: example
       - run: flutter build web --release --wasm
         working-directory: example
+      - uses: actions/upload-artifact@v7.0.2
+        if: always()
+        with:
+          name: web-${{ matrix.flutter }}
+          path: |
+            toolchain.json
+            source-fingerprint.json
+            pubspec.lock
   desktop:
     strategy:
       fail-fast: false
       matrix:
         include:
-          - {os: windows-latest, target: windows}
-          - {os: ubuntu-24.04, target: linux}
+          - {os: windows-latest, target: windows, flutter: '3.41.0'}
+          - {os: windows-latest, target: windows, flutter: '3.47.9'}
+          - {os: ubuntu-24.04, target: linux, flutter: '3.41.0'}
+          - {os: ubuntu-24.04, target: linux, flutter: '3.47.9'}
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: subosito/flutter-action@v2.23.0
         with:
-          flutter-version: '3.47.9'
+          flutter-version: ${{ matrix.flutter }}
           channel: stable
       - if: runner.os == 'Linux'
         run: sudo apt-get update && sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev libsecret-1-dev libjsoncpp-dev
       - run: flutter pub get
+      - run: flutter --version --machine > toolchain.json
+      - run: dart run tool/source_digest.dart > source-fingerprint.json
       - run: flutter build ${{ matrix.target }} --release
         working-directory: example
+      - uses: actions/upload-artifact@v7.0.2
+        if: always()
+        with:
+          name: desktop-${{ matrix.target }}-${{ matrix.flutter }}
+          path: |
+            toolchain.json
+            source-fingerprint.json
+            pubspec.lock

@@ -84,5 +84,7 @@
       "licenseSha256": "87ef8bccdd619f2345ba5b9026cf1d6cccb305e36ab83849a8a3af9293abde7e",
       "licenseFile": "licenses/win32.txt"
     }
-  ]
+  ],
+  "resolvedDependencyInventory": "DEPENDENCY_LICENSES.json",
+  "legalReviewStatus": "Dart/Flutter license collection complete; native binaries/Maven/CocoaPods and human redistribution/provenance clearance pending"
 }

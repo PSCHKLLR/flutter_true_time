@@ -14,3 +14,8 @@ coverage/
 .flutter-plugins-dependencies
 example/.flutter-plugins-dependencies
 **/GeneratedPluginRegistrant.*
+
+# Repository-only qualification/approval material.
+docs/evidence/
+docs/release_gates.json
+tool/

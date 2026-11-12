@@ -24,6 +24,7 @@ jobs:
           grep 'Xcode 27.2' xcode-version.txt
           flutter --version --machine > toolchain.json
       - run: flutter pub get
+      - run: dart run tool/source_digest.dart > source-fingerprint.json
       - run: flutter test test test_flutter --no-pub
       - run: flutter build ios --simulator --debug
         working-directory: example
@@ -40,6 +41,8 @@ jobs:
           path: |
             xcode-version.txt
             toolchain.json
+            source-fingerprint.json
+            pubspec.lock
             privacy-resources.txt
             example/build/ios/iphonesimulator/*.app
             example/build/macos/Build/Products/Release/*.app

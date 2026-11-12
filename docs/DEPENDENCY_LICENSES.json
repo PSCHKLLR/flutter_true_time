@@ -1,0 +1,2272 @@
+{
+  "date": "2026-11-12",
+  "method": "Collected complete LICENSE/COPYING/NOTICE texts from every resolved Dart/Flutter package in both independent graphs. Native Maven/CocoaPods/binary redistribution review and human provenance clearance remain required; collection is not legal approval.",
+  "graphs": [
+    {
+      "flutter": "3.41.0",
+      "packages": [
+        {
+          "package": "_fe_analyzer_shared",
+          "version": "92.0.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/_fe_analyzer_shared-92.0.0-efa31b5ac790-LICENSE.txt",
+              "sha256": "efa31b5ac790016736fa9761642b0af16d37cd4fb483de2905adb5258cb89722",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "analyzer",
+          "version": "9.0.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/analyzer-9.0.0-7e124af6a556-LICENSE.txt",
+              "sha256": "7e124af6a556f045cb3a20cafbdaa31602ac2c82cbcb3c3b15faaaf514b06028",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "args",
+          "version": "2.7.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/args-2.7.0-dfb09c74e293-LICENSE.txt",
+              "sha256": "dfb09c74e29386cd3e2719f32d4995d59526179753931d31840757c77fbf2791",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "async",
+          "version": "2.13.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/async-2.13.1-ff15faa32a2e-LICENSE.txt",
+              "sha256": "ff15faa32a2e638107b7789592b14426162a75ba620044ee2340a20ec6ce5e73",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "boolean_selector",
+          "version": "2.1.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/boolean_selector-2.1.2-b71519245009-LICENSE.txt",
+              "sha256": "b71519245009a3b8f126196a5408ec031e216e8e0d985085958c6543f82a8a2a",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "characters",
+          "version": "1.4.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/characters-1.4.1-0371d1da6a57-LICENSE.txt",
+              "sha256": "0371d1da6a57fb791db29d29b95333429205f51f3cb2eb3a0c12d91838a38744",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "cli_config",
+          "version": "0.2.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/cli_config-0.2.0-605bcf409f23-LICENSE.txt",
+              "sha256": "605bcf409f2347e3bcc9905ab70a2f3218e841bae372b0cbfbf305a222f74222",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "cli_util",
+          "version": "0.6.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/cli_util-0.6.0-ff15faa32a2e-LICENSE.txt",
+              "sha256": "ff15faa32a2e638107b7789592b14426162a75ba620044ee2340a20ec6ce5e73",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "clock",
+          "version": "1.1.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/clock-1.1.2-58d1e17ffe51-LICENSE.txt",
+              "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "code_assets",
+          "version": "1.2.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/code_assets-1.2.1-21ae23b0b9ff-LICENSE.txt",
+              "sha256": "21ae23b0b9ff67a2dc75ab085d1e8db8ac548c5faf370af17f28dd2ef3b52b7b",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "collection",
+          "version": "1.19.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/collection-1.19.1-ff15faa32a2e-LICENSE.txt",
+              "sha256": "ff15faa32a2e638107b7789592b14426162a75ba620044ee2340a20ec6ce5e73",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "convert",
+          "version": "3.1.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/convert-3.1.2-ad6a71997da9-LICENSE.txt",
+              "sha256": "ad6a71997da90924b2cfb1fb47ec46537f70faf469efe016168794ae45ed6888",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "coverage",
+          "version": "1.16.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/coverage-1.16.0-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "crypto",
+          "version": "3.0.8",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/crypto-3.0.8-ad6a71997da9-LICENSE.txt",
+              "sha256": "ad6a71997da90924b2cfb1fb47ec46537f70faf469efe016168794ae45ed6888",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "fake_async",
+          "version": "1.3.3",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/fake_async-1.3.3-58d1e17ffe51-LICENSE.txt",
+              "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "ffi",
+          "version": "2.2.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/ffi-2.2.0-0371d1da6a57-LICENSE.txt",
+              "sha256": "0371d1da6a57fb791db29d29b95333429205f51f3cb2eb3a0c12d91838a38744",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "ffi_leak_tracker",
+          "version": "0.1.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/ffi_leak_tracker-0.1.2-332f290333e6-LICENSE.txt",
+              "sha256": "332f290333e64ed007b4f59aeeebd8fd3ceaadfbfa226a6cf2a3ab1583281624",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "file",
+          "version": "7.0.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/file-7.0.1-f6df86b14121-LICENSE.txt",
+              "sha256": "f6df86b1412172537273e8e80ee2fb8a66aa7307ce0b39ea5ddab47ca41b8c49",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "flutter",
+          "version": "SDK",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/flutter-SDK-a3a9fd82f800-LICENSE.txt",
+              "sha256": "a3a9fd82f800a47377f7d3f60c60a5c91cae0495be8f329031e1448ce0f5dab9",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "flutter_driver",
+          "version": "SDK",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/flutter_driver-sdk-a3a9fd82f800.txt",
+              "sha256": "a3a9fd82f800a47377f7d3f60c60a5c91cae0495be8f329031e1448ce0f5dab9",
+              "origin": "Flutter SDK LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "flutter_lints",
+          "version": "6.0.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/flutter_lints-6.0.0-89519eca6f7b-LICENSE.txt",
+              "sha256": "89519eca6f7b9529b35bdddd623a58c3af06a88c458dbd6531ddb4675acf75a9",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "flutter_secure_storage",
+          "version": "11.2.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/flutter_secure_storage-11.2.0-55dafb084270-LICENSE.txt",
+              "sha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "flutter_secure_storage_darwin",
+          "version": "0.4.3",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/flutter_secure_storage_darwin-0.4.3-3754c516086c-LICENSE.txt",
+              "sha256": "3754c516086c62307896512b68024837bee5d2bea42a55cfd03f7448b92b06c8",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "flutter_secure_storage_linux",
+          "version": "3.0.3",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/flutter_secure_storage_linux-3.0.3-55dafb084270-LICENSE.txt",
+              "sha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "flutter_secure_storage_platform_interface",
+          "version": "2.1.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/flutter_secure_storage_platform_interface-2.1.1-55dafb084270-LICENSE.txt",
+              "sha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "flutter_secure_storage_web",
+          "version": "2.1.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/flutter_secure_storage_web-2.1.1-55dafb084270-LICENSE.txt",
+              "sha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "flutter_secure_storage_windows",
+          "version": "4.2.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/flutter_secure_storage_windows-4.2.2-55dafb084270-LICENSE.txt",
+              "sha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "flutter_test",
+          "version": "SDK",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/flutter_test-sdk-a3a9fd82f800.txt",
+              "sha256": "a3a9fd82f800a47377f7d3f60c60a5c91cae0495be8f329031e1448ce0f5dab9",
+              "origin": "Flutter SDK LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "flutter_web_plugins",
+          "version": "SDK",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/flutter_web_plugins-sdk-a3a9fd82f800.txt",
+              "sha256": "a3a9fd82f800a47377f7d3f60c60a5c91cae0495be8f329031e1448ce0f5dab9",
+              "origin": "Flutter SDK LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "frontend_server_client",
+          "version": "4.1.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/frontend_server_client-4.1.0-2cfa3ee8e751-LICENSE.txt",
+              "sha256": "2cfa3ee8e7512e6d44c854b986510810fadc815f93f890373b3a81c1b6ccd256",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "fuchsia_remote_debug_protocol",
+          "version": "SDK",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/fuchsia_remote_debug_protocol-sdk-a3a9fd82f800.txt",
+              "sha256": "a3a9fd82f800a47377f7d3f60c60a5c91cae0495be8f329031e1448ce0f5dab9",
+              "origin": "Flutter SDK LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "glob",
+          "version": "2.2.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/glob-2.2.0-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "hooks",
+          "version": "2.0.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/hooks-2.0.2-21ae23b0b9ff-LICENSE.txt",
+              "sha256": "21ae23b0b9ff67a2dc75ab085d1e8db8ac548c5faf370af17f28dd2ef3b52b7b",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "http",
+          "version": "1.6.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/http-1.6.0-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "http_multi_server",
+          "version": "3.2.3",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/http_multi_server-3.2.3-ff0b91d4f3c3-LICENSE.txt",
+              "sha256": "ff0b91d4f3c32b25cb6ec84985e8da89b0ba2a2b2f7eef353cda5e5423a20390",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "http_parser",
+          "version": "4.1.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/http_parser-4.1.2-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "integration_test",
+          "version": "SDK",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/integration_test-sdk-a3a9fd82f800.txt",
+              "sha256": "a3a9fd82f800a47377f7d3f60c60a5c91cae0495be8f329031e1448ce0f5dab9",
+              "origin": "Flutter SDK LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "io",
+          "version": "1.1.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/io-1.1.0-ea97a7558a7b-LICENSE.txt",
+              "sha256": "ea97a7558a7bd7cee4e2355f7529e3cbebb0dcbb546ddb9a90f10c9eb6b08da5",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "jni",
+          "version": "1.1.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/jni-1.1.2-08a004aa8956-LICENSE.txt",
+              "sha256": "08a004aa8956c3cf3b24f7f69c966247233953e18e6afaa61191ea47b7eb70f6",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "jni_flutter",
+          "version": "1.0.4+1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/jni_flutter-1.0.4+1-b1fcb475d678-LICENSE.txt",
+              "sha256": "b1fcb475d67817411f335ac92872507011e574c4cb29cfdaaf7707b75641932c",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "jni_util",
+          "version": "1.0.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/jni_util-1.0.0-b1fcb475d678-LICENSE.txt",
+              "sha256": "b1fcb475d67817411f335ac92872507011e574c4cb29cfdaaf7707b75641932c",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "leak_tracker",
+          "version": "11.0.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/leak_tracker-11.0.2-08a004aa8956-LICENSE.txt",
+              "sha256": "08a004aa8956c3cf3b24f7f69c966247233953e18e6afaa61191ea47b7eb70f6",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "leak_tracker_flutter_testing",
+          "version": "3.0.10",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/leak_tracker_flutter_testing-3.0.10-08a004aa8956-LICENSE.txt",
+              "sha256": "08a004aa8956c3cf3b24f7f69c966247233953e18e6afaa61191ea47b7eb70f6",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "leak_tracker_testing",
+          "version": "3.0.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/leak_tracker_testing-3.0.2-08a004aa8956-LICENSE.txt",
+              "sha256": "08a004aa8956c3cf3b24f7f69c966247233953e18e6afaa61191ea47b7eb70f6",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "lints",
+          "version": "6.1.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/lints-6.1.0-421fe78c3b5d-LICENSE.txt",
+              "sha256": "421fe78c3b5df297f8b4ab2c74f2450a274ee6d245a113091f6b9f90570af193",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "logging",
+          "version": "1.3.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/logging-1.3.0-dfb09c74e293-LICENSE.txt",
+              "sha256": "dfb09c74e29386cd3e2719f32d4995d59526179753931d31840757c77fbf2791",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "matcher",
+          "version": "0.12.18",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/matcher-0.12.18-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "material_color_utilities",
+          "version": "0.13.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/material_color_utilities-0.13.0-d103f246ef4c-LICENSE.txt",
+              "sha256": "d103f246ef4c18dab8af0c1dcf6a8af884e5cff554da7261a48ac43c17d98f2e",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "meta",
+          "version": "1.17.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/meta-1.17.0-b71519245009-LICENSE.txt",
+              "sha256": "b71519245009a3b8f126196a5408ec031e216e8e0d985085958c6543f82a8a2a",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "mime",
+          "version": "2.1.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/mime-2.1.0-ff15faa32a2e-LICENSE.txt",
+              "sha256": "ff15faa32a2e638107b7789592b14426162a75ba620044ee2340a20ec6ce5e73",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "node_preamble",
+          "version": "2.0.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/node_preamble-2.0.2-41997ee02074-LICENSE.txt",
+              "sha256": "41997ee02074e3796e539b81b4501ed7d8bc1a620d11ef32cf56494e778461a9",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "objective_c",
+          "version": "9.5.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/objective_c-9.5.0-1cda25a8de68-LICENSE.txt",
+              "sha256": "1cda25a8de6880c5338de0b4a06ee89e8537c213eb1379c16a4c035bfd198b5c",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "package_config",
+          "version": "2.2.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/package_config-2.2.0-0371d1da6a57-LICENSE.txt",
+              "sha256": "0371d1da6a57fb791db29d29b95333429205f51f3cb2eb3a0c12d91838a38744",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "path",
+          "version": "1.9.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/path-1.9.1-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "path_provider",
+          "version": "2.1.6",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/path_provider-2.1.6-420f7739f169-LICENSE.txt",
+              "sha256": "420f7739f169097f0aad1242045169cd643c8f1d94e62866fad265ae4c369b7d",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "path_provider_android",
+          "version": "2.3.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/path_provider_android-2.3.1-420f7739f169-LICENSE.txt",
+              "sha256": "420f7739f169097f0aad1242045169cd643c8f1d94e62866fad265ae4c369b7d",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "path_provider_foundation",
+          "version": "2.6.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/path_provider_foundation-2.6.0-420f7739f169-LICENSE.txt",
+              "sha256": "420f7739f169097f0aad1242045169cd643c8f1d94e62866fad265ae4c369b7d",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "path_provider_linux",
+          "version": "2.2.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/path_provider_linux-2.2.2-420f7739f169-LICENSE.txt",
+              "sha256": "420f7739f169097f0aad1242045169cd643c8f1d94e62866fad265ae4c369b7d",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "path_provider_platform_interface",
+          "version": "2.1.3",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/path_provider_platform_interface-2.1.3-420f7739f169-LICENSE.txt",
+              "sha256": "420f7739f169097f0aad1242045169cd643c8f1d94e62866fad265ae4c369b7d",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "path_provider_windows",
+          "version": "2.3.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/path_provider_windows-2.3.0-89519eca6f7b-LICENSE.txt",
+              "sha256": "89519eca6f7b9529b35bdddd623a58c3af06a88c458dbd6531ddb4675acf75a9",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "platform",
+          "version": "3.1.6",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/platform-3.1.6-143839f62c9b-LICENSE.txt",
+              "sha256": "143839f62c9b7f88143ea9f688361c27050888acde7696b34e04414bd254fafc",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "plugin_platform_interface",
+          "version": "2.1.8",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/plugin_platform_interface-2.1.8-89519eca6f7b-LICENSE.txt",
+              "sha256": "89519eca6f7b9529b35bdddd623a58c3af06a88c458dbd6531ddb4675acf75a9",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "pool",
+          "version": "1.5.3",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/pool-1.5.3-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "process",
+          "version": "5.0.6",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/process-5.0.6-5f018bbc25a5-LICENSE.txt",
+              "sha256": "5f018bbc25a55406d7a4e1d3229135439e315210b0050ca56dbb367a4934e85d",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "pub_semver",
+          "version": "2.2.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/pub_semver-2.2.1-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "record_use",
+          "version": "0.6.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/record_use-0.6.0-1cda25a8de68-LICENSE.txt",
+              "sha256": "1cda25a8de6880c5338de0b4a06ee89e8537c213eb1379c16a4c035bfd198b5c",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "shelf",
+          "version": "1.4.3",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/shelf-1.4.3-ff0b91d4f3c3-LICENSE.txt",
+              "sha256": "ff0b91d4f3c32b25cb6ec84985e8da89b0ba2a2b2f7eef353cda5e5423a20390",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "shelf_packages_handler",
+          "version": "3.0.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/shelf_packages_handler-3.0.2-b71519245009-LICENSE.txt",
+              "sha256": "b71519245009a3b8f126196a5408ec031e216e8e0d985085958c6543f82a8a2a",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "shelf_static",
+          "version": "1.2.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/shelf_static-1.2.0-ad6a71997da9-LICENSE.txt",
+              "sha256": "ad6a71997da90924b2cfb1fb47ec46537f70faf469efe016168794ae45ed6888",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "shelf_web_socket",
+          "version": "3.0.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/shelf_web_socket-3.0.0-ff0b91d4f3c3-LICENSE.txt",
+              "sha256": "ff0b91d4f3c32b25cb6ec84985e8da89b0ba2a2b2f7eef353cda5e5423a20390",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "sky_engine",
+          "version": "SDK",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/sky_engine-SDK-1d531df6b9d1-LICENSE.txt",
+              "sha256": "1d531df6b9d1142fa3f6abc518cfab21adc6570ae11631c40a7ba366c93d2eaa",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "source_map_stack_trace",
+          "version": "2.1.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/source_map_stack_trace-2.1.2-ad6a71997da9-LICENSE.txt",
+              "sha256": "ad6a71997da90924b2cfb1fb47ec46537f70faf469efe016168794ae45ed6888",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "source_maps",
+          "version": "0.10.14",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/source_maps-0.10.14-ff0b91d4f3c3-LICENSE.txt",
+              "sha256": "ff0b91d4f3c32b25cb6ec84985e8da89b0ba2a2b2f7eef353cda5e5423a20390",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "source_span",
+          "version": "1.10.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/source_span-1.10.2-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "stack_trace",
+          "version": "1.12.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/stack_trace-1.12.1-ff0b91d4f3c3-LICENSE.txt",
+              "sha256": "ff0b91d4f3c32b25cb6ec84985e8da89b0ba2a2b2f7eef353cda5e5423a20390",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "stream_channel",
+          "version": "2.1.4",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/stream_channel-2.1.4-ff15faa32a2e-LICENSE.txt",
+              "sha256": "ff15faa32a2e638107b7789592b14426162a75ba620044ee2340a20ec6ce5e73",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "string_scanner",
+          "version": "1.4.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/string_scanner-1.4.1-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "sync_http",
+          "version": "0.3.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/sync_http-0.3.1-b9b748d4dd6f-LICENSE.txt",
+              "sha256": "b9b748d4dd6f725387bf69e96df4e4ebff167ae83547954242a731504d037644",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "term_glyph",
+          "version": "1.2.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/term_glyph-1.2.2-ea97a7558a7b-LICENSE.txt",
+              "sha256": "ea97a7558a7bd7cee4e2355f7529e3cbebb0dcbb546ddb9a90f10c9eb6b08da5",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "test",
+          "version": "1.28.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/test-1.28.0-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "test_api",
+          "version": "0.7.8",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/test_api-0.7.8-ff1b9f0df903-LICENSE.txt",
+              "sha256": "ff1b9f0df9036c04be424b1e3ce12789bea880ad5ffc3a48e069ae2d40a087a4",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "test_core",
+          "version": "0.6.14",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/test_core-0.6.14-ff1b9f0df903-LICENSE.txt",
+              "sha256": "ff1b9f0df9036c04be424b1e3ce12789bea880ad5ffc3a48e069ae2d40a087a4",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "typed_data",
+          "version": "1.4.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/typed_data-1.4.0-ff15faa32a2e-LICENSE.txt",
+              "sha256": "ff15faa32a2e638107b7789592b14426162a75ba620044ee2340a20ec6ce5e73",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "vector_math",
+          "version": "2.2.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/vector_math-2.2.0-b5d856a1e27e-LICENSE.txt",
+              "sha256": "b5d856a1e27e9ebea4957fc3526f1c65782a04894b113c6b3b0fb1321dbdec55",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "vm_service",
+          "version": "15.4.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/vm_service-15.4.0-ad6a71997da9-LICENSE.txt",
+              "sha256": "ad6a71997da90924b2cfb1fb47ec46537f70faf469efe016168794ae45ed6888",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "watcher",
+          "version": "1.2.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/watcher-1.2.1-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "web",
+          "version": "1.1.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/web-1.1.1-aa913ff50d75-LICENSE.txt",
+              "sha256": "aa913ff50d7542eb8cc35b9f48a80928ac6819ba9057f85d424655e3e8dc271c",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "web_socket",
+          "version": "1.0.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/web_socket-1.0.1-cbe822ef3446-LICENSE.txt",
+              "sha256": "cbe822ef3446af4366b2b82c48b0979d0b12865edfe74c22b9aa617fc362d6e0",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "web_socket_channel",
+          "version": "3.0.3",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/web_socket_channel-3.0.3-a4b5d7d31626-LICENSE.txt",
+              "sha256": "a4b5d7d31626e90b77e8696f1c47643aa31f52e17c1907c1ab60b068110e6e10",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "webdriver",
+          "version": "3.2.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/webdriver-3.2.0-74cb46b123c9-LICENSE.txt",
+              "sha256": "74cb46b123c9fa918ea8e0a0f5be736a1cd661edf145ccc723dc7ce30324ebab",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "webkit_inspection_protocol",
+          "version": "1.2.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/webkit_inspection_protocol-1.2.1-eb9a6b967231-LICENSE.txt",
+              "sha256": "eb9a6b9672316612439514f10b5d3b24bcd140313c96a73c370bb7b07897a8cd",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "win32",
+          "version": "6.4.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/win32-6.4.0-87ef8bccdd61-LICENSE.txt",
+              "sha256": "87ef8bccdd619f2345ba5b9026cf1d6cccb305e36ab83849a8a3af9293abde7e",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "xdg_directories",
+          "version": "1.1.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/xdg_directories-1.1.0-89519eca6f7b-LICENSE.txt",
+              "sha256": "89519eca6f7b9529b35bdddd623a58c3af06a88c458dbd6531ddb4675acf75a9",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "yaml",
+          "version": "3.1.4",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/yaml-3.1.4-d47b93335401-LICENSE.txt",
+              "sha256": "d47b93335401b052d79a2f5a3710e4cf7b5aed782faedf84d40fbdd6eb934ec7",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        }
+      ]
+    },
+    {
+      "flutter": "3.47.9",
+      "packages": [
+        {
+          "package": "_fe_analyzer_shared",
+          "version": "103.0.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/_fe_analyzer_shared-103.0.0-efa31b5ac790-LICENSE.txt",
+              "sha256": "efa31b5ac790016736fa9761642b0af16d37cd4fb483de2905adb5258cb89722",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "analyzer",
+          "version": "13.3.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/analyzer-13.3.0-7e124af6a556-LICENSE.txt",
+              "sha256": "7e124af6a556f045cb3a20cafbdaa31602ac2c82cbcb3c3b15faaaf514b06028",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "args",
+          "version": "2.7.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/args-2.7.0-dfb09c74e293-LICENSE.txt",
+              "sha256": "dfb09c74e29386cd3e2719f32d4995d59526179753931d31840757c77fbf2791",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "async",
+          "version": "2.13.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/async-2.13.1-ff15faa32a2e-LICENSE.txt",
+              "sha256": "ff15faa32a2e638107b7789592b14426162a75ba620044ee2340a20ec6ce5e73",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "boolean_selector",
+          "version": "2.1.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/boolean_selector-2.1.2-b71519245009-LICENSE.txt",
+              "sha256": "b71519245009a3b8f126196a5408ec031e216e8e0d985085958c6543f82a8a2a",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "characters",
+          "version": "1.4.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/characters-1.4.1-0371d1da6a57-LICENSE.txt",
+              "sha256": "0371d1da6a57fb791db29d29b95333429205f51f3cb2eb3a0c12d91838a38744",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "cli_config",
+          "version": "0.2.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/cli_config-0.2.0-605bcf409f23-LICENSE.txt",
+              "sha256": "605bcf409f2347e3bcc9905ab70a2f3218e841bae372b0cbfbf305a222f74222",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "cli_util",
+          "version": "0.6.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/cli_util-0.6.0-ff15faa32a2e-LICENSE.txt",
+              "sha256": "ff15faa32a2e638107b7789592b14426162a75ba620044ee2340a20ec6ce5e73",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "clock",
+          "version": "1.1.3",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/clock-1.1.3-58d1e17ffe51-LICENSE.txt",
+              "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "code_assets",
+          "version": "2.2.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/code_assets-2.2.0-21ae23b0b9ff-LICENSE.txt",
+              "sha256": "21ae23b0b9ff67a2dc75ab085d1e8db8ac548c5faf370af17f28dd2ef3b52b7b",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "collection",
+          "version": "1.19.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/collection-1.19.1-ff15faa32a2e-LICENSE.txt",
+              "sha256": "ff15faa32a2e638107b7789592b14426162a75ba620044ee2340a20ec6ce5e73",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "convert",
+          "version": "3.1.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/convert-3.1.2-ad6a71997da9-LICENSE.txt",
+              "sha256": "ad6a71997da90924b2cfb1fb47ec46537f70faf469efe016168794ae45ed6888",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "coverage",
+          "version": "1.16.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/coverage-1.16.0-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "crypto",
+          "version": "3.0.8",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/crypto-3.0.8-ad6a71997da9-LICENSE.txt",
+              "sha256": "ad6a71997da90924b2cfb1fb47ec46537f70faf469efe016168794ae45ed6888",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "fake_async",
+          "version": "1.3.3",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/fake_async-1.3.3-58d1e17ffe51-LICENSE.txt",
+              "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "ffi",
+          "version": "2.2.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/ffi-2.2.0-0371d1da6a57-LICENSE.txt",
+              "sha256": "0371d1da6a57fb791db29d29b95333429205f51f3cb2eb3a0c12d91838a38744",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "ffi_leak_tracker",
+          "version": "0.1.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/ffi_leak_tracker-0.1.2-332f290333e6-LICENSE.txt",
+              "sha256": "332f290333e64ed007b4f59aeeebd8fd3ceaadfbfa226a6cf2a3ab1583281624",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "file",
+          "version": "7.0.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/file-7.0.1-f6df86b14121-LICENSE.txt",
+              "sha256": "f6df86b1412172537273e8e80ee2fb8a66aa7307ce0b39ea5ddab47ca41b8c49",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "flutter",
+          "version": "SDK",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/flutter-SDK-a3a9fd82f800-LICENSE.txt",
+              "sha256": "a3a9fd82f800a47377f7d3f60c60a5c91cae0495be8f329031e1448ce0f5dab9",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "flutter_driver",
+          "version": "SDK",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/flutter_driver-sdk-a3a9fd82f800.txt",
+              "sha256": "a3a9fd82f800a47377f7d3f60c60a5c91cae0495be8f329031e1448ce0f5dab9",
+              "origin": "Flutter SDK LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "flutter_lints",
+          "version": "6.0.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/flutter_lints-6.0.0-89519eca6f7b-LICENSE.txt",
+              "sha256": "89519eca6f7b9529b35bdddd623a58c3af06a88c458dbd6531ddb4675acf75a9",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "flutter_secure_storage",
+          "version": "11.2.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/flutter_secure_storage-11.2.0-55dafb084270-LICENSE.txt",
+              "sha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "flutter_secure_storage_darwin",
+          "version": "0.4.3",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/flutter_secure_storage_darwin-0.4.3-3754c516086c-LICENSE.txt",
+              "sha256": "3754c516086c62307896512b68024837bee5d2bea42a55cfd03f7448b92b06c8",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "flutter_secure_storage_linux",
+          "version": "3.0.3",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/flutter_secure_storage_linux-3.0.3-55dafb084270-LICENSE.txt",
+              "sha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "flutter_secure_storage_platform_interface",
+          "version": "2.1.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/flutter_secure_storage_platform_interface-2.1.1-55dafb084270-LICENSE.txt",
+              "sha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "flutter_secure_storage_web",
+          "version": "2.1.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/flutter_secure_storage_web-2.1.1-55dafb084270-LICENSE.txt",
+              "sha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "flutter_secure_storage_windows",
+          "version": "4.2.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/flutter_secure_storage_windows-4.2.2-55dafb084270-LICENSE.txt",
+              "sha256": "55dafb084270616f95b9bea53654adda8bdcad95c022a83c4cf8769073f829fa",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "flutter_test",
+          "version": "SDK",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/flutter_test-sdk-a3a9fd82f800.txt",
+              "sha256": "a3a9fd82f800a47377f7d3f60c60a5c91cae0495be8f329031e1448ce0f5dab9",
+              "origin": "Flutter SDK LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "flutter_web_plugins",
+          "version": "SDK",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/flutter_web_plugins-sdk-a3a9fd82f800.txt",
+              "sha256": "a3a9fd82f800a47377f7d3f60c60a5c91cae0495be8f329031e1448ce0f5dab9",
+              "origin": "Flutter SDK LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "frontend_server_client",
+          "version": "4.2.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/frontend_server_client-4.2.0-2cfa3ee8e751-LICENSE.txt",
+              "sha256": "2cfa3ee8e7512e6d44c854b986510810fadc815f93f890373b3a81c1b6ccd256",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "fuchsia_remote_debug_protocol",
+          "version": "SDK",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/fuchsia_remote_debug_protocol-sdk-a3a9fd82f800.txt",
+              "sha256": "a3a9fd82f800a47377f7d3f60c60a5c91cae0495be8f329031e1448ce0f5dab9",
+              "origin": "Flutter SDK LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "glob",
+          "version": "2.2.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/glob-2.2.0-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "hooks",
+          "version": "2.2.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/hooks-2.2.0-21ae23b0b9ff-LICENSE.txt",
+              "sha256": "21ae23b0b9ff67a2dc75ab085d1e8db8ac548c5faf370af17f28dd2ef3b52b7b",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "http",
+          "version": "1.6.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/http-1.6.0-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "http_multi_server",
+          "version": "3.2.3",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/http_multi_server-3.2.3-ff0b91d4f3c3-LICENSE.txt",
+              "sha256": "ff0b91d4f3c32b25cb6ec84985e8da89b0ba2a2b2f7eef353cda5e5423a20390",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "http_parser",
+          "version": "4.1.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/http_parser-4.1.2-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "integration_test",
+          "version": "SDK",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/integration_test-sdk-a3a9fd82f800.txt",
+              "sha256": "a3a9fd82f800a47377f7d3f60c60a5c91cae0495be8f329031e1448ce0f5dab9",
+              "origin": "Flutter SDK LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "io",
+          "version": "1.1.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/io-1.1.0-ea97a7558a7b-LICENSE.txt",
+              "sha256": "ea97a7558a7bd7cee4e2355f7529e3cbebb0dcbb546ddb9a90f10c9eb6b08da5",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "jni",
+          "version": "1.1.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/jni-1.1.2-08a004aa8956-LICENSE.txt",
+              "sha256": "08a004aa8956c3cf3b24f7f69c966247233953e18e6afaa61191ea47b7eb70f6",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "jni_flutter",
+          "version": "1.0.4+1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/jni_flutter-1.0.4+1-b1fcb475d678-LICENSE.txt",
+              "sha256": "b1fcb475d67817411f335ac92872507011e574c4cb29cfdaaf7707b75641932c",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "jni_util",
+          "version": "1.0.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/jni_util-1.0.0-b1fcb475d678-LICENSE.txt",
+              "sha256": "b1fcb475d67817411f335ac92872507011e574c4cb29cfdaaf7707b75641932c",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "leak_tracker",
+          "version": "11.0.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/leak_tracker-11.0.2-08a004aa8956-LICENSE.txt",
+              "sha256": "08a004aa8956c3cf3b24f7f69c966247233953e18e6afaa61191ea47b7eb70f6",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "leak_tracker_flutter_testing",
+          "version": "3.0.10",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/leak_tracker_flutter_testing-3.0.10-08a004aa8956-LICENSE.txt",
+              "sha256": "08a004aa8956c3cf3b24f7f69c966247233953e18e6afaa61191ea47b7eb70f6",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "leak_tracker_testing",
+          "version": "3.0.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/leak_tracker_testing-3.0.2-08a004aa8956-LICENSE.txt",
+              "sha256": "08a004aa8956c3cf3b24f7f69c966247233953e18e6afaa61191ea47b7eb70f6",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "lints",
+          "version": "6.1.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/lints-6.1.0-421fe78c3b5d-LICENSE.txt",
+              "sha256": "421fe78c3b5df297f8b4ab2c74f2450a274ee6d245a113091f6b9f90570af193",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "logging",
+          "version": "1.3.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/logging-1.3.0-dfb09c74e293-LICENSE.txt",
+              "sha256": "dfb09c74e29386cd3e2719f32d4995d59526179753931d31840757c77fbf2791",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "matcher",
+          "version": "0.12.20",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/matcher-0.12.20-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "material_color_utilities",
+          "version": "0.13.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/material_color_utilities-0.13.0-d103f246ef4c-LICENSE.txt",
+              "sha256": "d103f246ef4c18dab8af0c1dcf6a8af884e5cff554da7261a48ac43c17d98f2e",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "meta",
+          "version": "1.19.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/meta-1.19.0-b71519245009-LICENSE.txt",
+              "sha256": "b71519245009a3b8f126196a5408ec031e216e8e0d985085958c6543f82a8a2a",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "mime",
+          "version": "2.1.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/mime-2.1.0-ff15faa32a2e-LICENSE.txt",
+              "sha256": "ff15faa32a2e638107b7789592b14426162a75ba620044ee2340a20ec6ce5e73",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "node_preamble",
+          "version": "2.0.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/node_preamble-2.0.2-41997ee02074-LICENSE.txt",
+              "sha256": "41997ee02074e3796e539b81b4501ed7d8bc1a620d11ef32cf56494e778461a9",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "objective_c",
+          "version": "9.6.4",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/objective_c-9.6.4-1cda25a8de68-LICENSE.txt",
+              "sha256": "1cda25a8de6880c5338de0b4a06ee89e8537c213eb1379c16a4c035bfd198b5c",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "package_config",
+          "version": "2.2.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/package_config-2.2.0-0371d1da6a57-LICENSE.txt",
+              "sha256": "0371d1da6a57fb791db29d29b95333429205f51f3cb2eb3a0c12d91838a38744",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "path",
+          "version": "1.9.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/path-1.9.1-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "path_provider",
+          "version": "2.1.6",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/path_provider-2.1.6-420f7739f169-LICENSE.txt",
+              "sha256": "420f7739f169097f0aad1242045169cd643c8f1d94e62866fad265ae4c369b7d",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "path_provider_android",
+          "version": "2.3.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/path_provider_android-2.3.1-420f7739f169-LICENSE.txt",
+              "sha256": "420f7739f169097f0aad1242045169cd643c8f1d94e62866fad265ae4c369b7d",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "path_provider_foundation",
+          "version": "2.6.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/path_provider_foundation-2.6.0-420f7739f169-LICENSE.txt",
+              "sha256": "420f7739f169097f0aad1242045169cd643c8f1d94e62866fad265ae4c369b7d",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "path_provider_linux",
+          "version": "2.2.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/path_provider_linux-2.2.2-420f7739f169-LICENSE.txt",
+              "sha256": "420f7739f169097f0aad1242045169cd643c8f1d94e62866fad265ae4c369b7d",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "path_provider_platform_interface",
+          "version": "2.1.3",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/path_provider_platform_interface-2.1.3-420f7739f169-LICENSE.txt",
+              "sha256": "420f7739f169097f0aad1242045169cd643c8f1d94e62866fad265ae4c369b7d",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "path_provider_windows",
+          "version": "2.3.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/path_provider_windows-2.3.0-89519eca6f7b-LICENSE.txt",
+              "sha256": "89519eca6f7b9529b35bdddd623a58c3af06a88c458dbd6531ddb4675acf75a9",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "platform",
+          "version": "3.2.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/platform-3.2.0-143839f62c9b-LICENSE.txt",
+              "sha256": "143839f62c9b7f88143ea9f688361c27050888acde7696b34e04414bd254fafc",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "plugin_platform_interface",
+          "version": "2.1.8",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/plugin_platform_interface-2.1.8-89519eca6f7b-LICENSE.txt",
+              "sha256": "89519eca6f7b9529b35bdddd623a58c3af06a88c458dbd6531ddb4675acf75a9",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "pool",
+          "version": "1.5.3",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/pool-1.5.3-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "process",
+          "version": "5.0.6",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/process-5.0.6-5f018bbc25a5-LICENSE.txt",
+              "sha256": "5f018bbc25a55406d7a4e1d3229135439e315210b0050ca56dbb367a4934e85d",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "pub_semver",
+          "version": "2.2.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/pub_semver-2.2.1-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "record_use",
+          "version": "1.1.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/record_use-1.1.1-1cda25a8de68-LICENSE.txt",
+              "sha256": "1cda25a8de6880c5338de0b4a06ee89e8537c213eb1379c16a4c035bfd198b5c",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "shelf",
+          "version": "1.4.3",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/shelf-1.4.3-ff0b91d4f3c3-LICENSE.txt",
+              "sha256": "ff0b91d4f3c32b25cb6ec84985e8da89b0ba2a2b2f7eef353cda5e5423a20390",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "shelf_packages_handler",
+          "version": "3.0.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/shelf_packages_handler-3.0.2-b71519245009-LICENSE.txt",
+              "sha256": "b71519245009a3b8f126196a5408ec031e216e8e0d985085958c6543f82a8a2a",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "shelf_static",
+          "version": "1.2.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/shelf_static-1.2.0-ad6a71997da9-LICENSE.txt",
+              "sha256": "ad6a71997da90924b2cfb1fb47ec46537f70faf469efe016168794ae45ed6888",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "shelf_web_socket",
+          "version": "3.0.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/shelf_web_socket-3.0.0-ff0b91d4f3c3-LICENSE.txt",
+              "sha256": "ff0b91d4f3c32b25cb6ec84985e8da89b0ba2a2b2f7eef353cda5e5423a20390",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "sky_engine",
+          "version": "SDK",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/sky_engine-SDK-3c0040023a57-LICENSE.txt",
+              "sha256": "3c0040023a5789bf56d6bf41fd44f08b21758523d41f128fb7dd6beb398d1191",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "source_map_stack_trace",
+          "version": "2.1.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/source_map_stack_trace-2.1.2-ad6a71997da9-LICENSE.txt",
+              "sha256": "ad6a71997da90924b2cfb1fb47ec46537f70faf469efe016168794ae45ed6888",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "source_maps",
+          "version": "0.10.14",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/source_maps-0.10.14-ff0b91d4f3c3-LICENSE.txt",
+              "sha256": "ff0b91d4f3c32b25cb6ec84985e8da89b0ba2a2b2f7eef353cda5e5423a20390",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "source_span",
+          "version": "1.10.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/source_span-1.10.2-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "stack_trace",
+          "version": "1.12.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/stack_trace-1.12.2-ff0b91d4f3c3-LICENSE.txt",
+              "sha256": "ff0b91d4f3c32b25cb6ec84985e8da89b0ba2a2b2f7eef353cda5e5423a20390",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "stream_channel",
+          "version": "2.1.4",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/stream_channel-2.1.4-ff15faa32a2e-LICENSE.txt",
+              "sha256": "ff15faa32a2e638107b7789592b14426162a75ba620044ee2340a20ec6ce5e73",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "string_scanner",
+          "version": "1.4.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/string_scanner-1.4.1-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "sync_http",
+          "version": "0.3.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/sync_http-0.3.1-b9b748d4dd6f-LICENSE.txt",
+              "sha256": "b9b748d4dd6f725387bf69e96df4e4ebff167ae83547954242a731504d037644",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "term_glyph",
+          "version": "1.2.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/term_glyph-1.2.2-ea97a7558a7b-LICENSE.txt",
+              "sha256": "ea97a7558a7bd7cee4e2355f7529e3cbebb0dcbb546ddb9a90f10c9eb6b08da5",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "test",
+          "version": "1.31.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/test-1.31.1-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "test_api",
+          "version": "0.7.12",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/test_api-0.7.12-ff1b9f0df903-LICENSE.txt",
+              "sha256": "ff1b9f0df9036c04be424b1e3ce12789bea880ad5ffc3a48e069ae2d40a087a4",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "test_core",
+          "version": "0.6.18",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/test_core-0.6.18-ff1b9f0df903-LICENSE.txt",
+              "sha256": "ff1b9f0df9036c04be424b1e3ce12789bea880ad5ffc3a48e069ae2d40a087a4",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "typed_data",
+          "version": "1.4.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/typed_data-1.4.0-ff15faa32a2e-LICENSE.txt",
+              "sha256": "ff15faa32a2e638107b7789592b14426162a75ba620044ee2340a20ec6ce5e73",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "vector_math",
+          "version": "2.4.4",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/vector_math-2.4.4-420f7739f169-LICENSE.txt",
+              "sha256": "420f7739f169097f0aad1242045169cd643c8f1d94e62866fad265ae4c369b7d",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "vm_service",
+          "version": "15.4.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/vm_service-15.4.0-ad6a71997da9-LICENSE.txt",
+              "sha256": "ad6a71997da90924b2cfb1fb47ec46537f70faf469efe016168794ae45ed6888",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "watcher",
+          "version": "1.2.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/watcher-1.2.1-3c32b53167c7-LICENSE.txt",
+              "sha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "web",
+          "version": "1.1.2",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/web-1.1.2-aa913ff50d75-LICENSE.txt",
+              "sha256": "aa913ff50d7542eb8cc35b9f48a80928ac6819ba9057f85d424655e3e8dc271c",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "web_socket",
+          "version": "1.0.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/web_socket-1.0.1-cbe822ef3446-LICENSE.txt",
+              "sha256": "cbe822ef3446af4366b2b82c48b0979d0b12865edfe74c22b9aa617fc362d6e0",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "web_socket_channel",
+          "version": "3.0.3",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/web_socket_channel-3.0.3-a4b5d7d31626-LICENSE.txt",
+              "sha256": "a4b5d7d31626e90b77e8696f1c47643aa31f52e17c1907c1ab60b068110e6e10",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "webdriver",
+          "version": "3.2.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/webdriver-3.2.0-74cb46b123c9-LICENSE.txt",
+              "sha256": "74cb46b123c9fa918ea8e0a0f5be736a1cd661edf145ccc723dc7ce30324ebab",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "webkit_inspection_protocol",
+          "version": "1.2.1",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/webkit_inspection_protocol-1.2.1-eb9a6b967231-LICENSE.txt",
+              "sha256": "eb9a6b9672316612439514f10b5d3b24bcd140313c96a73c370bb7b07897a8cd",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "win32",
+          "version": "6.4.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/win32-6.4.0-87ef8bccdd61-LICENSE.txt",
+              "sha256": "87ef8bccdd619f2345ba5b9026cf1d6cccb305e36ab83849a8a3af9293abde7e",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "xdg_directories",
+          "version": "1.1.0",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/xdg_directories-1.1.0-89519eca6f7b-LICENSE.txt",
+              "sha256": "89519eca6f7b9529b35bdddd623a58c3af06a88c458dbd6531ddb4675acf75a9",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        },
+        {
+          "package": "yaml",
+          "version": "3.1.4",
+          "licenses": [
+            {
+              "file": "docs/licenses/resolved/yaml-3.1.4-d47b93335401-LICENSE.txt",
+              "sha256": "d47b93335401b052d79a2f5a3710e4cf7b5aed782faedf84d40fbdd6eb934ec7",
+              "origin": "LICENSE"
+            }
+          ],
+          "status": "collected; manual audit pending"
+        }
+      ]
+    }
+  ]
+}
