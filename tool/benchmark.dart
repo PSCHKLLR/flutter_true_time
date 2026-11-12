@@ -28,20 +28,41 @@ Future<void> main() async {
     sources: const [_FixedSource('a', 'a'), _FixedSource('b', 'b')],
     autoRefresh: false,
   );
-  await engine.sync();
-  for (var i = 0; i < 10000; i++) {
-    engine.now();
+  try {
+    if (!(await engine.sync()).success) {
+      throw StateError('Benchmark sync failed');
+    }
+    print('Clock adapter: ${engine.clock.capabilities.domain}');
+    measure('now', () => engine.now().microsecondsSinceEpoch);
+    measure('read', () => engine.read().utc.microsecondsSinceEpoch);
+  } finally {
+    await engine.dispose();
   }
-  const count = 100000;
-  final watch = Stopwatch()..start();
+}
+
+void measure(String name, int Function() read) {
+  const warmup = 10000, count = 10000, batches = 25;
   var checksum = 0;
-  for (var i = 0; i < count; i++) {
-    checksum ^= engine.now().microsecondsSinceEpoch;
+  for (var i = 0; i < warmup; i++) {
+    checksum ^= read();
   }
-  watch.stop();
+  final timings = <double>[];
+  final watch = Stopwatch();
+  for (var batch = 0; batch < batches; batch++) {
+    watch.reset();
+    watch.start();
+    for (var i = 0; i < count; i++) {
+      checksum ^= read();
+    }
+    watch.stop();
+    timings.add(watch.elapsedTicks * 1000000 / (watch.frequency * count));
+  }
+  timings.sort();
+  final median = timings[batches ~/ 2],
+      p95 = timings[(batches * .95).ceil() - 1];
   print(
-    'Average read microseconds: ${(watch.elapsedMicroseconds / count).toStringAsFixed(3)}',
+    '$name: $warmup warmup reads, $batches batches of $count reads, '
+    'median ${median.toStringAsFixed(3)} µs/read, '
+    'p95 ${p95.toStringAsFixed(3)} µs/read across batches, checksum $checksum',
   );
-  print('Checksum: $checksum');
-  await engine.dispose();
 }

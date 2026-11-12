@@ -44,6 +44,8 @@ Android uses public BOOT_COUNT and a persistent installation UUID stored in noBa
 
 Storage failures leave a valid in-memory anchor usable and emit diagnostics. Restoring a usable anchor immediately completes readiness, without waiting for the network. Disposal cancels owned deadline timers while preserving ordering of already-running opaque backend writes.
 
+Successful consensus queues a version-2 record even when sample collection runs to its deadline. Sync waits for persistence only within the cycle budget. Storage observation remains bounded by the source timeout and can report a failure after sync returns. The writer keeps its position until the backend settles.
+
 ## API and platform qualification
 
 Preserve TrustedTime initialize/now/read/estimate/waitUntilReady/forceResync/status/events/dispose and an injectable engine in core.dart. Equivalent built-in source configurations initialize idempotently; conflicting supplied options require disposal. Reading metadata distinguishes restored origin and unauthenticated provenance.
@@ -57,3 +59,5 @@ NTS, timezone formatting helpers, OS background workers, private boot-identity A
 Valid restored state may complete readiness while a query is pending; it cannot replace a fresh network anchor or survive invalidated restoration continuity. The cycle deadline closes sample collection and cancels pending work, then consensus evaluates samples already accepted before that cutoff. Disposal/continuity cancellation still discards the cycle. Named provider evidence is trimmed and excludes unknown case-insensitively throughout live and stored state; real names retain case sensitivity. NTP validates arguments/cancellation before transport setup and observes every response future on send failure and cleanup.
 
 Release verification uses schema-2 repository metadata, canonical LF UTF-8 text/binary hashes, tracked-input inventory, and source-bound evidence. Generated wrappers/registrants are excluded. The exact development publish_to: none line is excluded only from the runtime fingerprint so its later removal does not invalidate equivalent runtime tests; candidate bytes require separate archive approval. Public APIs and anchor-record schema remain unchanged.
+
+Full candidate verification reruns the pinned pub dry run and fingerprints the exact selected paths and bytes. Both candidate consumer evidence and owner approval must contain that digest. Representative release-build read latency and allocation measurements are required qualification evidence.

@@ -606,7 +606,7 @@ class TrustedTimeEngine {
       _lastError = null;
       estimate();
       _emit(TimeEventKind.synchronized);
-      if (store != null && !cycle.signal.isCancelled) {
+      if (store != null) {
         final record = AnchorRecord(
           utc: anchor.utc,
           monotonic: anchor.at.elapsed,
@@ -618,20 +618,13 @@ class TrustedTimeEngine {
           providerGroups: anchor.groups,
           epoch: _epoch,
         );
-        try {
-          final remaining = config.syncDeadline - budget.elapsed;
-          if (remaining <= Duration.zero) {
-            throw TimeoutException('No persistence budget');
+        final observation = _observeSave(record);
+        if (budget.elapsed < config.syncDeadline && !cycle.signal.isCancelled) {
+          try {
+            await cycle.signal.race(observation);
+          } on TrustedTimeException {
+            // The cycle ended, but the serialized write remains observed.
           }
-          await cycle.signal.withTimeout(
-            store!.save(record.toMap()),
-            remaining < config.sourceTimeout ? remaining : config.sourceTimeout,
-          );
-        } catch (_) {
-          _emit(
-            TimeEventKind.storageFailed,
-            'Anchor retained in memory; persistence did not complete within the cycle',
-          );
         }
       }
       if (_disposed ||
@@ -660,6 +653,20 @@ class TrustedTimeEngine {
     } finally {
       deadline.cancel();
       cycle.signal.cancel('completed');
+    }
+  }
+
+  Future<void> _observeSave(AnchorRecord record) async {
+    try {
+      await _lifetime.withTimeout(
+        store!.save(record.toMap()),
+        config.sourceTimeout,
+      );
+    } catch (_) {
+      _emit(
+        TimeEventKind.storageFailed,
+        'Anchor retained in memory; persistence failed or timed out',
+      );
     }
   }
 

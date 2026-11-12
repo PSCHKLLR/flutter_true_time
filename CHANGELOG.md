@@ -4,6 +4,8 @@
 
 - Restore valid anchors during pending queries without replacing fresh network time.
 - Preserve accepted quorum evidence at cycle deadlines while cancelling remaining work.
+- Queue persistence for anchors accepted at the deadline and keep writes ordered after the sync returns.
+- Verify saved native anchors across restart and bind release approval to the exact pub-selected files.
 - Prevent unobserved NTP errors on pre-cancellation/send failure and normalize unknown provider evidence consistently.
 - Add canonical tracked-source fingerprints, digest-bound release evidence, generated-file exclusions, and native restart qualification harnesses.
 

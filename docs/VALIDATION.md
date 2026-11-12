@@ -1,6 +1,16 @@
-# Validation record: first-release enhancements
+# First-release validation
 
-12 November 2026; Windows x64. Current source digest: bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4.
+The first public release remains blocked. The guarded Pub preview succeeded with zero warnings and selected 165 files. The payload includes the top-level license and complete upstream and Flutter template notices. [Release gates](release_gates.json) · [Current qualification evidence](evidence/first-release-qualification.json)
+
+Both pinned SDKs passed Windows formatting and analysis, 110 core and facade tests, two example tests, and eight mocked Chrome source tests. Windows release builds require a suitable Visual Studio C++ toolchain. Web JS and WASM compilation ran on both SDKs. The live endpoint and offline reload checks remain open.
+
+The baseline, current, and built-in Kotlin Android lanes each produced a release APK and AAB on JDK 17. The current evidence records each artifact hash and the Gradle, AGP, and Kotlin versions reported by the build.
+
+The Windows Dart AOT smoke run measured `now()` and `read()` using the QPC adapter. Representative release-build timing and allocation evidence remains open. Public checks returned HTTP 404 for the package name and showed that private vulnerability reporting is disabled on the repository. Upstream and collected dependency notice hashes were verified. Human and native redistribution review remains open.
+
+## Earlier qualification snapshot
+
+12 November 2026, Windows x64. Source digest `bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4`.
 
 | Check | Result |
 | --- | --- |
@@ -21,4 +31,4 @@ The five review corrections have regression coverage, including delayed restorat
 
 Exact commands, exit codes, resolved dependency locks, runtime Maven graphs, artifact hashes, and toolchains are in evidence/enhancement-minimum.json, evidence/enhancement-current.json, and evidence/enhancement-builtin.json. Browser and checkout records are in evidence/enhancement-browser-startup.json and evidence/enhancement-checkout-portability.json. Older evidence files are historical.
 
-Release verification remains fail-closed. Only the three Android build gates pass. Remaining gates require cross-OS qualification, real browser endpoints, native/device and Apple archive checks, provenance review, repository security/uploader verification, and candidate/owner review. No publication candidate, tag, or upload was created.
+The three Android build gates passed on this earlier snapshot. Evidence for a different source digest is historical.

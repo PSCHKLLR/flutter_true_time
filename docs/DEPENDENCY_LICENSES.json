@@ -2268,5 +2268,47 @@
         }
       ]
     }
-  ]
+  ],
+  "qualificationAdditions": {
+    "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+    "note": "Additional hosted versions resolved by the pinned SDKs from the local pub cache. The original graphs retain their historical resolutions.",
+    "packages": [
+      {
+        "version": "93.0.0",
+        "package": "_fe_analyzer_shared",
+        "licenses": [
+          {
+            "file": "docs/licenses/resolved/_fe_analyzer_shared-93.0.0-efa31b5ac790-LICENSE.txt",
+            "sha256": "efa31b5ac790016736fa9761642b0af16d37cd4fb483de2905adb5258cb89722",
+            "origin": "LICENSE"
+          }
+        ],
+        "status": "collected; manual audit pending"
+      },
+      {
+        "version": "10.0.1",
+        "package": "analyzer",
+        "licenses": [
+          {
+            "file": "docs/licenses/resolved/analyzer-10.0.1-7e124af6a556-LICENSE.txt",
+            "sha256": "7e124af6a556f045cb3a20cafbdaa31602ac2c82cbcb3c3b15faaaf514b06028",
+            "origin": "LICENSE"
+          }
+        ],
+        "status": "collected; manual audit pending"
+      },
+      {
+        "version": "3.0.0",
+        "package": "package_config",
+        "licenses": [
+          {
+            "file": "docs/licenses/resolved/package_config-3.0.0-0371d1da6a57-LICENSE.txt",
+            "sha256": "0371d1da6a57fb791db29d29b95333429205f51f3cb2eb3a0c12d91838a38744",
+            "origin": "LICENSE"
+          }
+        ],
+        "status": "collected; manual audit pending"
+      }
+    ]
+  }
 }

@@ -45,4 +45,5 @@ jobs:
             pubspec.lock
             privacy-resources.txt
             example/build/ios/iphonesimulator/*.app
+            example/build/ios/iphoneos/*.app
             example/build/macos/Build/Products/Release/*.app

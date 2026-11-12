@@ -15,7 +15,8 @@ coverage/
 example/.flutter-plugins-dependencies
 **/GeneratedPluginRegistrant.*
 
-# Repository-only qualification/approval material.
-docs/evidence/
-docs/release_gates.json
+# Repository documentation and qualification material.
+docs/
 tool/
+test/configure_android_test.dart
+test/release_verification_test.dart

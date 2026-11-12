@@ -29,7 +29,7 @@ jobs:
       - run: dart run tool/source_digest.dart > source-fingerprint.json
       - run: flutter analyze
       - run: flutter test test test_flutter --no-pub --coverage
-      - run: flutter test --no-pub
+      - run: flutter test
         working-directory: example
       - uses: actions/upload-artifact@v7.0.2
         if: always()

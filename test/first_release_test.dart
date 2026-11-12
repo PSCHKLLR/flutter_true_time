@@ -44,6 +44,19 @@ class LateSource extends FakeSource {
   }
 }
 
+class SlowFirstSaveStore extends FakeStore {
+  final release = Completer<void>();
+  final saved = <AnchorRecord>[];
+  int writes = 0;
+
+  @override
+  Future<void> save(Map<String, Object?> value) async {
+    if (++writes == 1) await release.future;
+    await super.save(value);
+    saved.add(AnchorRecord.fromMap(value));
+  }
+}
+
 void main() {
   late FakeClock clock;
   late FakeSource a, b;
@@ -159,9 +172,12 @@ void main() {
     'deadline retains a quorum and ignores a late noncooperative response',
     () async {
       final late = LateSource();
+      final store = FakeStore();
       final e = TrustedTimeEngine(
         sources: [a, b, late],
         clock: clock,
+        store: store,
+        epochProvider: FakeEpochProvider(),
         autoRefresh: false,
         config: const TrustedTimeConfig(
           syncDeadline: Duration(milliseconds: 60),
@@ -177,14 +193,83 @@ void main() {
       await Future<void>.delayed(Duration.zero);
       expect(e.now(), before);
       expect(e.read().sourceIds, ['a', 'b']);
+      expect(store.record, isNotNull);
+      await e.dispose();
+      clock.session = 'restarted-process';
+      a.error = b.error = StateError('offline');
+      final restarted = TrustedTimeEngine(
+        sources: [a, b, late],
+        clock: clock,
+        store: store,
+        epochProvider: FakeEpochProvider(),
+        autoRefresh: false,
+      );
+      addTearDown(restarted.dispose);
+      await restarted.initialize();
+      expect(restarted.read().restoredFromStorage, isTrue);
+      expect(restarted.now(), before);
     },
   );
-  test('continuity loss discards even a collected quorum', () async {
-    final gate = Completer<void>();
-    final late = FakeSource('late', 'late')..gate = gate;
+  test('deadline save stays ordered when its observation times out', () async {
+    final late = LateSource(), store = SlowFirstSaveStore();
     final e = TrustedTimeEngine(
       sources: [a, b, late],
       clock: clock,
+      store: store,
+      epochProvider: FakeEpochProvider(),
+      autoRefresh: false,
+      config: const TrustedTimeConfig(
+        syncDeadline: Duration(milliseconds: 40),
+        sourceTimeout: Duration(milliseconds: 200),
+      ),
+    );
+    addTearDown(e.dispose);
+    final storageFailed = e.events.firstWhere(
+      (event) => event.kind == TimeEventKind.storageFailed,
+    );
+    expect((await e.sync()).success, isTrue);
+    expect(store.writes, 1);
+    expect(store.saved, isEmpty);
+    await storageFailed.timeout(const Duration(seconds: 2));
+    late.release.complete();
+    a.offset = b.offset = const Duration(seconds: 1);
+    expect((await e.sync()).success, isTrue);
+    expect(store.writes, 1);
+    store.release.complete();
+    await SerializingAnchorStore.wrap(store).load();
+    expect(store.saved.map((record) => record.sequence), [1, 2]);
+    expect(store.saved.last.utc, e.now());
+  });
+  test('deadline save failure emits a diagnostic and retains time', () async {
+    final late = LateSource(), store = FakeStore()..fail = true;
+    final e = TrustedTimeEngine(
+      sources: [a, b, late],
+      clock: clock,
+      store: store,
+      autoRefresh: false,
+      config: const TrustedTimeConfig(
+        syncDeadline: Duration(milliseconds: 40),
+        sourceTimeout: Duration(milliseconds: 200),
+      ),
+    );
+    addTearDown(e.dispose);
+    final storageFailed = e.events.firstWhere(
+      (event) => event.kind == TimeEventKind.storageFailed,
+    );
+    expect((await e.sync()).success, isTrue);
+    await storageFailed.timeout(const Duration(seconds: 2));
+    expect(e.now().isUtc, isTrue);
+    expect(store.record, isNull);
+    late.release.complete();
+  });
+  test('continuity loss discards even a collected quorum', () async {
+    final gate = Completer<void>();
+    final late = FakeSource('late', 'late')..gate = gate;
+    final store = FakeStore();
+    final e = TrustedTimeEngine(
+      sources: [a, b, late],
+      clock: clock,
+      store: store,
       autoRefresh: false,
     );
     addTearDown(e.dispose);
@@ -193,6 +278,7 @@ void main() {
     e.invalidateContinuity();
     expect((await work).success, isFalse);
     expect(e.estimate(), isNull);
+    expect(store.record, isNull);
     gate.complete();
   });
   for (final label in ['UNKNOWN', 'Unknown', ' unknown ', '', '   ']) {

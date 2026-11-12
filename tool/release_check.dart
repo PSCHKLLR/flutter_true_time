@@ -2,8 +2,20 @@ import 'dart:convert';
 import 'dart:io';
 import 'release_support.dart';
 
-/// Read-only: never updates manifests, prepares builds, stages files or publishes.
+/// Never updates release records, stages files, or publishes.
 void main(List<String> args) {
+  if (args.length == 1 && args.single == '--candidate-manifest') {
+    final root = Directory.current;
+    final files = readCandidate(root, selectCandidateFiles(root));
+    stdout.writeln(
+      const JsonEncoder.withIndent('  ').convert({
+        'dartVersion': candidateDartVersion,
+        'candidateDigest': sourceDigest(files),
+        'files': files,
+      }),
+    );
+    return;
+  }
   if (args.any(
     (a) => !['--development', '--technical', '--candidate'].contains(a),
   )) {

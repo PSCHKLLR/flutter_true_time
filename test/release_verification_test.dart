@@ -149,7 +149,92 @@ void main() {
         checkRelease(root, manifest).join(' '),
         contains('publication guard'),
       );
-      expect(checkRelease(root, manifest, candidate: true), isEmpty);
+      expect(
+        checkRelease(root, manifest, candidate: true, technicalOnly: true),
+        isEmpty,
+      );
+    },
+  );
+
+  test('parses ASCII and Unicode pub trees and rejects incomplete trees', () {
+    const header =
+        'Publishing flutter_true_time 0.1.0-dev.1 to https://pub.dev:';
+    const footer = 'Total compressed archive size: 3 KB.';
+    const ascii = "|-- lib\n|   '-- a.dart (<1 KB)\n'-- pubspec.yaml (<1 KB)";
+    const unicode = '├── lib\n│   └── a.dart (<1 KB)\n└── pubspec.yaml (<1 KB)';
+    for (final tree in [ascii, unicode]) {
+      expect(parseCandidateFiles('$header\n$tree\n\n$footer'), [
+        'lib/a.dart',
+        'pubspec.yaml',
+      ]);
+      expect(
+        () => parseCandidateFiles('$header\n$tree'),
+        throwsFormatException,
+      );
+    }
+    expect(
+      () => parseCandidateFiles('$header\n|-- lib\n$footer'),
+      throwsFormatException,
+    );
+  });
+
+  test(
+    'candidate check requires a fresh exact selection and both approvals',
+    () {
+      final manifest = readyManifest();
+      put(
+        'pubspec.yaml',
+        utf8.encode('name: flutter_true_time\nversion: 0.1.0-dev.1\n'),
+      );
+      final selected = {...requiredCandidateFiles};
+      for (final path in selected.difference({'pubspec.yaml'})) {
+        put(path, utf8.encode('$path\n'));
+      }
+      git(['add', '.']);
+      final inputs = snapshot();
+      final runtimeDigest = sourceDigest(inputs);
+      manifest['sourceDigest'] = runtimeDigest;
+      manifest['inputs'] = inputs;
+      final gates = manifest['gates'] as Map;
+      for (final record in gates.values) {
+        record['sourceDigest'] = runtimeDigest;
+      }
+      final approved = sourceDigest(readCandidate(root, selected));
+      void approve(String gate, String digest) {
+        final evidence = utf8.encode(jsonEncode({'candidateDigest': digest}));
+        final path = 'docs/evidence/$gate.json';
+        put(path, evidence);
+        gates[gate]['evidence'] = path;
+        gates[gate]['sha256'] = bytesHash(evidence);
+      }
+
+      for (final gate in candidateGates) {
+        approve(gate, approved);
+      }
+      List<String> check() => checkRelease(
+        root,
+        manifest,
+        candidate: true,
+        selectFiles: (_) => selected.toList(),
+      );
+
+      expect(check(), isEmpty);
+      approve('owner_archive_approval', 'stale');
+      expect(check(), ['Stale candidate evidence: owner_archive_approval']);
+      approve('owner_archive_approval', approved);
+      put('README.md', utf8.encode('README.md\r\n'));
+      expect(sourceDigest(snapshot()), runtimeDigest);
+      expect(check(), hasLength(2));
+      put('README.md', utf8.encode('README.md\n'));
+      put('extra.md', utf8.encode('new publishable file'));
+      selected.add('extra.md');
+      expect(check(), hasLength(2));
+      selected.remove('extra.md');
+      expect(check(), isEmpty);
+      File('${root.path}/README.md').deleteSync();
+      expect(check().first, contains('Candidate verification failed'));
+      selected.remove('README.md');
+      expect(check().first, contains('Incomplete candidate files'));
     },
   );
 }

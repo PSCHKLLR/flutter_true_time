@@ -77,7 +77,7 @@ The demo accepts TRUE_TIME_HTTPS_A, TRUE_TIME_HTTPS_B, TRUE_TIME_PROVIDER_A, and
 
 ## Development and compatibility
 
-Minimum declared SDK: Flutter 3.41.0 / Dart 3.11.0. The qualification lanes pin Flutter 3.41.0 and 3.47.9. Read docs/COMPATIBILITY.md and docs/VALIDATION.md before relying on a platform-support claim; a target is not a passing result.
+The minimum declared SDK is Flutter 3.41.0 / Dart 3.11.0. The qualification lanes pin Flutter 3.41.0 and 3.47.9. See the [compatibility matrix](https://github.com/PSCHKLLR/flutter_true_time/blob/main/docs/COMPATIBILITY.md) and [validation record](https://github.com/PSCHKLLR/flutter_true_time/blob/main/docs/VALIDATION.md) for platform evidence.
 
 ```sh
 flutter pub get
@@ -90,6 +90,6 @@ flutter run -d windows
 
 The Flutter-independent engine is exported from core.dart. Inject MonotonicClock, TimeSource, BootEpochProvider, AnchorStore, TimeScheduler, and WallClockReader for deterministic tests. Custom sources must expose an immutable configurationKey and honor CancellationSignal to release resources promptly.
 
-No NTS authentication, TLS bypass, system-clock modification, untrusted wall-clock fallback, or OS-managed background worker is included. See docs/SPECIFICATION.md, docs/REVIEW_REPORT.md, docs/MIGRATION.md, and docs/PUBLISHING.md.
+No NTS authentication, TLS bypass, system-clock modification, untrusted wall-clock fallback, or OS-managed background worker is included. See the [specification, migration guidance, and release procedures](https://github.com/PSCHKLLR/flutter_true_time/tree/main/docs).
 
-Release tooling is repository-only: run dart run tool/update_release_manifest.dart after staging new inputs, then dart run tool/release_check.dart. During implementation, --development records untracked inputs but cannot authorize a release. See docs/DEVICE_QUALIFICATION.md for native restart/lifecycle/browser procedures. The checker stays read-only and requires evidence bound to the current canonical source digest.
+Release tooling lives in the repository. `dart run tool/update_release_manifest.dart` records the tracked source digest, and `dart run tool/release_check.dart` checks the matching qualification evidence. The full candidate check also runs the pinned Pub dry run in the isolated candidate. See the [device and browser procedures](https://github.com/PSCHKLLR/flutter_true_time/blob/main/docs/DEVICE_QUALIFICATION.md).

@@ -1,8 +1,8 @@
 {
   "schema": 2,
   "version": "0.1.0-dev.1",
-  "developmentInputs": true,
-  "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4",
+  "developmentInputs": false,
+  "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -10,15 +10,15 @@
     },
     ".github/workflows/apple-qualification.yml": {
       "mode": "utf8-lf",
-      "sha256": "d5de4dacd53ebda32a654155cbcf373ed22c0a07ab4fc2f484d3f9c45fb82415"
+      "sha256": "3c21a4b486d9c56da27a9e4fb0478aa08ac818360e5846f6469c6ab337703b69"
     },
     ".github/workflows/compatibility.yml": {
       "mode": "utf8-lf",
-      "sha256": "44498100ee5afce61efe4b22343b29f422dff2d8a565c00db31b244f20df8f61"
+      "sha256": "c6d98f171527cbadfb49eb174279f3c2839a2a38803b467ede2b7eebc13ce7bf"
     },
     ".pubignore": {
       "mode": "utf8-lf",
-      "sha256": "6d4ea9a73c5d6cfb705d29b11810f1bb86128228a904a4ca3f26fe2551b3ef27"
+      "sha256": "d1eb2fff446c90d3c9913fac1caa69c9dd7d1e68c103a1c99bba3957d8d4409c"
     },
     "LICENSE": {
       "mode": "utf8-lf",
@@ -26,7 +26,7 @@
     },
     "THIRD_PARTY_NOTICES.md": {
       "mode": "utf8-lf",
-      "sha256": "7f19c1ef47f18b790a971a9b4d8f3c27d180744b26518a5883b100702ccb3c5d"
+      "sha256": "bea3269019b091700c7cd1d94bd11fbba493d13eed7d44c17b88cccd59e99c77"
     },
     "analysis_options.yaml": {
       "mode": "utf8-lf",
@@ -130,7 +130,7 @@
     },
     "example/integration_test/restart_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "08b8ef24b1f5f11f7c32cdf6e195cc4441b52c7336438287394708878fca0032"
+      "sha256": "0547546f3e6c5f66e6aa53cb69162e12d182e59295f21766217aae805cd48e03"
     },
     "example/ios/.gitignore": {
       "mode": "utf8-lf",
@@ -438,7 +438,7 @@
     },
     "example/test/widget_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "3c8a9d569123edfbb029adb9790a7549a1627c36cece3611273df5c218f95642"
+      "sha256": "40bcb1279e56b270818cb64e720647f720af4a0594830e82b05bc52428428904"
     },
     "example/web/favicon.png": {
       "mode": "binary",
@@ -566,7 +566,7 @@
     },
     "lib/src/engine.dart": {
       "mode": "utf8-lf",
-      "sha256": "31d68f28183914006e77db0bb467ccdc3833f948ca3784c1bc8d5f7249ee82ec"
+      "sha256": "90981e636b9427a0fbcf6856f6f055311c3503d29868d775fc520d4a31fcb5dc"
     },
     "lib/src/epoch_io.dart": {
       "mode": "utf8-lf",
@@ -630,7 +630,7 @@
     },
     "test/first_release_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "60ec1571f01f283a85333ec1b1cee9bdcf2a2e35c2429bf6ce53c450df9fc1f0"
+      "sha256": "f0239584ed69697e1b13fb87a6f742a54332e46e164cd295b5344edb9963f09e"
     },
     "test/helpers.dart": {
       "mode": "utf8-lf",
@@ -650,7 +650,7 @@
     },
     "test/release_verification_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "de7cd4221eeec29a5ea3aec0ffd1486c1d1f35d3c6466743556011a34c085bcc"
+      "sha256": "cb5325b02e8cf1f352fdf5376eca7a4e1b48004bd39ae0da71402859d72e9512"
     },
     "test/sources_test.dart": {
       "mode": "utf8-lf",
@@ -662,7 +662,7 @@
     },
     "tool/benchmark.dart": {
       "mode": "utf8-lf",
-      "sha256": "8532b5909c488b9aec09efae5d15f02a193e7baa646966433a77d9bb4fbce565"
+      "sha256": "504fefac912e34e7c993934cef4f9fc752296bba3b07330d7e84a446408e3410"
     },
     "tool/configure_android.dart": {
       "mode": "utf8-lf",
@@ -670,11 +670,11 @@
     },
     "tool/release_check.dart": {
       "mode": "utf8-lf",
-      "sha256": "4a8dde35109c368878f3970071791a555d3eb0972b13116e471df75ad104e525"
+      "sha256": "c1e0f5c392bda6d8beed42b9df82b0f26e4325b2af461f1525676af605802b10"
     },
     "tool/release_support.dart": {
       "mode": "utf8-lf",
-      "sha256": "84f193e422e7a753cbe77ff90b567954777a0fae002f41a6b2f4a50496d32867"
+      "sha256": "397844b8ad9f0ff4ac8d860bbe995f6dcbcd0fa616aaeabcbb1434562b47241f"
     },
     "tool/source_digest.dart": {
       "mode": "utf8-lf",
@@ -692,89 +692,153 @@
   "gates": {
     "minimum_sdk": {
       "status": "partial",
-      "evidence": "docs/evidence/enhancement-minimum.json",
-      "sha256": "da1ea23a8e2e39652c60bac541ee7715b5202b704394c700aea546b89d583274",
-      "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4",
-      "note": "Windows resolution, analysis, 106 core/facade tests, example test, and 8 Chrome source tests passed. Linux/macOS core lanes pending."
+      "note": "Windows formatting and analysis, 110 core/facade tests, and two example tests passed. Linux and macOS SDK checks are open.",
+      "historicalEvidence": {
+        "evidence": "docs/evidence/enhancement-minimum.json",
+        "sha256": "da1ea23a8e2e39652c60bac541ee7715b5202b704394c700aea546b89d583274",
+        "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4"
+      },
+      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+      "evidence": "docs/evidence/first-release-qualification.json",
+      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
     },
     "current_sdk": {
       "status": "partial",
-      "evidence": "docs/evidence/enhancement-current.json",
-      "sha256": "6c6bf41b7cd48d55797c3b1e6bc8cf1f73cfd518145a1134c3394bb8538c5aac",
-      "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4",
-      "note": "Windows resolution, analysis, 106 core/facade tests, example test, and 8 Chrome source tests passed. Linux/macOS core lanes pending."
+      "note": "Windows formatting and analysis, 110 core/facade tests, and two example tests passed. Linux and macOS SDK checks are open.",
+      "historicalEvidence": {
+        "evidence": "docs/evidence/enhancement-current.json",
+        "sha256": "6c6bf41b7cd48d55797c3b1e6bc8cf1f73cfd518145a1134c3394bb8538c5aac",
+        "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4"
+      },
+      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+      "evidence": "docs/evidence/first-release-qualification.json",
+      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
     },
     "android_baseline": {
       "status": "passed",
-      "evidence": "docs/evidence/enhancement-minimum.json",
-      "sha256": "da1ea23a8e2e39652c60bac541ee7715b5202b704394c700aea546b89d583274",
-      "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4",
-      "note": "Both release artifact builds passed with exact verified toolchain; device/persistence qualification is a separate gate."
+      "note": "Pinned JDK 17 APK and AAB builds passed. The Gradle toolchain was verified and artifact hashes recorded.",
+      "historicalEvidence": {
+        "evidence": "docs/evidence/enhancement-minimum.json",
+        "sha256": "da1ea23a8e2e39652c60bac541ee7715b5202b704394c700aea546b89d583274",
+        "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4"
+      },
+      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+      "evidence": "docs/evidence/first-release-qualification.json",
+      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
     },
     "android_current": {
       "status": "passed",
-      "evidence": "docs/evidence/enhancement-current.json",
-      "sha256": "6c6bf41b7cd48d55797c3b1e6bc8cf1f73cfd518145a1134c3394bb8538c5aac",
-      "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4",
-      "note": "Both release artifact builds passed with exact verified toolchain; device/persistence qualification is a separate gate."
+      "note": "Pinned JDK 17 APK and AAB builds passed. The Gradle toolchain was verified and artifact hashes recorded.",
+      "historicalEvidence": {
+        "evidence": "docs/evidence/enhancement-current.json",
+        "sha256": "6c6bf41b7cd48d55797c3b1e6bc8cf1f73cfd518145a1134c3394bb8538c5aac",
+        "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4"
+      },
+      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+      "evidence": "docs/evidence/first-release-qualification.json",
+      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
     },
     "android_builtin_kotlin": {
       "status": "passed",
-      "evidence": "docs/evidence/enhancement-builtin.json",
-      "sha256": "51f30605ac1fd1c320014b65c504fa6ca9d7b10150e632b4259d84265d18470f",
-      "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4",
-      "note": "Both release artifact builds passed with exact verified toolchain; device/persistence qualification is a separate gate."
+      "note": "Pinned JDK 17 APK and AAB builds passed. The Gradle toolchain was verified and artifact hashes recorded.",
+      "historicalEvidence": {
+        "evidence": "docs/evidence/enhancement-builtin.json",
+        "sha256": "51f30605ac1fd1c320014b65c504fa6ca9d7b10150e632b4259d84265d18470f",
+        "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4"
+      },
+      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+      "evidence": "docs/evidence/first-release-qualification.json",
+      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
     },
     "apple_xcode": {
       "status": "blocked",
-      "note": "Requires Apple silicon Mac with Xcode 27.2."
+      "note": "Apple silicon Xcode 27.2 runner and iOS/macOS outputs are required.",
+      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+      "evidence": "docs/evidence/first-release-qualification.json",
+      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
     },
     "windows_release": {
       "status": "blocked",
-      "note": "Both pinned Windows release attempts lack a suitable Visual Studio toolchain."
+      "note": "Both pinned SDK attempts reported that a suitable Visual Studio toolchain was unavailable.",
+      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+      "evidence": "docs/evidence/first-release-qualification.json",
+      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
     },
     "linux_release": {
       "status": "blocked",
-      "note": "No usable Linux runner here."
+      "note": "A Linux runner with desktop build dependencies is required.",
+      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+      "evidence": "docs/evidence/first-release-qualification.json",
+      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
     },
     "web_js_wasm_browser": {
       "status": "partial",
-      "evidence": "docs/evidence/enhancement-browser-startup.json",
-      "sha256": "d7a81db4973f06abbc7d2c15f963fc5f65a5fb2f6687c76b60478a324d72806e",
-      "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4",
-      "note": "Both pinned SDKs built and rendered JS/WASM with verified entrypoints. Mocked Chrome source tests passed. Live HTTPS/CORS endpoints absent."
+      "note": "Both pinned SDKs compiled JS/WASM and passed mocked Chrome source tests. Live independent HTTPS/CORS and offline reload evidence is open.",
+      "historicalEvidence": {
+        "evidence": "docs/evidence/enhancement-browser-startup.json",
+        "sha256": "d7a81db4973f06abbc7d2c15f963fc5f65a5fb2f6687c76b60478a324d72806e",
+        "sourceDigest": "bc95cb148d87d09a324da954e86e6cd99fae11efcbffc52d3714674a0ae1d8b4"
+      },
+      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+      "evidence": "docs/evidence/first-release-qualification.json",
+      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
     },
     "physical_lifecycle": {
       "status": "blocked",
-      "note": "Requires connected physical Android/iOS devices."
+      "note": "Physical Android and iOS devices and desktop suspend evidence are required. ADB listed no devices.",
+      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+      "evidence": "docs/evidence/first-release-qualification.json",
+      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
     },
     "persistence_native": {
       "status": "blocked",
-      "note": "Native restart harness supplied; devices/keyrings and backup execution unavailable."
+      "note": "Same-boot, reboot, backup, native keyring and storage failure qualification need native environments.",
+      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+      "evidence": "docs/evidence/first-release-qualification.json",
+      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
     },
     "apple_privacy_archive": {
       "status": "blocked",
-      "note": "Static API/resource inventory complete; Mac archive inspection unavailable."
+      "note": "Review actual Apple outputs and privacy declarations on the qualified Xcode runner.",
+      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+      "evidence": "docs/evidence/first-release-qualification.json",
+      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
     },
     "provenance_dependencies": {
       "status": "partial",
-      "note": "All 94 resolved Dart/Flutter package licenses per SDK collected; Android runtime graphs recorded. Human provenance/native binary/Maven/CocoaPods rights audit remains."
+      "note": "Pinned upstream and collected license hashes matched. Human and native dependency redistribution review is open.",
+      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+      "evidence": "docs/evidence/first-release-qualification.json",
+      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
     },
     "owned_repository_security": {
       "status": "blocked",
-      "note": "Public repository verified; private vulnerability reporting disabled and maintainer/uploader access unverified."
+      "note": "Repository returned HTTP 200 and private reporting was disabled. Maintainer and authorized uploader access remain unverified.",
+      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+      "evidence": "docs/evidence/first-release-qualification.json",
+      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
     },
     "name_availability": {
-      "status": "pending",
-      "note": "Public API returned 404 on 12 November 2026; recheck immediately before release."
+      "status": "passed",
+      "note": "Public package API returned HTTP 404 on 12 November 2026. Recheck immediately before publication.",
+      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+      "evidence": "docs/evidence/first-release-qualification.json",
+      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
     },
     "archive_consumer": {
       "status": "blocked",
-      "note": "Blocked by earlier platform/provenance/security gates; no publication candidate created."
+      "note": "Create and test the exact isolated candidate after technical qualification."
     },
     "owner_archive_approval": {
       "status": "blocked",
-      "note": "Blocked until an exact candidate exists."
+      "note": "Owner approval must identify the exact Pub-selected digest after consumer qualification."
+    },
+    "read_performance": {
+      "status": "partial",
+      "note": "Windows AOT latency smoke recorded. Representative release-build latency and allocation evidence is open.",
+      "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+      "evidence": "docs/evidence/first-release-qualification.json",
+      "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e"
     }
   }
 }

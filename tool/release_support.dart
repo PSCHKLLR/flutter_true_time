@@ -14,6 +14,7 @@ const requiredGates = <String>[
   'web_js_wasm_browser',
   'physical_lifecycle',
   'persistence_native',
+  'read_performance',
   'apple_privacy_archive',
   'provenance_dependencies',
   'owned_repository_security',
@@ -21,6 +22,145 @@ const requiredGates = <String>[
   'archive_consumer',
   'owner_archive_approval',
 ];
+const candidateGates = {'archive_consumer', 'owner_archive_approval'};
+const candidateDartVersion = '3.13.7';
+const requiredCandidateFiles = {
+  'pubspec.yaml',
+  'README.md',
+  'CHANGELOG.md',
+  'LICENSE',
+  'THIRD_PARTY_NOTICES.md',
+  'lib/core.dart',
+  'lib/flutter_true_time.dart',
+  'android/src/main/AndroidManifest.xml',
+  'android/src/main/java/dev/pschkllr/flutter_true_time/FlutterTrueTimePlugin.java',
+  'example/lib/main.dart',
+  'example/android/app/build.gradle.kts',
+  'example/ios/Runner/Info.plist',
+  'example/macos/Runner/Info.plist',
+  'example/linux/runner/main.cc',
+  'example/windows/runner/main.cpp',
+  'example/web/index.html',
+};
+
+/// Parses the pinned pub CLI's ASCII or Unicode tree, including its end marker.
+List<String> parseCandidateFiles(String output) {
+  final lines = const LineSplitter().convert(output);
+  final header = lines.indexWhere(
+    (line) => RegExp(
+      r'^Publishing flutter_true_time 0\.1\.0-dev\.1(?: to https://pub\.dev)?:$',
+    ).hasMatch(line),
+  );
+  final footer = lines.indexWhere(
+    (line) => line.startsWith('Total compressed archive size:'),
+  );
+  if (header < 0 || footer <= header + 1) {
+    throw const FormatException('Incomplete pub dry-run file tree');
+  }
+  final files = <String>{}, seen = <String>{};
+  final parents = <({String name, bool last, bool file})>[];
+  final branch = RegExp(r"^((?: {4}|[│|] {3})*)(├── |└── |\|-- |'-- )(.+)$");
+  final size = RegExp(r' \((?:<1|[0-9]+(?:\.[0-9]+)?) (?:B|KB|MB|GB)\)$');
+  for (final line
+      in lines.sublist(header + 1, footer).where((l) => l.isNotEmpty)) {
+    final match = branch.firstMatch(line);
+    if (match == null) throw FormatException('Invalid pub tree entry: $line');
+    final prefix = match[1]!;
+    final depth = prefix.length ~/ 4;
+    if (depth > parents.length ||
+        (depth < parents.length && parents[depth].last)) {
+      throw FormatException('Invalid pub tree depth: $line');
+    }
+    parents.length = depth;
+    for (var i = 0; i < depth; i++) {
+      if (parents[i].file || parents[i].last != (prefix[i * 4] == ' ')) {
+        throw FormatException('Invalid pub tree ancestry: $line');
+      }
+    }
+    final entry = match[3]!;
+    final isFile = size.hasMatch(entry);
+    final name = entry.replaceFirst(size, '');
+    if (name.trim() != name ||
+        name.isEmpty ||
+        name == '.' ||
+        name == '..' ||
+        RegExp(r'[/\\:\x00-\x1f]').hasMatch(name)) {
+      throw FormatException('Invalid candidate path: $name');
+    }
+    final path = [...parents.map((parent) => parent.name), name].join('/');
+    if (!seen.add(path)) {
+      throw FormatException('Duplicate candidate path: $path');
+    }
+    if (isFile) files.add(path);
+    final marker = match[2]!;
+    parents.add((
+      name: name,
+      last: marker == '└── ' || marker == "'-- ",
+      file: isFile,
+    ));
+  }
+  if (parents.isEmpty || parents.any((entry) => !entry.last)) {
+    throw const FormatException('Incomplete pub dry-run file tree');
+  }
+  return files.toList()..sort();
+}
+
+Map<String, String> readCandidate(Directory root, Iterable<String> files) {
+  final names = files.toList()..sort();
+  final required = {
+    ...requiredCandidateFiles,
+    ...gitInputs(root).where((name) => name.endsWith('.xcprivacy')),
+  };
+  if (names.toSet().length != names.length ||
+      !names.toSet().containsAll(required)) {
+    throw const FormatException(
+      'Incomplete candidate files or duplicate paths',
+    );
+  }
+  final result = <String, String>{};
+  for (final name in names) {
+    var current = root.path;
+    for (final part in name.split('/')) {
+      if (part.isEmpty ||
+          part == '.' ||
+          part == '..' ||
+          RegExp(r'[\\:\x00-\x1f]').hasMatch(part)) {
+        throw FormatException('Invalid candidate path: $name');
+      }
+      current = '$current/$part';
+      if (FileSystemEntity.isLinkSync(current)) {
+        throw FormatException('Symlink candidate input: $name');
+      }
+    }
+    result[name] = bytesHash(File(current).readAsBytesSync());
+  }
+  return result;
+}
+
+List<String> selectCandidateFiles(Directory root) {
+  if (Platform.version.split(' ').first != candidateDartVersion) {
+    throw StateError('Use Dart $candidateDartVersion for candidate selection');
+  }
+  final pubspec = File('${root.path}/pubspec.yaml').readAsStringSync();
+  if (RegExp(r'^publish_to:', multiLine: true).hasMatch(pubspec)) {
+    throw StateError('Candidate must omit publish_to');
+  }
+  final result = Process.runSync(
+    Platform.resolvedExecutable,
+    ['pub', 'publish', '--dry-run'],
+    workingDirectory: root.path,
+    stdoutEncoding: utf8,
+    stderrEncoding: utf8,
+  );
+  if (result.exitCode != 0) {
+    throw StateError(
+      'Candidate dry run failed (${result.exitCode})\n'
+      '${result.stdout}\n${result.stderr}',
+    );
+  }
+  return parseCandidateFiles(result.stdout as String);
+}
+
 const inputRoots = <String>[
   'lib/',
   'android/',
@@ -160,6 +300,7 @@ List<String> checkRelease(
   bool developmentInputs = false,
   bool technicalOnly = false,
   bool candidate = false,
+  List<String> Function(Directory)? selectFiles,
 }) {
   final problems = <String>[];
   if (developmentInputs) {
@@ -211,9 +352,18 @@ List<String> checkRelease(
     problems.add('Manifest includes development-only untracked inputs');
   }
   final gates = Map<String, dynamic>.from(manifest['gates'] as Map);
+  String? candidateDigest;
+  if (candidate && !technicalOnly && problems.isEmpty) {
+    try {
+      candidateDigest = sourceDigest(
+        readCandidate(root, (selectFiles ?? selectCandidateFiles)(root)),
+      );
+    } catch (error) {
+      problems.add('Candidate verification failed: $error');
+    }
+  }
   for (final name in requiredGates) {
-    if (technicalOnly &&
-        ['archive_consumer', 'owner_archive_approval'].contains(name)) {
+    if (technicalOnly && candidateGates.contains(name)) {
       continue;
     }
     final gate = gates[name];
@@ -237,6 +387,19 @@ List<String> checkRelease(
         FileSystemEntity.isLinkSync(file.path) ||
         bytesHash(file.readAsBytesSync()) != hash) {
       problems.add('Evidence hash mismatch: $name');
+      continue;
+    }
+    if (candidate && candidateGates.contains(name)) {
+      try {
+        final record = jsonDecode(file.readAsStringSync());
+        if (candidateDigest == null ||
+            record is! Map ||
+            record['candidateDigest'] != candidateDigest) {
+          problems.add('Stale candidate evidence: $name');
+        }
+      } on FormatException {
+        problems.add('Invalid candidate evidence: $name');
+      }
     }
   }
   return problems;

@@ -1,15 +1,12 @@
 # First-release implementation status
 
-The five first-release review findings are fixed. Public APIs, persistence v2, and freshness/quorum/drift defaults are unchanged.
+The engine now queues persistence for deadline-accepted anchors. The native harness checks the seed and boot evidence, and the full candidate checker binds approval to exact Pub-selected bytes. Public APIs, persistence v2, and freshness, quorum, and drift defaults are unchanged.
 
 | Area | Status |
 | --- | --- |
-| Runtime correctness | Delayed restoration, deadline quorum, NTP error ownership, and provider normalization implemented and regression tested |
-| Release reproducibility | Schema-2 canonical tracked-source digest, separate manifest generator, digest-bound evidence and read-only gate checker; fresh LF/autocrlf clones agree |
-| SDK and example checks | 106 tests per pinned SDK, clean analysis, and example test on Windows |
-| Android | All three exact JDK 17 build lanes passed APK/AAB |
-| Browser | Both SDKs built and rendered JS/WASM; real endpoint/CORS gate remains open |
-| Native/device coverage | Apple/Linux/Windows release, physical lifecycle, native restart/storage and privacy archive qualification blocked here |
-| Rights and publication | Resolved license texts collected; human/native audit, private security reporting, uploader access and exact-candidate review remain open |
+| Runtime and release checks | Deadline persistence, native restart assertions, exact candidate selection, and digest-bound approval are implemented |
+| Builds and tests | Current SDK, Android, and Web evidence is tracked in VALIDATION.md and release_gates.json |
+| Native, browser, and performance qualification | Physical lifecycle, native restart/storage, live HTTPS/CORS, Apple archive inspection, and representative allocation measurements remain open |
+| Rights and publication | Notice hashes verified. Human and native dependency review, private reporting, uploader access, and candidate review remain open |
 
-See REVIEW_REPORT.md, VALIDATION.md, DEVICE_QUALIFICATION.md, APPLE_PRIVACY_AUDIT.md and PUBLISHING.md. Publish_to remains none. No release candidate, upload, tag, or push was performed.
+See VALIDATION.md, DEVICE_QUALIFICATION.md, APPLE_PRIVACY_AUDIT.md and PUBLISHING.md. The development checkout retains `publish_to: none`.

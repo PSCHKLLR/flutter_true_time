@@ -3,6 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_true_time/flutter_true_time.dart';
 import 'package:flutter_true_time_example/main.dart';
 
+import '../integration_test/restart_test.dart' show requireQualificationSeed;
+
 class DemoSource implements TimeSource {
   const DemoSource(this.id);
   @override
@@ -26,6 +28,9 @@ class DemoSource implements TimeSource {
 }
 
 void main() {
+  test('restart qualification requires a readable seed', () {
+    expect(() => requireQualificationSeed(null), throwsStateError);
+  });
   testWidgets('demo renders UTC without public network requests', (
     tester,
   ) async {

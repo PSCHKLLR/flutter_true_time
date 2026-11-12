@@ -1,18 +1,19 @@
 # Compatibility targets and evidence
 
-Targets below describe the agreed qualification matrix. See VALIDATION.md for evidence and DEVICE_QUALIFICATION.md for physical and live-network procedures.
+The [release manifest](release_gates.json) records the status for the current source digest. See [validation](VALIDATION.md) for results and [device qualification](DEVICE_QUALIFICATION.md) for physical and live-network procedures.
 
 | Lane | Pinned target | Current evidence |
 | --- | --- | --- |
-| Minimum SDK | Flutter 3.41.0 / Dart 3.11.0 | Windows analysis and 106 tests pass; Linux/macOS pending |
-| Current SDK | Flutter 3.47.9 / Dart 3.13.7 | Windows analysis and 106 tests pass; Linux/macOS pending |
-| Android baseline | AGP 8.11.1 / Gradle 8.14 / Kotlin 2.2.20 / JDK 17 | APK/AAB passed and versions verified |
-| Android current | AGP 9.1.0 / Gradle 9.3.1 / Kotlin 2.4.0 / JDK 17 | APK/AAB passed and versions verified |
+| Minimum SDK | Flutter 3.41.0 / Dart 3.11.0 | Windows analysis, 110 core/facade tests and two example tests passed. Linux and macOS remain open. |
+| Current SDK | Flutter 3.47.9 / Dart 3.13.7 | Windows analysis, 110 core/facade tests and two example tests passed. Linux and macOS remain open. |
+| Android baseline | AGP 8.11.1 / Gradle 8.14 / Kotlin 2.2.20 / JDK 17 | APK and AAB build qualification. See the current gate for evidence. |
+| Android current | AGP 9.1.0 / Gradle 9.3.1 / Kotlin 2.4.0 / JDK 17 | APK and AAB build qualification. See the current gate for evidence. |
 | Android built-in Kotlin | AGP 9.1.0 / Gradle 9.3.1 / Kotlin compiler 2.4.0 / JDK 17; no legacy plugin | APK/AAB passed; compiler alignment is in settings classpath |
 | Apple | Xcode 27.2 / Apple silicon, both SDKs; iOS 15+, macOS 12+ | Blocked; no Mac or archive/device evidence |
 | Windows | x64 / QPC, both SDKs | Core tests pass; release builds blocked by missing Visual Studio toolchain |
 | Linux | x64 / BOOTTIME, both SDKs | Blocked; release/keyring/epoch execution unavailable |
-| Web | JS/WASM on both SDKs | All four built and rendered in Chrome; live HTTPS/CORS pending |
+| Web | JS/WASM on both SDKs | Both build modes and mocked Chrome source tests passed on both SDKs. Live HTTPS/CORS and offline reload remain open. |
+| Read performance | Representative release-build latency and allocations | Windows AOT latency smoke recorded. Representative and allocation evidence remains open. |
 
 Android API 24 remains the floor. The package bridge uses Java 17; Kotlin versions describe example hosts. Modern typed AGP extension configuration and compilerOptions replace deprecated DSL accessors. Built-in Kotlin alignment upgrades the AGP runtime compiler without applying the legacy Android Kotlin plugin; no dependency-validation bypass was used. [Android runtime KGP guidance](https://developer.android.com/build/releases/agp-9-0-0-release-notes#runtime-dependency-on-kotlin-gradle-plugin)
 
