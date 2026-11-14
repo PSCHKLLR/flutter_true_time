@@ -1,3 +1,8 @@
+/// Network-derived UTC for Flutter apps, with freshness and uncertainty.
+///
+/// Initialize [TrustedTime], wait for a usable anchor, and call
+/// [TrustedTime.read] to read the projected UTC time and its uncertainty.
+/// Use [TrustedTimeEngine] to manage independent clocks.
 library;
 
 export 'src/models.dart';

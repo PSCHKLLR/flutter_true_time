@@ -107,18 +107,47 @@ class TrustedTime {
     await engine.initialize();
   }
 
+  /// Returns the current projected UTC time.
+  ///
+  /// Throws [TrustedTimeException] if the clock is unavailable or stale.
   static DateTime now() => _current.now();
+
+  /// Returns [now] as milliseconds since the Unix epoch.
   static int nowUnixMs() => now().millisecondsSinceEpoch;
+
+  /// Returns [now] formatted as an ISO 8601 UTC string.
   static String nowIso() => now().toIso8601String();
+
+  /// Returns UTC, uncertainty, and source evidence for a usable anchor.
+  ///
+  /// The result can be stale. Throws [TrustedTimeException] if no continuous
+  /// anchor exists.
   static TimeReading read() => _current.read();
+
+  /// Returns the current reading, including stale readings, or null when
+  /// there is no continuous anchor.
   static TimeReading? estimate() => _current.estimate();
+
+  /// Whether the current reading meets the freshness and uncertainty limits.
   static bool get isTrusted => _engine?.isTrusted ?? false;
+
+  /// Returns the current availability, sync state, and last error.
   static TimeStatus get status => _current.status;
+
+  /// Streams synchronization, persistence, and clock diagnostic events.
   static Stream<TimeEvent> get events => _current.events;
+
+  /// Starts synchronization or joins the cycle already in progress.
   static Future<SyncOutcome> forceResync() => _current.sync();
+
+  /// Waits up to [timeout] for a reading within the configured policy limits.
   static Future<TimeReading> waitUntilReady({
     Duration timeout = const Duration(seconds: 5),
   }) => _current.waitUntilReady(timeout: timeout);
+
+  /// Releases the current engine and removes its Flutter lifecycle observer.
+  ///
+  /// Call [initialize] again before reading from the facade.
   static Future<void> dispose() async {
     if (_lifecycle != null) WidgetsBinding.instance.removeObserver(_lifecycle!);
     final engine = _engine;

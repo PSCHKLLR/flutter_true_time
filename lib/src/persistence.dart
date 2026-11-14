@@ -4,20 +4,36 @@ import 'package:crypto/crypto.dart';
 import 'clock.dart';
 import 'provider_group.dart';
 
+/// Identifies a boot session within an installation and monotonic clock domain.
 class BootEpoch {
+  /// Creates a boot identity using values supplied by an epoch provider.
   const BootEpoch({
     required this.id,
     required this.installationScope,
     required this.clockDomain,
   });
-  final String id, installationScope, clockDomain;
+
+  /// The identifier for this boot session.
+  final String id;
+
+  /// The application installation or storage scope that owns the epoch.
+  final String installationScope;
+
+  /// The clock domain in which elapsed times can be compared.
+  final String clockDomain;
+
+  /// Whether all three identity fields are present.
   bool get isValid =>
       id.isNotEmpty && installationScope.isNotEmpty && clockDomain.isNotEmpty;
+
+  /// Encodes the identity as a map for persistence.
   Map<String, Object?> toMap() => {
     'id': id,
     'scope': installationScope,
     'domain': clockDomain,
   };
+
+  /// Decodes the string fields written by [toMap].
   factory BootEpoch.fromMap(Map<String, Object?> value) => BootEpoch(
     id: value['id'] as String,
     installationScope: value['scope'] as String,
@@ -33,17 +49,25 @@ class BootEpoch {
   int get hashCode => Object.hash(id, installationScope, clockDomain);
 }
 
+/// Supplies boot identities for clocks that support restart validation.
 abstract interface class BootEpochProvider {
+  /// Returns the identity for [clock], or null if continuity cannot be proven.
   Future<BootEpoch?> currentEpoch(ClockCapabilities clock);
 }
 
+/// An epoch provider that makes no continuity claim across process restarts.
 class UnknownBootEpochProvider implements BootEpochProvider {
+  /// Creates a provider that returns null for every clock domain.
   const UnknownBootEpochProvider();
   @override
   Future<BootEpoch?> currentEpoch(ClockCapabilities clock) async => null;
 }
 
+/// Enables secure anchor storage under an application-specific namespace.
 class PersistenceConfig {
+  /// Creates a configuration with a [namespace] of 3–128 characters.
+  ///
+  /// Use ASCII letters, digits, underscores, hyphens, or periods.
   PersistenceConfig({required this.namespace}) {
     if (!RegExp(r'^[a-zA-Z0-9_.-]{3,128}$').hasMatch(namespace)) {
       throw ArgumentError(
@@ -51,6 +75,8 @@ class PersistenceConfig {
       );
     }
   }
+
+  /// The storage namespace used to isolate this application's anchor.
   final String namespace;
   @override
   bool operator ==(Object other) =>
@@ -59,7 +85,9 @@ class PersistenceConfig {
   int get hashCode => namespace.hashCode;
 }
 
+/// Reads and writes the serialized record for one trusted time anchor.
 abstract interface class AnchorStore {
+  /// Returns the saved record, or null when the store is empty.
   Future<Map<String, Object?>?> load();
 
   /// Implement a complete-record atomic write. Caller timeouts never cancel it.
@@ -95,7 +123,15 @@ class SerializingAnchorStore implements AnchorStore {
   }
 }
 
+/// A version-2 persisted UTC anchor and the evidence needed to check a restore.
+///
+/// A decoded record still needs to pass the engine's continuity, policy,
+/// freshness, and uncertainty checks before it can be used.
 class AnchorRecord {
+  /// Creates a record that associates [utc] with [monotonic].
+  ///
+  /// Supply a UTC timestamp and durations from the same clock domain.
+  /// The constructor copies [sourceIds] and [providerGroups] into immutable lists.
   AnchorRecord({
     required this.utc,
     required this.monotonic,
@@ -108,12 +144,35 @@ class AnchorRecord {
     this.epoch,
   }) : sourceIds = List.unmodifiable(sourceIds),
        providerGroups = List.unmodifiable(providerGroups);
+
+  /// The UTC timestamp at the anchor.
   final DateTime utc;
-  final Duration monotonic, uncertainty;
-  final String clockDomain, policyFingerprint;
+
+  /// The elapsed time on the monotonic clock at the anchor.
+  final Duration monotonic;
+
+  /// The estimated uncertainty at the anchor before offline drift is added.
+  final Duration uncertainty;
+
+  /// The monotonic clock domain in which [monotonic] was measured.
+  final String clockDomain;
+
+  /// The fingerprint of the sources and time policy used to accept the anchor.
+  final String policyFingerprint;
+
+  /// The positive sequence number assigned to this anchor by the engine.
   final int sequence;
-  final List<String> sourceIds, providerGroups;
+
+  /// Identifiers of the sources that contributed to the accepted anchor.
+  final List<String> sourceIds;
+
+  /// Distinct provider groups represented by the contributing sources.
+  final List<String> providerGroups;
+
+  /// The saved boot and installation identity, if the provider supplied one.
   final BootEpoch? epoch;
+
+  /// Encodes a version-2 record with UTC and durations stored in microseconds.
   Map<String, Object?> toMap() => {
     'version': 2,
     'utcUs': utc.microsecondsSinceEpoch,
@@ -126,6 +185,11 @@ class AnchorRecord {
     'groups': providerGroups,
     'epoch': epoch?.toMap(),
   };
+
+  /// Decodes the version-2 format produced by [toMap].
+  ///
+  /// Rejects an unsupported schema, invalid anchor values, and an epoch from
+  /// a different clock domain. The engine checks current continuity on restore.
   factory AnchorRecord.fromMap(Map<String, Object?> value) {
     if (value['version'] != 2) {
       throw const FormatException('Unsupported anchor schema');
@@ -176,6 +240,10 @@ class AnchorRecord {
   }
 }
 
+/// Hashes the source configuration keys and policy values for restore checks.
+///
+/// Source key order is ignored. Policy values must be JSON encodable and
+/// retain their order in the fingerprint.
 String trustPolicyFingerprint(List<String> sourceKeys, List<Object?> policy) {
   final sorted = [...sourceKeys]..sort();
   return sha256.convert(utf8.encode(jsonEncode([sorted, policy]))).toString();
