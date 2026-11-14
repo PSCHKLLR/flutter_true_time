@@ -817,13 +817,16 @@
       }
     },
     "name_availability": {
-      "status": "pending",
-      "note": "Source changed; fresh qualification evidence required.",
+      "status": "passed",
+      "note": "The pub.dev package endpoint returned HTTP 404 for flutter_true_time. Recheck immediately before publication.",
       "historicalEvidence": {
         "evidence": "docs/evidence/first-release-ci-workflow-validation.json",
         "sha256": "d15fa395c030c0eaaa1fb869b52c9a9b83b2681bd7cbe15fc91041a23f054515",
         "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
-      }
+      },
+      "sourceDigest": "e023d652ff6c1b62d240b784ab2b8c38b173306c7d96df11f01dafef5440d1f2",
+      "evidence": "docs/evidence/first-release-name-availability.json",
+      "sha256": "afbc77a67da8e18916563cfb9ad14793cf28f787b66109aec9b4b25cef442e9f"
     },
     "archive_consumer": {
       "status": "blocked",
