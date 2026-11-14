@@ -115,7 +115,7 @@ class HttpsDateSource implements TimeSource {
       cancellation?.throwIfCancelled();
       final end = clock.snapshot();
       if (response.statusCode < 200 || response.statusCode >= 300) {
-        throw const TrustedTimeException(
+        throw const TrueTimeException(
           'httpStatus',
           'HTTPS source did not succeed',
         );
@@ -124,14 +124,14 @@ class HttpsDateSource implements TimeSource {
       final cache = response.headers['cache-control']?.toLowerCase() ?? '';
       if (!cache.split(',').map((s) => s.trim()).contains('no-store') ||
           (age != null && int.tryParse(age) != 0)) {
-        throw const TrustedTimeException(
+        throw const TrueTimeException(
           'cachedResponse',
           'Require no-store and absent/zero Age',
         );
       }
       final utc = parseHttpDate(response.headers['date']);
       if (start.sessionId != end.sessionId || end.elapsed < start.elapsed) {
-        throw const TrustedTimeException(
+        throw const TrueTimeException(
           'continuityLost',
           'Clock changed during request',
         );
@@ -173,7 +173,7 @@ DateTime parseHttpDate(String? value) {
   ];
   const days = ['Mon,', 'Tue,', 'Wed,', 'Thu,', 'Fri,', 'Sat,', 'Sun,'];
   if (parts.length != 6 || !days.contains(parts[0]) || parts[5] != 'GMT') {
-    throw const TrustedTimeException(
+    throw const TrueTimeException(
       'invalidDate',
       'Missing or invalid HTTP Date',
     );
@@ -198,17 +198,14 @@ DateTime parseHttpDate(String? value) {
       minute > 59 ||
       second < 0 ||
       second > 59) {
-    throw const TrustedTimeException(
+    throw const TrueTimeException(
       'invalidDate',
       'Invalid HTTP calendar fields',
     );
   }
   final date = DateTime.utc(year, month, day, hour, minute, second);
   if (date.day != day || days[date.weekday - 1] != parts[0]) {
-    throw const TrustedTimeException(
-      'invalidDate',
-      'Invalid HTTP calendar date',
-    );
+    throw const TrueTimeException('invalidDate', 'Invalid HTTP calendar date');
   }
   return date;
 }

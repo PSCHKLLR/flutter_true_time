@@ -1,5 +1,7 @@
 # Publishing and release verification
 
+The 2.0.0 release renames the public API to `TrueTime`, `TrueTimeEngine`, `TrueTimeConfig`, and `TrueTimeException`. Its release review and remaining qualification limits are recorded in [REVIEW_REPORT.md](REVIEW_REPORT.md). The published-package smoke workflow targets 2.0.0. The historical checker below remains pinned to the first prerelease and must not be represented as a passing 2.0.0 qualification.
+
 `flutter_true_time 0.1.0-dev.1` was published on 14 November 2026. The published package workflow installs that version from pub.dev and runs the example tests on both pinned Flutter SDKs. [Published package](https://pub.dev/packages/flutter_true_time/versions/0.1.0-dev.1) · [Smoke test workflow](../.github/workflows/published-package.yml)
 
 ## Canonical inputs and evidence

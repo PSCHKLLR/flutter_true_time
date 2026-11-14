@@ -74,7 +74,7 @@ void main() {
           TargetPlatform.android,
           TargetPlatform.linux,
         ].contains(defaultTargetPlatform);
-    final engine = TrustedTimeEngine(
+    final engine = TrueTimeEngine(
       sources: [
         FixtureSource('fixture-a', phase != 'seed'),
         FixtureSource('fixture-b', phase != 'seed'),
@@ -173,7 +173,7 @@ void main() {
           expect(engine.now().isUtc, isTrue);
         } else {
           expect(engine.estimate(), isNull);
-          expect(engine.now, throwsA(isA<TrustedTimeException>()));
+          expect(engine.now, throwsA(isA<TrueTimeException>()));
         }
         if (phase == 'unavailable-storage') {
           expect(events, contains(TimeEventKind.storageFailed));

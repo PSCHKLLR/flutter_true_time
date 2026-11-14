@@ -12,25 +12,25 @@ void main() {
       AppLifecycleState.resumed,
     );
   });
-  tearDown(() => TrustedTime.dispose());
+  tearDown(() => TrueTime.dispose());
   test(
     'equivalent newly constructed custom source configurations are idempotent',
     () async {
       final clock = FakeClock();
-      await TrustedTime.initialize(
+      await TrueTime.initialize(
         clock: clock,
         sources: [FakeSource('a', 'a'), FakeSource('b', 'b')],
       );
-      await TrustedTime.waitUntilReady();
-      await TrustedTime.initialize(
+      await TrueTime.waitUntilReady();
+      await TrueTime.initialize(
         sources: [FakeSource('a', 'a'), FakeSource('b', 'b')],
       );
-      expect(TrustedTime.isTrusted, isTrue);
+      expect(TrueTime.isTrusted, isTrue);
       await expectLater(
-        TrustedTime.initialize(
+        TrueTime.initialize(
           sources: [FakeSource('a', 'a'), FakeSource('c', 'c')],
         ),
-        throwsA(isA<TrustedTimeException>()),
+        throwsA(isA<TrueTimeException>()),
       );
     },
   );
@@ -38,20 +38,20 @@ void main() {
     'Flutter pause/resume invalidates and replaces a portable anchor',
     () async {
       final clock = FakeClock()..includesSleep = false;
-      await TrustedTime.initialize(
+      await TrueTime.initialize(
         clock: clock,
         sources: [FakeSource('a', 'a'), FakeSource('b', 'b')],
       );
-      await TrustedTime.waitUntilReady();
+      await TrueTime.waitUntilReady();
       WidgetsBinding.instance.handleAppLifecycleStateChanged(
         AppLifecycleState.paused,
       );
-      expect(TrustedTime.isTrusted, isFalse);
+      expect(TrueTime.isTrusted, isFalse);
       WidgetsBinding.instance.handleAppLifecycleStateChanged(
         AppLifecycleState.resumed,
       );
-      await TrustedTime.forceResync();
-      expect(TrustedTime.isTrusted, isTrue);
+      await TrueTime.forceResync();
+      expect(TrueTime.isTrusted, isTrue);
     },
   );
   test('initial background state defers network work until resume', () async {
@@ -59,14 +59,14 @@ void main() {
       AppLifecycleState.paused,
     );
     final a = FakeSource('a', 'a'), b = FakeSource('b', 'b');
-    await TrustedTime.initialize(clock: FakeClock(), sources: [a, b]);
+    await TrueTime.initialize(clock: FakeClock(), sources: [a, b]);
     expect(a.calls, 0);
     expect(b.calls, 0);
     WidgetsBinding.instance.handleAppLifecycleStateChanged(
       AppLifecycleState.resumed,
     );
-    await TrustedTime.forceResync();
-    expect(TrustedTime.isTrusted, isTrue);
+    await TrueTime.forceResync();
+    expect(TrueTime.isTrusted, isTrue);
   });
   test('secure store isolates JSON records by application namespace', () async {
     // Dedicated Flutter test directory keeps the VM-only suite independent.
@@ -88,7 +88,7 @@ void main() {
     tester,
   ) async {
     final store = HangingLoadStore();
-    final engine = TrustedTimeEngine(
+    final engine = TrueTimeEngine(
       sources: [FakeSource('a', 'a'), FakeSource('b', 'b')],
       clock: FakeClock(),
       store: store,

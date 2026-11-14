@@ -31,7 +31,7 @@ Future<TimeSample> queryNtp(
     expired = true;
     socket?.close();
     if (pending != null && !pending!.isCompleted) {
-      pending!.completeError(TrustedTimeException('cancelled', signal.reason));
+      pending!.completeError(TrueTimeException('cancelled', signal.reason));
     }
   });
   final timer = Timer(timeout, () => signal.cancel('sourceTimeout'));
@@ -40,7 +40,7 @@ Future<TimeSample> queryNtp(
     final addresses = await InternetAddress.lookup(host);
     if (expired) throw TimeoutException('DNS deadline expired');
     if (addresses.isEmpty) {
-      throw const TrustedTimeException('dns', 'No server address');
+      throw const TrueTimeException('dns', 'No server address');
     }
     final address = addresses.first;
     final bound = await (bindSocket ?? RawDatagramSocket.bind)(
@@ -86,21 +86,15 @@ Future<TimeSample> queryNtp(
               data[0] >> 6 == 3 ||
               data[1] < 1 ||
               data[1] > 15) {
-            throw const TrustedTimeException(
-              'invalidNtp',
-              'Invalid NTP header',
-            );
+            throw const TrueTimeException('invalidNtp', 'Invalid NTP header');
           }
           for (var i = 0; i < 8; i++) {
             if (data[24 + i] != bytes[40 + i]) {
-              throw const TrustedTimeException(
-                'invalidNtp',
-                'Originate mismatch',
-              );
+              throw const TrueTimeException('invalidNtp', 'Originate mismatch');
             }
           }
           if (start.sessionId != end.sessionId || end.elapsed < start.elapsed) {
-            throw const TrustedTimeException(
+            throw const TrueTimeException(
               'continuityLost',
               'Clock changed during query',
             );
@@ -111,7 +105,7 @@ Future<TimeSample> queryNtp(
           if (transmit.isBefore(receive) ||
               transmit.difference(receive) >
                   rtt + const Duration(milliseconds: 1)) {
-            throw const TrustedTimeException(
+            throw const TrueTimeException(
               'invalidNtp',
               'Invalid processing interval',
             );
@@ -125,7 +119,7 @@ Future<TimeSample> queryNtp(
               rootDelay > 10 ||
               dispersion > 10 ||
               precision > 1) {
-            throw const TrustedTimeException(
+            throw const TrueTimeException(
               'invalidNtp',
               'Excessive server uncertainty',
             );
@@ -160,7 +154,7 @@ Future<TimeSample> queryNtp(
     );
     try {
       if (bound.send(bytes, address, port) != bytes.length) {
-        throw const TrustedTimeException('sendFailed', 'Request not sent');
+        throw const TrueTimeException('sendFailed', 'Request not sent');
       }
       return await result.future;
     } finally {
@@ -187,7 +181,7 @@ DateTime decodeNtpTimestamp(Uint8List data, int offset) {
   final view = ByteData.sublistView(data);
   final seconds = view.getUint32(offset), fraction = view.getUint32(offset + 4);
   if (seconds == 0 && fraction == 0) {
-    throw const TrustedTimeException('invalidNtp', 'Zero timestamp');
+    throw const TrueTimeException('invalidNtp', 'Zero timestamp');
   }
   for (var era = 0; era <= 1; era++) {
     final micros =
@@ -196,7 +190,7 @@ DateTime decodeNtpTimestamp(Uint8List data, int offset) {
     final utc = DateTime.fromMicrosecondsSinceEpoch(micros, isUtc: true);
     if (utc.year >= 2020 && utc.year <= 2100) return utc;
   }
-  throw const TrustedTimeException(
+  throw const TrueTimeException(
     'invalidNtp',
     'Timestamp outside 2020–2100 window',
   );

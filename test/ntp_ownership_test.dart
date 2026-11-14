@@ -65,7 +65,7 @@ void main() {
             return SendFailureSocket(false);
           },
         ),
-        throwsA(isA<TrustedTimeException>()),
+        throwsA(isA<TrueTimeException>()),
       );
       await Future<void>.delayed(Duration.zero);
       expect(bound, isFalse);

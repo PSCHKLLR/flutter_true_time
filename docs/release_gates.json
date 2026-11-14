@@ -2,7 +2,7 @@
   "schema": 2,
   "version": "0.1.0-dev.1",
   "developmentInputs": false,
-  "sourceDigest": "1c9cfa6bbb873434550ec43cc82e379cf06294cac3fcb7342f9ca55879d26ce0",
+  "sourceDigest": "9a4a2e4000d24d6a7955be17b52e7364260ec494e4acf7b787b018e05ecf7445",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -18,11 +18,11 @@
     },
     ".github/workflows/published-package.yml": {
       "mode": "utf8-lf",
-      "sha256": "196a909580d1e7f449eeee1d37311ab16131de7d609f071c9dfc0e8af8a7e25e"
+      "sha256": "c20852b1653ea8aaacce449a8a382816ec43c2b3cd6e8e2736232093166e9ece"
     },
     ".pubignore": {
       "mode": "utf8-lf",
-      "sha256": "d1eb2fff446c90d3c9913fac1caa69c9dd7d1e68c103a1c99bba3957d8d4409c"
+      "sha256": "b3de850d42f99aa1943cbb1d3f3d26b863d9184c4e642a00df0b628b212f8eb7"
     },
     "LICENSE": {
       "mode": "utf8-lf",
@@ -134,7 +134,7 @@
     },
     "example/integration_test/restart_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "0547546f3e6c5f66e6aa53cb69162e12d182e59295f21766217aae805cd48e03"
+      "sha256": "cbddc21e942838885bb75016fe5644280388a9a6b08e18d525a46a49447fef9d"
     },
     "example/ios/.gitignore": {
       "mode": "utf8-lf",
@@ -298,7 +298,7 @@
     },
     "example/lib/main.dart": {
       "mode": "utf8-lf",
-      "sha256": "5b50463d50ddbc4c046e9a924d8c6d672babe9dfa84cd1abf80123cc6cd07891"
+      "sha256": "a9e1ed40d307ebe30bef4e444c27ac6827d41bcbf00c1df53318c7e6ca976121"
     },
     "example/linux/.gitignore": {
       "mode": "utf8-lf",
@@ -438,7 +438,7 @@
     },
     "example/pubspec.yaml": {
       "mode": "utf8-lf",
-      "sha256": "fb82c71d00a1dd45025db27fc616780346cb05e9c38de89c5997c592a368395c"
+      "sha256": "1dd2e09086474883993bb38c1d64217e116e4da172437e3be7618d1c62876ca0"
     },
     "example/test/widget_test.dart": {
       "mode": "utf8-lf",
@@ -538,7 +538,7 @@
     },
     "lib/flutter_true_time.dart": {
       "mode": "utf8-lf",
-      "sha256": "6c5e9dfa379982da906e4c684fbf625705dd4c0d218df121a2870a50491dfd64"
+      "sha256": "02493d5492cd5daa640eaf0e620ed51e1c6a1468ba98515fc2cd828fc96ff52f"
     },
     "lib/flutter_true_time_dart_plugin.dart": {
       "mode": "utf8-lf",
@@ -550,7 +550,7 @@
     },
     "lib/src/cancellation.dart": {
       "mode": "utf8-lf",
-      "sha256": "d4de34a57b6efa671debdf03a0dc4cd0334f6b76e2af9f6832508f492268d7b5"
+      "sha256": "39109228ab35f46606d68198d5e1ee01d27f731fece5a0d1c6ea141d04a6f782"
     },
     "lib/src/clock.dart": {
       "mode": "utf8-lf",
@@ -570,7 +570,7 @@
     },
     "lib/src/engine.dart": {
       "mode": "utf8-lf",
-      "sha256": "90981e636b9427a0fbcf6856f6f055311c3503d29868d775fc520d4a31fcb5dc"
+      "sha256": "c82cd42828cde4744a4a200fafffd2adde5787074cb8d776c4ec079224c700ee"
     },
     "lib/src/epoch_io.dart": {
       "mode": "utf8-lf",
@@ -586,23 +586,23 @@
     },
     "lib/src/facade.dart": {
       "mode": "utf8-lf",
-      "sha256": "7f46aa9443029f3b0c472f5b8d65833d66d95afb3d6377f3bb882bd72cc503d0"
+      "sha256": "e57d3eb0966f591c9f034c8ff3a3d4149c891d562d5391cd573682d6ec97cd45"
     },
     "lib/src/models.dart": {
       "mode": "utf8-lf",
-      "sha256": "49319c686d58b3abc036f897fc9067fbfcab3b0e1889f7ddbead78858c6fcafd"
+      "sha256": "1cfcd41571a3c40a07149c0007fd8068471fcf1b539da8d76a3c7f67fbe61714"
     },
     "lib/src/ntp_io.dart": {
       "mode": "utf8-lf",
-      "sha256": "bf751f50dd636dbc114a5ca9186d8ef38945334869163250e8c5e1634d7c39ea"
+      "sha256": "c0495326a124c3622f912cd294d0fcaaa86313571366d12ec40189a97d4caf04"
     },
     "lib/src/ntp_stub.dart": {
       "mode": "utf8-lf",
-      "sha256": "8c5ba6af8e7372f8fa25fa2a520eec90d97b6208b7549012c267b79e81412049"
+      "sha256": "2eda848551f436530ec46094bf7ad6d261126d954ae7d699f61fb98a11f3ca15"
     },
     "lib/src/persistence.dart": {
       "mode": "utf8-lf",
-      "sha256": "a3148a1ae42d515b11a8649a81d9a311fe34c2c28bbfc41f2b41c79bccb28b5a"
+      "sha256": "f30dd0a9472407f2bfcbc73db8979c6b2e7fc95234b4d0f9fc004d63aca74714"
     },
     "lib/src/provider_group.dart": {
       "mode": "utf8-lf",
@@ -614,11 +614,11 @@
     },
     "lib/src/sources.dart": {
       "mode": "utf8-lf",
-      "sha256": "96e0681b2f15f661ae36cbef97095e17c64534c677039031c61628cf36a0d443"
+      "sha256": "f57a4c66b270110394b7072b2bf88675a7e96671ca4922d3fb2e8b5f0fe3c86d"
     },
     "pubspec.yaml": {
       "mode": "utf8-lf-development-guard",
-      "sha256": "75aa63b6a2f2d027bb03d467b8a0ed52419e16c73a0c6812255b59d3663008bd"
+      "sha256": "29cbb7c873a8fd0e9b2bce58555b2f70e7415997099d7ff55a0af3b08b83d760"
     },
     "test/configure_android_test.dart": {
       "mode": "utf8-lf",
@@ -626,15 +626,15 @@
     },
     "test/engine_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "03fdacdb45e75aa7842f373fc08f2045510fa34c404e92aacb78b196c0ff009c"
+      "sha256": "d9801af2e542213c447bc8d69ec2fa947db64451aba0357ab0c18b39012693ca"
     },
     "test/enhancements_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "95aa386328749e5f517e1219642665eb30ae217c6480bc327c4a298c91175092"
+      "sha256": "6ce668bebd4aa29c2a85cacb196da57a4dd77822e1822678c71757f3e947599f"
     },
     "test/first_release_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "f0239584ed69697e1b13fb87a6f742a54332e46e164cd295b5344edb9963f09e"
+      "sha256": "79e5b32aa8f2fe304efb78de51cc7312d33c5d372fa5a8ca5ed1b0392530497d"
     },
     "test/helpers.dart": {
       "mode": "utf8-lf",
@@ -642,11 +642,11 @@
     },
     "test/native_sources_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "771b7b83747ad1d764d11d900ea65fe937409a812bc4661004c8ef1e71dd590b"
+      "sha256": "cf6c35d230c6ac41f842d2cc6d5e43af14ec0a60964c15a567828cac0ea9a4ff"
     },
     "test/ntp_ownership_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "61d6c68f06a4a29b5e28bb30564a31d28f59e1082d1d899d87f8d5f7140acf79"
+      "sha256": "5f247cd999dc6cc20441cffa7ac435caf70e414737b85a2e8f18c79a9161b111"
     },
     "test/ntp_test.dart": {
       "mode": "utf8-lf",
@@ -658,15 +658,15 @@
     },
     "test/sources_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "10073684f5cdd77abdf6b8123483b5acb1196074485a206de4e955f1e8586bac"
+      "sha256": "36cf6f5b2ecd0af9707e8005ee3fc4a1a4c6abeb99ee7af8b8dcfb1eebc0fdde"
     },
     "test_flutter/facade_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "5bb2f592080d4bd397d2bc450fc12d93442ef8644dab5a3a0089ce99cd4a4e08"
+      "sha256": "19f05815d7445664a739a2fd7f2ca4b18b94f084757c1eb5a3a9499c61cbe33e"
     },
     "tool/benchmark.dart": {
       "mode": "utf8-lf",
-      "sha256": "504fefac912e34e7c993934cef4f9fc752296bba3b07330d7e84a446408e3410"
+      "sha256": "c1a14e9c2488ed933cfb94864b2eec336054988979e574ff0d6524cbab0812d7"
     },
     "tool/configure_android.dart": {
       "mode": "utf8-lf",
@@ -690,7 +690,7 @@
     },
     "tool/web_smoke.dart": {
       "mode": "utf8-lf",
-      "sha256": "bbdce2df7dbdb897a5f740c42479799cb7276b7c4d5b29c7c787974d81347767"
+      "sha256": "e16ac123fa6005e545f01132e0a1f23243b426f12068e5c5bee66e28e992fe70"
     }
   },
   "gates": {

@@ -13,12 +13,12 @@ enum TimeEventKind {
   timezoneChanged,
 }
 
-class TrustedTimeException implements Exception {
-  const TrustedTimeException(this.code, this.message);
+class TrueTimeException implements Exception {
+  const TrueTimeException(this.code, this.message);
   final String code;
   final String message;
   @override
-  String toString() => 'TrustedTimeException($code): $message';
+  String toString() => 'TrueTimeException($code): $message';
 }
 
 class TimeReading {
@@ -49,7 +49,7 @@ class TimeStatus {
   const TimeStatus(this.availability, this.syncInProgress, this.lastError);
   final TimeAvailability availability;
   final bool syncInProgress;
-  final TrustedTimeException? lastError;
+  final TrueTimeException? lastError;
 }
 
 class TimeEvent {
@@ -66,11 +66,11 @@ class SyncOutcome {
   }) : failures = Map.unmodifiable(failures);
   final bool success;
   final Map<String, String> failures;
-  final TrustedTimeException? error;
+  final TrueTimeException? error;
 }
 
-class TrustedTimeConfig {
-  const TrustedTimeConfig({
+class TrueTimeConfig {
+  const TrueTimeConfig({
     this.refreshInterval = const Duration(minutes: 30),
     this.sourceTimeout = const Duration(seconds: 3),
     this.syncDeadline = const Duration(seconds: 5),
@@ -111,7 +111,7 @@ class TrustedTimeConfig {
 
   @override
   bool operator ==(Object other) =>
-      other is TrustedTimeConfig &&
+      other is TrueTimeConfig &&
       refreshInterval == other.refreshInterval &&
       sourceTimeout == other.sourceTimeout &&
       syncDeadline == other.syncDeadline &&

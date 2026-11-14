@@ -1,4 +1,10 @@
-# Migration to flutter_true_time 0.1.0-dev.1
+# Migration
+
+## Version 2.0.0 TrueTime API rename
+
+Replace `TrustedTime` with `TrueTime`, `TrustedTimeEngine` with `TrueTimeEngine`, `TrustedTimeConfig` with `TrueTimeConfig`, and `TrustedTimeException` with `TrueTimeException`. This is a breaking rename without compatibility aliases. Package imports, method names, and persisted anchor schema v2 are unchanged. Versions through 1.0.0 use the old names; set your dependency to `flutter_true_time: ^2.0.0` for the new API.
+
+## Migration to flutter_true_time 0.1.0-dev.1
 
 Install `flutter_true_time: 0.1.0-dev.1` from pub.dev when migrating from `trusted_time`. The two packages have separate identities and this guide lists the migration steps. [Published package](https://pub.dev/packages/flutter_true_time/versions/0.1.0-dev.1)
 

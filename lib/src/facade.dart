@@ -10,26 +10,26 @@ import 'secure_store.dart';
 import 'sources.dart';
 
 /// Flutter convenience facade. Core consumers inject independent engines.
-class TrustedTime {
-  TrustedTime._();
-  static TrustedTimeEngine? _engine;
+class TrueTime {
+  TrueTime._();
+  static TrueTimeEngine? _engine;
   static _ClockLifecycle? _lifecycle;
   static PersistenceConfig? _persistence;
   static MonotonicClock? _clockArgument;
   static AnchorStore? _storeArgument;
   static BootEpochProvider? _epochArgument;
   static WallClockReader? _wallArgument;
-  static TrustedTimeEngine get _current =>
+  static TrueTimeEngine get _current =>
       _engine ??
-      (throw const TrustedTimeException(
+      (throw const TrueTimeException(
         'uninitialized',
-        'Call TrustedTime.initialize first',
+        'Call TrueTime.initialize first',
       ));
 
   /// Omitted options retain an existing initialization; supplied incompatible
   /// options require disposal. Persistence is opt-in with an application namespace.
   static Future<void> initialize({
-    TrustedTimeConfig? config,
+    TrueTimeConfig? config,
     List<TimeSource>? sources,
     PersistenceConfig? persistence,
     MonotonicClock? clock,
@@ -56,7 +56,7 @@ class TrustedTime {
           (epochProvider != null &&
               !identical(epochProvider, _epochArgument)) ||
           (wallClock != null && !identical(wallClock, _wallArgument))) {
-        throw const TrustedTimeException(
+        throw const TrueTimeException(
           'configurationConflict',
           'Dispose before reconfiguring',
         );
@@ -64,7 +64,7 @@ class TrustedTime {
       return existing.initialize();
     }
     if (kIsWeb && sources == null) {
-      throw const TrustedTimeException(
+      throw const TrueTimeException(
         'sourcesRequired',
         'Configure independent, CORS-ready HTTPS Date sources for web',
       );
@@ -82,8 +82,8 @@ class TrustedTime {
         state == null ||
         state == AppLifecycleState.resumed ||
         state == AppLifecycleState.detached;
-    final engine = TrustedTimeEngine(
-      config: config ?? const TrustedTimeConfig(),
+    final engine = TrueTimeEngine(
+      config: config ?? const TrueTimeConfig(),
       clock: clock,
       sources:
           sources ??
@@ -109,7 +109,7 @@ class TrustedTime {
 
   /// Returns the current projected UTC time.
   ///
-  /// Throws [TrustedTimeException] if the clock is unavailable or stale.
+  /// Throws [TrueTimeException] if the clock is unavailable or stale.
   static DateTime now() => _current.now();
 
   /// Returns [now] as milliseconds since the Unix epoch.
@@ -120,7 +120,7 @@ class TrustedTime {
 
   /// Returns UTC, uncertainty, and source evidence for a usable anchor.
   ///
-  /// The result can be stale. Throws [TrustedTimeException] if no continuous
+  /// The result can be stale. Throws [TrueTimeException] if no continuous
   /// anchor exists.
   static TimeReading read() => _current.read();
 
@@ -164,7 +164,7 @@ class TrustedTime {
 
 class _ClockLifecycle extends WidgetsBindingObserver {
   _ClockLifecycle(this.engine);
-  final TrustedTimeEngine engine;
+  final TrueTimeEngine engine;
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {

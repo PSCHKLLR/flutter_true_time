@@ -67,7 +67,7 @@ void main() {
   });
   Future<Map<String, Object?>> seed() async {
     final store = FakeStore();
-    final e = TrustedTimeEngine(
+    final e = TrueTimeEngine(
       sources: [a, b],
       clock: clock,
       store: store,
@@ -88,7 +88,7 @@ void main() {
         final store = DelayedLoadStore();
         final gate = Completer<void>();
         a.gate = b.gate = gate;
-        final e = TrustedTimeEngine(
+        final e = TrueTimeEngine(
           sources: [a, b],
           clock: clock,
           store: store,
@@ -120,7 +120,7 @@ void main() {
       final record = await seed();
       final store = DelayedLoadStore();
       a.offset = b.offset = const Duration(seconds: 5);
-      final e = TrustedTimeEngine(
+      final e = TrueTimeEngine(
         sources: [a, b],
         clock: clock,
         store: store,
@@ -145,7 +145,7 @@ void main() {
         final store = DelayedLoadStore();
         final gate = Completer<void>();
         a.gate = b.gate = gate;
-        final e = TrustedTimeEngine(
+        final e = TrueTimeEngine(
           sources: [a, b],
           clock: clock,
           store: store,
@@ -173,13 +173,13 @@ void main() {
     () async {
       final late = LateSource();
       final store = FakeStore();
-      final e = TrustedTimeEngine(
+      final e = TrueTimeEngine(
         sources: [a, b, late],
         clock: clock,
         store: store,
         epochProvider: FakeEpochProvider(),
         autoRefresh: false,
-        config: const TrustedTimeConfig(
+        config: const TrueTimeConfig(
           syncDeadline: Duration(milliseconds: 60),
           sourceTimeout: Duration(seconds: 2),
         ),
@@ -197,7 +197,7 @@ void main() {
       await e.dispose();
       clock.session = 'restarted-process';
       a.error = b.error = StateError('offline');
-      final restarted = TrustedTimeEngine(
+      final restarted = TrueTimeEngine(
         sources: [a, b, late],
         clock: clock,
         store: store,
@@ -212,13 +212,13 @@ void main() {
   );
   test('deadline save stays ordered when its observation times out', () async {
     final late = LateSource(), store = SlowFirstSaveStore();
-    final e = TrustedTimeEngine(
+    final e = TrueTimeEngine(
       sources: [a, b, late],
       clock: clock,
       store: store,
       epochProvider: FakeEpochProvider(),
       autoRefresh: false,
-      config: const TrustedTimeConfig(
+      config: const TrueTimeConfig(
         syncDeadline: Duration(milliseconds: 40),
         sourceTimeout: Duration(milliseconds: 200),
       ),
@@ -242,12 +242,12 @@ void main() {
   });
   test('deadline save failure emits a diagnostic and retains time', () async {
     final late = LateSource(), store = FakeStore()..fail = true;
-    final e = TrustedTimeEngine(
+    final e = TrueTimeEngine(
       sources: [a, b, late],
       clock: clock,
       store: store,
       autoRefresh: false,
-      config: const TrustedTimeConfig(
+      config: const TrueTimeConfig(
         syncDeadline: Duration(milliseconds: 40),
         sourceTimeout: Duration(milliseconds: 200),
       ),
@@ -266,7 +266,7 @@ void main() {
     final gate = Completer<void>();
     final late = FakeSource('late', 'late')..gate = gate;
     final store = FakeStore();
-    final e = TrustedTimeEngine(
+    final e = TrueTimeEngine(
       sources: [a, b, late],
       clock: clock,
       store: store,
@@ -287,7 +287,7 @@ void main() {
       () async {
         final c = FakeSource('c', label);
         final store = FakeStore();
-        final e = TrustedTimeEngine(
+        final e = TrueTimeEngine(
           sources: [a, b, c],
           clock: clock,
           store: store,
@@ -300,7 +300,7 @@ void main() {
         await e.dispose();
         clock.session = 'another-process';
         a.error = b.error = c.error = StateError('offline');
-        final restored = TrustedTimeEngine(
+        final restored = TrueTimeEngine(
           sources: [a, b, c],
           clock: clock,
           store: store,
@@ -315,7 +315,7 @@ void main() {
     );
   }
   test('known labels are trimmed but remain case sensitive', () async {
-    final e = TrustedTimeEngine(
+    final e = TrueTimeEngine(
       sources: [FakeSource('a', ' Operator '), FakeSource('b', 'operator')],
       clock: clock,
       autoRefresh: false,

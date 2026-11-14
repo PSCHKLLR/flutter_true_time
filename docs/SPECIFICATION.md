@@ -48,7 +48,7 @@ Successful consensus queues a version-2 record even when sample collection runs 
 
 ## API and platform qualification
 
-Preserve TrustedTime initialize/now/read/estimate/waitUntilReady/forceResync/status/events/dispose and an injectable engine in core.dart. Equivalent built-in source configurations initialize idempotently; conflicting supplied options require disposal. Reading metadata distinguishes restored origin and unauthenticated provenance.
+Version 2.0.0 exposes TrueTime initialize/now/read/estimate/waitUntilReady/forceResync/status/events/dispose, TrueTimeEngine in core.dart, TrueTimeConfig, and TrueTimeException. These names replace the TrustedTime-prefixed types from versions through 1.0.0 without compatibility aliases. Equivalent built-in source configurations initialize idempotently; conflicting supplied options require disposal. Reading metadata distinguishes restored origin and unauthenticated provenance.
 
 The initial target is all six Flutter platforms. Minimum declared SDK is Flutter 3.41.0/Dart 3.11.0; current qualification is pinned to Flutter 3.47.9. Android API 24, iOS 15, and macOS 12 are deployment floors. Android AGP/KGP/Gradle host combinations and Xcode 27.2 builds require recorded evidence. A passing core compiler check does not qualify an app build or device behavior.
 

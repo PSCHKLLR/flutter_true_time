@@ -6,21 +6,17 @@ import 'helpers.dart';
 void main() {
   late FakeClock clock;
   late FakeSource a, b;
-  late TrustedTimeEngine engine;
+  late TrueTimeEngine engine;
   setUp(() {
     clock = FakeClock();
     a = FakeSource('a', 'provider-a');
     b = FakeSource('b', 'provider-b');
-    engine = TrustedTimeEngine(
-      sources: [a, b],
-      clock: clock,
-      autoRefresh: false,
-    );
+    engine = TrueTimeEngine(sources: [a, b], clock: clock, autoRefresh: false);
   });
   tearDown(() => engine.dispose());
   test('unavailable clock never falls back to system time', () {
     expect(engine.estimate(), isNull);
-    expect(engine.now, throwsA(isA<TrustedTimeException>()));
+    expect(engine.now, throwsA(isA<TrueTimeException>()));
   });
   test(
     'offline hour advances UTC and increases uncertainty by 100 ppm',
@@ -53,15 +49,15 @@ void main() {
       await engine.sync();
       clock.advance(const Duration(hours: 15));
       expect(engine.read().availability, TimeAvailability.stale);
-      expect(engine.now, throwsA(isA<TrustedTimeException>()));
+      expect(engine.now, throwsA(isA<TrueTimeException>()));
     },
   );
   test('age policy independently expires an anchor', () async {
-    final ageEngine = TrustedTimeEngine(
+    final ageEngine = TrueTimeEngine(
       sources: [a, b],
       clock: clock,
       autoRefresh: false,
-      config: const TrustedTimeConfig(driftPpm: 0),
+      config: const TrueTimeConfig(driftPpm: 0),
     );
     addTearDown(ageEngine.dispose);
     await ageEngine.sync();
@@ -105,7 +101,7 @@ void main() {
       'rogue',
       offset: const Duration(days: 2),
     );
-    final e = TrustedTimeEngine(
+    final e = TrueTimeEngine(
       sources: [a, b, outlier],
       clock: clock,
       autoRefresh: false,
@@ -116,7 +112,7 @@ void main() {
     expect(e.read().sourceIds, ['a', 'b']);
   });
   test('same-provider sources fail diversity', () async {
-    final e = TrustedTimeEngine(
+    final e = TrueTimeEngine(
       sources: [a, FakeSource('c', 'provider-a')],
       clock: clock,
       autoRefresh: false,
@@ -125,7 +121,7 @@ void main() {
     expect((await e.sync()).success, isFalse);
   });
   test('empty and unknown provider groups do not satisfy diversity', () async {
-    final e = TrustedTimeEngine(
+    final e = TrueTimeEngine(
       sources: [FakeSource('x', ''), FakeSource('y', 'unknown')],
       clock: clock,
       autoRefresh: false,
@@ -135,12 +131,12 @@ void main() {
   });
   test('duplicate endpoints are rejected before querying', () {
     expect(
-      () => TrustedTimeEngine(sources: [a, a], clock: clock),
+      () => TrueTimeEngine(sources: [a, a], clock: clock),
       throwsArgumentError,
     );
   });
   test('equally supported disjoint clusters fail', () async {
-    final e = TrustedTimeEngine(
+    final e = TrueTimeEngine(
       sources: [
         a,
         b,
@@ -169,11 +165,11 @@ void main() {
     () async {
       final gate = Completer<void>();
       a.gate = gate;
-      final e = TrustedTimeEngine(
+      final e = TrueTimeEngine(
         sources: [a, b],
         clock: clock,
         autoRefresh: false,
-        config: const TrustedTimeConfig(
+        config: const TrueTimeConfig(
           syncDeadline: Duration(milliseconds: 20),
           sourceTimeout: Duration(seconds: 1),
         ),
@@ -205,7 +201,7 @@ void main() {
     expect(engine.now().isBefore(before), isTrue);
   });
   test('storage failure does not discard an in-memory anchor', () async {
-    final e = TrustedTimeEngine(
+    final e = TrueTimeEngine(
       sources: [a, b],
       clock: clock,
       store: FakeStore()..fail = true,
@@ -220,7 +216,7 @@ void main() {
     'changed boot epoch rejects a stored anchor despite process restart',
     () async {
       final store = FakeStore();
-      final first = TrustedTimeEngine(
+      final first = TrueTimeEngine(
         sources: [a, b],
         clock: clock,
         store: store,
@@ -231,7 +227,7 @@ void main() {
       await first.dispose();
       clock.session = 'new-process';
       a.error = b.error = StateError('offline');
-      final second = TrustedTimeEngine(
+      final second = TrueTimeEngine(
         sources: [a, b],
         clock: clock,
         store: store,
@@ -251,7 +247,7 @@ void main() {
       await expectLater(
         engine.waitUntilReady(timeout: const Duration(milliseconds: 20)),
         throwsA(
-          isA<TrustedTimeException>().having((e) => e.code, 'code', 'notReady'),
+          isA<TrueTimeException>().having((e) => e.code, 'code', 'notReady'),
         ),
       );
     },
@@ -263,18 +259,18 @@ void main() {
       final work = engine.sync();
       await engine.dispose();
       expect((await work).error?.code, 'disposed');
-      expect(engine.now, throwsA(isA<TrustedTimeException>()));
+      expect(engine.now, throwsA(isA<TrueTimeException>()));
       a.gate!.complete();
       await engine.dispose();
     },
   );
   test('configuration rejects nonfinite drift and invalid quorum', () {
     expect(
-      () => const TrustedTimeConfig(driftPpm: double.infinity).validate(),
+      () => const TrueTimeConfig(driftPpm: double.infinity).validate(),
       throwsArgumentError,
     );
     expect(
-      () => const TrustedTimeConfig(
+      () => const TrueTimeConfig(
         minimumSources: 1,
         minimumProviderGroups: 2,
       ).validate(),
@@ -283,7 +279,7 @@ void main() {
   });
   test('refresh is scheduled and cancelled on disposal', () async {
     final scheduler = FakeScheduler();
-    final e = TrustedTimeEngine(
+    final e = TrueTimeEngine(
       sources: [a, b],
       clock: clock,
       scheduler: scheduler,
@@ -308,7 +304,7 @@ void main() {
     () async {
       final store = FakeStore()
         ..record = {'version': 1, 'session': 'test-epoch', 'monoUs': 'invalid'};
-      final e = TrustedTimeEngine(
+      final e = TrueTimeEngine(
         sources: [a, b],
         clock: clock,
         store: store,
@@ -325,7 +321,7 @@ void main() {
     'valid persisted state restores only in the same injected epoch',
     () async {
       final store = FakeStore();
-      final first = TrustedTimeEngine(
+      final first = TrueTimeEngine(
         sources: [a, b],
         clock: clock,
         store: store,
@@ -336,7 +332,7 @@ void main() {
       await first.dispose();
       a.error = b.error = StateError('offline');
       clock.advance(const Duration(minutes: 1));
-      final second = TrustedTimeEngine(
+      final second = TrueTimeEngine(
         sources: [a, b],
         clock: clock,
         store: store,
@@ -355,11 +351,11 @@ void main() {
       6,
       (i) => FakeSource('source$i', 'provider$i')..gate = gate,
     );
-    final e = TrustedTimeEngine(
+    final e = TrueTimeEngine(
       sources: pool,
       clock: clock,
       autoRefresh: false,
-      config: const TrustedTimeConfig(maxConcurrentSources: 2),
+      config: const TrueTimeConfig(maxConcurrentSources: 2),
     );
     addTearDown(e.dispose);
     final work = e.sync();

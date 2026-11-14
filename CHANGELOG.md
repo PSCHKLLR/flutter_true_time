@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.0
+
+- **Breaking:** Rename `TrustedTime`, `TrustedTimeEngine`, `TrustedTimeConfig`, and `TrustedTimeException` to `TrueTime`, `TrueTimeEngine`, `TrueTimeConfig`, and `TrueTimeException`. Update type references and facade calls; imports and the version-2 persistence format stay the same.
+
 ## 1.0.0
 
 - First stable release of the public Dart API and version-2 persistence format.

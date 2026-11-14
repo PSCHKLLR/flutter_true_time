@@ -24,7 +24,7 @@ class _FixedSource implements TimeSource {
 }
 
 Future<void> main() async {
-  final engine = TrustedTimeEngine(
+  final engine = TrueTimeEngine(
     sources: const [_FixedSource('a', 'a'), _FixedSource('b', 'b')],
     autoRefresh: false,
   );

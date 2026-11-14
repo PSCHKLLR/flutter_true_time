@@ -82,11 +82,11 @@ class _QueryPool {
   }
 }
 
-class TrustedTimeEngine {
-  TrustedTimeEngine({
+class TrueTimeEngine {
+  TrueTimeEngine({
     required List<TimeSource> sources,
     MonotonicClock? clock,
-    this.config = const TrustedTimeConfig(),
+    this.config = const TrueTimeConfig(),
     AnchorStore? store,
     this.epochProvider = const UnknownBootEpochProvider(),
     TimeScheduler? scheduler,
@@ -123,7 +123,7 @@ class TrustedTimeEngine {
   }
   final List<TimeSource> sources;
   final MonotonicClock clock;
-  final TrustedTimeConfig config;
+  final TrueTimeConfig config;
   final AnchorStore? store;
   final BootEpochProvider epochProvider;
   final bool autoRefresh;
@@ -149,7 +149,7 @@ class TrustedTimeEngine {
   bool _disposed = false, _foreground;
   int _generation = 0, _failureCount = 0, _sequence = 0;
   TimeAvailability _reportedAvailability = TimeAvailability.unavailable;
-  TrustedTimeException? _lastError;
+  TrueTimeException? _lastError;
   late final String _fingerprint =
       trustPolicyFingerprint(sources.map((s) => s.configurationKey).toList(), [
         clock.capabilities.domain,
@@ -162,7 +162,7 @@ class TrustedTimeEngine {
 
   void _checkOpen() {
     if (_disposed) {
-      throw const TrustedTimeException('disposed', 'Clock has been disposed');
+      throw const TrueTimeException('disposed', 'Clock has been disposed');
     }
   }
 
@@ -179,7 +179,7 @@ class TrustedTimeEngine {
   ClockSnapshot _snapshot() {
     final next = clock.snapshot(), previous = _lastSnapshot;
     if (next.elapsed < Duration.zero || next.uncertainty < Duration.zero) {
-      throw const TrustedTimeException(
+      throw const TrueTimeException(
         'invalidClock',
         'Negative monotonic reading or error',
       );
@@ -350,14 +350,14 @@ class TrustedTimeEngine {
 
   TimeReading read() =>
       estimate() ??
-      (throw const TrustedTimeException(
+      (throw const TrueTimeException(
         'unavailable',
         'No continuous UTC anchor',
       ));
   DateTime now() {
     final r = read();
     if (r.availability != TimeAvailability.ready) {
-      throw const TrustedTimeException(
+      throw const TrueTimeException(
         'stale',
         'UTC anchor exceeds accuracy or freshness policy',
       );
@@ -387,10 +387,7 @@ class TrustedTimeEngine {
       onDone: () {
         if (!ready.isCompleted) {
           ready.completeError(
-            const TrustedTimeException(
-              'disposed',
-              'Clock disposed while waiting',
-            ),
+            const TrueTimeException('disposed', 'Clock disposed while waiting'),
           );
         }
       },
@@ -406,7 +403,7 @@ class TrustedTimeEngine {
     try {
       return await ready.future.timeout(
         timeout,
-        onTimeout: () => throw const TrustedTimeException(
+        onTimeout: () => throw const TrueTimeException(
           'notReady',
           'Timed out waiting for a usable anchor',
         ),
@@ -445,9 +442,9 @@ class TrustedTimeEngine {
       outcome = SyncOutcome(
         success: false,
         failures: const {},
-        error: e is TrustedTimeException
+        error: e is TrueTimeException
             ? e
-            : TrustedTimeException('syncFailed', e.toString()),
+            : TrueTimeException('syncFailed', e.toString()),
       );
     }
     _active = null;
@@ -465,7 +462,7 @@ class TrustedTimeEngine {
           SyncOutcome(
             success: false,
             failures: const {},
-            error: const TrustedTimeException(
+            error: const TrueTimeException(
               'cancelled',
               'Clock is disposed or backgrounded',
             ),
@@ -518,7 +515,7 @@ class TrustedTimeEngine {
             config.sourceTimeout,
             onTimeout: () {
               signal.cancel('sourceTimeout');
-              throw const TrustedTimeException(
+              throw const TrueTimeException(
                 'sourceTimeout',
                 'Source query timed out',
               );
@@ -562,7 +559,7 @@ class TrustedTimeEngine {
                 sample.uncertainty > config.maxUncertainty ||
                 sample.at.sessionId != initial.sessionId ||
                 sample.at.elapsed < initial.elapsed) {
-              throw const TrustedTimeException(
+              throw const TrueTimeException(
                 'invalidSample',
                 'Sample violates clock or uncertainty policy',
               );
@@ -570,7 +567,7 @@ class TrustedTimeEngine {
             if (!endpoints.add(
               (sample.endpointIdentity ?? source.endpoint).toLowerCase(),
             )) {
-              throw const TrustedTimeException(
+              throw const TrueTimeException(
                 'duplicateEndpoint',
                 'Resolved endpoint already contributed',
               );
@@ -596,7 +593,7 @@ class TrustedTimeEngine {
       if (cycle.generation != _generation ||
           reference.sessionId != initial.sessionId ||
           (!clock.includesSleep && !_foreground)) {
-        throw const TrustedTimeException(
+        throw const TrueTimeException(
           'continuityLost',
           'Clock continuity changed during synchronization',
         );
@@ -622,7 +619,7 @@ class TrustedTimeEngine {
         if (budget.elapsed < config.syncDeadline && !cycle.signal.isCancelled) {
           try {
             await cycle.signal.race(observation);
-          } on TrustedTimeException {
+          } on TrueTimeException {
             // The cycle ended, but the serialized write remains observed.
           }
         }
@@ -630,7 +627,7 @@ class TrustedTimeEngine {
       if (_disposed ||
           cycle.generation != _generation ||
           cycle.signal.isCancelled && cycle.signal.reason != 'deadline') {
-        throw const TrustedTimeException(
+        throw const TrueTimeException(
           'cancelled',
           'Cycle invalidated before completion',
         );
@@ -638,13 +635,13 @@ class TrustedTimeEngine {
       return SyncOutcome(success: true, failures: failures);
     } catch (e) {
       final error = _disposed
-          ? const TrustedTimeException(
+          ? const TrueTimeException(
               'disposed',
               'Clock disposed during synchronization',
             )
-          : e is TrustedTimeException
+          : e is TrueTimeException
           ? e
-          : TrustedTimeException('syncFailed', e.toString());
+          : TrueTimeException('syncFailed', e.toString());
       if (!_disposed) {
         _lastError = error;
         _emit(TimeEventKind.syncFailed, error.toString());
@@ -722,10 +719,7 @@ class TrustedTimeEngine {
       }
     }
     if (candidates.isEmpty) {
-      throw const TrustedTimeException(
-        'noConsensus',
-        'No group-diverse quorum',
-      );
+      throw const TrueTimeException('noConsensus', 'No group-diverse quorum');
     }
     final first = candidates.first;
     final low = first.map((i) => i.low).reduce(max),
@@ -734,7 +728,7 @@ class TrustedTimeEngine {
       final a = candidate.map((i) => i.low).reduce(max),
           b = candidate.map((i) => i.high).reduce(min);
       if (a > high || b < low) {
-        throw const TrustedTimeException(
+        throw const TrueTimeException(
           'ambiguousConsensus',
           'Equally supported disjoint intervals',
         );
@@ -746,7 +740,7 @@ class TrustedTimeEngine {
           clock.capabilities.resolution.inMicroseconds,
     );
     if (width > config.maxUncertainty.inMicroseconds) {
-      throw const TrustedTimeException(
+      throw const TrueTimeException(
         'uncertain',
         'Consensus exceeds uncertainty policy',
       );

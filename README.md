@@ -6,11 +6,13 @@ This is an independently maintained rebuild of the trusted_time design/API basel
 
 ## Use in a Flutter app
 
+Version 2.0.0 uses the `TrueTime` API. Versions through 1.0.0 use `TrustedTime`, `TrustedTimeEngine`, `TrustedTimeConfig`, and `TrustedTimeException`. See the [migration guide](https://github.com/PSCHKLLR/flutter_true_time/blob/main/docs/MIGRATION.md) for the breaking rename.
+
 Add the package to your Flutter app:
 
 ```yaml
 dependencies:
-  flutter_true_time: ^1.0.0
+  flutter_true_time: ^2.0.0
 ```
 
 ```dart
@@ -19,16 +21,16 @@ import 'package:flutter_true_time/flutter_true_time.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await TrustedTime.initialize(
+  await TrueTime.initialize(
     persistence: PersistenceConfig(namespace: 'com.example.my_app'),
   );
   // Initialization starts a sync; it does not imply readiness.
   try {
-    await TrustedTime.waitUntilReady();
-    final reading = TrustedTime.read();
+    await TrueTime.waitUntilReady();
+    final reading = TrueTime.read();
     debugPrint(reading.utc.toIso8601String());
     debugPrint('Estimated uncertainty: ' + reading.uncertainty.toString());
-  } on TrustedTimeException catch (error) {
+  } on TrueTimeException catch (error) {
     debugPrint(error.code); // Retry/show unavailable; never substitute system time.
   }
 }

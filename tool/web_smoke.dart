@@ -3,7 +3,7 @@ import 'package:flutter_true_time/core.dart';
 
 void main() {
   final clock = createPlatformClock();
-  final engine = TrustedTimeEngine(
+  final engine = TrueTimeEngine(
     sources: const [],
     clock: clock,
     autoRefresh: false,

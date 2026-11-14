@@ -9,7 +9,7 @@ class CancellationSignal {
   bool get isCancelled => _cancelled;
   String get reason => _reason;
   void throwIfCancelled() {
-    if (_cancelled) throw TrustedTimeException('cancelled', _reason);
+    if (_cancelled) throw TrueTimeException('cancelled', _reason);
   }
 
   void Function() onCancel(void Function() listener) {
@@ -43,7 +43,7 @@ class CancellationSignal {
     final result = Completer<T>();
     final detach = onCancel(() {
       if (!result.isCompleted) {
-        result.completeError(TrustedTimeException('cancelled', _reason));
+        result.completeError(TrueTimeException('cancelled', _reason));
       }
     });
     operation
@@ -67,17 +67,14 @@ class CancellationSignal {
     final timer = Timer(timeout, () {
       if (!result.isCompleted) {
         result.completeError(
-          const TrustedTimeException(
-            'timeout',
-            'Operation exceeded its deadline',
-          ),
+          const TrueTimeException('timeout', 'Operation exceeded its deadline'),
         );
       }
     });
     final detach = onCancel(() {
       timer.cancel();
       if (!result.isCompleted) {
-        result.completeError(TrustedTimeException('cancelled', _reason));
+        result.completeError(TrueTimeException('cancelled', _reason));
       }
     });
     operation.then(

@@ -48,7 +48,7 @@ void main() {
       );
       await expectLater(
         source.query(FakeClock(), const Duration(seconds: 1)),
-        throwsA(isA<TrustedTimeException>()),
+        throwsA(isA<TrueTimeException>()),
       );
     });
   }
@@ -65,17 +65,17 @@ void main() {
     );
     await expectLater(
       source.query(FakeClock(), const Duration(seconds: 1)),
-      throwsA(isA<TrustedTimeException>()),
+      throwsA(isA<TrueTimeException>()),
     );
   });
   test('HTTP Date rejects weekday mismatch and normalized overflow', () {
     expect(
       () => parseHttpDate('Mon, 11 Nov 2026 00:00:00 GMT'),
-      throwsA(isA<TrustedTimeException>()),
+      throwsA(isA<TrueTimeException>()),
     );
     expect(
       () => parseHttpDate('Wed, 11 Nov 2026 24:00:00 GMT'),
-      throwsA(isA<TrustedTimeException>()),
+      throwsA(isA<TrueTimeException>()),
     );
   });
 

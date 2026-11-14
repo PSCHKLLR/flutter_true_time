@@ -36,7 +36,7 @@ class _ClockDemoState extends State<ClockDemo> {
     const providerA = String.fromEnvironment('TRUE_TIME_PROVIDER_A');
     const providerB = String.fromEnvironment('TRUE_TIME_PROVIDER_B');
     if ([endpointA, endpointB, providerA, providerB].any((s) => s.isEmpty)) {
-      throw const TrustedTimeException(
+      throw const TrueTimeException(
         'sourcesRequired',
         'Configure two independent HTTPS endpoints and provider names with TRUE_TIME_HTTPS_A/B and TRUE_TIME_PROVIDER_A/B dart-defines.',
       );
@@ -49,7 +49,7 @@ class _ClockDemoState extends State<ClockDemo> {
 
   Future<void> _start() async {
     try {
-      await TrustedTime.initialize(
+      await TrueTime.initialize(
         sources: _sources(),
         clock: widget.clock,
         persistence: widget.enablePersistence
@@ -63,7 +63,7 @@ class _ClockDemoState extends State<ClockDemo> {
       _ticker = Timer.periodic(const Duration(seconds: 1), (_) {
         if (mounted) setState(() {});
       });
-      await TrustedTime.waitUntilReady();
+      await TrueTime.waitUntilReady();
     } catch (error) {
       if (mounted) setState(() => _error = error.toString());
     }
@@ -75,7 +75,7 @@ class _ClockDemoState extends State<ClockDemo> {
       _error = null;
     });
     try {
-      final outcome = await TrustedTime.forceResync();
+      final outcome = await TrueTime.forceResync();
       if (!outcome.success && mounted) {
         setState(() => _error = outcome.error.toString());
       }
@@ -89,13 +89,13 @@ class _ClockDemoState extends State<ClockDemo> {
   @override
   void dispose() {
     _ticker?.cancel();
-    unawaited(TrustedTime.dispose());
+    unawaited(TrueTime.dispose());
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final reading = _started ? TrustedTime.estimate() : null;
+    final reading = _started ? TrueTime.estimate() : null;
     return Scaffold(
       appBar: AppBar(title: const Text('Trusted UTC clock')),
       body: Padding(

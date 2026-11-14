@@ -85,14 +85,14 @@ void main() {
     a = FakeSource('a', 'a');
     b = FakeSource('b', 'b');
   });
-  TrustedTimeEngine engine({
+  TrueTimeEngine engine({
     AnchorStore? store,
     BootEpochProvider? epoch,
-    TrustedTimeConfig config = const TrustedTimeConfig(),
+    TrueTimeConfig config = const TrueTimeConfig(),
     TimeScheduler? scheduler,
     WallClockReader? wall,
     bool refresh = false,
-  }) => TrustedTimeEngine(
+  }) => TrueTimeEngine(
     sources: [a, b],
     clock: clock,
     store: store,
@@ -152,14 +152,14 @@ void main() {
   );
   test('cycle deadline closes cooperative source resources', () async {
     final probe = Probe(), gate = Completer<void>();
-    final e = TrustedTimeEngine(
+    final e = TrueTimeEngine(
       sources: [
         ResourceSource('a', probe, gate),
         ResourceSource('b', probe, gate),
       ],
       clock: clock,
       autoRefresh: false,
-      config: const TrustedTimeConfig(
+      config: const TrueTimeConfig(
         syncDeadline: Duration(milliseconds: 25),
         sourceTimeout: Duration(seconds: 1),
         maxConcurrentSources: 2,
@@ -176,14 +176,14 @@ void main() {
     'noncooperative futures retain permits across repeated cycle deadlines',
     () async {
       final probe = Probe(), gate = Completer<void>();
-      final e = TrustedTimeEngine(
+      final e = TrueTimeEngine(
         sources: [
           ResourceSource('a', probe, gate, cooperative: false),
           ResourceSource('b', probe, gate, cooperative: false),
         ],
         clock: clock,
         autoRefresh: false,
-        config: const TrustedTimeConfig(
+        config: const TrueTimeConfig(
           syncDeadline: Duration(milliseconds: 20),
           sourceTimeout: Duration(seconds: 1),
           maxConcurrentSources: 2,
@@ -201,7 +201,7 @@ void main() {
   );
   test('disposal cancels cooperative transport resources', () async {
     final probe = Probe(), gate = Completer<void>();
-    final e = TrustedTimeEngine(
+    final e = TrueTimeEngine(
       sources: [
         ResourceSource('a', probe, gate),
         ResourceSource('b', probe, gate),
@@ -335,7 +335,7 @@ void main() {
     final store = SlowStore();
     final e = engine(
       store: store,
-      config: const TrustedTimeConfig(
+      config: const TrueTimeConfig(
         sourceTimeout: Duration(milliseconds: 20),
         syncDeadline: Duration(milliseconds: 200),
       ),
@@ -422,7 +422,7 @@ void main() {
           ab = FakeSource('ab', 'operator-a'),
           c = FakeSource('c', 'operator-c');
       final store = FakeStore();
-      final seed = TrustedTimeEngine(
+      final seed = TrueTimeEngine(
         sources: [aa, ab, c],
         clock: clock,
         store: store,
@@ -433,7 +433,7 @@ void main() {
       await seed.dispose();
       store.record!['sources'] = ['aa', 'ab'];
       aa.error = ab.error = c.error = StateError('offline');
-      final restored = TrustedTimeEngine(
+      final restored = TrueTimeEngine(
         sources: [aa, ab, c],
         clock: clock,
         store: store,

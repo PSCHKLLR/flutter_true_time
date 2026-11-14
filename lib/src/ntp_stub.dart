@@ -11,7 +11,7 @@ Future<TimeSample> queryNtp(
   CancellationSignal? cancellation,
 }) async {
   cancellation?.throwIfCancelled();
-  throw const TrustedTimeException(
+  throw const TrueTimeException(
     'unsupported',
     'NTP unavailable; configure HTTPS sources',
   );

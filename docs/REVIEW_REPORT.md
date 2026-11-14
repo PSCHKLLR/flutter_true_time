@@ -1,5 +1,15 @@
 # Implementation review and resolution report
 
+## Version 2.0.0 release review — 14 November 2026
+
+The Dart source and test changes are equivalent to replacing the four `TrustedTime`-prefixed public types with their `TrueTime` names, plus formatter changes. Clock projection, cancellation, consensus, and persistence behavior are unchanged. Historical evidence and upstream attribution retain their original names.
+
+Review fixes: use a major version for the breaking API rename; restore the example's `publish_to: none` for its path dependency; point installation and migration instructions at 2.0.0; target 2.0.0 directly in the published-package smoke workflow; exclude generated standalone Android wrappers from the Pub payload. The pre-existing lockfile changes and untracked Android tooling are excluded from this release commit.
+
+Local validation on Flutter 3.50.0 / Dart 3.14.0: formatting and whitespace checks passed; 111 core/facade regressions passed. Flutter analysis passed with `--no-fatal-infos`, reporting only the two existing example Material import deprecations. Earlier standalone VM validation passed 106 tests. Platform qualification records remain incomplete, and no unexecuted hosted lane is marked passed. The owner explicitly requested review, push, and publication after disclosure of the outstanding qualification gates. The legacy release checker remains pinned to the first prerelease and does not qualify 2.0.0.
+
+## Initial implementation review
+
 Baseline: the generated trusted_time 0.1.0 project; reviewed as a complete initial addition without a Git merge base. Review locations below refer to that baseline, not current line numbers.
 
 | Finding | Baseline location | Resolution and regression |

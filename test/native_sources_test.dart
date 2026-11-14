@@ -46,7 +46,7 @@ void main() {
           );
           final future = source.query(FakeClock(), const Duration(seconds: 1));
           if (badOrigin) {
-            await expectLater(future, throwsA(isA<TrustedTimeException>()));
+            await expectLater(future, throwsA(isA<TrueTimeException>()));
           } else {
             final sample = await future;
             expect(sample.utc, DateTime.utc(2026, 11, 11));
@@ -97,10 +97,7 @@ void main() {
         port: server.port,
         providerGroup: 'local',
       ).query(FakeClock(), const Duration(seconds: 3), cancellation: signal);
-      final expected = expectLater(
-        result,
-        throwsA(isA<TrustedTimeException>()),
-      );
+      final expected = expectLater(result, throwsA(isA<TrueTimeException>()));
       final packet = await received.future;
       signal.cancel('test');
       await expected;
