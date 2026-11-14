@@ -1,6 +1,5 @@
 name: flutter_true_time_example
 description: Demonstration and qualification host for flutter_true_time.
-publish_to: none
 version: 0.1.0-dev.1
 environment:
   sdk: '>=3.11.0 <4.0.0'
