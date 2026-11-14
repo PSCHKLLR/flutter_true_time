@@ -1,6 +1,6 @@
 # Migration to flutter_true_time 0.1.0-dev.1
 
-This is a new package identity, not a compatible update to the existing pub.dev trusted_time package.
+Install `flutter_true_time: 0.1.0-dev.1` from pub.dev when migrating from `trusted_time`. The two packages have separate identities and this guide lists the migration steps. [Published package](https://pub.dev/packages/flutter_true_time/versions/0.1.0-dev.1)
 
 - Change the dependency name and import to flutter_true_time and package:flutter_true_time/flutter_true_time.dart. Use core.dart for the injectable engine without the Flutter facade.
 - Require Flutter >=3.41.0 and Dart >=3.11.0. Resolve dependencies with the SDK actually being tested; do not reuse a newer SDK's lockfile as minimum-version evidence.

@@ -2,7 +2,7 @@
   "schema": 2,
   "version": "0.1.0-dev.1",
   "developmentInputs": false,
-  "sourceDigest": "e023d652ff6c1b62d240b784ab2b8c38b173306c7d96df11f01dafef5440d1f2",
+  "sourceDigest": "890f83ef4ee5404d5e4c6fa0fb6d8a358d91e7ac94413fdabefbf65504f64638",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -15,6 +15,10 @@
     ".github/workflows/compatibility.yml": {
       "mode": "utf8-lf",
       "sha256": "8c8b5d71b72b797a47754b12634f5d5c687247ff9126163ecfabed5bfbbf440f"
+    },
+    ".github/workflows/published-package.yml": {
+      "mode": "utf8-lf",
+      "sha256": "2ad641308b36aecce3dcfd0b8c09b848e40e49a54cb985161e8e853375a02600"
     },
     ".pubignore": {
       "mode": "utf8-lf",
@@ -434,7 +438,7 @@
     },
     "example/pubspec.yaml": {
       "mode": "utf8-lf",
-      "sha256": "86ea89fea4df19f37322303a2fae96054868e939fc5d54e52ed9ba406eaa4df4"
+      "sha256": "fb82c71d00a1dd45025db27fc616780346cb05e9c38de89c5997c592a368395c"
     },
     "example/test/widget_test.dart": {
       "mode": "utf8-lf",
@@ -817,16 +821,13 @@
       }
     },
     "name_availability": {
-      "status": "passed",
-      "note": "The pub.dev package endpoint returned HTTP 404 for flutter_true_time. Recheck immediately before publication.",
+      "status": "pending",
+      "note": "Source changed; fresh qualification evidence required.",
       "historicalEvidence": {
-        "evidence": "docs/evidence/first-release-ci-workflow-validation.json",
-        "sha256": "d15fa395c030c0eaaa1fb869b52c9a9b83b2681bd7cbe15fc91041a23f054515",
-        "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
-      },
-      "sourceDigest": "e023d652ff6c1b62d240b784ab2b8c38b173306c7d96df11f01dafef5440d1f2",
-      "evidence": "docs/evidence/first-release-name-availability.json",
-      "sha256": "afbc77a67da8e18916563cfb9ad14793cf28f787b66109aec9b4b25cef442e9f"
+        "evidence": "docs/evidence/first-release-name-availability.json",
+        "sha256": "afbc77a67da8e18916563cfb9ad14793cf28f787b66109aec9b4b25cef442e9f",
+        "sourceDigest": "e023d652ff6c1b62d240b784ab2b8c38b173306c7d96df11f01dafef5440d1f2"
+      }
     },
     "archive_consumer": {
       "status": "blocked",

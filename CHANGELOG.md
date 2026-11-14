@@ -1,6 +1,8 @@
 # Changelog
 
-## 0.1.0-dev.1 (unpublished)
+## 0.1.0-dev.1
+
+First public prerelease on pub.dev, published 14 November 2026.
 
 - Restore valid anchors during pending queries without replacing fresh network time.
 - Preserve accepted quorum evidence at cycle deadlines while cancelling remaining work.
@@ -16,4 +18,4 @@
 - Add secure-storage opt-in, Android/Linux epoch providers, strict version-2 record validation, serialized writes, and restored readiness/origin.
 - Compare source configuration by value and add informational foreground clock/timezone diagnostics.
 - Add runnable six-platform hosts, regression tests, compatibility workflows, provenance notices, and fail-closed release checks.
-- Qualification remains incomplete; NTS and OS background workers are deferred. Publication is disabled.
+- Platform qualification continues. NTS and OS background workers are deferred.

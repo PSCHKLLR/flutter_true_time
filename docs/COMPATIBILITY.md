@@ -1,5 +1,7 @@
 # Compatibility targets and evidence
 
+The first public prerelease is `0.1.0-dev.1`. The matrix below describes the available platform test evidence. [Published package](https://pub.dev/packages/flutter_true_time/versions/0.1.0-dev.1)
+
 The [release manifest](release_gates.json) records the status for the current source digest. See [validation](VALIDATION.md) for results and [device qualification](DEVICE_QUALIFICATION.md) for physical and live-network procedures.
 
 The matrix records platform results before the release checker gained the physical lifecycle waiver. Consult the release manifest for gate status on the regenerated digest.

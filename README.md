@@ -1,17 +1,16 @@
 # flutter_true_time
 
-Network-derived UTC timestamps for Flutter, anchored to a monotonic clock with explicit freshness and uncertainty. Version **0.1.0-dev.1** is a development candidate; publication is disabled until the qualification gates pass.
+Network-derived UTC timestamps for Flutter, anchored to a monotonic clock with explicit freshness and uncertainty. The first public prerelease is available on [pub.dev](https://pub.dev/packages/flutter_true_time/versions/0.1.0-dev.1).
 
 This is an independently maintained rebuild of the trusted_time design/API baseline. It is not a drop-in replacement or an official upstream release. Historical license and NOTICE attribution is preserved in THIRD_PARTY_NOTICES.md.
 
 ## Use in a Flutter app
 
-During development, add a path dependency to this folder:
+Add the published prerelease to your Flutter app:
 
 ```yaml
 dependencies:
-  flutter_true_time:
-    path: ../flutter_true_time
+  flutter_true_time: 0.1.0-dev.1
 ```
 
 ```dart

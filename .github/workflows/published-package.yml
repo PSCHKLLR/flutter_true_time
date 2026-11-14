@@ -1,0 +1,54 @@
+name: Published package smoke tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/published-package.yml'
+      - 'example/**'
+  pull_request:
+    paths:
+      - '.github/workflows/published-package.yml'
+      - 'example/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        flutter: ['3.41.0', '3.47.9']
+    env:
+      PUBLISHED_VERSION: '0.1.0-dev.1'
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: subosito/flutter-action@v2.23.0
+        with:
+          flutter-version: ${{ matrix.flutter }}
+          channel: stable
+      - name: Install the published package in an isolated example
+        shell: bash
+        run: |
+          consumer="$(mktemp -d)"
+          cp -R example/lib example/test example/integration_test "$consumer/"
+          awk -v version="$PUBLISHED_VERSION" '
+            /^  flutter_true_time:$/ {
+              if (getline != 1 || $0 != "    path: ../") exit 1
+              print "  flutter_true_time: " version
+              count++
+              next
+            }
+            { print }
+            END { if (count != 1) exit 1 }
+          ' example/pubspec.yaml > "$consumer/pubspec.yaml"
+          cd "$consumer"
+          flutter pub get
+          flutter pub deps --json | jq -e --arg version "$PUBLISHED_VERSION" '
+            any(.packages[]; .name == "flutter_true_time" and
+                .version == $version and .source == "hosted")
+          '
+          flutter test --no-pub --reporter expanded

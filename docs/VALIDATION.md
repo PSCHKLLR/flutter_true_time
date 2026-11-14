@@ -1,5 +1,7 @@
 # First-release validation
 
+Pub.dev lists `0.1.0-dev.1` as published on 14 November 2026. The registry reports archive SHA-256 `524ffcb78f129eb48afb84de78761e88d0e7033661c899aa66162fd8e4265c54`. Local isolated consumers on Flutter 3.41.0 and 3.47.9 resolved that exact version from the registry and passed both example tests. The published package workflow repeats the smoke tests on GitHub Actions. [Registry metadata](https://pub.dev/api/packages/flutter_true_time)
+
 A fresh checkout after the physical lifecycle waiver reproduced the 171-input manifest byte for byte. The Dart 3.13.7 guarded Pub dry run selected 165 files with zero warnings. Its selected-file digest matches the bytes used by the clean-checkout Android and Web consumer preflights. Formal candidate validation still requires selection from the isolated checkout after removing its development guard. [Post-waiver Pub selection](evidence/first-release-waiver-pub-selection.json)
 
 After the physical testing waiver, Flutter 3.41.0 and 3.47.9 both passed Windows formatting, analysis, 111 core and facade tests, and both example tests. Both lanes reproduced source digest `e023d652ff6c1b62d240b784ab2b8c38b173306c7d96df11f01dafef5440d1f2` after testing. The hosted compatibility results below predate the waiver commit.
@@ -24,7 +26,7 @@ On Windows x64, the Dart 3.13.7 AOT fixture recorded about 431 bytes of observed
 
 The optimized Dart WASM fixture measured 678.1–678.4 bytes of aggregate V8 managed-heap growth per read in six standalone Node runs. Chrome's V8 heap sampler estimated 384.7–398.4 bytes per call for the same compiled fixture across three fresh browser profiles. Both methods used a no-read baseline and retained-object control. The two measurements use different V8 builds and accounting methods. Representative mobile measurements remain open. [Performance evidence](evidence/first-release-read-performance.json)
 
-The first public release remains blocked. The guarded Pub preview succeeded with zero warnings and selected 165 files. The payload includes the top-level license and complete upstream and Flutter template notices. [Release gates](release_gates.json) · [Current qualification evidence](evidence/first-release-qualification.json)
+The prepublication guarded Pub preview succeeded with zero warnings and selected 165 files, including the top-level license and complete upstream and Flutter template notices. [Release gates](release_gates.json) · [Prepublication evidence](evidence/first-release-qualification.json)
 
 Independent Flutter 3.41.0 and 3.47.9 consumers resolved the same 165 guarded Pub-selected files as their only copy of the package. Both passed two consumer smoke tests and built JavaScript and WebAssembly in release mode. Chrome rendered all four builds with the intended entrypoint and no uncaught exceptions. The guarded preflight covers external dependency resolution and Web startup. Formal candidate validation remains open. [Consumer evidence](evidence/first-release-guarded-consumer.json) · [Selected file hashes](evidence/first-release-guarded-consumer-files.sha256)
 
