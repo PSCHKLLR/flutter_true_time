@@ -1,6 +1,6 @@
 # First-release validation
 
-After the physical testing waiver, Flutter 3.41.0 passed Windows formatting, analysis, 111 core and facade tests, and both example tests. The fresh test checkout reproduced source digest `e023d652ff6c1b62d240b784ab2b8c38b173306c7d96df11f01dafef5440d1f2` after testing. Flutter 3.47.9 also passed 111 core and facade tests locally. The hosted compatibility results below predate the waiver commit.
+After the physical testing waiver, Flutter 3.41.0 and 3.47.9 both passed Windows formatting, analysis, 111 core and facade tests, and both example tests. Both lanes reproduced source digest `e023d652ff6c1b62d240b784ab2b8c38b173306c7d96df11f01dafef5440d1f2` after testing. The hosted compatibility results below predate the waiver commit.
 
 The revised CI workflows resolve Dart dependencies without preparing native example hosts in core jobs. They compare the source fingerprint before and after analysis and tests. Apple build jobs capture both the input fingerprint and the prepared-host fingerprint. Android jobs install the NDK required by both pinned Flutter versions before invoking Gradle, with up to three install attempts.
 
