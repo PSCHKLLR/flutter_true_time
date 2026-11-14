@@ -1,5 +1,7 @@
 # First-release validation
 
+After the physical testing waiver, Flutter 3.41.0 passed Windows formatting, analysis, 111 core and facade tests, and both example tests. The fresh test checkout reproduced source digest `e023d652ff6c1b62d240b784ab2b8c38b173306c7d96df11f01dafef5440d1f2` after testing. Flutter 3.47.9 also passed 111 core and facade tests locally. The hosted compatibility results below predate the waiver commit.
+
 The revised CI workflows resolve Dart dependencies without preparing native example hosts in core jobs. They compare the source fingerprint before and after analysis and tests. Apple build jobs capture both the input fingerprint and the prepared-host fingerprint. Android jobs install the NDK required by both pinned Flutter versions before invoking Gradle, with up to three install attempts.
 
 GitHub Actions passed all 15 compatibility jobs on `2da5fb4`. The six SDK jobs passed formatting, analysis, core and facade tests, and the example suite. The four Windows and Linux release builds passed. All ten SDK and desktop evidence archives matched GitHub's SHA-256 and recorded the current source fingerprint and their pinned SDKs. The four corresponding release gates passed. The desktop CI artifacts contain build metadata and dependency locks. Final binary archive inspection remains open for native provenance. [Hosted run](https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43236480244) · [Artifact review](evidence/first-release-current-hosted-compatibility.json)
