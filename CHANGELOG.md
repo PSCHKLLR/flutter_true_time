@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0
+
+- First stable release of the public Dart API and version-2 persistence format.
+
 ## 0.1.0-dev.1
 
 First public prerelease on pub.dev, published 14 November 2026.

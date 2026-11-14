@@ -1,6 +1,6 @@
 name: flutter_true_time
 description: Reliable network-derived UTC timestamps with monotonic projection, explicit uncertainty, and safe offline restoration.
-version: 0.1.0-dev.1
+version: 1.0.0
 repository: https://github.com/PSCHKLLR/flutter_true_time
 issue_tracker: https://github.com/PSCHKLLR/flutter_true_time/issues
 environment:
