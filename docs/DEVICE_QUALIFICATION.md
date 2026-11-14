@@ -1,6 +1,6 @@
 # Native and browser qualification
 
-These are required manual gates, not results. Record device/OS/build versions, commands, elapsed-time observations, source digest, and logs; hash evidence before changing a gate to passed. Generated debug-signed examples are not store uploads.
+For `0.1.0-dev.1`, the owner directed us to skip testing on physical hardware. Record simulator, emulator, and VM results with the OS and build versions, commands, observations, source digest, and logs. Identify the test environment in each result.
 
 ## Native persistence harness
 
@@ -19,9 +19,9 @@ For backup testing, seed, create an OS-supported backup, restore into a fresh An
 
 For unavailable storage/keyrings, seed while storage works, stop the app, deny access or stop the test keyring in a disposable environment, and run `unavailable-storage` with the same run ID. The harness requires an actual storage error or timeout, a diagnostic event, and no restored anchor. Restore access afterward and repeat `same-boot` to confirm the original record is still present.
 
-## Physical lifecycle
+## Physical lifecycle deferred
 
-Run the normal demo, obtain time, then disconnect networking. Record UTC and uncertainty, suspend for a measured external interval, and resume. Native continuous clocks must include sleep in elapsed UTC within reported uncertainty. Portable clocks must become unavailable until fresh synchronization. Verify automatic refresh pauses in the background. Test on physical Android and iOS devices and on macOS, Windows, and Linux hosts.
+Physical sleep and resume testing is deferred for this release. For any lifecycle checks run in a virtual environment, record the UTC and uncertainty before and after the transition and identify the transition exercised.
 
 ## Read performance
 

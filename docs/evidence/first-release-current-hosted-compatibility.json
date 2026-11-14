@@ -1,0 +1,685 @@
+{
+  "run": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43236480244",
+  "commit": "2da5fb4854dd75dfb01b41863b735c1b2ddab24e",
+  "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+  "jobs": [
+    {
+      "job": "core (macos-latest, 3.41.0)",
+      "url": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43236480244/job/131245075711",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v7.0.1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run subosito/flutter-action@v2.23.0",
+          "conclusion": "success"
+        },
+        {
+          "name": "Resolve independently and record toolchain",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dart format --output=none --set-exit-if-changed lib test test_flutter example/integration_test tool example/lib example/test",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dart --packages=.dart_tool/package_config.json tool/source_digest.dart > source-fingerprint.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter analyze --no-pub",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test test test_flutter --no-pub --coverage",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test --no-pub",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify tests preserved the reviewed source",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v7.0.2",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run subosito/flutter-action@v2.23.0",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v7.0.1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ],
+      "artifact": {
+        "id": 13952761781,
+        "name": "core-macos-latest-3.41.0",
+        "sha256": "55229555ab2747f87ceb28e78168ef0d156c292772dffdd08cda6f551df86d57",
+        "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+        "flutter": "3.41.0",
+        "dart": "3.11.0"
+      }
+    },
+    {
+      "job": "core (macos-latest, 3.47.9)",
+      "url": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43236480244/job/131245075350",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v7.0.1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run subosito/flutter-action@v2.23.0",
+          "conclusion": "success"
+        },
+        {
+          "name": "Resolve independently and record toolchain",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dart format --output=none --set-exit-if-changed lib test test_flutter example/integration_test tool example/lib example/test",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dart --packages=.dart_tool/package_config.json tool/source_digest.dart > source-fingerprint.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter analyze --no-pub",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test test test_flutter --no-pub --coverage",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test --no-pub",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify tests preserved the reviewed source",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v7.0.2",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run subosito/flutter-action@v2.23.0",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v7.0.1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ],
+      "artifact": {
+        "id": 13952079331,
+        "name": "core-macos-latest-3.47.9",
+        "sha256": "7bb97e9796bdf2c4c51d828d601cb4496c15e085d7d4ef001f8158ff64cc28e3",
+        "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+        "flutter": "3.47.9",
+        "dart": "3.13.7"
+      }
+    },
+    {
+      "job": "core (ubuntu-24.04, 3.41.0)",
+      "url": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43236480244/job/131245075219",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v7.0.1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run subosito/flutter-action@v2.23.0",
+          "conclusion": "success"
+        },
+        {
+          "name": "Resolve independently and record toolchain",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dart format --output=none --set-exit-if-changed lib test test_flutter example/integration_test tool example/lib example/test",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dart --packages=.dart_tool/package_config.json tool/source_digest.dart > source-fingerprint.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter analyze --no-pub",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test test test_flutter --no-pub --coverage",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test --no-pub",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify tests preserved the reviewed source",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v7.0.2",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run subosito/flutter-action@v2.23.0",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v7.0.1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ],
+      "artifact": {
+        "id": 13953550853,
+        "name": "core-ubuntu-24.04-3.41.0",
+        "sha256": "c145eab91d3d0a9bb77980c2a299b1c840adf9544561d45c75ef5a613c61e0a4",
+        "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+        "flutter": "3.41.0",
+        "dart": "3.11.0"
+      }
+    },
+    {
+      "job": "core (ubuntu-24.04, 3.47.9)",
+      "url": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43236480244/job/131245075334",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v7.0.1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run subosito/flutter-action@v2.23.0",
+          "conclusion": "success"
+        },
+        {
+          "name": "Resolve independently and record toolchain",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dart format --output=none --set-exit-if-changed lib test test_flutter example/integration_test tool example/lib example/test",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dart --packages=.dart_tool/package_config.json tool/source_digest.dart > source-fingerprint.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter analyze --no-pub",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test test test_flutter --no-pub --coverage",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test --no-pub",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify tests preserved the reviewed source",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v7.0.2",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run subosito/flutter-action@v2.23.0",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v7.0.1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ],
+      "artifact": {
+        "id": 13951904202,
+        "name": "core-ubuntu-24.04-3.47.9",
+        "sha256": "66633085dcad4a0a153f6470b5fd087ecb0d460d42bd9360297fae586a767eec",
+        "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+        "flutter": "3.47.9",
+        "dart": "3.13.7"
+      }
+    },
+    {
+      "job": "core (windows-latest, 3.41.0)",
+      "url": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43236480244/job/131245075461",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v7.0.1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run subosito/flutter-action@v2.23.0",
+          "conclusion": "success"
+        },
+        {
+          "name": "Resolve independently and record toolchain",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dart format --output=none --set-exit-if-changed lib test test_flutter example/integration_test tool example/lib example/test",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dart --packages=.dart_tool/package_config.json tool/source_digest.dart > source-fingerprint.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter analyze --no-pub",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test test test_flutter --no-pub --coverage",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test --no-pub",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify tests preserved the reviewed source",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v7.0.2",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run subosito/flutter-action@v2.23.0",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v7.0.1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ],
+      "artifact": {
+        "id": 13952307761,
+        "name": "core-windows-latest-3.41.0",
+        "sha256": "9c20e81d4a92a75bdd8e3af808d9ee8eb9d5ab0d1e848a0a0f34c875bd31f945",
+        "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+        "flutter": "3.41.0",
+        "dart": "3.11.0"
+      }
+    },
+    {
+      "job": "core (windows-latest, 3.47.9)",
+      "url": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43236480244/job/131245075702",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v7.0.1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run subosito/flutter-action@v2.23.0",
+          "conclusion": "success"
+        },
+        {
+          "name": "Resolve independently and record toolchain",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dart format --output=none --set-exit-if-changed lib test test_flutter example/integration_test tool example/lib example/test",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dart --packages=.dart_tool/package_config.json tool/source_digest.dart > source-fingerprint.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter analyze --no-pub",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test test test_flutter --no-pub --coverage",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test --no-pub",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify tests preserved the reviewed source",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v7.0.2",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run subosito/flutter-action@v2.23.0",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v7.0.1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ],
+      "artifact": {
+        "id": 13952916878,
+        "name": "core-windows-latest-3.47.9",
+        "sha256": "b972e3ef50afb5f6dfaf9cacbf71e91017812c6791a663e49bfbc453d9ae8f83",
+        "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+        "flutter": "3.47.9",
+        "dart": "3.13.7"
+      }
+    },
+    {
+      "job": "desktop (ubuntu-24.04, linux, 3.41.0)",
+      "url": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43236480244/job/131245075411",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v7.0.1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run subosito/flutter-action@v2.23.0",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run sudo apt-get update && sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev libsecret-1-dev libjsoncpp-dev",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter pub get",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter --version --machine > toolchain.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dart --packages=.dart_tool/package_config.json tool/source_digest.dart > source-fingerprint.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter build linux --release",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v7.0.2",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run subosito/flutter-action@v2.23.0",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v7.0.1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ],
+      "artifact": {
+        "id": 13953755317,
+        "name": "desktop-linux-3.41.0",
+        "sha256": "d29769b5a00abb37288412d8e5db11485e40583bd06f3aa3885383c493203a5e",
+        "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+        "flutter": "3.41.0",
+        "dart": "3.11.0"
+      }
+    },
+    {
+      "job": "desktop (ubuntu-24.04, linux, 3.47.9)",
+      "url": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43236480244/job/131245075453",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v7.0.1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run subosito/flutter-action@v2.23.0",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run sudo apt-get update && sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev libsecret-1-dev libjsoncpp-dev",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter pub get",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter --version --machine > toolchain.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dart --packages=.dart_tool/package_config.json tool/source_digest.dart > source-fingerprint.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter build linux --release",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v7.0.2",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run subosito/flutter-action@v2.23.0",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v7.0.1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ],
+      "artifact": {
+        "id": 13952921789,
+        "name": "desktop-linux-3.47.9",
+        "sha256": "5df7d34cc746510b63d4ad4f95f22d9a0ab2b6bed2ced6abc6bbf82cea86f779",
+        "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+        "flutter": "3.47.9",
+        "dart": "3.13.7"
+      }
+    },
+    {
+      "job": "desktop (windows-latest, windows, 3.41.0)",
+      "url": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43236480244/job/131245076223",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v7.0.1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run subosito/flutter-action@v2.23.0",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run sudo apt-get update && sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev libsecret-1-dev libjsoncpp-dev",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Run flutter pub get",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter --version --machine > toolchain.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dart --packages=.dart_tool/package_config.json tool/source_digest.dart > source-fingerprint.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter build windows --release",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v7.0.2",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run subosito/flutter-action@v2.23.0",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v7.0.1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ],
+      "artifact": {
+        "id": 13952327411,
+        "name": "desktop-windows-3.41.0",
+        "sha256": "24c6c5b9c0b15e961721cb33eeb09be68b241d4d05901590b1597be378476d90",
+        "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+        "flutter": "3.41.0",
+        "dart": "3.11.0"
+      }
+    },
+    {
+      "job": "desktop (windows-latest, windows, 3.47.9)",
+      "url": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43236480244/job/131245075165",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v7.0.1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run subosito/flutter-action@v2.23.0",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run sudo apt-get update && sudo apt-get install -y clang cmake ninja-build pkg-config libgtk-3-dev libsecret-1-dev libjsoncpp-dev",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Run flutter pub get",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter --version --machine > toolchain.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dart --packages=.dart_tool/package_config.json tool/source_digest.dart > source-fingerprint.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter build windows --release",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v7.0.2",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run subosito/flutter-action@v2.23.0",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v7.0.1",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ],
+      "artifact": {
+        "id": 13953011732,
+        "name": "desktop-windows-3.47.9",
+        "sha256": "33f74b9596902555449bb070269a545c20d2b7ae1e199c349531d3bc8327d076",
+        "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+        "flutter": "3.47.9",
+        "dart": "3.13.7"
+      }
+    }
+  ]
+}

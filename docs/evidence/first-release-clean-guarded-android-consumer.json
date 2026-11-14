@@ -1,0 +1,80 @@
+{
+  "date": "2026-11-12",
+  "sourceCommit": "1182581d7662f8f2012137f361884bc41eb25cb6",
+  "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+  "scope": "External Android release build preflight against the audited clean-checkout Pub-selected bytes, with the development publish guard intact. Android hosts were generated for the independent consumer, with Gradle settings from the corresponding approved example lane and the consumer namespace. Artifacts are debug-signed compile checks. Installation, lifecycle, persistence and exact release candidate review remain open.",
+  "guardedSelectedDigest": "f0553f24e299cba83275bbf27840dc01779afaab026e3bfcc9e5f85043db754e",
+  "cleanCheckoutEvidenceSha256": "1d189a42842633de1aaa581fa86de6304767753b30a29e792d34514fb86cf776",
+  "sdkLanes": [
+    {
+      "lane": "minimum",
+      "flutter": "3.41.0",
+      "dart": "3.11.0",
+      "java": "openjdk version \"17.0.21\" 2026-10-20",
+      "dependencyRoot": "../../package",
+      "pluginRegistrant": "dev.pschkllr.flutter_true_time.FlutterTrueTimePlugin",
+      "bridgePresentInR8Mapping": true,
+      "androidApplicationId": "com.example.preflight_consumer",
+      "androidMinimumApi": 24,
+      "signaturesVerified": true,
+      "consumerLockSha256": "48097d9a954754233f83c86e44cc737fc9418f0b381c01341c1d90c3d8bb5610",
+      "buildArtifacts": [
+        {
+          "file": "app-release.apk",
+          "sha256": "088085334867afb2ff4184ed18248b4b4b863725f4716f369a1241c3bd88319d",
+          "bytes": 41870987,
+          "appLibraries": [
+            "lib/arm64-v8a/libapp.so",
+            "lib/armeabi-v7a/libapp.so",
+            "lib/x86_64/libapp.so"
+          ]
+        },
+        {
+          "file": "app-release.aab",
+          "sha256": "53b575b5d02a906d4e498bd5c2155d5f19a628fea3823193f9546f6a2bc72c83",
+          "bytes": 38472782,
+          "appLibraries": [
+            "base/lib/arm64-v8a/libapp.so",
+            "base/lib/armeabi-v7a/libapp.so",
+            "base/lib/x86_64/libapp.so"
+          ]
+        }
+      ]
+    },
+    {
+      "lane": "current",
+      "flutter": "3.47.9",
+      "dart": "3.13.7",
+      "java": "openjdk version \"17.0.21\" 2026-10-20",
+      "dependencyRoot": "../../package",
+      "pluginRegistrant": "dev.pschkllr.flutter_true_time.FlutterTrueTimePlugin",
+      "bridgePresentInR8Mapping": true,
+      "androidApplicationId": "com.example.preflight_consumer",
+      "androidMinimumApi": 24,
+      "signaturesVerified": true,
+      "consumerLockSha256": "9e0a6c509b96b98f28b4877f904cc8b8a85f83d650744db32006a62ba3727c01",
+      "buildArtifacts": [
+        {
+          "file": "app-release.apk",
+          "sha256": "f470a7701820beee7199a9b933294e1e5bcac8e9638b41f08169c641e4e1f2ff",
+          "bytes": 43421421,
+          "appLibraries": [
+            "lib/arm64-v8a/libapp.so",
+            "lib/armeabi-v7a/libapp.so",
+            "lib/x86_64/libapp.so"
+          ]
+        },
+        {
+          "file": "app-release.aab",
+          "sha256": "0625e4ad0987aeb4bfa3863c065a554a9322583ae17fad94ef430f3a29477f0c",
+          "bytes": 43647919,
+          "appLibraries": [
+            "base/lib/arm64-v8a/libapp.so",
+            "base/lib/armeabi-v7a/libapp.so",
+            "base/lib/x86_64/libapp.so"
+          ]
+        }
+      ]
+    }
+  ]
+}

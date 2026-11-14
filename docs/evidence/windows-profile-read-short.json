@@ -1,0 +1,2093 @@
+[
+  {
+    "mode": "baseline",
+    "calls": 100,
+    "checksum": {
+      "checksum": 0
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 1,
+        "bytes": 48
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Type",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Closure",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_SendPort",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_List",
+        "instances": 9,
+        "bytes": 560
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 9,
+        "bytes": 320
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 3,
+        "bytes": 144
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 2,
+        "bytes": 128
+      }
+    ]
+  },
+  {
+    "mode": "now",
+    "calls": 100,
+    "checksum": {
+      "checksum": 46
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 1,
+        "bytes": 48
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Type",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Closure",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_SendPort",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_List",
+        "instances": 109,
+        "bytes": 10160
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 9,
+        "bytes": 320
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "ClockSnapshot",
+        "instances": 99,
+        "bytes": 3168
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 3,
+        "bytes": 144
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 2,
+        "bytes": 128
+      },
+      {
+        "class": "Duration",
+        "instances": 198,
+        "bytes": 3168
+      }
+    ]
+  },
+  {
+    "mode": "read",
+    "calls": 100,
+    "checksum": {
+      "checksum": 31
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 1,
+        "bytes": 48
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Type",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Closure",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_SendPort",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_List",
+        "instances": 109,
+        "bytes": 10160
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 9,
+        "bytes": 320
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "ClockSnapshot",
+        "instances": 99,
+        "bytes": 3168
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 3,
+        "bytes": 144
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 2,
+        "bytes": 128
+      },
+      {
+        "class": "Duration",
+        "instances": 198,
+        "bytes": 3168
+      }
+    ]
+  },
+  {
+    "mode": "control",
+    "calls": 100,
+    "checksum": {
+      "checksum": 0
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 1,
+        "bytes": 48
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Type",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Closure",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_SendPort",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_List",
+        "instances": 14,
+        "bytes": -13728
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 9,
+        "bytes": 320
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_AllocationMarker",
+        "instances": -1900,
+        "bytes": -30400
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 3,
+        "bytes": 144
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 2,
+        "bytes": 128
+      }
+    ]
+  },
+  {
+    "mode": "baseline",
+    "calls": 200,
+    "checksum": {
+      "checksum": 0
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 12,
+        "bytes": 608
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "_Type",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "_TypeParameter",
+        "instances": 255,
+        "bytes": 16320
+      },
+      {
+        "class": "_Closure",
+        "instances": 8,
+        "bytes": 384
+      },
+      {
+        "class": "_SendPort",
+        "instances": 2,
+        "bytes": 64
+      },
+      {
+        "class": "_Map",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_List",
+        "instances": 22,
+        "bytes": 1824
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 2,
+        "bytes": 128
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 2,
+        "bytes": 64
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 18,
+        "bytes": 688
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_AsyncCallbackEntry",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 3,
+        "bytes": 192
+      },
+      {
+        "class": "StringBuffer",
+        "instances": 1,
+        "bytes": 64
+      }
+    ]
+  },
+  {
+    "mode": "now",
+    "calls": 200,
+    "checksum": {
+      "checksum": 117
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 1,
+        "bytes": 48
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Type",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Closure",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_SendPort",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_List",
+        "instances": 209,
+        "bytes": 19760
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 10,
+        "bytes": 368
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "ClockSnapshot",
+        "instances": 199,
+        "bytes": 6368
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 3,
+        "bytes": 144
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 2,
+        "bytes": 128
+      },
+      {
+        "class": "Duration",
+        "instances": 398,
+        "bytes": 6368
+      }
+    ]
+  },
+  {
+    "mode": "read",
+    "calls": 200,
+    "checksum": {
+      "checksum": 412
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 1,
+        "bytes": 48
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Type",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Closure",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_SendPort",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_List",
+        "instances": 209,
+        "bytes": 19760
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 10,
+        "bytes": 368
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "ClockSnapshot",
+        "instances": 199,
+        "bytes": 6368
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 3,
+        "bytes": 144
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 2,
+        "bytes": 128
+      },
+      {
+        "class": "Duration",
+        "instances": 398,
+        "bytes": 6368
+      }
+    ]
+  },
+  {
+    "mode": "control",
+    "calls": 200,
+    "checksum": {
+      "checksum": 0
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 1,
+        "bytes": 48
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Type",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Closure",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_SendPort",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_List",
+        "instances": 15,
+        "bytes": -11664
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 9,
+        "bytes": 320
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_AllocationMarker",
+        "instances": -1800,
+        "bytes": -28800
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 3,
+        "bytes": 144
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 2,
+        "bytes": 128
+      }
+    ]
+  },
+  {
+    "mode": "baseline",
+    "calls": 400,
+    "checksum": {
+      "checksum": 0
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 1,
+        "bytes": 48
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Type",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Closure",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_SendPort",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_List",
+        "instances": 9,
+        "bytes": 560
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 9,
+        "bytes": 320
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 3,
+        "bytes": 144
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 2,
+        "bytes": 128
+      }
+    ]
+  },
+  {
+    "mode": "now",
+    "calls": 400,
+    "checksum": {
+      "checksum": 82
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 1,
+        "bytes": 48
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Type",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Closure",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_SendPort",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_List",
+        "instances": 409,
+        "bytes": 38960
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 9,
+        "bytes": 320
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "ClockSnapshot",
+        "instances": 400,
+        "bytes": 12800
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 3,
+        "bytes": 144
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 2,
+        "bytes": 128
+      },
+      {
+        "class": "Duration",
+        "instances": 800,
+        "bytes": 12800
+      }
+    ]
+  },
+  {
+    "mode": "read",
+    "calls": 400,
+    "checksum": {
+      "checksum": 231
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 6,
+        "bytes": 320
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Type",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Closure",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "_SendPort",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_List",
+        "instances": 410,
+        "bytes": 38992
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 10,
+        "bytes": 368
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "ClockSnapshot",
+        "instances": 400,
+        "bytes": 12800
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 3,
+        "bytes": 192
+      },
+      {
+        "class": "Duration",
+        "instances": 800,
+        "bytes": 12800
+      }
+    ]
+  },
+  {
+    "mode": "control",
+    "calls": 400,
+    "checksum": {
+      "checksum": 0
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 10,
+        "bytes": 480
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Type",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Closure",
+        "instances": 8,
+        "bytes": 384
+      },
+      {
+        "class": "_SendPort",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Map",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_List",
+        "instances": 24,
+        "bytes": 9360
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 2,
+        "bytes": 64
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 10,
+        "bytes": 400
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_AllocationMarker",
+        "instances": 400,
+        "bytes": 6400
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_AsyncCallbackEntry",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 3,
+        "bytes": 192
+      },
+      {
+        "class": "StringBuffer",
+        "instances": 1,
+        "bytes": 64
+      }
+    ]
+  },
+  {
+    "mode": "baseline",
+    "calls": 100,
+    "checksum": {
+      "checksum": 0
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 12,
+        "bytes": 608
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "_Type",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "_TypeParameter",
+        "instances": 255,
+        "bytes": 16320
+      },
+      {
+        "class": "_Closure",
+        "instances": 8,
+        "bytes": 384
+      },
+      {
+        "class": "_SendPort",
+        "instances": 2,
+        "bytes": 64
+      },
+      {
+        "class": "_Map",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_List",
+        "instances": 22,
+        "bytes": 1824
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 2,
+        "bytes": 128
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 2,
+        "bytes": 64
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 18,
+        "bytes": 688
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_AsyncCallbackEntry",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 3,
+        "bytes": 192
+      },
+      {
+        "class": "StringBuffer",
+        "instances": 1,
+        "bytes": 64
+      }
+    ]
+  },
+  {
+    "mode": "now",
+    "calls": 100,
+    "checksum": {
+      "checksum": 218
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 1,
+        "bytes": 48
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Type",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Closure",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_SendPort",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_List",
+        "instances": 109,
+        "bytes": 10160
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 10,
+        "bytes": 368
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "ClockSnapshot",
+        "instances": 100,
+        "bytes": 3200
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 3,
+        "bytes": 144
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 2,
+        "bytes": 128
+      },
+      {
+        "class": "Duration",
+        "instances": 200,
+        "bytes": 3200
+      }
+    ]
+  },
+  {
+    "mode": "read",
+    "calls": 100,
+    "checksum": {
+      "checksum": 1641
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 12,
+        "bytes": 608
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Type",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Closure",
+        "instances": 8,
+        "bytes": 384
+      },
+      {
+        "class": "Pointer",
+        "instances": 77,
+        "bytes": 2464
+      },
+      {
+        "class": "_SendPort",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Map",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_List",
+        "instances": 115,
+        "bytes": 10544
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 2,
+        "bytes": 64
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 11,
+        "bytes": 464
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "TimeReading",
+        "instances": 26,
+        "bytes": 832
+      },
+      {
+        "class": "ClockSnapshot",
+        "instances": 100,
+        "bytes": 3200
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_AsyncCallbackEntry",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 3,
+        "bytes": 192
+      },
+      {
+        "class": "StringBuffer",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "Stopwatch",
+        "instances": 26,
+        "bytes": 832
+      },
+      {
+        "class": "Duration",
+        "instances": 330,
+        "bytes": 5280
+      },
+      {
+        "class": "DateTime",
+        "instances": 26,
+        "bytes": 832
+      }
+    ]
+  },
+  {
+    "mode": "control",
+    "calls": 100,
+    "checksum": {
+      "checksum": 0
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 12,
+        "bytes": 608
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Type",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Closure",
+        "instances": 8,
+        "bytes": 384
+      },
+      {
+        "class": "_SendPort",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Map",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_List",
+        "instances": 22,
+        "bytes": 3184
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 2,
+        "bytes": 64
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 10,
+        "bytes": 400
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_AllocationMarker",
+        "instances": 100,
+        "bytes": 1600
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_AsyncCallbackEntry",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 3,
+        "bytes": 192
+      },
+      {
+        "class": "StringBuffer",
+        "instances": 1,
+        "bytes": 64
+      }
+    ]
+  },
+  {
+    "mode": "baseline",
+    "calls": 200,
+    "checksum": {
+      "checksum": 0
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 1,
+        "bytes": 48
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Type",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Closure",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_SendPort",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_List",
+        "instances": 9,
+        "bytes": 560
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 9,
+        "bytes": 320
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 3,
+        "bytes": 144
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 2,
+        "bytes": 128
+      }
+    ]
+  },
+  {
+    "mode": "now",
+    "calls": 200,
+    "checksum": {
+      "checksum": 99
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Type",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Closure",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "_SendPort",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_List",
+        "instances": 210,
+        "bytes": 19792
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 9,
+        "bytes": 320
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "ClockSnapshot",
+        "instances": 199,
+        "bytes": 6368
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 3,
+        "bytes": 192
+      },
+      {
+        "class": "Duration",
+        "instances": 398,
+        "bytes": 6368
+      }
+    ]
+  },
+  {
+    "mode": "read",
+    "calls": 200,
+    "checksum": {
+      "checksum": 7
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Type",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Closure",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "_SendPort",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_List",
+        "instances": 209,
+        "bytes": 19760
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 9,
+        "bytes": 320
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "ClockSnapshot",
+        "instances": 199,
+        "bytes": 6368
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_AsyncCallbackEntry",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 3,
+        "bytes": 192
+      },
+      {
+        "class": "Duration",
+        "instances": 398,
+        "bytes": 6368
+      }
+    ]
+  },
+  {
+    "mode": "control",
+    "calls": 200,
+    "checksum": {
+      "checksum": 0
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Type",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Closure",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "_SendPort",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_List",
+        "instances": 17,
+        "bytes": 4768
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 10,
+        "bytes": 352
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_AllocationMarker",
+        "instances": 200,
+        "bytes": 3200
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 3,
+        "bytes": 192
+      }
+    ]
+  },
+  {
+    "mode": "baseline",
+    "calls": 400,
+    "checksum": {
+      "checksum": 0
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 12,
+        "bytes": 608
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Type",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Closure",
+        "instances": 8,
+        "bytes": 384
+      },
+      {
+        "class": "_SendPort",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Map",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_List",
+        "instances": 16,
+        "bytes": 1072
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 2,
+        "bytes": 64
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 11,
+        "bytes": 432
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_AsyncCallbackEntry",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 3,
+        "bytes": 192
+      },
+      {
+        "class": "StringBuffer",
+        "instances": 1,
+        "bytes": 64
+      }
+    ]
+  },
+  {
+    "mode": "now",
+    "calls": 400,
+    "checksum": {
+      "checksum": 1802
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 12,
+        "bytes": 608
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Type",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Closure",
+        "instances": 8,
+        "bytes": 384
+      },
+      {
+        "class": "Pointer",
+        "instances": 182,
+        "bytes": 5824
+      },
+      {
+        "class": "_SendPort",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Map",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_List",
+        "instances": 415,
+        "bytes": 39344
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 2,
+        "bytes": 64
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 12,
+        "bytes": 496
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "TimeReading",
+        "instances": 61,
+        "bytes": 1952
+      },
+      {
+        "class": "ClockSnapshot",
+        "instances": 400,
+        "bytes": 12800
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_AsyncCallbackEntry",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 3,
+        "bytes": 192
+      },
+      {
+        "class": "StringBuffer",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "Stopwatch",
+        "instances": 61,
+        "bytes": 1952
+      },
+      {
+        "class": "Duration",
+        "instances": 1105,
+        "bytes": 17680
+      },
+      {
+        "class": "DateTime",
+        "instances": 61,
+        "bytes": 1952
+      }
+    ]
+  },
+  {
+    "mode": "read",
+    "calls": 400,
+    "checksum": {
+      "checksum": 32717
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 6,
+        "bytes": 320
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Type",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Closure",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "_SendPort",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_List",
+        "instances": 410,
+        "bytes": 38992
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 11,
+        "bytes": 416
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "ClockSnapshot",
+        "instances": 400,
+        "bytes": 12800
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_AsyncCallbackEntry",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 4,
+        "bytes": 192
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 3,
+        "bytes": 192
+      },
+      {
+        "class": "Duration",
+        "instances": 800,
+        "bytes": 12800
+      }
+    ]
+  },
+  {
+    "mode": "control",
+    "calls": 400,
+    "checksum": {
+      "checksum": 0
+    },
+    "classes": [
+      {
+        "class": "Context",
+        "instances": 1,
+        "bytes": 48
+      },
+      {
+        "class": "TypeArguments",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Type",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_Closure",
+        "instances": 2,
+        "bytes": 96
+      },
+      {
+        "class": "_SendPort",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_List",
+        "instances": 16,
+        "bytes": -7552
+      },
+      {
+        "class": "_ImmutableList",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_GrowableList",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_OneByteString",
+        "instances": 10,
+        "bytes": 352
+      },
+      {
+        "class": "_Uint32List",
+        "instances": 1,
+        "bytes": 64
+      },
+      {
+        "class": "_AllocationMarker",
+        "instances": -1600,
+        "bytes": -25600
+      },
+      {
+        "class": "ServiceExtensionResponse",
+        "instances": 1,
+        "bytes": 32
+      },
+      {
+        "class": "_Future",
+        "instances": 3,
+        "bytes": 144
+      },
+      {
+        "class": "_FutureListener",
+        "instances": 2,
+        "bytes": 128
+      }
+    ]
+  }
+]

@@ -5,8 +5,8 @@ The engine now queues persistence for deadline-accepted anchors. The native harn
 | Area | Status |
 | --- | --- |
 | Runtime and release checks | Deadline persistence, native restart assertions, exact candidate selection, and digest-bound approval are implemented |
-| Builds and tests | Current SDK, Android, and Web evidence is tracked in VALIDATION.md and release_gates.json |
-| Native, browser, and performance qualification | Physical lifecycle, native restart/storage, live HTTPS/CORS, Apple archive inspection, and representative allocation measurements remain open |
+| Builds and tests | The SDK matrices, Windows and Linux release builds, three Android lanes, and Web gate passed before the release checker gained the physical lifecycle waiver. The manifest requires evidence for the regenerated digest. |
+| Native and performance qualification | Physical lifecycle is waived for `0.1.0-dev.1`. Native restart and storage, Apple archive inspection, and representative read measurements remain open. Windows and browser measurements are recorded in VALIDATION.md. |
 | Rights and publication | Notice hashes verified. Human and native dependency review, private reporting, uploader access, and candidate review remain open |
 
 See VALIDATION.md, DEVICE_QUALIFICATION.md, APPLE_PRIVACY_AUDIT.md and PUBLISHING.md. The development checkout retains `publish_to: none`.

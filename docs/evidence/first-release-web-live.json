@@ -1,0 +1,671 @@
+{
+  "date": "2026-11-12",
+  "commit": "3849c56b414ae6f9218ec9ae86b95230434a6247",
+  "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+  "verifiedBrowserInputsPerLane": 31,
+  "method": "Pinned Flutter release builds ran the actual example. A fixture exposed facade status and negative probes to a fresh headless Chrome profile. Browser caches were disabled. Offline reload blocked both remote time origins while serving the app from loopback.",
+  "providers": [
+    {
+      "host": "httpbin.org",
+      "source": "https://github.com/postmanlabs/httpbin",
+      "route": "/response-headers",
+      "label": "httpbin-org"
+    },
+    {
+      "host": "httpbingo.org",
+      "source": "https://github.com/mccutchen/httpbingo.org",
+      "route": "/response-headers",
+      "label": "httpbingo-org"
+    }
+  ],
+  "providerParameters": "Cache-Control=no-store and Access-Control-Expose-Headers=Date, Cache-Control, Age. Each service supplies its own Date. The endpoints are fixtures and do not change package defaults.",
+  "build": "flutter build web --release --no-pub --no-web-resources-cdn --target .dart_tool/qualification_live.dart --dart-define-from-file=<fixture JSON> with --wasm in WASM lanes",
+  "fixtureFiles": [
+    {
+      "path": "docs/evidence/web-live-fixture.dart.txt",
+      "sha256": "5d2d1935511fd8f5025bc76059683f130fa8d008f84446f52eabbe227ce4dffc"
+    },
+    {
+      "path": "docs/evidence/web-live-driver.mjs",
+      "sha256": "2a9901856a43d5e67de20424e07ebf23a449ac6e98ad38d27058632c9c9834e4"
+    }
+  ],
+  "runs": [
+    {
+      "lane": "web-live-minimum",
+      "mode": "js",
+      "browser": "Chrome/157.0.8103.40",
+      "ready": {
+        "availability": "ready",
+        "syncing": false,
+        "error": null,
+        "utc": "2026-11-12T12:20:34.128222Z",
+        "groups": [
+          "httpbin-org",
+          "httpbingo-org"
+        ],
+        "restored": false
+      },
+      "failures": [
+        {
+          "label": "Date hidden by CORS",
+          "accepted": false,
+          "code": "invalidDate",
+          "elapsedMs": 327
+        },
+        {
+          "label": "CORS origin denied",
+          "accepted": false,
+          "code": "minified:k8",
+          "elapsedMs": 646
+        },
+        {
+          "label": "nonzero Age",
+          "accepted": false,
+          "code": "cachedResponse",
+          "elapsedMs": 229
+        },
+        {
+          "label": "redirect",
+          "accepted": false,
+          "code": "minified:k8",
+          "elapsedMs": 217
+        },
+        {
+          "label": "cancellation",
+          "accepted": false,
+          "code": "cancelled",
+          "elapsedMs": 302
+        }
+      ],
+      "transportAbort": {
+        "started": true,
+        "aborted": true
+      },
+      "offline": {
+        "availability": "unavailable",
+        "syncing": false,
+        "error": "noConsensus",
+        "utc": null,
+        "groups": null,
+        "restored": null
+      },
+      "savedBeforeReload": true,
+      "savedAfterReload": true,
+      "network": [
+        {
+          "host": "httpbingo.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "status": 200,
+          "tls": "TLS 1.3",
+          "headers": {
+            "date": "Thu, 12 Nov 2026 12:20:33 GMT",
+            "cache-control": "no-store",
+            "access-control-allow-origin": "http://127.0.0.1:59924",
+            "access-control-expose-headers": "Date, Cache-Control, Age"
+          }
+        },
+        {
+          "host": "httpbin.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "status": 200,
+          "tls": "TLS 1.3",
+          "headers": {
+            "date": "Thu, 12 Nov 2026 12:20:34 GMT",
+            "cache-control": "no-store",
+            "access-control-allow-origin": "http://127.0.0.1:59924",
+            "access-control-expose-headers": "Date, Cache-Control, Age"
+          }
+        },
+        {
+          "host": "httpbin.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "status": 200,
+          "tls": "TLS 1.3",
+          "headers": {
+            "date": "Thu, 12 Nov 2026 12:20:35 GMT",
+            "cache-control": "no-store",
+            "access-control-allow-origin": "http://127.0.0.1:59924",
+            "access-control-expose-headers": "Cache-Control"
+          }
+        },
+        {
+          "host": "example.com",
+          "path": "/",
+          "method": "HEAD",
+          "networkError": "net::ERR_FAILED",
+          "cors": "MissingAllowOriginHeader",
+          "cancelled": false
+        },
+        {
+          "host": "httpbingo.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "status": 200,
+          "tls": "TLS 1.3",
+          "headers": {
+            "date": "Thu, 12 Nov 2026 12:20:36 GMT",
+            "cache-control": "no-store",
+            "age": "7",
+            "access-control-allow-origin": "http://127.0.0.1:59924",
+            "access-control-expose-headers": "Date, Cache-Control, Age"
+          }
+        },
+        {
+          "host": "httpbingo.org",
+          "path": "/redirect/1",
+          "method": "HEAD",
+          "networkError": "net::ERR_FAILED",
+          "cancelled": false
+        },
+        {
+          "host": "httpbingo.org",
+          "path": "/delay/3",
+          "method": "HEAD",
+          "networkError": "net::ERR_ABORTED",
+          "cancelled": true
+        },
+        {
+          "host": "httpbin.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "networkError": "",
+          "blocked": "inspector",
+          "cancelled": false
+        },
+        {
+          "host": "httpbingo.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "networkError": "",
+          "blocked": "inspector",
+          "cancelled": false
+        }
+      ],
+      "flutter": "3.41.0",
+      "entrypoint": "main.dart.js",
+      "entrypointSha256": "08c4eaac18bc7793200d6a42d9dbede9a6744de8bc525267e2ee0e646b3d7482",
+      "exampleLockSha256": "33b7a0155bb7d34f6d902272d3b40384e9befe0171e42b3bed7c1238bc247606"
+    },
+    {
+      "lane": "web-live-minimum",
+      "mode": "wasm",
+      "browser": "Chrome/157.0.8103.40",
+      "ready": {
+        "availability": "ready",
+        "syncing": false,
+        "error": null,
+        "utc": "2026-11-12T12:23:18.2024Z",
+        "groups": [
+          "httpbin-org",
+          "httpbingo-org"
+        ],
+        "restored": false
+      },
+      "failures": [
+        {
+          "label": "Date hidden by CORS",
+          "accepted": false,
+          "code": "invalidDate",
+          "elapsedMs": 318
+        },
+        {
+          "label": "CORS origin denied",
+          "accepted": false,
+          "code": "minified:Class1809",
+          "elapsedMs": 354
+        },
+        {
+          "label": "nonzero Age",
+          "accepted": false,
+          "code": "cachedResponse",
+          "elapsedMs": 220
+        },
+        {
+          "label": "redirect",
+          "accepted": false,
+          "code": "minified:Class1809",
+          "elapsedMs": 224
+        },
+        {
+          "label": "cancellation",
+          "accepted": false,
+          "code": "cancelled",
+          "elapsedMs": 306
+        }
+      ],
+      "transportAbort": {
+        "started": true,
+        "aborted": true
+      },
+      "offline": {
+        "availability": "unavailable",
+        "syncing": false,
+        "error": "noConsensus",
+        "utc": null,
+        "groups": null,
+        "restored": null
+      },
+      "savedBeforeReload": true,
+      "savedAfterReload": true,
+      "network": [
+        {
+          "host": "httpbingo.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "status": 200,
+          "tls": "TLS 1.3",
+          "headers": {
+            "date": "Thu, 12 Nov 2026 12:23:17 GMT",
+            "cache-control": "no-store",
+            "access-control-allow-origin": "http://127.0.0.1:60252",
+            "access-control-expose-headers": "Date, Cache-Control, Age"
+          }
+        },
+        {
+          "host": "httpbin.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "status": 200,
+          "tls": "TLS 1.3",
+          "headers": {
+            "date": "Thu, 12 Nov 2026 12:23:17 GMT",
+            "cache-control": "no-store",
+            "access-control-allow-origin": "http://127.0.0.1:60252",
+            "access-control-expose-headers": "Date, Cache-Control, Age"
+          }
+        },
+        {
+          "host": "httpbin.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "status": 200,
+          "tls": "TLS 1.3",
+          "headers": {
+            "date": "Thu, 12 Nov 2026 12:23:18 GMT",
+            "cache-control": "no-store",
+            "access-control-allow-origin": "http://127.0.0.1:60252",
+            "access-control-expose-headers": "Cache-Control"
+          }
+        },
+        {
+          "host": "example.com",
+          "path": "/",
+          "method": "HEAD",
+          "networkError": "net::ERR_FAILED",
+          "cors": "MissingAllowOriginHeader",
+          "cancelled": false
+        },
+        {
+          "host": "httpbingo.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "status": 200,
+          "tls": "TLS 1.3",
+          "headers": {
+            "date": "Thu, 12 Nov 2026 12:23:19 GMT",
+            "cache-control": "no-store",
+            "age": "7",
+            "access-control-allow-origin": "http://127.0.0.1:60252",
+            "access-control-expose-headers": "Date, Cache-Control, Age"
+          }
+        },
+        {
+          "host": "httpbingo.org",
+          "path": "/redirect/1",
+          "method": "HEAD",
+          "networkError": "net::ERR_FAILED",
+          "cancelled": false
+        },
+        {
+          "host": "httpbingo.org",
+          "path": "/delay/3",
+          "method": "HEAD",
+          "networkError": "net::ERR_ABORTED",
+          "cancelled": true
+        },
+        {
+          "host": "httpbin.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "networkError": "",
+          "blocked": "inspector",
+          "cancelled": false
+        },
+        {
+          "host": "httpbingo.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "networkError": "",
+          "blocked": "inspector",
+          "cancelled": false
+        }
+      ],
+      "flutter": "3.41.0",
+      "entrypoint": "main.dart.wasm",
+      "entrypointSha256": "6ad1dc3ffda66cedd6819981061c5001c5692530860ce92e3df215eead5d0ca0",
+      "exampleLockSha256": "33b7a0155bb7d34f6d902272d3b40384e9befe0171e42b3bed7c1238bc247606"
+    },
+    {
+      "lane": "web-live-current",
+      "mode": "js",
+      "browser": "Chrome/157.0.8103.40",
+      "ready": {
+        "availability": "ready",
+        "syncing": false,
+        "error": null,
+        "utc": "2026-11-12T12:20:28.402951Z",
+        "groups": [
+          "httpbin-org",
+          "httpbingo-org"
+        ],
+        "restored": false
+      },
+      "failures": [
+        {
+          "label": "Date hidden by CORS",
+          "accepted": false,
+          "code": "invalidDate",
+          "elapsedMs": 332
+        },
+        {
+          "label": "CORS origin denied",
+          "accepted": false,
+          "code": "minified:kg",
+          "elapsedMs": 1047
+        },
+        {
+          "label": "nonzero Age",
+          "accepted": false,
+          "code": "cachedResponse",
+          "elapsedMs": 233
+        },
+        {
+          "label": "redirect",
+          "accepted": false,
+          "code": "minified:kg",
+          "elapsedMs": 232
+        },
+        {
+          "label": "cancellation",
+          "accepted": false,
+          "code": "cancelled",
+          "elapsedMs": 304
+        }
+      ],
+      "transportAbort": {
+        "started": true,
+        "aborted": true
+      },
+      "offline": {
+        "availability": "unavailable",
+        "syncing": false,
+        "error": "noConsensus",
+        "utc": null,
+        "groups": null,
+        "restored": null
+      },
+      "savedBeforeReload": true,
+      "savedAfterReload": true,
+      "network": [
+        {
+          "host": "httpbingo.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "status": 200,
+          "tls": "TLS 1.3",
+          "headers": {
+            "date": "Thu, 12 Nov 2026 12:20:27 GMT",
+            "cache-control": "no-store",
+            "access-control-allow-origin": "http://127.0.0.1:59885",
+            "access-control-expose-headers": "Date, Cache-Control, Age"
+          }
+        },
+        {
+          "host": "httpbin.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "status": 200,
+          "tls": "TLS 1.3",
+          "headers": {
+            "date": "Thu, 12 Nov 2026 12:20:28 GMT",
+            "cache-control": "no-store",
+            "access-control-allow-origin": "http://127.0.0.1:59885",
+            "access-control-expose-headers": "Date, Cache-Control, Age"
+          }
+        },
+        {
+          "host": "httpbin.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "status": 200,
+          "tls": "TLS 1.3",
+          "headers": {
+            "date": "Thu, 12 Nov 2026 12:20:29 GMT",
+            "cache-control": "no-store",
+            "access-control-allow-origin": "http://127.0.0.1:59885",
+            "access-control-expose-headers": "Cache-Control"
+          }
+        },
+        {
+          "host": "example.com",
+          "path": "/",
+          "method": "HEAD",
+          "networkError": "net::ERR_FAILED",
+          "cors": "MissingAllowOriginHeader",
+          "cancelled": false
+        },
+        {
+          "host": "httpbingo.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "status": 200,
+          "tls": "TLS 1.3",
+          "headers": {
+            "date": "Thu, 12 Nov 2026 12:20:30 GMT",
+            "cache-control": "no-store",
+            "age": "7",
+            "access-control-allow-origin": "http://127.0.0.1:59885",
+            "access-control-expose-headers": "Date, Cache-Control, Age"
+          }
+        },
+        {
+          "host": "httpbingo.org",
+          "path": "/redirect/1",
+          "method": "HEAD",
+          "networkError": "net::ERR_FAILED",
+          "cancelled": false
+        },
+        {
+          "host": "httpbingo.org",
+          "path": "/delay/3",
+          "method": "HEAD",
+          "networkError": "net::ERR_ABORTED",
+          "cancelled": true
+        },
+        {
+          "host": "httpbin.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "networkError": "",
+          "blocked": "inspector",
+          "cancelled": false
+        },
+        {
+          "host": "httpbingo.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "networkError": "",
+          "blocked": "inspector",
+          "cancelled": false
+        }
+      ],
+      "flutter": "3.47.9",
+      "entrypoint": "main.dart.js",
+      "entrypointSha256": "43bbea1d538abc640b321b05e180d7c3c591f5be9cfe814e8461005b81a0130d",
+      "exampleLockSha256": "558016251fc911b272e23031467e5bbd19362d89c241687a38157c3f9c4e2b39"
+    },
+    {
+      "lane": "web-live-current",
+      "mode": "wasm",
+      "browser": "Chrome/157.0.8103.40",
+      "ready": {
+        "availability": "ready",
+        "syncing": false,
+        "error": null,
+        "utc": "2026-11-12T12:23:12.210648Z",
+        "groups": [
+          "httpbin-org",
+          "httpbingo-org"
+        ],
+        "restored": false
+      },
+      "failures": [
+        {
+          "label": "Date hidden by CORS",
+          "accepted": false,
+          "code": "invalidDate",
+          "elapsedMs": 324
+        },
+        {
+          "label": "CORS origin denied",
+          "accepted": false,
+          "code": "minified:Class1844",
+          "elapsedMs": 1334
+        },
+        {
+          "label": "nonzero Age",
+          "accepted": false,
+          "code": "cachedResponse",
+          "elapsedMs": 216
+        },
+        {
+          "label": "redirect",
+          "accepted": false,
+          "code": "minified:Class1844",
+          "elapsedMs": 231
+        },
+        {
+          "label": "cancellation",
+          "accepted": false,
+          "code": "cancelled",
+          "elapsedMs": 303
+        }
+      ],
+      "transportAbort": {
+        "started": true,
+        "aborted": true
+      },
+      "offline": {
+        "availability": "unavailable",
+        "syncing": false,
+        "error": "noConsensus",
+        "utc": null,
+        "groups": null,
+        "restored": null
+      },
+      "savedBeforeReload": true,
+      "savedAfterReload": true,
+      "network": [
+        {
+          "host": "httpbingo.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "status": 200,
+          "tls": "TLS 1.3",
+          "headers": {
+            "date": "Thu, 12 Nov 2026 12:23:10 GMT",
+            "cache-control": "no-store",
+            "access-control-allow-origin": "http://127.0.0.1:60205",
+            "access-control-expose-headers": "Date, Cache-Control, Age"
+          }
+        },
+        {
+          "host": "httpbin.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "status": 200,
+          "tls": "TLS 1.3",
+          "headers": {
+            "date": "Thu, 12 Nov 2026 12:23:12 GMT",
+            "cache-control": "no-store",
+            "access-control-allow-origin": "http://127.0.0.1:60205",
+            "access-control-expose-headers": "Date, Cache-Control, Age"
+          }
+        },
+        {
+          "host": "httpbin.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "status": 200,
+          "tls": "TLS 1.3",
+          "headers": {
+            "date": "Thu, 12 Nov 2026 12:23:12 GMT",
+            "cache-control": "no-store",
+            "access-control-allow-origin": "http://127.0.0.1:60205",
+            "access-control-expose-headers": "Cache-Control"
+          }
+        },
+        {
+          "host": "example.com",
+          "path": "/",
+          "method": "HEAD",
+          "networkError": "net::ERR_FAILED",
+          "cors": "MissingAllowOriginHeader",
+          "cancelled": false
+        },
+        {
+          "host": "httpbingo.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "status": 200,
+          "tls": "TLS 1.3",
+          "headers": {
+            "date": "Thu, 12 Nov 2026 12:23:14 GMT",
+            "cache-control": "no-store",
+            "age": "7",
+            "access-control-allow-origin": "http://127.0.0.1:60205",
+            "access-control-expose-headers": "Date, Cache-Control, Age"
+          }
+        },
+        {
+          "host": "httpbingo.org",
+          "path": "/redirect/1",
+          "method": "HEAD",
+          "networkError": "net::ERR_FAILED",
+          "cancelled": false
+        },
+        {
+          "host": "httpbingo.org",
+          "path": "/delay/3",
+          "method": "HEAD",
+          "networkError": "net::ERR_ABORTED",
+          "cancelled": true
+        },
+        {
+          "host": "httpbin.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "networkError": "",
+          "blocked": "inspector",
+          "cancelled": false
+        },
+        {
+          "host": "httpbingo.org",
+          "path": "/response-headers",
+          "method": "HEAD",
+          "networkError": "",
+          "blocked": "inspector",
+          "cancelled": false
+        }
+      ],
+      "flutter": "3.47.9",
+      "entrypoint": "main.dart.wasm",
+      "entrypointSha256": "eedffab3cc8fa2b9803c568031a3bb89c96d674d77b4db704ddc376c1c429c9d",
+      "exampleLockSha256": "558016251fc911b272e23031467e5bbd19362d89c241687a38157c3f9c4e2b39"
+    }
+  ]
+}

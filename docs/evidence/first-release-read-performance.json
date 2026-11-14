@@ -1,0 +1,921 @@
+{
+  "date": "2026-11-12",
+  "commit": "3849c56b414ae6f9218ec9ae86b95230434a6247",
+  "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+  "host": "Windows x64 10.0.19045; Intel Core i5-7300HQ",
+  "dart": "3.13.7",
+  "nativeAot": {
+    "command": "dart compile exe tool/benchmark.dart",
+    "executableSha256": "82c329b6200c9af2f911d33f0426c540f1839c3143f1c9d5dae2ae193b91adfd",
+    "output": [
+      "Run 1",
+      "Clock adapter: windows.qpc.us.v1",
+      "now: 10000 warmup reads, 25 batches of 10000 reads, median 0.458 µs/read, p95 0.518 µs/read across batches, checksum 70257",
+      "read: 10000 warmup reads, 25 batches of 10000 reads, median 0.459 µs/read, p95 0.509 µs/read across batches, checksum 158419",
+      "Run 2",
+      "Clock adapter: windows.qpc.us.v1",
+      "now: 10000 warmup reads, 25 batches of 10000 reads, median 0.487 µs/read, p95 0.563 µs/read across batches, checksum 105473",
+      "read: 10000 warmup reads, 25 batches of 10000 reads, median 0.498 µs/read, p95 0.670 µs/read across batches, checksum 32453",
+      "Run 3",
+      "Clock adapter: windows.qpc.us.v1",
+      "now: 10000 warmup reads, 25 batches of 10000 reads, median 0.484 µs/read, p95 0.598 µs/read across batches, checksum 123809",
+      "read: 10000 warmup reads, 25 batches of 10000 reads, median 0.487 µs/read, p95 0.536 µs/read across batches, checksum 39622"
+    ],
+    "gcTelemetry": {
+      "commit": "fe4017c134e1519db5660ea529a3c67b3baf04b8",
+      "buildCommand": "dart compile aot-snapshot -o native-read-gc.aot <fixture>",
+      "runCommand": "dartaotruntime --verbose-gc native-read-gc.aot <baseline|now|read>",
+      "aotSha256": "bd6534c70c62f67cef3287fc3c43cedb24e20d83d4ae00bc2ee3741d74d78f83",
+      "evidenceFiles": [
+        {
+          "path": "docs/evidence/native-read-gc-fixture.dart.txt",
+          "sha256": "45554c40085ec187445d30174831aed0a0b4b1d2a69d3ead7e1b045eff3c4571"
+        },
+        {
+          "path": "docs/evidence/native-read-gc-summary.ps1",
+          "sha256": "bd2a97ab03ec4348922699e42cbd88f3114cef7fb80a3122cdd61de8adc32f57"
+        }
+      ],
+      "method": "AOT runtime GC telemetry. Sum young-generation used-before minus previous used-after for consecutive scavenges within the marked loop. Divide the observed growth by the total number of calls. Initial and final partial intervals are omitted.",
+      "limits": "The runtime rounds each reported heap value to 0.1 MiB. The estimate covers observed young-generation growth, including allocator accounting. It excludes old-generation and native allocations, cannot infer an object count or total allocated bytes, and is specific to this fixture and host. Baseline runs had no observed scavenge intervals.",
+      "sourceReferences": [
+        "https://github.com/dart-lang/sdk/blob/3.13.7/runtime/vm/heap/heap.cc#L968-L1024",
+        "https://github.com/dart-lang/sdk/blob/3.13.7/runtime/platform/globals.h#L510-L535"
+      ],
+      "runs": [
+        {
+          "mode": "baseline",
+          "run": 1,
+          "calls": 2000000,
+          "scavenges": 0,
+          "observedIntervals": 0,
+          "youngGrowthMiB": null,
+          "observedYoungGrowthBytesPerCall": null,
+          "maxRoundingUncertaintyBytesPerCall": null,
+          "checksum": "0",
+          "rawLogSha256": "ad93b049969877d95cce3d6bd1e91b6c1c7bea8e56bcd58b54976a39cc90d2c6"
+        },
+        {
+          "mode": "baseline",
+          "run": 2,
+          "calls": 2000000,
+          "scavenges": 0,
+          "observedIntervals": 0,
+          "youngGrowthMiB": null,
+          "observedYoungGrowthBytesPerCall": null,
+          "maxRoundingUncertaintyBytesPerCall": null,
+          "checksum": "0",
+          "rawLogSha256": "ad93b049969877d95cce3d6bd1e91b6c1c7bea8e56bcd58b54976a39cc90d2c6"
+        },
+        {
+          "mode": "baseline",
+          "run": 3,
+          "calls": 2000000,
+          "scavenges": 0,
+          "observedIntervals": 0,
+          "youngGrowthMiB": null,
+          "observedYoungGrowthBytesPerCall": null,
+          "maxRoundingUncertaintyBytesPerCall": null,
+          "checksum": "0",
+          "rawLogSha256": "ad93b049969877d95cce3d6bd1e91b6c1c7bea8e56bcd58b54976a39cc90d2c6"
+        },
+        {
+          "mode": "now",
+          "run": 1,
+          "calls": 2000000,
+          "scavenges": 412,
+          "observedIntervals": 411,
+          "youngGrowthMiB": 822.0,
+          "observedYoungGrowthBytesPerCall": 431.0,
+          "maxRoundingUncertaintyBytesPerCall": 21.5,
+          "checksum": "659857",
+          "rawLogSha256": "ad1c13fadcb8d126134040af45b0faa2f5948a96b60cdaee9fc1d513861ff8ff"
+        },
+        {
+          "mode": "now",
+          "run": 2,
+          "calls": 2000000,
+          "scavenges": 412,
+          "observedIntervals": 411,
+          "youngGrowthMiB": 822.0,
+          "observedYoungGrowthBytesPerCall": 431.0,
+          "maxRoundingUncertaintyBytesPerCall": 21.5,
+          "checksum": "585429",
+          "rawLogSha256": "7c21680bf9ce4f0118f23008cf2c89aaa367da5079d1c95d5a6867dea1821772"
+        },
+        {
+          "mode": "now",
+          "run": 3,
+          "calls": 2000000,
+          "scavenges": 412,
+          "observedIntervals": 411,
+          "youngGrowthMiB": 822.0,
+          "observedYoungGrowthBytesPerCall": 431.0,
+          "maxRoundingUncertaintyBytesPerCall": 21.5,
+          "checksum": "3969518",
+          "rawLogSha256": "772e2cdf9d21d6d4c691509cf2dd331ac4d143f8ca702119077343b161257335"
+        },
+        {
+          "mode": "read",
+          "run": 1,
+          "calls": 2000000,
+          "scavenges": 412,
+          "observedIntervals": 411,
+          "youngGrowthMiB": 822.0,
+          "observedYoungGrowthBytesPerCall": 431.0,
+          "maxRoundingUncertaintyBytesPerCall": 21.5,
+          "checksum": "1702090",
+          "rawLogSha256": "3489de950b45522946c46923f70aac9b1405ad15a2af0a992947821cc512e2a4"
+        },
+        {
+          "mode": "read",
+          "run": 2,
+          "calls": 2000000,
+          "scavenges": 412,
+          "observedIntervals": 411,
+          "youngGrowthMiB": 822.0,
+          "observedYoungGrowthBytesPerCall": 431.0,
+          "maxRoundingUncertaintyBytesPerCall": 21.5,
+          "checksum": "1873729",
+          "rawLogSha256": "50d29b9697e0ccd90ced5451b667c9f45faece0b79ad4a66977eea5432f796ad"
+        },
+        {
+          "mode": "read",
+          "run": 3,
+          "calls": 2000000,
+          "scavenges": 412,
+          "observedIntervals": 411,
+          "youngGrowthMiB": 822.0,
+          "observedYoungGrowthBytesPerCall": 431.0,
+          "maxRoundingUncertaintyBytesPerCall": 21.5,
+          "checksum": "351408",
+          "rawLogSha256": "684c70d47fc6a373d0a28aa11411d765427c3cc432220154992c15815ab2c22f"
+        }
+      ]
+    }
+  },
+  "browser": {
+    "method": "Standalone optimized Dart core compiled with dart compile js -O2 and dart compile wasm -O2. A two-source local fixture initializes the anchor. Headless Chrome collects latency across batches with performance.now, outside sampling.",
+    "allocationMethod": "Chrome V8 sampling heap profiler includes sampled allocations collected by minor and major GC. The driver sums profiler-reported sample sizes for compiled Dart JS frames. This is a sampled estimate, with compiler optimization and attribution limits. No allocation counts or WASM allocations were inferred.",
+    "fixture": "docs/evidence/browser-read-fixture.dart.txt",
+    "driver": "docs/evidence/browser-read-profile.mjs",
+    "fixtures": [
+      {
+        "file": "docs/evidence/browser-read-fixture.dart.txt",
+        "sha256": "c73a1610116acd1595480fb03020625011834cd7ddd7976e0afad3d3e134d92a"
+      },
+      {
+        "file": "docs/evidence/browser-read-profile.mjs",
+        "sha256": "c8a3c3f55a785fb72e7b5a5a3007cf7c8262432cf96274efc2fb561d589a9a56"
+      }
+    ],
+    "binaries": [
+      {
+        "file": "read.js",
+        "sha256": "de3662fb1fe8860a5c35f87aea2b928081813071234bb455c72171ea9a8bf505"
+      },
+      {
+        "file": "read.wasm",
+        "sha256": "40eacee77259cf9b634b45a4c5f551504b29573b368cd3f10694f7bdacf8bcd6"
+      }
+    ],
+    "runs": [
+      {
+        "browser": "Chrome/157.0.8103.40",
+        "results": [
+          {
+            "mode": "js",
+            "clockDomain": "portable.stopwatch.v1",
+            "readings": [
+              {
+                "api": "now",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.2,
+                  "p95Microseconds": 0.21000000238418579,
+                  "checksum": 23936
+                },
+                "allocation": {
+                  "calls": 500000,
+                  "samplingIntervalBytes": 512,
+                  "matchingSampleEntries": 143117,
+                  "reportedBytes": 87980628,
+                  "reportedBytesPerRead": 175.961256,
+                  "checksum": 193797
+                }
+              },
+              {
+                "api": "read",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.2,
+                  "p95Microseconds": 0.2399999976158142,
+                  "checksum": 468442
+                },
+                "allocation": {
+                  "calls": 500000,
+                  "samplingIntervalBytes": 512,
+                  "matchingSampleEntries": 141917,
+                  "reportedBytes": 74301384,
+                  "reportedBytesPerRead": 148.602768,
+                  "checksum": 4162334
+                }
+              }
+            ]
+          },
+          {
+            "mode": "wasm",
+            "clockDomain": "portable.stopwatch.v1",
+            "readings": [
+              {
+                "api": "now",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.45999999940395353,
+                  "p95Microseconds": 0.5,
+                  "checksum": 66740
+                },
+                "allocation": null
+              },
+              {
+                "api": "read",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.45999999940395353,
+                  "p95Microseconds": 0.4900000005960464,
+                  "checksum": 282736
+                },
+                "allocation": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "browser": "Chrome/157.0.8103.40",
+        "results": [
+          {
+            "mode": "js",
+            "clockDomain": "portable.stopwatch.v1",
+            "readings": [
+              {
+                "api": "now",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.19000000059604644,
+                  "p95Microseconds": 0.25,
+                  "checksum": 15588
+                },
+                "allocation": {
+                  "calls": 500000,
+                  "samplingIntervalBytes": 512,
+                  "matchingSampleEntries": 144139,
+                  "reportedBytes": 88616980,
+                  "reportedBytesPerRead": 177.23396,
+                  "checksum": 436484
+                }
+              },
+              {
+                "api": "read",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.2,
+                  "p95Microseconds": 0.22000000178813933,
+                  "checksum": 505126
+                },
+                "allocation": {
+                  "calls": 500000,
+                  "samplingIntervalBytes": 512,
+                  "matchingSampleEntries": 141404,
+                  "reportedBytes": 74034816,
+                  "reportedBytesPerRead": 148.069632,
+                  "checksum": 724129
+                }
+              }
+            ]
+          },
+          {
+            "mode": "wasm",
+            "clockDomain": "portable.stopwatch.v1",
+            "readings": [
+              {
+                "api": "now",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.47000000178813933,
+                  "p95Microseconds": 0.5299999982118606,
+                  "checksum": 1973308
+                },
+                "allocation": null
+              },
+              {
+                "api": "read",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.45,
+                  "p95Microseconds": 0.4799999982118607,
+                  "checksum": 299229
+                },
+                "allocation": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "browser": "Chrome/157.0.8103.40",
+        "results": [
+          {
+            "mode": "js",
+            "clockDomain": "portable.stopwatch.v1",
+            "readings": [
+              {
+                "api": "now",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.19000000059604644,
+                  "p95Microseconds": 0.2,
+                  "checksum": 2070104
+                },
+                "allocation": {
+                  "calls": 500000,
+                  "samplingIntervalBytes": 512,
+                  "matchingSampleEntries": 143101,
+                  "reportedBytes": 87964260,
+                  "reportedBytesPerRead": 175.92852,
+                  "checksum": 119852
+                }
+              },
+              {
+                "api": "read",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.2,
+                  "p95Microseconds": 0.22000000178813933,
+                  "checksum": 11915
+                },
+                "allocation": {
+                  "calls": 500000,
+                  "samplingIntervalBytes": 512,
+                  "matchingSampleEntries": 141372,
+                  "reportedBytes": 74016860,
+                  "reportedBytesPerRead": 148.03372,
+                  "checksum": 377250
+                }
+              }
+            ]
+          },
+          {
+            "mode": "wasm",
+            "clockDomain": "portable.stopwatch.v1",
+            "readings": [
+              {
+                "api": "now",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.45,
+                  "p95Microseconds": 0.4900000005960464,
+                  "checksum": 24548
+                },
+                "allocation": null
+              },
+              {
+                "api": "read",
+                "latency": {
+                  "count": 10000,
+                  "warmup": 100000,
+                  "batches": 25,
+                  "medianMicroseconds": 0.45,
+                  "p95Microseconds": 0.4900000005960464,
+                  "checksum": 384829
+                },
+                "allocation": null
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "open": [
+    "Representative mobile release builds",
+    "Direct native allocation profiling beyond Windows AOT GC telemetry"
+  ],
+  "standaloneWasmGc": {
+    "commit": "fe4017c134e1519db5660ea529a3c67b3baf04b8",
+    "dart": "3.13.7",
+    "node": "v24.1.0",
+    "v8": "13.6.233.10-node.16",
+    "buildCommand": "dart compile wasm -O2 -o read.wasm <fixture>",
+    "runCommand": "node --expose-gc --trace-gc-nvp <driver> <output directory> <baseline|control|now|read>",
+    "wasmSha256": "d58e74f5a53fcb0b36cc7776cf2b4c1b6ce9c52a99f9a1ccd3fa0cf2a1c6a7ca",
+    "evidenceFiles": [
+      {
+        "path": "docs/evidence/wasm-read-gc-fixture.dart.txt",
+        "sha256": "239c74c3841d191466d0705b8a15eec09c70fff5f9b3a520889ec6374a9e9ce9"
+      },
+      {
+        "path": "docs/evidence/wasm-read-gc-driver.mjs",
+        "sha256": "7ecdc49134da07fa4d432b6b52b74791c5d13580c69b1838464da4a6150536d5"
+      },
+      {
+        "path": "docs/evidence/wasm-read-gc-summary.ps1",
+        "sha256": "04988b6d3cbaab352324af3c3a14d7543c2207c917bef5f9b66f5be4c1b8b414"
+      }
+    ],
+    "method": "One fresh Node process per mode and run. Dart2Wasm fixture loads the same portable engine with two synthetic time sources. Two explicit major GCs mark each boundary. Sum V8 allocated fields after the second opening GC through the first closing GC. A no-read integer loop and a retained Dart-object allocation loop serve as controls.",
+    "limits": "Aggregate V8 managed-heap telemetry in a standalone WASM program. It includes harness and interop overhead and excludes native memory outside this isolate. Unsigned negative deltas are decoded as signed. The adjacent-row calculation differs slightly in two runs. Results are not per-object counts, browser app measurements, or physical mobile measurements.",
+    "sourceReference": "https://chromium.googlesource.com/v8/v8/+/76322a1262f8bc00687faf62bb6a00cc0ed9926f/src/heap/gc-tracer.cc",
+    "runs": [
+      {
+        "mode": "baseline",
+        "run": 1,
+        "iterations": 2000000,
+        "netHeapGrowthBytesBetweenCollections": 17824,
+        "adjacentRowGrowthBytes": 17824,
+        "mismatchedRows": 0,
+        "observedBytesPerRead": null,
+        "minorCollections": 0,
+        "checksum": "0",
+        "traceSha256": "8c2e48654d0d2a59740ccb07cbc8c2b3685b99808b4c7cc56f2c4e4a04ef99f5",
+        "markersSha256": "b28cae0bf745f9f355c1a6f8069656fa4581870a23c2733ff99955c1e1f7d543"
+      },
+      {
+        "mode": "baseline",
+        "run": 2,
+        "iterations": 2000000,
+        "netHeapGrowthBytesBetweenCollections": 20192,
+        "adjacentRowGrowthBytes": 20192,
+        "mismatchedRows": 0,
+        "observedBytesPerRead": null,
+        "minorCollections": 0,
+        "checksum": "0",
+        "traceSha256": "4049ae2115c63a505c258494d65a0cc1a84f608f7183c8d19542bbd4530ac5f5",
+        "markersSha256": "b28cae0bf745f9f355c1a6f8069656fa4581870a23c2733ff99955c1e1f7d543"
+      },
+      {
+        "mode": "baseline",
+        "run": 3,
+        "iterations": 2000000,
+        "netHeapGrowthBytesBetweenCollections": 20192,
+        "adjacentRowGrowthBytes": 20192,
+        "mismatchedRows": 0,
+        "observedBytesPerRead": null,
+        "minorCollections": 0,
+        "checksum": "0",
+        "traceSha256": "b8d59f887da7625888352e1fc976724f6c90a5b69c1836057b37cc1979e6a11d",
+        "markersSha256": "b28cae0bf745f9f355c1a6f8069656fa4581870a23c2733ff99955c1e1f7d543"
+      },
+      {
+        "mode": "control",
+        "run": 1,
+        "iterations": 100000,
+        "netHeapGrowthBytesBetweenCollections": 7202456,
+        "adjacentRowGrowthBytes": 7202456,
+        "mismatchedRows": 0,
+        "observedBytesPerRead": null,
+        "minorCollections": 3,
+        "checksum": "99999",
+        "traceSha256": "57ffbfc638b20b78fe5d95c14d8e055b8267b79b142dc1b96ed2e3ffb6a12ae7",
+        "markersSha256": "b72f0b1c3997d0fb4ef3f22349530a843fb136dd6a8a6320023f1ecdbca3a4c1"
+      },
+      {
+        "mode": "control",
+        "run": 2,
+        "iterations": 100000,
+        "netHeapGrowthBytesBetweenCollections": 7202456,
+        "adjacentRowGrowthBytes": 7202456,
+        "mismatchedRows": 0,
+        "observedBytesPerRead": null,
+        "minorCollections": 3,
+        "checksum": "99999",
+        "traceSha256": "5ef9b5fe377afa52e331ac59209534d9bea78cd617e8b6aa4f4f357382c778db",
+        "markersSha256": "b72f0b1c3997d0fb4ef3f22349530a843fb136dd6a8a6320023f1ecdbca3a4c1"
+      },
+      {
+        "mode": "control",
+        "run": 3,
+        "iterations": 100000,
+        "netHeapGrowthBytesBetweenCollections": 7202440,
+        "adjacentRowGrowthBytes": 7202440,
+        "mismatchedRows": 0,
+        "observedBytesPerRead": null,
+        "minorCollections": 3,
+        "checksum": "99999",
+        "traceSha256": "c1cc66326636f8f4633264c3c3ba5eb96cc0e65aed8b79f4a901bd42c8f37779",
+        "markersSha256": "b72f0b1c3997d0fb4ef3f22349530a843fb136dd6a8a6320023f1ecdbca3a4c1"
+      },
+      {
+        "mode": "now",
+        "run": 1,
+        "iterations": 2000000,
+        "netHeapGrowthBytesBetweenCollections": 1356134408,
+        "adjacentRowGrowthBytes": 1356134408,
+        "mismatchedRows": 0,
+        "observedBytesPerRead": 678.1,
+        "minorCollections": 685,
+        "checksum": "2053425",
+        "traceSha256": "eff02beabbb51d009e79088cff81ebb23a67c0d57fe0f5bb7bf850ea94a7fc2c",
+        "markersSha256": "762b49f2307524d5270e18117109c788d1288af2e0f7eb4cbc9cff0c1173eb50"
+      },
+      {
+        "mode": "now",
+        "run": 2,
+        "iterations": 2000000,
+        "netHeapGrowthBytesBetweenCollections": 1356611112,
+        "adjacentRowGrowthBytes": 1356611112,
+        "mismatchedRows": 0,
+        "observedBytesPerRead": 678.3,
+        "minorCollections": 711,
+        "checksum": "116200",
+        "traceSha256": "54f11f4c560210d5aacc4005bdcc07e4d02867d59e519ba3fab4889986850921",
+        "markersSha256": "8de1c224094127147e7338c0f4c712bd24456dbba77a1fd2aff4d26a7c6df58a"
+      },
+      {
+        "mode": "now",
+        "run": 3,
+        "iterations": 2000000,
+        "netHeapGrowthBytesBetweenCollections": 1356702008,
+        "adjacentRowGrowthBytes": 1356700744,
+        "mismatchedRows": 2,
+        "observedBytesPerRead": 678.4,
+        "minorCollections": 696,
+        "checksum": "1837201",
+        "traceSha256": "761d042361cb0aacb377918e0814da7d830d7e7a9f90778e201a2318af3d34dd",
+        "markersSha256": "8c3a33697053835d4afcda8a3aa1dd9e280230e920fbd47d5df1a6d8dfff24e5"
+      },
+      {
+        "mode": "read",
+        "run": 1,
+        "iterations": 2000000,
+        "netHeapGrowthBytesBetweenCollections": 1356454784,
+        "adjacentRowGrowthBytes": 1356454784,
+        "mismatchedRows": 0,
+        "observedBytesPerRead": 678.2,
+        "minorCollections": 694,
+        "checksum": "250171",
+        "traceSha256": "2f73990fff58a15d5768193f137c262f5c8c658bd7c95e0b0da6c1042b092745",
+        "markersSha256": "63969374c62a541e051eac16e36dbe3f142a31fec70fdf626553ad9bbe8ac7fe"
+      },
+      {
+        "mode": "read",
+        "run": 2,
+        "iterations": 2000000,
+        "netHeapGrowthBytesBetweenCollections": 1356865128,
+        "adjacentRowGrowthBytes": 1356865128,
+        "mismatchedRows": 0,
+        "observedBytesPerRead": 678.4,
+        "minorCollections": 686,
+        "checksum": "1763948",
+        "traceSha256": "058e8f9f8e2f4c9f3347631f7d6a1d5dcfeb075add7d95d632e74ec11ef1c059",
+        "markersSha256": "ce758d9608d94dee24138a6c8f301ab627861a326eb6101211548c3f8818c326"
+      },
+      {
+        "mode": "read",
+        "run": 3,
+        "iterations": 2000000,
+        "netHeapGrowthBytesBetweenCollections": 1356618584,
+        "adjacentRowGrowthBytes": 1356618304,
+        "mismatchedRows": 1,
+        "observedBytesPerRead": 678.3,
+        "minorCollections": 708,
+        "checksum": "2051688",
+        "traceSha256": "c9bda3d93b751ed72a4d1cbf9c732b8317a55a5452d0f9b63139630431928b8f",
+        "markersSha256": "838ca7e0c2c7d0cfdd867715d0288b20c0d6dde37fbd391ccea9db2a4e8d6b6b"
+      }
+    ]
+  },
+  "browserWasmSampling": {
+    "commit": "fe4017c134e1519db5660ea529a3c67b3baf04b8",
+    "wasmSha256": "d58e74f5a53fcb0b36cc7776cf2b4c1b6ce9c52a99f9a1ccd3fa0cf2a1c6a7ca",
+    "command": "node <driver> <directory containing read.wasm and read.mjs from dart compile wasm -O2>",
+    "method": "Three fresh headless Chrome profiles each load the compiled WASM fixture. V8 HeapProfiler sampling includes allocations collected by minor and major GC. Sum exclusive selfSize estimates across all nodes in the target isolate. Run a no-read loop and a retained Dart object allocation control separately.",
+    "limits": "Scaled managed-heap sample estimates in one desktop Chrome configuration. The sampling call stack does not guarantee WASM frame attribution. Values include runtime and interop overhead and cannot give exact byte or object counts. Node GC telemetry used a different V8 build and a different measurement method.",
+    "evidenceFiles": [
+      {
+        "path": "docs/evidence/wasm-read-gc-fixture.dart.txt",
+        "sha256": "239c74c3841d191466d0705b8a15eec09c70fff5f9b3a520889ec6374a9e9ce9"
+      },
+      {
+        "path": "docs/evidence/browser-wasm-sampling.mjs",
+        "sha256": "28de88825f061eafca75691cc4147fbbe1568de74d97ab17deada9a72dc8e9fe"
+      }
+    ],
+    "sourceReferences": [
+      "https://chromium.googlesource.com/v8/v8/+/refs/heads/main/src/inspector/v8-heap-profiler-agent-impl.cc",
+      "https://chromium.googlesource.com/v8/v8/+/b851bcaf94e932f68d83d51b5f58216dd767bdc9/src/profiler/sampling-heap-profiler.cc"
+    ],
+    "runs": [
+      {
+        "browser": "Chrome/157.0.8103.40",
+        "v8": "15.7.112.23",
+        "clockDomain": "portable.stopwatch.v1",
+        "samplingIntervalBytes": 8192,
+        "measurements": [
+          {
+            "mode": "baseline",
+            "calls": 500000,
+            "checksum": 0,
+            "scaledProfileBytes": 0,
+            "rawSampleEntries": 0,
+            "beforeGcHeapUsed": 577844,
+            "afterGcHeapUsed": 578016,
+            "topFrames": []
+          },
+          {
+            "mode": "now",
+            "calls": 500000,
+            "checksum": 56140,
+            "scaledProfileBytes": 199208276,
+            "rawSampleEntries": 24281,
+            "beforeGcHeapUsed": 579908,
+            "afterGcHeapUsed": 580832,
+            "topFrames": [
+              {
+                "functionName": "js-to-wasm:rinn:n",
+                "url": "http://127.0.0.1:64151/read.wasm",
+                "selfSize": 194502620
+              },
+              {
+                "functionName": "V",
+                "url": "http://127.0.0.1:64151/read.mjs",
+                "selfSize": 4705656
+              }
+            ],
+            "aggregateSampleEstimateBytesPerCall": 398.4
+          },
+          {
+            "mode": "read",
+            "calls": 500000,
+            "checksum": 903190,
+            "scaledProfileBytes": 197550792,
+            "rawSampleEntries": 24079,
+            "beforeGcHeapUsed": 580860,
+            "afterGcHeapUsed": 580860,
+            "topFrames": [
+              {
+                "functionName": "js-to-wasm:rinn:n",
+                "url": "http://127.0.0.1:64151/read.wasm",
+                "selfSize": 192664788
+              },
+              {
+                "functionName": "V",
+                "url": "http://127.0.0.1:64151/read.mjs",
+                "selfSize": 4886004
+              }
+            ],
+            "aggregateSampleEstimateBytesPerCall": 395.1
+          },
+          {
+            "mode": "control",
+            "calls": 100000,
+            "checksum": 99999,
+            "scaledProfileBytes": 4781556,
+            "rawSampleEntries": 535,
+            "beforeGcHeapUsed": 580860,
+            "afterGcHeapUsed": 3381204,
+            "topFrames": [
+              {
+                "functionName": "js-to-wasm:rin:n",
+                "url": "http://127.0.0.1:64151/read.wasm",
+                "selfSize": 4772220
+              },
+              {
+                "functionName": "(V8 API)",
+                "url": "",
+                "selfSize": 9336
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "browser": "Chrome/157.0.8103.40",
+        "v8": "15.7.112.23",
+        "clockDomain": "portable.stopwatch.v1",
+        "samplingIntervalBytes": 8192,
+        "measurements": [
+          {
+            "mode": "baseline",
+            "calls": 500000,
+            "checksum": 0,
+            "scaledProfileBytes": 9336,
+            "rawSampleEntries": 1,
+            "beforeGcHeapUsed": 577832,
+            "afterGcHeapUsed": 578004,
+            "topFrames": [
+              {
+                "functionName": "(V8 API)",
+                "url": "",
+                "selfSize": 9336
+              }
+            ]
+          },
+          {
+            "mode": "now",
+            "calls": 500000,
+            "checksum": 121264,
+            "scaledProfileBytes": 197378680,
+            "rawSampleEntries": 24058,
+            "beforeGcHeapUsed": 579768,
+            "afterGcHeapUsed": 580692,
+            "topFrames": [
+              {
+                "functionName": "js-to-wasm:rinn:n",
+                "url": "http://127.0.0.1:64175/read.wasm",
+                "selfSize": 192533640
+              },
+              {
+                "functionName": "V",
+                "url": "http://127.0.0.1:64175/read.mjs",
+                "selfSize": 4836816
+              },
+              {
+                "functionName": "(V8 API)",
+                "url": "",
+                "selfSize": 8224
+              }
+            ],
+            "aggregateSampleEstimateBytesPerCall": 394.8
+          },
+          {
+            "mode": "read",
+            "calls": 500000,
+            "checksum": 83517,
+            "scaledProfileBytes": 197106548,
+            "rawSampleEntries": 24025,
+            "beforeGcHeapUsed": 580720,
+            "afterGcHeapUsed": 580720,
+            "topFrames": [
+              {
+                "functionName": "js-to-wasm:rinn:n",
+                "url": "http://127.0.0.1:64175/read.wasm",
+                "selfSize": 192581252
+              },
+              {
+                "functionName": "V",
+                "url": "http://127.0.0.1:64175/read.mjs",
+                "selfSize": 4525296
+              }
+            ],
+            "aggregateSampleEstimateBytesPerCall": 394.2
+          },
+          {
+            "mode": "control",
+            "calls": 100000,
+            "checksum": 99999,
+            "scaledProfileBytes": 4591792,
+            "rawSampleEntries": 512,
+            "beforeGcHeapUsed": 580720,
+            "afterGcHeapUsed": 3381064,
+            "topFrames": [
+              {
+                "functionName": "js-to-wasm:rin:n",
+                "url": "http://127.0.0.1:64175/read.wasm",
+                "selfSize": 4591792
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "browser": "Chrome/157.0.8103.40",
+        "v8": "15.7.112.23",
+        "clockDomain": "portable.stopwatch.v1",
+        "samplingIntervalBytes": 8192,
+        "measurements": [
+          {
+            "mode": "baseline",
+            "calls": 500000,
+            "checksum": 0,
+            "scaledProfileBytes": 0,
+            "rawSampleEntries": 0,
+            "beforeGcHeapUsed": 642344,
+            "afterGcHeapUsed": 642516,
+            "topFrames": []
+          },
+          {
+            "mode": "now",
+            "calls": 500000,
+            "checksum": 287772,
+            "scaledProfileBytes": 198241240,
+            "rawSampleEntries": 24163,
+            "beforeGcHeapUsed": 644280,
+            "afterGcHeapUsed": 645204,
+            "topFrames": [
+              {
+                "functionName": "js-to-wasm:rinn:n",
+                "url": "http://127.0.0.1:64202/read.wasm",
+                "selfSize": 193886968
+              },
+              {
+                "functionName": "V",
+                "url": "http://127.0.0.1:64202/read.mjs",
+                "selfSize": 4344936
+              },
+              {
+                "functionName": "(V8 API)",
+                "url": "",
+                "selfSize": 9336
+              }
+            ],
+            "aggregateSampleEstimateBytesPerCall": 396.5
+          },
+          {
+            "mode": "read",
+            "calls": 500000,
+            "checksum": 28114,
+            "scaledProfileBytes": 192356104,
+            "rawSampleEntries": 23446,
+            "beforeGcHeapUsed": 645232,
+            "afterGcHeapUsed": 645232,
+            "topFrames": [
+              {
+                "functionName": "js-to-wasm:rinn:n",
+                "url": "http://127.0.0.1:64202/read.wasm",
+                "selfSize": 187740628
+              },
+              {
+                "functionName": "V",
+                "url": "http://127.0.0.1:64202/read.mjs",
+                "selfSize": 4615476
+              }
+            ],
+            "aggregateSampleEstimateBytesPerCall": 384.7
+          },
+          {
+            "mode": "control",
+            "calls": 100000,
+            "checksum": 99999,
+            "scaledProfileBytes": 4854316,
+            "rawSampleEntries": 544,
+            "beforeGcHeapUsed": 645232,
+            "afterGcHeapUsed": 3445576,
+            "topFrames": [
+              {
+                "functionName": "js-to-wasm:rin:n",
+                "url": "http://127.0.0.1:64202/read.wasm",
+                "selfSize": 4854316
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "windowsFlutterAotProfile": {
+    "flutter": "3.47.9",
+    "dart": "3.13.7",
+    "mode": "Windows x64 Flutter AOT profile with the headless desktop embedder",
+    "clockAdapter": "Windows default monotonic adapter (QPC)",
+    "aotSha256": "152f4a356176f0862df76b037fe7a6be2ae0a384d4abb1dee3b9c88c6816d340",
+    "engineSha256": "062bc2428d2bc018413d799a09b6c661be7a4dea63dac7bbe4ffa4a96d4b9e5d",
+    "method": "Warm up 2,000 calls per case, request GC, reset the VM service class allocation profile, run the measured batch, then subtract the initial class counters from the final counters. Compare the no-read baseline with now(), read(), and a retained-object control. The short run repeated 100, 200 and 400 calls twice. The earlier long run used 1,000, 3,000 and 5,000 calls.",
+    "result": "Both 100-call paths in the first short series showed 99 ClockSnapshot and 198 Duration allocations. The 400-call retained-object control in that series showed 400 marker instances and 6,400 marker bytes. Other batches showed counter discontinuities, including negative deltas and retained-marker undercounts.",
+    "limits": "Class deltas are direct managed-heap observations under instrumentation. Counter discontinuities make aggregate allocations per call unreliable. Native allocations, product-mode allocations and representative mobile measurements remain unverified.",
+    "evidenceFiles": [
+      {
+        "path": "docs/evidence/windows-profile-read-fixture.dart.txt",
+        "sha256": "8e216bc730c2ad82d7583827505eb9bb5afc9e936ca1e6663e9729b700a73837"
+      },
+      {
+        "path": "docs/evidence/windows-profile-read-host.dart.txt",
+        "sha256": "86ca9831c20bc9e4e79c7824a73a595945d4af1ded5434397ac895788033ac3f"
+      },
+      {
+        "path": "docs/evidence/windows-profile-read-client.dart.txt",
+        "sha256": "c7beac4ff3ae14d3c5c409644ea6624ce24ffea814ad9995f7376cfc2efbb5ac"
+      },
+      {
+        "path": "docs/evidence/windows-profile-read-short.json",
+        "sha256": "10b39a0422f0a8414b23b830288efe26c3b7fc23e652b74b0485940ff51038c4"
+      },
+      {
+        "path": "docs/evidence/windows-profile-read-long.json",
+        "sha256": "83375d6bfbc1d670b9c485cd8c51d1107e8f034c60a3d878950416b666ec5778"
+      }
+    ]
+  }
+}

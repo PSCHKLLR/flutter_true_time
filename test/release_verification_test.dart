@@ -75,6 +75,20 @@ void main() {
     };
   }
 
+  test('only physical lifecycle can be waived for the first prerelease', () {
+    final manifest = readyManifest()..['version'] = '0.1.0-dev.1';
+    final gates = manifest['gates'] as Map;
+    gates['physical_lifecycle'] = {'status': 'waived'};
+    expect(checkRelease(root, manifest), isEmpty);
+    gates['persistence_native'] = {'status': 'waived'};
+    expect(checkRelease(root, manifest), ['Pending gate: persistence_native']);
+    manifest['version'] = '0.1.0';
+    expect(checkRelease(root, manifest), [
+      'Pending gate: physical_lifecycle',
+      'Pending gate: persistence_native',
+    ]);
+  });
+
   test('tracked LF/CRLF checkouts produce identical digests', () {
     final before = sourceDigest(snapshot());
     put('lib/clock.dart', utf8.encode('const time = 1;\r\n'));

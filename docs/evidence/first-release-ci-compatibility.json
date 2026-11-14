@@ -1,0 +1,368 @@
+{
+  "run": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43212797316",
+  "commit": "22507ec541580c2a66571d3690f2645e5d61f699",
+  "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+  "jobs": [
+    {
+      "job": "core (macos-latest, 3.41.0)",
+      "url": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43212797316/job/131164401790",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Resolve independently and record toolchain",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dart run tool/source_digest.dart > source-fingerprint.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter analyze",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test test test_flutter --no-pub --coverage",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v7.0.2",
+          "conclusion": "success"
+        }
+      ],
+      "artifactError": "Source mismatch: 53ba68ef5104628fada8a812befb336c4e6ecdf77269aabb500c4310f9763378",
+      "artifact": {
+        "id": 13942965293,
+        "name": "core-macos-latest-3.41.0",
+        "sha256": "ce68975d5639f49d75a4e3f399c331745454835cb05a8ba973fa7f1c87fec94a",
+        "sourceDigest": "53ba68ef5104628fada8a812befb336c4e6ecdf77269aabb500c4310f9763378",
+        "flutter": "3.41.0",
+        "dart": "3.11.0"
+      }
+    },
+    {
+      "job": "core (macos-latest, 3.47.9)",
+      "url": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43212797316/job/131164401882",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Resolve independently and record toolchain",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dart run tool/source_digest.dart > source-fingerprint.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter analyze",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test test test_flutter --no-pub --coverage",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v7.0.2",
+          "conclusion": "success"
+        }
+      ],
+      "artifact": {
+        "id": 13941094501,
+        "name": "core-macos-latest-3.47.9",
+        "sha256": "84c009af222523d466b6070b2ea25235862f04c737752993590ec131183538b2",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+        "flutter": "3.47.9",
+        "dart": "3.13.7"
+      }
+    },
+    {
+      "job": "core (ubuntu-24.04, 3.41.0)",
+      "url": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43212797316/job/131164401958",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Resolve independently and record toolchain",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dart run tool/source_digest.dart > source-fingerprint.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter analyze",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test test test_flutter --no-pub --coverage",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v7.0.2",
+          "conclusion": "success"
+        }
+      ],
+      "artifact": {
+        "id": 13942900316,
+        "name": "core-ubuntu-24.04-3.41.0",
+        "sha256": "9092f5922053e91d2fa057c2a4348a2063b4091595ee5d6a2c0f35857339da8a",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+        "flutter": "3.41.0",
+        "dart": "3.11.0"
+      }
+    },
+    {
+      "job": "core (ubuntu-24.04, 3.47.9)",
+      "url": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43212797316/job/131164401856",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Resolve independently and record toolchain",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dart run tool/source_digest.dart > source-fingerprint.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter analyze",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test test test_flutter --no-pub --coverage",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v7.0.2",
+          "conclusion": "success"
+        }
+      ],
+      "artifact": {
+        "id": 13942725543,
+        "name": "core-ubuntu-24.04-3.47.9",
+        "sha256": "b2cd70290b4fc457119cf7632d9013620082d17bf6ec6c838f9121402f2eae73",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+        "flutter": "3.47.9",
+        "dart": "3.13.7"
+      }
+    },
+    {
+      "job": "core (windows-latest, 3.41.0)",
+      "url": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43212797316/job/131164401627",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Resolve independently and record toolchain",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dart run tool/source_digest.dart > source-fingerprint.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter analyze",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test test test_flutter --no-pub --coverage",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v7.0.2",
+          "conclusion": "success"
+        }
+      ],
+      "artifact": {
+        "id": 13941638301,
+        "name": "core-windows-latest-3.41.0",
+        "sha256": "d9c64cfcc6cc1ad878464992aa24bbc1eee96746a6602554e45f6e36d5b377cb",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+        "flutter": "3.41.0",
+        "dart": "3.11.0"
+      }
+    },
+    {
+      "job": "core (windows-latest, 3.47.9)",
+      "url": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43212797316/job/131164401599",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Resolve independently and record toolchain",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run dart run tool/source_digest.dart > source-fingerprint.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter analyze",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test test test_flutter --no-pub --coverage",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter test",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v7.0.2",
+          "conclusion": "success"
+        }
+      ],
+      "artifact": {
+        "id": 13942307258,
+        "name": "core-windows-latest-3.47.9",
+        "sha256": "7ec85c42cb062af8175c320d181223599dbadae41b6bca68713dd2f92f7f6d0c",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+        "flutter": "3.47.9",
+        "dart": "3.13.7"
+      }
+    },
+    {
+      "job": "desktop (ubuntu-24.04, linux, 3.41.0)",
+      "url": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43212797316/job/131164401951",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Run dart run tool/source_digest.dart > source-fingerprint.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter build linux --release",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v7.0.2",
+          "conclusion": "success"
+        }
+      ],
+      "artifact": {
+        "id": 13942481861,
+        "name": "desktop-linux-3.41.0",
+        "sha256": "2705f545ca6d9c9ac8d35d3a05acff43cacb7023eb6781d727fbbf27919d6e92",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+        "flutter": "3.41.0",
+        "dart": "3.11.0"
+      }
+    },
+    {
+      "job": "desktop (ubuntu-24.04, linux, 3.47.9)",
+      "url": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43212797316/job/131164401618",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Run dart run tool/source_digest.dart > source-fingerprint.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter build linux --release",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v7.0.2",
+          "conclusion": "success"
+        }
+      ],
+      "artifact": {
+        "id": 13942725592,
+        "name": "desktop-linux-3.47.9",
+        "sha256": "cc2a4b0737ff5324c78423719dc34e196750337f33c6e3322c2b15aaa7821d3e",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+        "flutter": "3.47.9",
+        "dart": "3.13.7"
+      }
+    },
+    {
+      "job": "desktop (windows-latest, windows, 3.41.0)",
+      "url": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43212797316/job/131164401771",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Run dart run tool/source_digest.dart > source-fingerprint.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter build windows --release",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v7.0.2",
+          "conclusion": "success"
+        }
+      ],
+      "artifact": {
+        "id": 13942497186,
+        "name": "desktop-windows-3.41.0",
+        "sha256": "47e1cb6a88f36aafa0a44bd4476600748d347b8d21c7c53e723228d15fd04694",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+        "flutter": "3.41.0",
+        "dart": "3.11.0"
+      }
+    },
+    {
+      "job": "desktop (windows-latest, windows, 3.47.9)",
+      "url": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43212797316/job/131164401716",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Run dart run tool/source_digest.dart > source-fingerprint.json",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run flutter build windows --release",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v7.0.2",
+          "conclusion": "success"
+        }
+      ],
+      "artifact": {
+        "id": 13942442286,
+        "name": "desktop-windows-3.47.9",
+        "sha256": "b81642da87dd79d96f557a7e3a602f4d2ca09c28e27e929b582a45a14d228264",
+        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246",
+        "flutter": "3.47.9",
+        "dart": "3.13.7"
+      }
+    }
+  ],
+  "date": "2026-11-12",
+  "method": "Reviewed GitHub job conclusions and checked artifact ZIP bytes against GitHub API SHA-256 digests. Verified pinned toolchains and source fingerprint JSON, allowing known tool progress prefixes before JSON.",
+  "minimumMacosFingerprintDifferences": [
+    "example/ios/Flutter/Debug.xcconfig",
+    "example/ios/Flutter/Release.xcconfig",
+    "example/ios/Podfile",
+    "example/macos/Flutter/Flutter-Debug.xcconfig",
+    "example/macos/Flutter/Flutter-Release.xcconfig",
+    "example/macos/Podfile"
+  ],
+  "workflowConclusion": "failure",
+  "otherFailedJob": {
+    "job": "android (3.47.9, current)",
+    "url": "https://github.com/PSCHKLLR/flutter_true_time/actions/runs/43212797316/job/131164401671",
+    "failedStep": "Run flutter build apk --release",
+    "observedCause": "sdkmanager rejected the downloaded NDK 28.2.13676358 ZIP as an unknown archive during project configuration",
+    "appBundle": "skipped"
+  }
+}

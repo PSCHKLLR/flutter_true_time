@@ -1,0 +1,58 @@
+import 'dart:async';
+import 'dart:convert';
+import 'dart:js_interop';
+
+import 'package:flutter_true_time/flutter_true_time.dart';
+import 'package:flutter_true_time_example/main.dart' as example;
+
+@JS('globalThis.timeQualificationStatus')
+external set _status(JSFunction value);
+
+@JS('globalThis.timeQualificationProbe')
+external set _probe(JSFunction value);
+
+void main() {
+  _status = (() {
+    try {
+      final status = TrustedTime.status;
+      final reading = TrustedTime.estimate();
+      return jsonEncode({
+        'availability': status.availability.name,
+        'syncing': status.syncInProgress,
+        'error': status.lastError?.code,
+        'utc': reading?.utc.toIso8601String(),
+        'groups': reading?.providerGroups,
+        'restored': reading?.restoredFromStorage,
+      }).toJS;
+    } on TrustedTimeException catch (error) {
+      return jsonEncode({'error': error.code}).toJS;
+    }
+  }).toJS;
+  _probe = ((JSString url, JSNumber cancelMs) =>
+      _query(url.toDart, cancelMs.toDartInt).toJS).toJS;
+  example.main();
+}
+
+Future<JSString> _query(String url, int cancelMs) async {
+  final signal = CancellationSignal();
+  final timer = cancelMs > 0
+      ? Timer(Duration(milliseconds: cancelMs), () => signal.cancel('fixture'))
+      : null;
+  final elapsed = Stopwatch()..start();
+  Map<String, Object?> result;
+  try {
+    await HttpsDateSource(Uri.parse(url), providerGroup: 'probe').query(
+      StopwatchClock(),
+      const Duration(seconds: 5),
+      cancellation: signal,
+    );
+    result = {'accepted': true};
+  } on TrustedTimeException catch (error) {
+    result = {'accepted': false, 'code': error.code};
+  } catch (error) {
+    result = {'accepted': false, 'code': error.runtimeType.toString()};
+  } finally {
+    timer?.cancel();
+  }
+  return jsonEncode({...result, 'elapsedMs': elapsed.elapsedMilliseconds}).toJS;
+}

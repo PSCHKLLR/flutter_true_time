@@ -35,6 +35,10 @@ void main(List<String> args) {
       gate.remove('evidence');
       gate.remove('sha256');
       gate.remove('sourceDigest');
+      if (name == 'physical_lifecycle' && gate['status'] == 'waived') {
+        gates[name] = gate;
+        continue;
+      }
       if (gate['status'] != 'blocked') gate['status'] = 'pending';
       gate['note'] = 'Source changed; fresh qualification evidence required.';
       gates[name] = gate;

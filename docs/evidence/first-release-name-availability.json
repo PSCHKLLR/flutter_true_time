@@ -1,0 +1,8 @@
+{
+  "date": "2026-11-14",
+  "sourceCommit": "c6178e946e308098f8134fbf59fe45c5b51435ec",
+  "sourceDigest": "e023d652ff6c1b62d240b784ab2b8c38b173306c7d96df11f01dafef5440d1f2",
+  "registryEndpoint": "https://pub.dev/api/packages/flutter_true_time",
+  "httpStatus": 404,
+  "observation": "The registry returned no package at this name. Recheck before publication."
+}

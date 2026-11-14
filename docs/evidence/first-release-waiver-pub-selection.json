@@ -1,0 +1,10 @@
+{
+  "sourceCommit": "85ba60bcf2c7892ded54306e95a3767e61a95723",
+  "sourceDigest": "e023d652ff6c1b62d240b784ab2b8c38b173306c7d96df11f01dafef5440d1f2",
+  "manifestSha256": "4d4331a61cf7a4fc20c228846af5f97c3f1eb592f39814695c5c7c56c21e982c",
+  "dartVersion": "3.13.7",
+  "selectedFileCount": 165,
+  "guardedSelectedDigest": "f0553f24e299cba83275bbf27840dc01779afaab026e3bfcc9e5f85043db754e",
+  "dryRunWarnings": 0,
+  "matchesPriorGuardedConsumerInputs": true
+}
