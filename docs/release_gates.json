@@ -2,7 +2,7 @@
   "schema": 2,
   "version": "0.1.0-dev.1",
   "developmentInputs": false,
-  "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
+  "sourceDigest": "e023d652ff6c1b62d240b784ab2b8c38b173306c7d96df11f01dafef5440d1f2",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -650,7 +650,7 @@
     },
     "test/release_verification_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "cb5325b02e8cf1f352fdf5376eca7a4e1b48004bd39ae0da71402859d72e9512"
+      "sha256": "249ea4c8a5ebb1f27d655a07d92829d6bb688033215b215707f6aaa6d668aeae"
     },
     "test/sources_test.dart": {
       "mode": "utf8-lf",
@@ -674,7 +674,7 @@
     },
     "tool/release_support.dart": {
       "mode": "utf8-lf",
-      "sha256": "397844b8ad9f0ff4ac8d860bbe995f6dcbcd0fa616aaeabcbb1434562b47241f"
+      "sha256": "82dd81d3e3069efc920369d537264ec6acc64950e483de8a4e1ea45cc92d5c2b"
     },
     "tool/source_digest.dart": {
       "mode": "utf8-lf",
@@ -682,7 +682,7 @@
     },
     "tool/update_release_manifest.dart": {
       "mode": "utf8-lf",
-      "sha256": "d87681b68a1cfb51bc7906c74f555747aad75d84ac8f6f1f04766b829f630f65"
+      "sha256": "d4ba714bff56b99f8fdabe60f42576d8eb9262d38a51d140ee28d0434a575947"
     },
     "tool/web_smoke.dart": {
       "mode": "utf8-lf",
@@ -691,64 +691,49 @@
   },
   "gates": {
     "minimum_sdk": {
-      "status": "passed",
-      "note": "Flutter 3.41.0 passed formatting, analysis, core and facade tests, and the example suite on Windows, Linux, and macOS in run 43236480244.",
+      "status": "pending",
+      "note": "Source changed; fresh qualification evidence required.",
       "historicalEvidence": {
-        "evidence": "docs/evidence/first-release-ci-compatibility.json",
-        "sha256": "ed47df7d0bc2e0b922cf26a00def59cc7318392d11ed4c327ca0af692dda0f87",
-        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
-      },
-      "evidence": "docs/evidence/first-release-current-hosted-compatibility.json",
-      "sha256": "a8670ada3a6483184e1cbebbc7a8f633d89b94c5b094c0dd378d0c02fbc07dda",
-      "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
+        "evidence": "docs/evidence/first-release-current-hosted-compatibility.json",
+        "sha256": "a8670ada3a6483184e1cbebbc7a8f633d89b94c5b094c0dd378d0c02fbc07dda",
+        "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
+      }
     },
     "current_sdk": {
-      "status": "passed",
-      "note": "Flutter 3.47.9 passed formatting, analysis, core and facade tests, and the example suite on Windows, Linux, and macOS in run 43236480244.",
+      "status": "pending",
+      "note": "Source changed; fresh qualification evidence required.",
       "historicalEvidence": {
-        "evidence": "docs/evidence/first-release-ci-compatibility.json",
-        "sha256": "ed47df7d0bc2e0b922cf26a00def59cc7318392d11ed4c327ca0af692dda0f87",
-        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
-      },
-      "evidence": "docs/evidence/first-release-current-hosted-compatibility.json",
-      "sha256": "a8670ada3a6483184e1cbebbc7a8f633d89b94c5b094c0dd378d0c02fbc07dda",
-      "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
+        "evidence": "docs/evidence/first-release-current-hosted-compatibility.json",
+        "sha256": "a8670ada3a6483184e1cbebbc7a8f633d89b94c5b094c0dd378d0c02fbc07dda",
+        "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
+      }
     },
     "android_baseline": {
-      "status": "passed",
-      "note": "Windows APK and AAB passed against the revised fingerprint with pinned JDK 17 and verified Gradle toolchain and artifact hashes. The revised Linux workflow awaits a hosted run.",
+      "status": "pending",
+      "note": "Source changed; fresh qualification evidence required.",
       "historicalEvidence": {
-        "evidence": "docs/evidence/first-release-qualification.json",
-        "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
-        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
-      },
-      "evidence": "docs/evidence/first-release-android-workflow-rebuilds.json",
-      "sha256": "e857130f743272c16537dbce599ae8b8f39550fb1b84cb207c9057f20f94b363",
-      "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
+        "evidence": "docs/evidence/first-release-android-workflow-rebuilds.json",
+        "sha256": "e857130f743272c16537dbce599ae8b8f39550fb1b84cb207c9057f20f94b363",
+        "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
+      }
     },
     "android_current": {
-      "status": "passed",
-      "note": "Windows APK and AAB passed against the revised fingerprint with pinned JDK 17 and verified Gradle toolchain and artifact hashes. The revised Linux workflow awaits a hosted run.",
+      "status": "pending",
+      "note": "Source changed; fresh qualification evidence required.",
       "historicalEvidence": {
-        "evidence": "docs/evidence/first-release-qualification.json",
-        "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
-        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
-      },
-      "evidence": "docs/evidence/first-release-android-workflow-rebuilds.json",
-      "sha256": "e857130f743272c16537dbce599ae8b8f39550fb1b84cb207c9057f20f94b363",
-      "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
+        "evidence": "docs/evidence/first-release-android-workflow-rebuilds.json",
+        "sha256": "e857130f743272c16537dbce599ae8b8f39550fb1b84cb207c9057f20f94b363",
+        "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
+      }
     },
     "android_builtin_kotlin": {
-      "status": "passed",
-      "note": "Windows APK and AAB passed against the revised fingerprint with pinned JDK 17 and verified Gradle toolchain and artifact hashes. The revised Linux workflow awaits a hosted run.",
+      "status": "pending",
+      "note": "Source changed; fresh qualification evidence required.",
       "historicalEvidence": {
-        "evidence": "docs/evidence/first-release-qualification.json",
-        "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
-        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
-      },
-      "evidence": "docs/evidence/first-release-android-workflow-rebuilds.json",
-      "sha256": "e857130f743272c16537dbce599ae8b8f39550fb1b84cb207c9057f20f94b363",
-      "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
+        "evidence": "docs/evidence/first-release-android-workflow-rebuilds.json",
+        "sha256": "e857130f743272c16537dbce599ae8b8f39550fb1b84cb207c9057f20f94b363",
+        "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
+      }
     },
     "apple_xcode": {
       "status": "blocked",
@@ -760,44 +745,35 @@
       }
     },
     "windows_release": {
-      "status": "passed",
-      "note": "Windows release builds passed on both pinned Flutter SDKs in run 43236480244.",
+      "status": "pending",
+      "note": "Source changed; fresh qualification evidence required.",
       "historicalEvidence": {
-        "evidence": "docs/evidence/first-release-ci-compatibility.json",
-        "sha256": "ed47df7d0bc2e0b922cf26a00def59cc7318392d11ed4c327ca0af692dda0f87",
-        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
-      },
-      "evidence": "docs/evidence/first-release-current-hosted-compatibility.json",
-      "sha256": "a8670ada3a6483184e1cbebbc7a8f633d89b94c5b094c0dd378d0c02fbc07dda",
-      "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
+        "evidence": "docs/evidence/first-release-current-hosted-compatibility.json",
+        "sha256": "a8670ada3a6483184e1cbebbc7a8f633d89b94c5b094c0dd378d0c02fbc07dda",
+        "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
+      }
     },
     "linux_release": {
-      "status": "passed",
-      "note": "Linux release builds passed on both pinned Flutter SDKs in run 43236480244.",
+      "status": "pending",
+      "note": "Source changed; fresh qualification evidence required.",
       "historicalEvidence": {
-        "evidence": "docs/evidence/first-release-ci-compatibility.json",
-        "sha256": "ed47df7d0bc2e0b922cf26a00def59cc7318392d11ed4c327ca0af692dda0f87",
-        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
-      },
-      "evidence": "docs/evidence/first-release-current-hosted-compatibility.json",
-      "sha256": "a8670ada3a6483184e1cbebbc7a8f633d89b94c5b094c0dd378d0c02fbc07dda",
-      "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
+        "evidence": "docs/evidence/first-release-current-hosted-compatibility.json",
+        "sha256": "a8670ada3a6483184e1cbebbc7a8f633d89b94c5b094c0dd378d0c02fbc07dda",
+        "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
+      }
     },
     "web_js_wasm_browser": {
-      "status": "passed",
-      "note": "Both pinned Flutter SDKs passed live HTTPS/CORS qualification in Chrome JS and WASM. The browser rejected cache, CORS and redirect controls, aborted a delayed fetch, and left an existing stored anchor unavailable after offline reload.",
+      "status": "pending",
+      "note": "Source changed; fresh qualification evidence required.",
       "historicalEvidence": {
-        "evidence": "docs/evidence/first-release-browser-startup.json",
-        "sha256": "1e8ba13be0a7fa162cd9532bbf3d86a9ff60f24f436c46fe1b1beb8b3082b523",
-        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
-      },
-      "evidence": "docs/evidence/first-release-web-live.json",
-      "sha256": "faccde24058dc9d7284ca96ebcacb88f92a0afc7b9eebbe78c20c71655bf9137",
-      "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
+        "evidence": "docs/evidence/first-release-web-live.json",
+        "sha256": "faccde24058dc9d7284ca96ebcacb88f92a0afc7b9eebbe78c20c71655bf9137",
+        "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
+      }
     },
     "physical_lifecycle": {
-      "status": "blocked",
-      "note": "Source changed; fresh qualification evidence required.",
+      "status": "waived",
+      "note": "Physical hardware testing is deferred at the owner's direction for 0.1.0-dev.1.",
       "historicalEvidence": {
         "evidence": "docs/evidence/first-release-qualification.json",
         "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
@@ -823,16 +799,13 @@
       }
     },
     "provenance_dependencies": {
-      "status": "partial",
-      "note": "Verified Dart notice hashes against local and hosted lockfiles. Inventoried Android build archives, pinned Windows SDK binaries and notices, and cached native plugin build declarations. Final desktop and Apple archive inspection, redistribution obligations, and human clearance remain open.",
+      "status": "pending",
+      "note": "Source changed; fresh qualification evidence required.",
       "historicalEvidence": {
-        "evidence": "docs/evidence/first-release-qualification.json",
-        "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
-        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
-      },
-      "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618",
-      "evidence": "docs/evidence/first-release-native-provenance.json",
-      "sha256": "5a3cbedc3ebc417bfb79d9500061eb5498458908ce2e23c0714b26c7e9667a0e"
+        "evidence": "docs/evidence/first-release-native-provenance.json",
+        "sha256": "5a3cbedc3ebc417bfb79d9500061eb5498458908ce2e23c0714b26c7e9667a0e",
+        "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
+      }
     },
     "owned_repository_security": {
       "status": "blocked",
@@ -844,16 +817,13 @@
       }
     },
     "name_availability": {
-      "status": "passed",
-      "note": "The public registry returned HTTP 404 on 12 November 2026. Recheck the name before publication.",
+      "status": "pending",
+      "note": "Source changed; fresh qualification evidence required.",
       "historicalEvidence": {
-        "evidence": "docs/evidence/first-release-qualification.json",
-        "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
-        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
-      },
-      "evidence": "docs/evidence/first-release-ci-workflow-validation.json",
-      "sha256": "d15fa395c030c0eaaa1fb869b52c9a9b83b2681bd7cbe15fc91041a23f054515",
-      "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
+        "evidence": "docs/evidence/first-release-ci-workflow-validation.json",
+        "sha256": "d15fa395c030c0eaaa1fb869b52c9a9b83b2681bd7cbe15fc91041a23f054515",
+        "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
+      }
     },
     "archive_consumer": {
       "status": "blocked",
@@ -864,16 +834,13 @@
       "note": "Source changed; fresh qualification evidence required."
     },
     "read_performance": {
-      "status": "partial",
-      "note": "Windows AOT and browser latency and allocation observations are recorded. Flutter AOT profile counters identify managed allocations but do not establish stable totals. Representative release-build allocation and mobile measurements remain open.",
+      "status": "pending",
+      "note": "Source changed; fresh qualification evidence required.",
       "historicalEvidence": {
-        "evidence": "docs/evidence/first-release-qualification.json",
-        "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
-        "sourceDigest": "ef242f7236cb364bbe5c6967228a1ea898776e3639ef46d272f6215f8c988246"
-      },
-      "evidence": "docs/evidence/first-release-read-performance.json",
-      "sha256": "a1472942127104d0ad9c281c20ee4753bf00d1d9fdff98a31d3bbdf1caf26dd7",
-      "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
+        "evidence": "docs/evidence/first-release-read-performance.json",
+        "sha256": "a1472942127104d0ad9c281c20ee4753bf00d1d9fdff98a31d3bbdf1caf26dd7",
+        "sourceDigest": "b522fc1813e7af67bd53d370656226f1bdec0aacc4fa093dbb201b5fcf16c618"
+      }
     }
   }
 }

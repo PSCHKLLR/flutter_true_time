@@ -2,7 +2,7 @@
 
 The [release manifest](release_gates.json) records the status for the current source digest. See [validation](VALIDATION.md) for results and [device qualification](DEVICE_QUALIFICATION.md) for physical and live-network procedures.
 
-Hosted SDK and desktop evidence matches the current source fingerprint.
+The matrix records platform results before the release checker gained the physical lifecycle waiver. Consult the release manifest for gate status on the regenerated digest.
 
 | Lane | Pinned target | Current evidence |
 | --- | --- | --- |
@@ -26,4 +26,4 @@ Android API 24 remains the floor. The package bridge uses Java 17; Kotlin versio
 | iOS/macOS and Windows | Unavailable without a separately qualified epoch provider |
 | Web | Never across page/browser restart |
 
-All six-platform and native persistence gates remain required before release. Build success does not qualify physical behavior.
+Physical lifecycle testing is waived for `0.1.0-dev.1`. The native persistence gate can use simulator, emulator, or VM evidence for the scenarios those environments support.

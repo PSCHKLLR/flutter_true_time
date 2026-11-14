@@ -4,6 +4,8 @@ Target flutter_true_time 0.1.0-dev.1; new contributions PSCHKLLR. Development re
 
 ## Canonical inputs and evidence
 
+The owner waived the physical lifecycle gate for `0.1.0-dev.1`. Simulator, emulator, and VM runs can provide evidence for the behaviors they exercise. Use those environments for outstanding persistence and performance checks.
+
 1. Finish fixes and stage the intended source changes using normal contributor review. Run dart run tool/update_release_manifest.dart. Before staging, --development can capture new files for implementation checks, but the release checker always rejects development mode. No command stages files automatically.
 2. Inputs come from tracked runtime, host, tests, workflow and release-tool sources. UTF-8 text uses LF; binary bytes remain exact. Generated wrappers/registrants are excluded. Every passed gate must reference the same sourceDigest and a hashed file under docs/evidence/. Changing an input requires manifest regeneration and fresh affected qualification evidence. Historical records do not constitute current passes.
 3. Run dart run tool/release_check.dart --technical. This checks all prerequisites except archive-consumer and final-owner approval. Pending/partial/blocked results are failures. Complete the exact SDK/platform/device matrix in COMPATIBILITY.md and DEVICE_QUALIFICATION.md; manually review CI artifacts before recording passes.
