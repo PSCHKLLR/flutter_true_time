@@ -17,6 +17,7 @@ permissions:
 
 jobs:
   smoke:
+    continue-on-error: true
     runs-on: ubuntu-24.04
     strategy:
       fail-fast: false

@@ -1,5 +1,7 @@
 # Compatibility targets and evidence
 
+Android and iOS jobs block the compatibility workflow on failure. Hosted iOS jobs build for the simulator and for devices without signing on both pinned Flutter SDKs. The manual Xcode 27.2 workflow provides additional iOS qualification, with its macOS build reported as advisory. Shared core, desktop, Web, and published package smoke checks are advisory in CI.
+
 The first public prerelease is `0.1.0-dev.1`. The matrix below describes the available platform test evidence. [Published package](https://pub.dev/packages/flutter_true_time/versions/0.1.0-dev.1)
 
 The [release manifest](release_gates.json) records the status for the current source digest. See [validation](VALIDATION.md) for results and [device qualification](DEVICE_QUALIFICATION.md) for physical and live-network procedures.

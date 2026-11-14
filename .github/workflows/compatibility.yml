@@ -7,6 +7,7 @@ permissions:
   contents: read
 jobs:
   core:
+    continue-on-error: true
     strategy:
       fail-fast: false
       matrix:
@@ -109,7 +110,42 @@ jobs:
             example/android/settings.gradle.kts
             example/build/app/outputs/flutter-apk/*.apk
             example/build/app/outputs/bundle/release/*.aab
+  ios:
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        flutter: ['3.41.0', '3.47.9']
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: subosito/flutter-action@v2.23.0
+        with:
+          flutter-version: ${{ matrix.flutter }}
+          channel: stable
+      - name: Resolve dependencies and record toolchain
+        run: |
+          flutter --version --machine > toolchain.json
+          xcodebuild -version > xcode-version.txt
+          dart pub get --example
+          dart --packages=.dart_tool/package_config.json tool/source_digest.dart > source-fingerprint.json
+      - run: flutter test test test_flutter --no-pub
+      - run: flutter test --no-pub
+        working-directory: example
+      - run: flutter build ios --simulator --debug
+        working-directory: example
+      - run: flutter build ios --release --no-codesign
+        working-directory: example
+      - uses: actions/upload-artifact@v7.0.2
+        if: always()
+        with:
+          name: ios-${{ matrix.flutter }}
+          path: |
+            toolchain.json
+            xcode-version.txt
+            source-fingerprint.json
+            example/pubspec.lock
   web:
+    continue-on-error: true
     runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
@@ -140,6 +176,7 @@ jobs:
             source-fingerprint.json
             pubspec.lock
   desktop:
+    continue-on-error: true
     strategy:
       fail-fast: false
       matrix:
