@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.0.2
 
 - Keep initialization, resume, and diagnostic polling working when an optional wall-clock reader fails; skip failed polls and reset their diagnostic baseline (#3).
 
