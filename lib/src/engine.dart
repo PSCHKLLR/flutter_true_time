@@ -771,10 +771,21 @@ class TrueTimeEngine {
   }
 
   /// Informational diagnostics never advance or invalidate a UTC anchor.
+  /// Failed wall-clock reads skip the poll and reset its diagnostic baseline.
+  /// Scheduled polling retries at the next interval without emitting a change.
   void pollDiagnostics() {
     _checkOpen();
     if (!_foreground || wallClock == null) return;
-    final wall = wallClock!.read(), mono = _snapshot();
+    final WallClockSample wall;
+    try {
+      wall = wallClock!.read();
+    } catch (_) {
+      // Optional diagnostics must not block initialization, resume, or polling.
+      _previousWall = null;
+      _previousWallMono = null;
+      return;
+    }
+    final mono = _snapshot();
     final previous = _previousWall, previousMono = _previousWallMono;
     if (previous != null &&
         previousMono != null &&

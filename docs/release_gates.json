@@ -2,7 +2,7 @@
   "schema": 2,
   "version": "0.1.0-dev.1",
   "developmentInputs": false,
-  "sourceDigest": "23499d86ad6a0d704509026b052016a1dd166bb6a5a48ff15ed2da5a9d5db25a",
+  "sourceDigest": "4d6e63478a84408f0e3f65c4fb8cf6b4860a8c6859fe1795cfc0da3edfc510fe",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -438,7 +438,7 @@
     },
     "example/pubspec.yaml": {
       "mode": "utf8-lf",
-      "sha256": "1dd2e09086474883993bb38c1d64217e116e4da172437e3be7618d1c62876ca0"
+      "sha256": "d57babe7df81b3fafe0f5ee9612264f5cd9e07377bcf39df0f6230506a4f0833"
     },
     "example/test/widget_test.dart": {
       "mode": "utf8-lf",
@@ -570,7 +570,7 @@
     },
     "lib/src/engine.dart": {
       "mode": "utf8-lf",
-      "sha256": "c82cd42828cde4744a4a200fafffd2adde5787074cb8d776c4ec079224c700ee"
+      "sha256": "48af8087dc1c0091cc6db5a49fc7758ad985d01433513aa3099fd3addb83fdda"
     },
     "lib/src/epoch_io.dart": {
       "mode": "utf8-lf",
@@ -618,7 +618,7 @@
     },
     "pubspec.yaml": {
       "mode": "utf8-lf-development-guard",
-      "sha256": "29cbb7c873a8fd0e9b2bce58555b2f70e7415997099d7ff55a0af3b08b83d760"
+      "sha256": "4e8ef93f33809ec2ec3a29734953004c1bfe21386faaff12f67328e219e5cdc1"
     },
     "test/cancellation_test.dart": {
       "mode": "utf8-lf",
@@ -627,6 +627,10 @@
     "test/configure_android_test.dart": {
       "mode": "utf8-lf",
       "sha256": "c87fa8d20c5cab2d6cf5b6979463400d23c7d7bffad4b40d86c9d00d3eb7df34"
+    },
+    "test/diagnostics_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "d8b75451ac0231d3a831a84865e4d376e8187fa47e07607546f793de6d9f0eb6"
     },
     "test/engine_test.dart": {
       "mode": "utf8-lf",
