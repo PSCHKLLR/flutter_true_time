@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.0.4
 
 - Share pending boot-epoch lookups between initialization and synchronization, retaining bounded waits and rejecting stale continuity-generation results (#4).
 
