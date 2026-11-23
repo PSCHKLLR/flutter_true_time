@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add tag-triggered pub.dev publishing with OIDC, strict compatibility checks, clean-consumer verification, and matching GitHub Releases. Display published version badges in the README.
+
 ## 2.0.4
 
 - Share pending boot-epoch lookups between initialization and synchronization, retaining bounded waits and rejecting stale continuity-generation results (#4).

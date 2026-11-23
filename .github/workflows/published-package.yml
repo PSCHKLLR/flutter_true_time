@@ -11,20 +11,25 @@ on:
       - '.github/workflows/published-package.yml'
       - 'example/**'
   workflow_dispatch:
+  workflow_call:
+    inputs:
+      version:
+        required: true
+        type: string
 
 permissions:
   contents: read
 
 jobs:
   smoke:
-    continue-on-error: true
+    continue-on-error: ${{ !inputs.version }}
     runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
         flutter: ['3.41.0', '3.47.9']
     env:
-      PUBLISHED_VERSION: '2.0.0'
+      PUBLISHED_VERSION: ${{ inputs.version || '2.0.0' }}
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: subosito/flutter-action@v2.23.0

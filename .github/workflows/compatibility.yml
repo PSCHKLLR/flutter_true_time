@@ -3,11 +3,16 @@ on:
   push:
   pull_request:
   workflow_dispatch:
+  workflow_call:
+    inputs:
+      strict:
+        type: boolean
+        default: false
 permissions:
   contents: read
 jobs:
   core:
-    continue-on-error: true
+    continue-on-error: ${{ !inputs.strict }}
     strategy:
       fail-fast: false
       matrix:
@@ -145,7 +150,7 @@ jobs:
             source-fingerprint.json
             example/pubspec.lock
   web:
-    continue-on-error: true
+    continue-on-error: ${{ !inputs.strict }}
     runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
@@ -176,7 +181,7 @@ jobs:
             source-fingerprint.json
             pubspec.lock
   desktop:
-    continue-on-error: true
+    continue-on-error: ${{ !inputs.strict }}
     strategy:
       fail-fast: false
       matrix:

@@ -1,5 +1,8 @@
 # flutter_true_time
 
+[![pub.dev version](https://img.shields.io/pub/v/flutter_true_time)](https://pub.dev/packages/flutter_true_time)
+[![GitHub release](https://img.shields.io/github/v/release/PSCHKLLR/flutter_true_time)](https://github.com/PSCHKLLR/flutter_true_time/releases/latest)
+
 Network-derived UTC timestamps for Flutter, anchored to a monotonic clock with explicit freshness and uncertainty. See [pub.dev](https://pub.dev/packages/flutter_true_time) for published versions.
 
 This is an independently maintained rebuild of the trusted_time design/API baseline. It is not a drop-in replacement or an official upstream release. Historical license and NOTICE attribution is preserved in THIRD_PARTY_NOTICES.md.
