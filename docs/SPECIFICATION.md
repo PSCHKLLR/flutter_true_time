@@ -44,6 +44,8 @@ If the optional wall-clock reader throws, skip that diagnostic poll without emit
 
 Persistence is opt-in with an application-specific namespace. Use a single writer per namespace/isolate, or share the same AnchorStore object across engines. The secure backend stores a complete version-2 record. It contains UTC/monotonic anchor, uncertainty, source/provider evidence, clock domain, verified epoch/installation scope, trust-policy fingerprint, and write sequence.
 
+Initialization and synchronization share one bounded boot-epoch lookup per continuity generation, including its pending and unavailable outcomes. Continuity loss starts a separate lookup; results and diagnostics from earlier generations are ignored. Disposal releases waiting callers, and a cycle deadline can end that cycle's wait without releasing another caller's shared lookup.
+
 Restore only after validating the schema, supported UTC range, evidence/source mapping, uniqueness, quorum, policy fingerprint, clock domain, verified epoch, nonregressing monotonic time, age, and uncertainty. A process-local random session identity is never a boot identity. Caller timeouts must not release the underlying serialized writer; old writes cannot overtake new writes.
 
 Android uses public BOOT_COUNT and a persistent installation UUID stored in noBackupFilesDir. Linux uses the kernel boot UUID plus the application namespace. Their offline restoration is limited to the same proven boot/installation. Default Apple/Windows providers report unknown continuity and require fresh network time after restart. Web always requires fresh time after page/browser restart. A reboot, restored backup mismatch, unknown epoch, or inaccessible storage never fabricates trust.

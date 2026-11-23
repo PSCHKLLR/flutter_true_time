@@ -2,7 +2,7 @@
   "schema": 2,
   "version": "0.1.0-dev.1",
   "developmentInputs": false,
-  "sourceDigest": "3ad32d165979d804d002a1b8d1fd2fcc6aba7102af4be18db1a436c1f794caf8",
+  "sourceDigest": "ad5e516484e663b1a0016adcaf31289c1db4ee1781a6b8970261392cefdeb973",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -570,7 +570,7 @@
     },
     "lib/src/engine.dart": {
       "mode": "utf8-lf",
-      "sha256": "2bbc4a7cafcc89b5a22597d11292d082f306d18c0ea78994470e319f47a74d53"
+      "sha256": "c0e35cec03e44973a8c601950fb2c659749036c7cb56881a7b60554742c8ff02"
     },
     "lib/src/epoch_io.dart": {
       "mode": "utf8-lf",
@@ -639,6 +639,10 @@
     "test/enhancements_test.dart": {
       "mode": "utf8-lf",
       "sha256": "6ce668bebd4aa29c2a85cacb196da57a4dd77822e1822678c71757f3e947599f"
+    },
+    "test/epoch_lookup_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "f67cbe0b76a419479fc7c51ed9edcf1fcc3d09b0c37333a6f3283aeb4596f014"
     },
     "test/first_release_test.dart": {
       "mode": "utf8-lf",

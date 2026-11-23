@@ -138,7 +138,7 @@ class TrueTimeEngine {
   _Anchor? _anchor;
   ClockSnapshot? _lastSnapshot;
   BootEpoch? _epoch;
-  bool _epochAttempted = false;
+  Future<void>? _epochLookup;
   Future<void>? _initialization;
   Future<SyncOutcome>? _inFlight;
   Completer<SyncOutcome>? _replacement;
@@ -196,7 +196,7 @@ class TrueTimeEngine {
   void _loseContinuity(String reason) {
     _anchor = null;
     _epoch = null;
-    _epochAttempted = false;
+    _epochLookup = null;
     _generation++;
     _active?.signal.cancel('continuityLost');
     _availability(TimeAvailability.unavailable);
@@ -206,9 +206,24 @@ class TrueTimeEngine {
     }
   }
 
-  Future<void> _ensureEpoch() async {
-    if (store == null || _epochAttempted || _disposed) return;
-    _epochAttempted = true;
+  Future<void> _ensureEpoch() {
+    if (store == null || _disposed) return Future<void>.value();
+    final existing = _epochLookup;
+    if (existing != null) return existing;
+    // Publish the shared future before invoking injected provider code.
+    final completion = Completer<void>();
+    _epochLookup = completion.future;
+    unawaited(
+      _lookupEpoch(_generation).then<void>(
+        (_) => completion.complete(),
+        onError: (Object error, StackTrace stack) =>
+            completion.completeError(error, stack),
+      ),
+    );
+    return completion.future;
+  }
+
+  Future<void> _lookupEpoch(int lookupGeneration) async {
     if (!clock.capabilities.supportsBootEpoch || !clock.includesSleep) {
       _emit(
         TimeEventKind.persistenceUnavailable,
@@ -216,25 +231,24 @@ class TrueTimeEngine {
       );
       return;
     }
-    final lookupGeneration = _generation;
     try {
       final epoch = await _lifetime.withTimeout(
         epochProvider.currentEpoch(clock.capabilities),
         config.sourceTimeout,
       );
-      if (!_disposed &&
-          lookupGeneration == _generation &&
-          epoch != null &&
+      if (_disposed || lookupGeneration != _generation) return;
+      if (epoch != null &&
           epoch.isValid &&
           epoch.clockDomain == clock.capabilities.domain) {
         _epoch = epoch;
-      } else if (!_disposed) {
+      } else {
         _emit(
           TimeEventKind.persistenceUnavailable,
           'Verified epoch unavailable; fresh synchronization required after restart',
         );
       }
     } catch (_) {
+      if (_disposed || lookupGeneration != _generation) return;
       _emit(
         TimeEventKind.persistenceUnavailable,
         'Epoch lookup failed; fresh synchronization required',
