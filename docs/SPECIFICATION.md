@@ -36,6 +36,8 @@ Track foreground state separately from clock validity. Native continuous anchors
 
 An injected foreground wall-clock reader can detect jumps and timezone changes. It is used only for diagnostics, never as a trusted time source. The default diagnostic interval is 30 seconds and jump threshold 2 seconds plus sampling allowances.
 
+If the optional wall-clock reader throws, skip that diagnostic poll without emitting a change event and clear the diagnostic baseline. Initialization and resume continue; scheduled polling retries at the next interval. Recovery establishes a new baseline so gaps cannot produce misleading wall-clock jump events. Monotonic sampling errors retain their existing failure behavior.
+
 ## Persistence and restart policy
 
 Persistence is opt-in with an application-specific namespace. Use a single writer per namespace/isolate, or share the same AnchorStore object across engines. The secure backend stores a complete version-2 record. It contains UTC/monotonic anchor, uncertainty, source/provider evidence, clock domain, verified epoch/installation scope, trust-policy fingerprint, and write sequence.

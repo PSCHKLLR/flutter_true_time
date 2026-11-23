@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Keep initialization, resume, and diagnostic polling working when an optional wall-clock reader fails; skip failed polls and reset their diagnostic baseline (#3).
+
+## 2.0.1
+
 - Fix unhandled operation errors from already-cancelled `CancellationSignal.race` and `withTimeout` calls while preserving synchronous cancellation and deadline cleanup (#2).
 
 ## 2.0.0
