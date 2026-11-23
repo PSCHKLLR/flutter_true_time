@@ -24,6 +24,8 @@ Sources return intervals paired to a monotonic reference. Query in bounded concu
 
 One cycle runs per engine. Calls normally coalesce; invalidating an active cycle queues a replacement for a foreground resume. Cancellation propagates to built-in sockets/clients on deadline, disposal, or continuity loss. Permits belong to actual query futures, so noncooperative external implementations cannot inflate concurrency after timeout.
 
+Cancellation wrappers observe supplied operation futures even if their signal is already cancelled. They retain synchronous cancellation in that case, without registering a listener or creating a deadline timer; opaque underlying work is not stopped by the wrapper alone.
+
 NTP validates header, originate nonce, packet endpoint, server timestamp order, precision/dispersion, and eras within 2020–2100. HTTPS Date is a coarse fallback requiring valid TLS, fresh no-store responses, usable headers, and browser CORS access. No response receives an authenticated/NTS label.
 
 Defaults: refresh 30 minutes; source timeout 3 seconds; cycle deadline 5 seconds; minimum two sources/two known provider groups; maximum anchor age 24 hours; maximum uncertainty 5 seconds; drift budget 100 ppm. Retry uses capped exponential backoff and jitter.

@@ -2,7 +2,7 @@
   "schema": 2,
   "version": "0.1.0-dev.1",
   "developmentInputs": false,
-  "sourceDigest": "9a4a2e4000d24d6a7955be17b52e7364260ec494e4acf7b787b018e05ecf7445",
+  "sourceDigest": "23499d86ad6a0d704509026b052016a1dd166bb6a5a48ff15ed2da5a9d5db25a",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -550,7 +550,7 @@
     },
     "lib/src/cancellation.dart": {
       "mode": "utf8-lf",
-      "sha256": "39109228ab35f46606d68198d5e1ee01d27f731fece5a0d1c6ea141d04a6f782"
+      "sha256": "215cd8a0257ba064591a3cab24be1dc2504a4a598554b7af80d02055e3a56444"
     },
     "lib/src/clock.dart": {
       "mode": "utf8-lf",
@@ -619,6 +619,10 @@
     "pubspec.yaml": {
       "mode": "utf8-lf-development-guard",
       "sha256": "29cbb7c873a8fd0e9b2bce58555b2f70e7415997099d7ff55a0af3b08b83d760"
+    },
+    "test/cancellation_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "3d1820507d32c071baa28a76ce6459d0af4f09daa988d9c65209352f39748c58"
     },
     "test/configure_android_test.dart": {
       "mode": "utf8-lf",
