@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.0.3
 
 - Propagate clock sampling failures from readiness callbacks to the waiting caller with their original stack trace, and clean up the wait subscription (#5).
 

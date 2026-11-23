@@ -2,7 +2,7 @@
   "schema": 2,
   "version": "0.1.0-dev.1",
   "developmentInputs": false,
-  "sourceDigest": "c325cf8d2ffd16ac97dbe869d8ca28d7978c991c59a398ea8632568a63820c97",
+  "sourceDigest": "3ad32d165979d804d002a1b8d1fd2fcc6aba7102af4be18db1a436c1f794caf8",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -438,7 +438,7 @@
     },
     "example/pubspec.yaml": {
       "mode": "utf8-lf",
-      "sha256": "5fed03d156c1436137032611b9db95e7c54c00578f687a95caf898604ec5304f"
+      "sha256": "56fa44d63031b0fe3e3f2e8fdde583223f8c383990039e8e48e5d59c8e2f1830"
     },
     "example/test/widget_test.dart": {
       "mode": "utf8-lf",
@@ -618,7 +618,7 @@
     },
     "pubspec.yaml": {
       "mode": "utf8-lf-development-guard",
-      "sha256": "c97400b19fcfa581c04e940c4c10227f83e368640bf9ac50dbf4e13d8b2f2235"
+      "sha256": "b6ed1d59e4fde0a66ee5d05013ec56837e77d7c4acac8989e144ea05efb7cd5a"
     },
     "test/cancellation_test.dart": {
       "mode": "utf8-lf",
