@@ -89,6 +89,16 @@ void main() {
     ]);
   });
 
+  test('release scripts are included in source fingerprints', () {
+    final before = sourceDigest(snapshot());
+    put('.github/scripts/release.py', utf8.encode('print("release")\n'));
+    git(['add', '.github/scripts/release.py']);
+    final first = sourceDigest(snapshot());
+    expect(first, isNot(before));
+    put('.github/scripts/release.py', utf8.encode('print("changed")\n'));
+    expect(sourceDigest(snapshot()), isNot(first));
+  });
+
   test('tracked LF/CRLF checkouts produce identical digests', () {
     final before = sourceDigest(snapshot());
     put('lib/clock.dart', utf8.encode('const time = 1;\r\n'));

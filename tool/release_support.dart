@@ -168,6 +168,7 @@ const inputRoots = <String>[
   'test_flutter/',
   'tool/',
   '.github/workflows/',
+  '.github/scripts/',
   'example/lib/',
   'example/test/',
   'example/integration_test/',

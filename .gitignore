@@ -4,5 +4,6 @@ build/
 coverage/
 .pub-cache/
 *.log
+__pycache__/
 .flutter
 .flutter_tool_state

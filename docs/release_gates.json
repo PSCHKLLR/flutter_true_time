@@ -2,11 +2,19 @@
   "schema": 2,
   "version": "0.1.0-dev.1",
   "developmentInputs": false,
-  "sourceDigest": "0c6e6015f3b26a6c6959abc3ebe2585b471f5a9db7bd50dae682cd5410ec2399",
+  "sourceDigest": "9a5138b4f014057bc017fcc9d7cd26612eb76640cf1f0781467670c881a3c8a3",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
       "sha256": "f935b1749bfe535cd77fa4a4bad01f90f87742d96c8fd1a8e82658497caa51e8"
+    },
+    ".github/scripts/release.py": {
+      "mode": "utf8-lf",
+      "sha256": "fe3dcbcf6dd64f662177d25510ac61d72a474abc9bbcbb94567f764387181f92"
+    },
+    ".github/scripts/release_test.py": {
+      "mode": "utf8-lf",
+      "sha256": "3b8c4e082944ba512a76e42229be4cbfd76694cec0389348b766d31165245725"
     },
     ".github/workflows/apple-qualification.yml": {
       "mode": "utf8-lf",
@@ -14,11 +22,15 @@
     },
     ".github/workflows/compatibility.yml": {
       "mode": "utf8-lf",
-      "sha256": "dfff14e09b9ee819884ffe1220823f087c1d82b77c05f95d3da085e8690fa427"
+      "sha256": "787cb5b6a44eff10f94ed387be011721529270ca27ae3a38c8f46dd05e30969b"
+    },
+    ".github/workflows/publish.yml": {
+      "mode": "utf8-lf",
+      "sha256": "4181615716b5d72995f0aeac5e3a409bd6f0e2caebcfda470400182c34b366aa"
     },
     ".github/workflows/published-package.yml": {
       "mode": "utf8-lf",
-      "sha256": "c20852b1653ea8aaacce449a8a382816ec43c2b3cd6e8e2736232093166e9ece"
+      "sha256": "321816009d64c9398a55bf4139fbd9c36cf9bd1cd2af7892214157aa9997a7f2"
     },
     ".pubignore": {
       "mode": "utf8-lf",
@@ -670,7 +682,7 @@
     },
     "test/release_verification_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "249ea4c8a5ebb1f27d655a07d92829d6bb688033215b215707f6aaa6d668aeae"
+      "sha256": "6e2b31d5ea43ff5827d1e3ceb31ddc0037909eec99e9e873112261956d09e246"
     },
     "test/sources_test.dart": {
       "mode": "utf8-lf",
@@ -694,7 +706,7 @@
     },
     "tool/release_support.dart": {
       "mode": "utf8-lf",
-      "sha256": "82dd81d3e3069efc920369d537264ec6acc64950e483de8a4e1ea45cc92d5c2b"
+      "sha256": "0c088e2970f22eaec5460cb9b503725e44b5b68469f89c5c40d595fd0039de76"
     },
     "tool/source_digest.dart": {
       "mode": "utf8-lf",

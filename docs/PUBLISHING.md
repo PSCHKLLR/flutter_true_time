@@ -1,5 +1,26 @@
 # Publishing and release verification
 
+## Automated releases
+
+Version bumps prepare source changes; they do not publish. The README's pub.dev badge shows the latest published package, and the GitHub Release badge links to the latest completed GitHub Release. At setup time the latest pub.dev version is 2.0.0, while main is prepared for 2.0.4.
+
+One-time uploader setup: open [the package Admin tab](https://pub.dev/packages/flutter_true_time/admin), enable publishing from GitHub Actions, set repository `PSCHKLLR/flutter_true_time`, and use tag pattern `v{{version}}`. The workflow uses short-lived OIDC credentials rather than a stored publisher secret. It does not currently require a GitHub deployment environment. See [Dart's automated publishing instructions](https://dart.dev/tools/pub/automated-publishing).
+
+To publish an approved version:
+
+1. Merge its version, changelog entry, and source changes to main.
+2. Create and push a tag matching pubspec exactly, for example `git tag -a v2.0.4 -m "Release 2.0.4"` and `git push origin v2.0.4`.
+3. Watch [Publish package and GitHub Release](../.github/workflows/publish.yml). It verifies package/tag/changelog identity and main ancestry, runs a Pub dry run, and requires all compatibility jobs (including normally advisory jobs) to succeed.
+4. The workflow publishes to pub.dev, waits for registry confirmation, and tests clean consumers on both pinned Flutter SDKs. Only then does it create the matching GitHub Release using changelog notes. Stable releases are marked Latest only when they match the registry's latest version; prereleases never replace Latest.
+
+Manual Run workflow performs validation only, even when a tag ref is selected. Only a pushed release tag can start an upload. There is no automatic upload on every merge or version bump.
+
+If publication succeeds but consumer verification or GitHub Release creation fails, rerun failed jobs after fixing the cause. Do not rerun a successful upload or move an existing release tag. A registry upload is not rolled back by a later failed job.
+
+The workflow verifies builds/tests and publication identity. It does not claim that historical device, provenance, or privacy qualification gaps are resolved. The legacy release checker remains version-pinned as tracked in issue #6; this workflow does not manufacture passed gate records.
+
+## Historical qualification procedure
+
 The 2.0.0 release renames the public API to `TrueTime`, `TrueTimeEngine`, `TrueTimeConfig`, and `TrueTimeException`. Its release review and remaining qualification limits are recorded in [REVIEW_REPORT.md](REVIEW_REPORT.md). The published-package smoke workflow targets 2.0.0. The historical checker below remains pinned to the first prerelease and must not be represented as a passing 2.0.0 qualification.
 
 `flutter_true_time 0.1.0-dev.1` was published on 14 November 2026. The published package workflow installs that version from pub.dev and runs the example tests on both pinned Flutter SDKs. [Published package](https://pub.dev/packages/flutter_true_time/versions/0.1.0-dev.1) · [Smoke test workflow](../.github/workflows/published-package.yml)
