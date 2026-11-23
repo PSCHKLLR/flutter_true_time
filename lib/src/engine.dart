@@ -379,7 +379,14 @@ class TrueTimeEngine {
     if (isTrusted) return read();
     final ready = Completer<TimeReading>();
     void check() {
-      if (!ready.isCompleted && !_disposed && isTrusted) ready.complete(read());
+      if (ready.isCompleted || _disposed) return;
+      try {
+        if (isTrusted) ready.complete(read());
+      } catch (error, stack) {
+        // Event/initialization callbacks must deliver sampling failures to the
+        // waiting caller rather than leaking them into the callback's zone.
+        ready.completeError(error, stack);
+      }
     }
 
     final subscription = events.listen(

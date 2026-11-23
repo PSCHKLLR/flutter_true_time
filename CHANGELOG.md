@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Propagate clock sampling failures from readiness callbacks to the waiting caller with their original stack trace, and clean up the wait subscription (#5).
+
 ## 2.0.2
 
 - Keep initialization, resume, and diagnostic polling working when an optional wall-clock reader fails; skip failed polls and reset their diagnostic baseline (#3).
