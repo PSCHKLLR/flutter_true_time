@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Share pending boot-epoch lookups between initialization and synchronization, retaining bounded waits and rejecting stale continuity-generation results (#4).
+
 ## 2.0.3
 
 - Propagate clock sampling failures from readiness callbacks to the waiting caller with their original stack trace, and clean up the wait subscription (#5).
