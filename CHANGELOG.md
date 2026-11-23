@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Fix unhandled operation errors from already-cancelled `CancellationSignal.race` and `withTimeout` calls while preserving synchronous cancellation and deadline cleanup (#2).
+
 ## 2.0.0
 
 - **Breaking:** Rename `TrustedTime`, `TrustedTimeEngine`, `TrustedTimeConfig`, and `TrustedTimeException` to `TrueTime`, `TrueTimeEngine`, `TrueTimeConfig`, and `TrueTimeException`. Update type references and facade calls; imports and the version-2 persistence format stay the same.

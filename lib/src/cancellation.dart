@@ -38,8 +38,20 @@ class CancellationSignal {
     }
   }
 
-  Future<T> race<T>(Future<T> operation) {
+  void _checkOperation<T>(Future<T> operation) {
+    if (!_cancelled) return;
+    // The caller has already started this future. Observe it even though the
+    // wrapper rejects synchronously, without adding a timer or cancel listener.
+    unawaited(
+      operation.then<void>((_) {}, onError: (Object _, StackTrace _) {}),
+    );
     throwIfCancelled();
+  }
+
+  /// Observes [operation] even if cancellation already occurred. In that case,
+  /// throws synchronously; the underlying operation is not stopped.
+  Future<T> race<T>(Future<T> operation) {
+    _checkOperation(operation);
     final result = Completer<T>();
     final detach = onCancel(() {
       if (!result.isCompleted) {
@@ -61,8 +73,10 @@ class CancellationSignal {
 
   /// Deadline wrapper whose timer is released on cancellation as well as result.
   /// It deliberately does not cancel an opaque storage backend operation.
+  /// An already-cancelled signal throws synchronously while still observing
+  /// the supplied operation, without creating a deadline timer.
   Future<T> withTimeout<T>(Future<T> operation, Duration timeout) {
-    throwIfCancelled();
+    _checkOperation(operation);
     final result = Completer<T>();
     final timer = Timer(timeout, () {
       if (!result.isCompleted) {
