@@ -2,7 +2,7 @@
   "schema": 2,
   "version": "2.0.5",
   "developmentInputs": false,
-  "sourceDigest": "a22708ec63df790a71823ab31d3d91f666052876bc860a00d834486791d2a386",
+  "sourceDigest": "0445bf483f675d676627c95f9bf5f6a2ab5135bccf05572bc70ad4069a0b13da",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -22,7 +22,7 @@
     },
     ".github/workflows/compatibility.yml": {
       "mode": "utf8-lf",
-      "sha256": "4e754b51d759959659ef09be678d549ebf708dde7398bd4d54c92fa89c14142c"
+      "sha256": "4d6648171bb87e1e1a5b25a4c8310e8b28730a861749c37b867327a695e2e813"
     },
     ".github/workflows/publish.yml": {
       "mode": "utf8-lf",
@@ -606,7 +606,7 @@
     },
     "lib/src/ntp_io.dart": {
       "mode": "utf8-lf",
-      "sha256": "c0495326a124c3622f912cd294d0fcaaa86313571366d12ec40189a97d4caf04"
+      "sha256": "ed598afb104457ad2a10366b1f180d6b4c63b626dc76e9af69f26a6b9cb63153"
     },
     "lib/src/ntp_stub.dart": {
       "mode": "utf8-lf",
@@ -666,11 +666,11 @@
     },
     "test/native_sources_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "cf6c35d230c6ac41f842d2cc6d5e43af14ec0a60964c15a567828cac0ea9a4ff"
+      "sha256": "d4e787157f1ea2ef8991e979e14a716a2c889743344a0b7a65601ea1c7cb07c2"
     },
     "test/ntp_ownership_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "5f247cd999dc6cc20441cffa7ac435caf70e414737b85a2e8f18c79a9161b111"
+      "sha256": "933953cede5390be80fac4abd045448ceab802c0d71ec61e1994e186eea980ab"
     },
     "test/ntp_test.dart": {
       "mode": "utf8-lf",

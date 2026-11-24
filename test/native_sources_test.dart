@@ -59,7 +59,7 @@ void main() {
       },
     );
   }
-  test('silent loopback source times out and releases its socket', () async {
+  test('silent loopback source times out', () async {
     final server = await RawDatagramSocket.bind(
       InternetAddress.loopbackIPv4,
       0,
@@ -78,7 +78,7 @@ void main() {
     }
   });
 
-  test('NTP cancellation closes its UDP socket before returning', () async {
+  test('loopback NTP cancellation completes after sending a request', () async {
     final received = Completer<Datagram>();
     final server = await RawDatagramSocket.bind(
       InternetAddress.loopbackIPv4,
@@ -98,15 +98,11 @@ void main() {
         providerGroup: 'local',
       ).query(FakeClock(), const Duration(seconds: 3), cancellation: signal);
       final expected = expectLater(result, throwsA(isA<TrueTimeException>()));
-      final packet = await received.future;
+      await received.future.timeout(const Duration(seconds: 2));
       signal.cancel('test');
       await expected;
-      final rebound = await RawDatagramSocket.bind(
-        InternetAddress.loopbackIPv4,
-        packet.port,
-        reuseAddress: false,
-      );
-      rebound.close();
+      // Socket/listener ownership is checked through the injected transport in
+      // ntp_ownership_test.dart; port reallocation is an OS timing observation.
     } finally {
       signal.cancel();
       server.close();

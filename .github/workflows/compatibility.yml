@@ -44,6 +44,14 @@ jobs:
       - run: flutter test test test_flutter --no-pub --coverage
       - run: flutter test --no-pub
         working-directory: example
+      - name: Repeat native ownership and loopback checks on macOS
+        if: runner.os == 'macOS'
+        shell: bash
+        run: |
+          for attempt in 1 2 3 4 5; do
+            echo "Native cleanup repetition $attempt/5"
+            flutter test test/ntp_ownership_test.dart test/native_sources_test.dart --no-pub
+          done
       - name: Verify tests preserved the reviewed source
         shell: bash
         run: |
