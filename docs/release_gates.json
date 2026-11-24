@@ -2,7 +2,7 @@
   "schema": 2,
   "version": "2.0.5",
   "developmentInputs": false,
-  "sourceDigest": "12641fe2b0a042c8fe205315b0b1922401d5ed2a12812d5eac74d6ba63105146",
+  "sourceDigest": "a22708ec63df790a71823ab31d3d91f666052876bc860a00d834486791d2a386",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -10,11 +10,11 @@
     },
     ".github/scripts/release.py": {
       "mode": "utf8-lf",
-      "sha256": "fe3dcbcf6dd64f662177d25510ac61d72a474abc9bbcbb94567f764387181f92"
+      "sha256": "2984f9209f557606f66bdbd0c89e7c5c4d928a84c12e00556e8ccd69198717e7"
     },
     ".github/scripts/release_test.py": {
       "mode": "utf8-lf",
-      "sha256": "3b8c4e082944ba512a76e42229be4cbfd76694cec0389348b766d31165245725"
+      "sha256": "05d381d46c2820dd41528c686e5d130ea56ef8f475738e2140b8b4b953d2fdb9"
     },
     ".github/workflows/apple-qualification.yml": {
       "mode": "utf8-lf",
@@ -30,7 +30,7 @@
     },
     ".github/workflows/published-package.yml": {
       "mode": "utf8-lf",
-      "sha256": "321816009d64c9398a55bf4139fbd9c36cf9bd1cd2af7892214157aa9997a7f2"
+      "sha256": "14c328c2ce39d8fd8e6d780cac4e2732823005d168f74031f3f78611399d5984"
     },
     ".pubignore": {
       "mode": "utf8-lf",

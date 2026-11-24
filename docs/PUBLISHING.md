@@ -54,6 +54,14 @@ Superseded standalone PR matrices are cancelled by PR number. Main pushes, manua
 
 If publication succeeds but consumer verification or GitHub Release creation fails, rerun failed jobs after fixing the cause. Do not rerun a successful upload or move an existing release tag. A registry upload is not rolled back by a later failed job.
 
+### Registry propagation and consumer retries
+
+Registry verification requires both the exact version's identity endpoint and its entry in the package index. It shares one 600-second monotonic budget across at most 60 attempts, both requests, and pauses of up to 10 seconds. Each request is capped at 20 seconds or the remaining budget. Missing index entries, HTTP 404/429/500/502/503/504, and connection/time-out failures can be retried; malformed metadata, package/version mismatches, and other HTTP errors fail immediately. Attempt numbers, remaining time, and reasons are logged.
+
+Each clean consumer resolves its pinned version with at most six attempts within a separate 180-second budget. Each `flutter pub get` is capped at 60 seconds or the remaining budget. Only exit code 1 with the exact `flutter_true_time <version> ... doesn't match any versions` solver diagnostic is treated as propagation. Other dependency constraints, authentication failures, command timeouts, compilation failures, and test failures are not retried. The resolved hosted package/version assertion and subsequent tests remain required in release runs. The full smoke job has a 15-minute timeout.
+
+These budgets belong to separate registry and consumer jobs after upload. A verification retry cannot call the upload step. Exhausted budgets or genuine consumer failures still prevent GitHub Release creation; rerun only failed verification jobs after investigating the cause. Main/PR smoke checks also cover changes to the release helper scripts.
+
 The workflow verifies builds/tests and publication identity. It does not claim that historical device, provenance, or privacy qualification gaps are resolved. The release checker reads the current pubspec version and still requires current qualification evidence; this workflow does not manufacture passed gate records.
 
 ## Historical qualification procedure

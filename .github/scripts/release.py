@@ -1,9 +1,10 @@
-"""Release metadata and bounded registry verification; never uploads a package."""
+"""Release metadata and bounded registry/consumer verification; never uploads."""
 
 import json
 import os
 from pathlib import Path
 import re
+import subprocess
 import sys
 import time
 from urllib.error import HTTPError, URLError
@@ -17,6 +18,16 @@ VERSION = re.compile(
 )
 
 
+def _version(version):
+    match = VERSION.fullmatch(version)
+    if not match or any(
+        part.isdigit() and len(part) > 1 and part.startswith('0')
+        for part in (match[1] or '').split('.')
+    ):
+        raise ValueError('Require a valid exact semantic version')
+    return match
+
+
 def metadata(root, ref):
     pubspec = (root / "pubspec.yaml").read_text(encoding="utf-8")
     names = re.findall(r"^name: ([^\r\n]+)$", pubspec, re.M)
@@ -24,12 +35,7 @@ def metadata(root, ref):
     if names != ["flutter_true_time"] or len(versions) != 1:
         raise ValueError("Require the expected package name and one version")
     version = versions[0]
-    match = VERSION.fullmatch(version)
-    if not match or any(
-        part.isdigit() and len(part) > 1 and part.startswith("0")
-        for part in (match[1] or "").split(".")
-    ):
-        raise ValueError("Require a valid semantic version")
+    match = _version(version)
     if re.search(r"^publish_to:", pubspec, re.M):
         raise ValueError("Publication must target the default pub.dev registry")
     if ref.startswith("refs/tags/") and ref != f"refs/tags/v{version}":
@@ -47,25 +53,99 @@ def metadata(root, ref):
     return version, bool(match[1]), notes
 
 
-def verify(version, attempts=60, fetch=urlopen, pause=time.sleep):
-    if not VERSION.fullmatch(version):
-        raise ValueError("Invalid registry version")
-    url = f"https://pub.dev/api/packages/flutter_true_time/versions/{version}"
+class _NotVisible(Exception):
+    """Only a recognized propagation/transient registry condition is retryable."""
+
+
+def _log(message):
+    print(message, flush=True)
+
+
+def _retry(action, *, label, attempts, budget, pause, now, log):
+    if attempts < 1 or budget <= 0:
+        raise ValueError('Retry attempts and time budget must be positive')
+    deadline = now() + budget
+
+    def timeout(limit):
+        remaining = deadline - now()
+        if remaining <= 0:
+            raise RuntimeError(f'{label} exhausted its time budget')
+        return min(limit, remaining)
+
     for attempt in range(attempts):
+        remaining = deadline - now()
+        if remaining <= 0:
+            break
+        log(f'{label} attempt {attempt + 1}/{attempts} ({remaining:.1f}s remaining)')
         try:
-            with fetch(url, timeout=20) as response:
+            result = action(timeout)
+        except _NotVisible as error:
+            log(f'Waiting for propagation: {error}')
+        else:
+            if now() < deadline:
+                return result
+            break
+        remaining = deadline - now()
+        if attempt + 1 < attempts and remaining > 0:
+            pause(min(10, remaining))
+    raise RuntimeError(f'{label} did not complete within its attempt/time budget')
+
+
+def verify(version, attempts=60, fetch=urlopen, pause=time.sleep, *,
+           budget=600, now=time.monotonic, log=_log):
+    _version(version)
+    index_url = 'https://pub.dev/api/packages/flutter_true_time'
+
+    def check(timeout):
+        try:
+            with fetch(f'{index_url}/versions/{version}', timeout=timeout(20)) as response:
                 record = json.load(response)
-            if record.get("version") != version or record.get("pubspec", {}).get("name") != "flutter_true_time":
+            if (not isinstance(record, dict) or record.get('version') != version or
+                    not isinstance(record.get('pubspec'), dict) or
+                    record['pubspec'].get('name') != 'flutter_true_time'):
                 raise ValueError("Registry returned an unexpected package/version")
+            with fetch(index_url, timeout=timeout(20)) as response:
+                index = json.load(response)
+            if (not isinstance(index, dict) or index.get('name') != 'flutter_true_time' or
+                    not isinstance(index.get('versions'), list) or
+                    any(not isinstance(item, dict) or not isinstance(item.get('version'), str)
+                        for item in index['versions'])):
+                raise ValueError('Registry returned a malformed package index')
+            if not any(item['version'] == version for item in index['versions']):
+                raise _NotVisible(f'flutter_true_time {version} is absent from the package index')
             return record
         except HTTPError as error:
             if error.code not in (404, 429, 500, 502, 503, 504):
                 raise
-        except (URLError, TimeoutError):
-            pass
-        if attempt + 1 < attempts:
-            pause(10)
-    raise RuntimeError("Published version did not become available within the retry budget")
+            raise _NotVisible(f'registry HTTP {error.code}') from error
+        except (URLError, TimeoutError) as error:
+            raise _NotVisible(f'registry connection failed: {error}') from error
+
+    return _retry(check, label=f'Registry verification for {version}', attempts=attempts,
+                  budget=budget, pause=pause, now=now, log=log)
+
+
+def resolve(version, attempts=6, pause=time.sleep, *, budget=180,
+            now=time.monotonic, log=_log):
+    """Resolve the current consumer; retry only an exact-version absence diagnostic."""
+    _version(version)
+    missing = re.compile(
+        r'\bdepends on flutter_true_time ' + re.escape(version) +
+        r" which doesn't match any versions, version solving failed\."
+    )
+
+    def check(timeout):
+        result = subprocess.run(['flutter', 'pub', 'get'], stdout=subprocess.PIPE,
+                                stderr=subprocess.STDOUT, text=True, timeout=timeout(60))
+        log(result.stdout)
+        if result.returncode == 0:
+            return
+        if result.returncode == 1 and missing.search(' '.join(result.stdout.split())):
+            raise _NotVisible(f'consumer cannot yet resolve flutter_true_time {version}')
+        raise subprocess.CalledProcessError(result.returncode, result.args, output=result.stdout)
+
+    _retry(check, label=f'Consumer resolution for {version}', attempts=attempts,
+           budget=budget, pause=pause, now=now, log=log)
 
 
 def main():
@@ -82,8 +162,10 @@ def main():
     elif len(sys.argv) == 3 and sys.argv[1] == "verify":
         record = verify(sys.argv[2])
         print(f"Registry confirmed flutter_true_time {record['version']}")
+    elif len(sys.argv) == 3 and sys.argv[1] == 'resolve':
+        resolve(sys.argv[2])
     else:
-        raise SystemExit("Use metadata or verify <version>")
+        raise SystemExit("Use metadata, verify <version>, or resolve <version>")
 
 
 if __name__ == "__main__":

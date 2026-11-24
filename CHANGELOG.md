@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Wait for both pub.dev version metadata and package indexing, and retry only exact-version visibility failures in clean consumers within bounded propagation budgets (#21).
 - Keep rejected restore records from changing fresh-write sequences; validate the portable positive sequence range and wrap safely at its maximum while preserving writer ordering (#19).
 - Return the same ready reading validated by `waitUntilReady()`, avoiding stale results across age or uncertainty expiry boundaries (#18).
 - Avoid duplicate compatibility matrices on feature-branch pushes and release tags; cancel superseded standalone PR checks while preserving strict release validation (#23).
