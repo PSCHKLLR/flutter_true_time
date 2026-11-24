@@ -50,7 +50,7 @@ Native defaults query time.cloudflare.com and ntp.netnod.se (distinct configured
 | now(), nowUnixMs(), nowIso() | Strict UTC; throws when unavailable or stale |
 | read() | UTC, uncertainty, anchor age, source/provider evidence, and restored origin; throws when unavailable |
 | estimate() | Labeled ready/stale reading, or null without a continuous anchor |
-| waitUntilReady() | Bounded wait, including an immediately usable restored anchor |
+| waitUntilReady() | Bounded wait returning the same reading sampled as ready, including restored anchors |
 | forceResync() | One shared bounded cycle; a replacement is queued after invalidation |
 | status / events | Availability, sync state, failures, restoration, and clock diagnostics |
 | dispose() | Releases timers/observation and cancels owned transport work |

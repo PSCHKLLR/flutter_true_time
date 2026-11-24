@@ -20,6 +20,8 @@ Windows uses QPC/frequency with overflow-safe tick conversion; Android/Linux use
 
 Availability is unavailable, ready, or stale, independently from synchronization activity. A failed refresh preserves a valid anchor. Informational wall-clock/timezone changes must not invalidate it. Epoch change, monotonic regression, and suspension of a noncontinuous clock invalidate continuity.
 
+waitUntilReady samples one candidate per check and completes normally only with that same candidate when its availability is ready. This applies to the already-ready fast path, events, and initialization completion. Stale or unavailable candidates continue waiting within the original timeout. Readiness describes the returned reading's sampled instant; callers must take another reading for later decisions because the anchor may expire after sampling.
+
 If a readiness check fails while sampling the monotonic clock, waitUntilReady completes with that original error and stack trace, including checks triggered by events or initialization completion. The wait subscription is cancelled on success, failure, disposal, or timeout.
 
 Sources return intervals paired to a monotonic reference. Query in bounded concurrency, deduplicate configured and resolved endpoints, require named provider diversity, and select deterministic maximum-support interval consensus. Equally supported disjoint results fail. A provider label is an application assertion, not proof of independence.
