@@ -13,7 +13,10 @@ Future<TimeSample> queryNtp(
   MonotonicClock clock,
   Duration timeout, {
   CancellationSignal? cancellation,
-  // Internal transport seam for deterministic send-failure/resource tests.
+  // Internal transport seams for deterministic DNS/bind/resource tests.
+  // An injected bind transfers socket ownership even when it completes after
+  // cancellation. Late lookup/bind failures remain observed by the query.
+  Future<List<InternetAddress>> Function(String host)? lookupHost,
   Future<RawDatagramSocket> Function(InternetAddress address, int port)?
   bindSocket,
 }) async {
@@ -37,7 +40,7 @@ Future<TimeSample> queryNtp(
   final timer = Timer(timeout, () => signal.cancel('sourceTimeout'));
   Future<TimeSample> query() async {
     signal.throwIfCancelled();
-    final addresses = await InternetAddress.lookup(host);
+    final addresses = await (lookupHost ?? InternetAddress.lookup)(host);
     if (expired) throw TimeoutException('DNS deadline expired');
     if (addresses.isEmpty) {
       throw const TrueTimeException('dns', 'No server address');
