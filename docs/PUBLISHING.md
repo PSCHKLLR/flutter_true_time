@@ -6,7 +6,32 @@ Version bumps prepare source changes; they do not publish. The README's pub.dev 
 
 One-time uploader setup: open [the package Admin tab](https://pub.dev/packages/flutter_true_time/admin), enable publishing from GitHub Actions, set repository `PSCHKLLR/flutter_true_time`, and use tag pattern `v{{version}}`. The workflow uses short-lived OIDC credentials rather than a stored publisher secret. It does not currently require a GitHub deployment environment. See [Dart's automated publishing instructions](https://dart.dev/tools/pub/automated-publishing).
 
-To publish an approved version:
+Use the repository release command for an approved release:
+
+```sh
+# Preview the next patch using committed Unreleased changelog notes.
+dart run tool/release.dart patch
+
+# Or supply a release note directly; this still only previews.
+dart run tool/release.dart patch --notes "Describe the fix"
+
+# Prepare four files locally for review and a PR, without a commit or tag.
+dart run tool/release.dart patch --write
+
+# After that version bump is reviewed, committed, and merged to main:
+dart run tool/release.dart current --publish
+
+# Alternatively, bump, commit, tag, and push in one command from clean main:
+dart run tool/release.dart patch --notes "Describe the fix" --publish
+```
+
+`minor` and `major` also reset the lower version components. Automatic bumps require a stable starting version; manually prepared prereleases can use `current --publish`. Bumps update both pubspec files, promote Unreleased notes (or insert supplied notes), and regenerate the qualification manifest without manufacturing passed evidence. `--write` requires a clean checkout and leaves those four files for review. The default preview changes no files or refs.
+
+`--publish` is explicit publication authorization. It requires a clean main checkout matching `origin/main`, the default pub.dev publication target, and an unused release tag. It pushes main successfully before creating and pushing the annotated tag. A rejected main push never starts publication. If the tag push fails, the version commit remains on main and the local tag remains for review; retry only that tag push after resolving the failure. The command never force-pushes or replaces tags. Existing qualification limits still apply.
+
+The command requires Dart dependencies (`flutter pub get`) and an authenticated Git remote named `origin`. It can run from Windows, macOS, or Linux. Do not run `--publish` to retry a release that already has a tag: rerun failed Actions jobs as described below.
+
+Manual equivalent:
 
 1. Merge its version, changelog entry, and source changes to main.
 2. Create and push a tag matching pubspec exactly, for example `git tag -a v2.0.4 -m "Release 2.0.4"` and `git push origin v2.0.4`.

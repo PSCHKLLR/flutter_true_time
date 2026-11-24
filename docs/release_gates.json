@@ -2,7 +2,7 @@
   "schema": 2,
   "version": "2.0.5",
   "developmentInputs": false,
-  "sourceDigest": "e9e69697b5ba5c2b20be846d08d1684648459c9d4bb091b74d7a13aec1d542d0",
+  "sourceDigest": "18f0c4fb4e26843054ece8fe13d20e40faaaadcabafe9b95c896f82b76ee0859",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -34,7 +34,7 @@
     },
     ".pubignore": {
       "mode": "utf8-lf",
-      "sha256": "b3de850d42f99aa1943cbb1d3f3d26b863d9184c4e642a00df0b628b212f8eb7"
+      "sha256": "09391effd622b82439ad3ab6fd50f1c1cbb898a3b9de434b307aa59abf4086b0"
     },
     "LICENSE": {
       "mode": "utf8-lf",
@@ -680,6 +680,10 @@
       "mode": "utf8-lf",
       "sha256": "d37ad872c1ca7cb9c6fce0b2367359761b180cd6c78d58c27dfc6b53aa6ab2a6"
     },
+    "test/release_command_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "ce439bcc995f61ea829f2bedca94b6b374787c1e6b944401ddbbd2debb78a523"
+    },
     "test/release_verification_test.dart": {
       "mode": "utf8-lf",
       "sha256": "682a3516680511b56a9705f76bd29b2aa431bcd5cfe8e78c183d0f0f862fdec9"
@@ -699,6 +703,10 @@
     "tool/configure_android.dart": {
       "mode": "utf8-lf",
       "sha256": "a386c91423d291684368cb297663ec6f2978d9cda5e957e379fe594521342cd5"
+    },
+    "tool/release.dart": {
+      "mode": "utf8-lf",
+      "sha256": "0edcb21883347b6155102cbf0115ee3dea2cfabcdf9eff36c1dc6b0f7087d87b"
     },
     "tool/release_check.dart": {
       "mode": "utf8-lf",

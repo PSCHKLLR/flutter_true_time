@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add a release command to preview or prepare version bumps and publish by pushing main before its annotated release tag.
+
 ## 2.0.5
 
 - Derive release-tool versions from pubspec, reject mismatched manifests and Pub dry-run headers, and retain qualification requirements for stable and prerelease candidates (#6).
