@@ -5,10 +5,12 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/published-package.yml'
+      - '.github/scripts/release*'
       - 'example/**'
   pull_request:
     paths:
       - '.github/workflows/published-package.yml'
+      - '.github/scripts/release*'
       - 'example/**'
   workflow_dispatch:
   workflow_call:
@@ -22,6 +24,7 @@ permissions:
 
 jobs:
   smoke:
+    timeout-minutes: 15
     continue-on-error: ${{ !inputs.version }}
     runs-on: ubuntu-24.04
     strategy:
@@ -52,7 +55,7 @@ jobs:
             END { if (count != 1) exit 1 }
           ' example/pubspec.yaml > "$consumer/pubspec.yaml"
           cd "$consumer"
-          flutter pub get
+          python3 "$GITHUB_WORKSPACE/.github/scripts/release.py" resolve "$PUBLISHED_VERSION"
           flutter pub deps --json | jq -e --arg version "$PUBLISHED_VERSION" '
             any(.packages[]; .name == "flutter_true_time" and
                 .version == $version and .source == "hosted")
