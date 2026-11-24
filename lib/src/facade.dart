@@ -141,6 +141,7 @@ class TrueTime {
   static Future<SyncOutcome> forceResync() => _current.sync();
 
   /// Waits up to [timeout] for a reading within the configured policy limits.
+  /// Returns the same reading sampled as ready; later work needs a new reading.
   static Future<TimeReading> waitUntilReady({
     Duration timeout = const Duration(seconds: 5),
   }) => _current.waitUntilReady(timeout: timeout);

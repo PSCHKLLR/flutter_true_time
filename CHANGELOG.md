@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Return the same ready reading validated by `waitUntilReady()`, avoiding stale results across age or uncertainty expiry boundaries (#18).
 - Avoid duplicate compatibility matrices on feature-branch pushes and release tags; cancel superseded standalone PR checks while preserving strict release validation (#23).
 - Add a release command to preview or prepare version bumps and publish by pushing main before its annotated release tag.
 

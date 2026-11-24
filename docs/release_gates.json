@@ -2,7 +2,7 @@
   "schema": 2,
   "version": "2.0.5",
   "developmentInputs": false,
-  "sourceDigest": "195d5c14a2893806e7fd28bc61c42164acf62b44894b210d01a968e68523edb2",
+  "sourceDigest": "147d553ddde7e1eaa12e4af16f1ae3f071a291bf8f2bf08ae12fcca95ebc06aa",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -582,7 +582,7 @@
     },
     "lib/src/engine.dart": {
       "mode": "utf8-lf",
-      "sha256": "c0e35cec03e44973a8c601950fb2c659749036c7cb56881a7b60554742c8ff02"
+      "sha256": "3353775ac047616edb1dac59859e6289cc4b2e3cdef1264063e7cd7cba0d72f2"
     },
     "lib/src/epoch_io.dart": {
       "mode": "utf8-lf",
@@ -598,7 +598,7 @@
     },
     "lib/src/facade.dart": {
       "mode": "utf8-lf",
-      "sha256": "e57d3eb0966f591c9f034c8ff3a3d4149c891d562d5391cd573682d6ec97cd45"
+      "sha256": "7bb327811fbb5dfdf9d1d21338a1ac000d17b4f018f935197292e3e764e18115"
     },
     "lib/src/models.dart": {
       "mode": "utf8-lf",
@@ -678,7 +678,7 @@
     },
     "test/readiness_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "d37ad872c1ca7cb9c6fce0b2367359761b180cd6c78d58c27dfc6b53aa6ab2a6"
+      "sha256": "3dd9012aa46a924b0578be2a442769a2f20a17ce6963e31f2f7f872a075cc20e"
     },
     "test/release_command_test.dart": {
       "mode": "utf8-lf",

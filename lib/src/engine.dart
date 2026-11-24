@@ -385,17 +385,25 @@ class TrueTimeEngine {
     _lastError,
   );
   bool get isTrusted => status.availability == TimeAvailability.ready;
+
+  /// Waits for a reading that satisfies the policy at its sampled instant.
+  /// Each check validates and returns the same reading; the anchor can expire
+  /// after sampling, so callers must obtain another reading for later work.
   Future<TimeReading> waitUntilReady({
     Duration timeout = const Duration(seconds: 5),
   }) async {
     _checkOpen();
     if (timeout <= Duration.zero) throw ArgumentError.value(timeout, 'timeout');
-    if (isTrusted) return read();
+    final candidate = estimate();
+    if (candidate?.availability == TimeAvailability.ready) return candidate!;
     final ready = Completer<TimeReading>();
     void check() {
       if (ready.isCompleted || _disposed) return;
       try {
-        if (isTrusted) ready.complete(read());
+        final candidate = estimate();
+        if (candidate?.availability == TimeAvailability.ready) {
+          ready.complete(candidate!);
+        }
       } catch (error, stack) {
         // Event/initialization callbacks must deliver sampling failures to the
         // waiting caller rather than leaking them into the callback's zone.

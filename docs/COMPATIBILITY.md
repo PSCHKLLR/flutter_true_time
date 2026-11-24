@@ -2,6 +2,8 @@
 
 Version 2.0.0 renames the facade, engine, configuration, and exception types to `TrueTime`, `TrueTimeEngine`, `TrueTimeConfig`, and `TrueTimeException`. Versions through 1.0.0 use the `TrustedTime` names. Existing platform qualification evidence predates this breaking rename; local regression tests do not qualify unexecuted platform lanes.
 
+The shared Dart readiness path returns the same reading it validated as ready on every platform, including at age and uncertainty boundaries. This correction does not change platform support or establish physical-device qualification; see the [readiness contract](SPECIFICATION.md#state-and-synchronization).
+
 Android and iOS jobs block the compatibility workflow on failure. Hosted iOS jobs build for the simulator and for devices without signing on both pinned Flutter SDKs. The manual Xcode 27.2 workflow provides additional iOS qualification, with its macOS build reported as advisory. Shared core, desktop, Web, and published package smoke checks are advisory in CI.
 
 Standalone compatibility runs cover PRs (including forks), pushes to `main`, and manual requests. Feature-branch pushes and release tags do not start standalone matrices. Release tags use the publishing workflow's strict reusable matrix, where every job is required before upload. Only superseded standalone PR runs are cancelled. See the [event coverage and concurrency policy](PUBLISHING.md#compatibility-event-coverage).
