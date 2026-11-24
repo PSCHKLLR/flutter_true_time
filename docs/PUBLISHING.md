@@ -2,7 +2,7 @@
 
 ## Automated releases
 
-Version bumps prepare source changes; they do not publish. The README's pub.dev badge shows the latest published package, and the GitHub Release badge links to the latest completed GitHub Release. At setup time the latest pub.dev version is 2.0.0, while main is prepared for 2.0.4.
+Version bumps prepare source changes; they do not publish. The README's pub.dev badge shows the latest published package, and the GitHub Release badge links to the latest completed GitHub Release.
 
 One-time uploader setup: open [the package Admin tab](https://pub.dev/packages/flutter_true_time/admin), enable publishing from GitHub Actions, set repository `PSCHKLLR/flutter_true_time`, and use tag pattern `v{{version}}`. The workflow uses short-lived OIDC credentials rather than a stored publisher secret. It does not currently require a GitHub deployment environment. See [Dart's automated publishing instructions](https://dart.dev/tools/pub/automated-publishing).
 
@@ -17,17 +17,17 @@ Manual Run workflow performs validation only, even when a tag ref is selected. O
 
 If publication succeeds but consumer verification or GitHub Release creation fails, rerun failed jobs after fixing the cause. Do not rerun a successful upload or move an existing release tag. A registry upload is not rolled back by a later failed job.
 
-The workflow verifies builds/tests and publication identity. It does not claim that historical device, provenance, or privacy qualification gaps are resolved. The legacy release checker remains version-pinned as tracked in issue #6; this workflow does not manufacture passed gate records.
+The workflow verifies builds/tests and publication identity. It does not claim that historical device, provenance, or privacy qualification gaps are resolved. The release checker reads the current pubspec version and still requires current qualification evidence; this workflow does not manufacture passed gate records.
 
 ## Historical qualification procedure
 
-The 2.0.0 release renames the public API to `TrueTime`, `TrueTimeEngine`, `TrueTimeConfig`, and `TrueTimeException`. Its release review and remaining qualification limits are recorded in [REVIEW_REPORT.md](REVIEW_REPORT.md). The published-package smoke workflow targets 2.0.0. The historical checker below remains pinned to the first prerelease and must not be represented as a passing 2.0.0 qualification.
+The 2.0.0 release renames the public API to `TrueTime`, `TrueTimeEngine`, `TrueTimeConfig`, and `TrueTimeException`. Its release review and remaining qualification limits are recorded in [REVIEW_REPORT.md](REVIEW_REPORT.md). The standalone published-package smoke workflow targets 2.0.0; release runs supply the exact version being published. Historical qualification records do not establish qualification for later versions.
 
-`flutter_true_time 0.1.0-dev.1` was published on 14 November 2026. The published package workflow installs that version from pub.dev and runs the example tests on both pinned Flutter SDKs. [Published package](https://pub.dev/packages/flutter_true_time/versions/0.1.0-dev.1) · [Smoke test workflow](../.github/workflows/published-package.yml)
+`flutter_true_time 0.1.0-dev.1` was published on 14 November 2026. [Published package](https://pub.dev/packages/flutter_true_time/versions/0.1.0-dev.1) · [Smoke test workflow](../.github/workflows/published-package.yml)
 
 ## Canonical inputs and evidence
 
-The owner waived the physical lifecycle gate for `0.1.0-dev.1`. Simulator, emulator, and VM runs can provide evidence for the behaviors they exercise. Use those environments for outstanding persistence and performance checks. The existing checker and manifest are pinned to the first prerelease. Use `--technical --candidate` to review its technical evidence on a checkout with publication enabled. Update the version pins when preparing the next candidate.
+The owner waived the physical lifecycle gate for `0.1.0-dev.1` only. Simulator, emulator, and VM runs can provide evidence for the behaviors they exercise. Use those environments for outstanding persistence and performance checks. The checker and manifest writer derive the package version from pubspec, accept stable and prerelease versions, and require the manifest and Pub dry-run header to match that version. Regeneration invalidates evidence when the version or inputs change; the original physical lifecycle waiver cannot carry forward to another version. Use `--technical --candidate` to review technical evidence on a checkout with publication enabled. Candidate archive selection still requires the pinned Dart SDK.
 
 1. Finish fixes and stage the intended source changes using normal contributor review. Run dart run tool/update_release_manifest.dart. Before staging, --development can capture new files for implementation checks, but the release checker always rejects development mode. No command stages files automatically.
 2. Inputs come from tracked runtime, host, tests, workflow and release-tool sources. UTF-8 text uses LF; binary bytes remain exact. Generated wrappers/registrants are excluded. Every passed gate must reference the same sourceDigest and a hashed file under docs/evidence/. Changing an input requires manifest regeneration and fresh affected qualification evidence. Historical records do not constitute current passes.
