@@ -40,6 +40,18 @@ Manual equivalent:
 
 Manual Run workflow performs validation only, even when a tag ref is selected. Only a pushed release tag can start an upload. There is no automatic upload on every merge or version bump.
 
+### Compatibility event coverage
+
+| Event | Compatibility matrix | Failure policy |
+| --- | --- | --- |
+| PR opened, reopened, or updated (including forks) | One standalone matrix for the PR revision; feature-branch pushes do not start another. | Android/iOS block; core, web, and desktop are advisory. |
+| Push to `main` | One standalone matrix for the merged revision. | Same standalone policy. |
+| Manual **Compatibility checks** run | One standalone matrix on the selected ref. | Same standalone policy. |
+| Push of a `v*` release tag | Only the publishing workflow's reusable matrix; no standalone tag matrix. | `strict: true`: every compatibility job must succeed before upload. |
+| Manual **Publish package and GitHub Release** run | One reusable strict matrix on the selected ref, plus metadata and dry-run validation. | Every compatibility job must succeed; upload remains disabled. |
+
+Superseded standalone PR matrices are cancelled by PR number. Main pushes, manual runs, and reusable strict runs use separate run-ID groups and are not cancelled by newer validation. The compatibility concurrency group is separate from the publishing workflow's group, so a strict child cannot cancel its caller. Publication still requires metadata, dry-run, and the complete strict matrix; cancelled or skipped jobs are not passed qualification evidence. Fork PRs retain the normal `pull_request` event and read-only contents permission, subject to GitHub's contributor-approval policy.
+
 If publication succeeds but consumer verification or GitHub Release creation fails, rerun failed jobs after fixing the cause. Do not rerun a successful upload or move an existing release tag. A registry upload is not rolled back by a later failed job.
 
 The workflow verifies builds/tests and publication identity. It does not claim that historical device, provenance, or privacy qualification gaps are resolved. The release checker reads the current pubspec version and still requires current qualification evidence; this workflow does not manufacture passed gate records.

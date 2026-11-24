@@ -4,6 +4,8 @@ Version 2.0.0 renames the facade, engine, configuration, and exception types to 
 
 Android and iOS jobs block the compatibility workflow on failure. Hosted iOS jobs build for the simulator and for devices without signing on both pinned Flutter SDKs. The manual Xcode 27.2 workflow provides additional iOS qualification, with its macOS build reported as advisory. Shared core, desktop, Web, and published package smoke checks are advisory in CI.
 
+Standalone compatibility runs cover PRs (including forks), pushes to `main`, and manual requests. Feature-branch pushes and release tags do not start standalone matrices. Release tags use the publishing workflow's strict reusable matrix, where every job is required before upload. Only superseded standalone PR runs are cancelled. See the [event coverage and concurrency policy](PUBLISHING.md#compatibility-event-coverage).
+
 The first public prerelease is `0.1.0-dev.1`. The matrix below describes the available platform test evidence. [Published package](https://pub.dev/packages/flutter_true_time/versions/0.1.0-dev.1)
 
 The [release manifest](release_gates.json) records the status for the current source digest. See [validation](VALIDATION.md) for results and [device qualification](DEVICE_QUALIFICATION.md) for physical and live-network procedures.
