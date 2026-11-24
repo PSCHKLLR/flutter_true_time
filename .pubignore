@@ -20,6 +20,7 @@ docs/
 tool/
 test/configure_android_test.dart
 test/release_verification_test.dart
+test/release_command_test.dart
 
 # Generated standalone Android tooling is not part of the plugin.
 android/gradle/
