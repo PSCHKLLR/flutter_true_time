@@ -1,6 +1,7 @@
 name: Compatibility checks
 on:
   push:
+    branches: [main]
   pull_request:
   workflow_dispatch:
   workflow_call:
@@ -10,6 +11,11 @@ on:
         default: false
 permissions:
   contents: read
+# Only superseded standalone PR checks share a group. Reusable strict runs
+# inherit the caller's event, so exclude them explicitly and isolate by run ID.
+concurrency:
+  group: compatibility-${{ !inputs.strict && github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ !inputs.strict && github.event_name == 'pull_request' }}
 jobs:
   core:
     continue-on-error: ${{ !inputs.strict }}
