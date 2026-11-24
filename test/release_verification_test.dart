@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:test/test.dart';
 import '../tool/release_support.dart';
+import '../tool/update_release_manifest.dart' as manifest_tool;
 
 void main() {
   late Directory root;
@@ -60,12 +61,15 @@ void main() {
     put('docs/evidence/check.txt', evidence);
     return {
       'schema': 2,
+      'version': readReleaseVersion(
+        File('${root.path}/pubspec.yaml').readAsStringSync(),
+      ),
       'developmentInputs': false,
       'sourceDigest': digest,
       'inputs': inputs,
-      'gates': {
+      'gates': <String, dynamic>{
         for (final g in requiredGates)
-          g: {
+          g: <String, dynamic>{
             'status': 'passed',
             'sourceDigest': digest,
             'evidence': 'docs/evidence/check.txt',
@@ -84,8 +88,23 @@ void main() {
     expect(checkRelease(root, manifest), ['Pending gate: persistence_native']);
     manifest['version'] = '0.1.0';
     expect(checkRelease(root, manifest), [
+      'Manifest package version does not match pubspec; regenerate manifest',
       'Pending gate: physical_lifecycle',
       'Pending gate: persistence_native',
+    ]);
+    put(
+      'pubspec.yaml',
+      utf8.encode(
+        'name: flutter_true_time\nversion: 2.0.4\npublish_to: none\n',
+      ),
+    );
+    final stable = readyManifest();
+    (stable['gates'] as Map)['physical_lifecycle'] = {'status': 'waived'};
+    expect(checkRelease(root, stable), ['Pending gate: physical_lifecycle']);
+    stable['version'] = '0.1.0-dev.1';
+    expect(checkRelease(root, stable), [
+      'Manifest package version does not match pubspec; regenerate manifest',
+      'Pending gate: physical_lifecycle',
     ]);
   });
 
@@ -98,6 +117,172 @@ void main() {
     put('.github/scripts/release.py', utf8.encode('print("changed")\n'));
     expect(sourceDigest(snapshot()), isNot(first));
   });
+
+  test('current stable versions are not rejected as an unexpected package', () {
+    put(
+      'pubspec.yaml',
+      utf8.encode(
+        'name: flutter_true_time\nversion: 2.0.4\npublish_to: none\n',
+      ),
+    );
+    final manifest = readyManifest()..['version'] = '2.0.4';
+    expect(checkRelease(root, manifest), isEmpty);
+  });
+
+  test('manifest version must match the actual package version', () {
+    final manifest = readyManifest()..['version'] = '9.9.9';
+    expect(
+      checkRelease(root, manifest).join(' '),
+      contains('Manifest package version'),
+    );
+  });
+
+  test('canonical package metadata accepts stable and prerelease versions', () {
+    for (final version in ['2.0.4', '2.1.0-dev.1', '3.0.0-rc.2+build.4']) {
+      expect(
+        readReleaseVersion('name: flutter_true_time\r\nversion: $version\r\n'),
+        version,
+      );
+    }
+  });
+
+  test('canonical metadata rejects malformed or ambiguous identity', () {
+    for (final version in ['02.0.4', '2.0', '2.0.4-dev.01', '2.0.4-']) {
+      expect(
+        () =>
+            readReleaseVersion('name: flutter_true_time\nversion: $version\n'),
+        throwsFormatException,
+      );
+    }
+    for (final pubspec in [
+      'name: other\nversion: 2.0.4\n',
+      'name: flutter_true_time\nversion: 2.0.4\nversion: 2.0.5\n',
+      'name: flutter_true_time\nversion: 2.0.4\nversion:\t2.0.5\n',
+      'name: flutter_true_time\nname: other\nversion: 2.0.4\n',
+      'name: flutter_true_time\n',
+    ]) {
+      expect(() => readReleaseVersion(pubspec), throwsFormatException);
+    }
+  });
+
+  test('current versions still require current qualification evidence', () {
+    for (final version in ['2.0.4', '2.1.0-dev.1']) {
+      put(
+        'pubspec.yaml',
+        utf8.encode(
+          'name: flutter_true_time\nversion: $version\npublish_to: none\n',
+        ),
+      );
+      final manifest = readyManifest();
+      (manifest['gates'] as Map)['minimum_sdk']['status'] = 'pending';
+      expect(checkRelease(root, manifest), ['Pending gate: minimum_sdk']);
+      (manifest['gates'] as Map)['minimum_sdk']['status'] = 'passed';
+      (manifest['gates'] as Map)['minimum_sdk']['sourceDigest'] = 'old';
+      expect(checkRelease(root, manifest), [
+        'Stale source evidence: minimum_sdk',
+      ]);
+    }
+  });
+
+  test('candidate headers are bound to the expected package and version', () {
+    const tree =
+        "'-- pubspec.yaml (<1 KB)\n\nTotal compressed archive size: 1 KB.";
+    for (final version in ['2.0.4', '2.1.0-dev.1', '3.0.0-rc.2+build.4']) {
+      for (final registry in ['', ' to https://pub.dev']) {
+        final header = 'Publishing flutter_true_time $version$registry:';
+        expect(
+          parseCandidateFiles('$header\n$tree', expectedVersion: version),
+          ['pubspec.yaml'],
+        );
+        expect(
+          () => parseCandidateFiles(
+            '$header\n$tree',
+            expectedVersion: '0.1.0-dev.1',
+          ),
+          throwsFormatException,
+        );
+      }
+    }
+    for (final header in [
+      'Publishing other 2.0.4:',
+      'Publishing flutter_true_time 2x0x4:',
+      'Publishing flutter_true_time 2.0.4 to https://other.example:',
+      'Publishing flutter_true_time 2.0.3:\nPublishing flutter_true_time 2.0.4:',
+    ]) {
+      expect(
+        () => parseCandidateFiles('$header\n$tree', expectedVersion: '2.0.4'),
+        throwsFormatException,
+      );
+    }
+  });
+
+  for (final version in ['2.0.4', '2.1.0-dev.1']) {
+    test('manifest writer records $version without a legacy waiver', () {
+      put(
+        'pubspec.yaml',
+        utf8.encode(
+          'name: flutter_true_time\nversion: $version\npublish_to: none\n',
+        ),
+      );
+      final manifest = readyManifest()..['version'] = '0.1.0-dev.1';
+      (manifest['gates'] as Map)['physical_lifecycle'] = {
+        'status': 'waived',
+        'historicalEvidence': {'note': 'Waiver for the first prerelease only'},
+      };
+      put('docs/release_gates.json', utf8.encode(jsonEncode(manifest)));
+      manifest_tool.updateReleaseManifest(root);
+      final updated =
+          jsonDecode(
+                File('${root.path}/docs/release_gates.json').readAsStringSync(),
+              )
+              as Map;
+      expect(updated['version'], version);
+      final physical = (updated['gates'] as Map)['physical_lifecycle'] as Map;
+      expect(physical['status'], 'pending');
+      expect(physical['historicalEvidence'], {
+        'note': 'Waiver for the first prerelease only',
+      });
+    });
+  }
+
+  test('manifest writer preserves the original prerelease waiver only', () {
+    final manifest = readyManifest();
+    (manifest['gates'] as Map)['physical_lifecycle'] = {'status': 'waived'};
+    put('docs/release_gates.json', utf8.encode(jsonEncode(manifest)));
+    put('lib/clock.dart', utf8.encode('const time = 2;\n'));
+    final result = manifest_tool.updateReleaseManifest(root);
+    expect(result.changed, isTrue);
+    final updated =
+        jsonDecode(
+              File('${root.path}/docs/release_gates.json').readAsStringSync(),
+            )
+            as Map;
+    expect(updated['version'], '0.1.0-dev.1');
+    final gates = updated['gates'] as Map;
+    expect((gates['physical_lifecycle'] as Map)['status'], 'waived');
+    expect((gates['minimum_sdk'] as Map)['status'], 'pending');
+    expect((gates['minimum_sdk'] as Map)['historicalEvidence'], isNotNull);
+  });
+
+  test(
+    'manifest writer rejects invalid versions without changing evidence',
+    () {
+      final original = jsonEncode(readyManifest());
+      put('docs/release_gates.json', utf8.encode(original));
+      put(
+        'pubspec.yaml',
+        utf8.encode('name: flutter_true_time\nversion: 2.0\n'),
+      );
+      expect(
+        () => manifest_tool.updateReleaseManifest(root),
+        throwsFormatException,
+      );
+      expect(
+        File('${root.path}/docs/release_gates.json').readAsStringSync(),
+        original,
+      );
+    },
+  );
 
   test('tracked LF/CRLF checkouts produce identical digests', () {
     final before = sourceDigest(snapshot());
@@ -187,17 +372,26 @@ void main() {
     const ascii = "|-- lib\n|   '-- a.dart (<1 KB)\n'-- pubspec.yaml (<1 KB)";
     const unicode = '├── lib\n│   └── a.dart (<1 KB)\n└── pubspec.yaml (<1 KB)';
     for (final tree in [ascii, unicode]) {
-      expect(parseCandidateFiles('$header\n$tree\n\n$footer'), [
-        'lib/a.dart',
-        'pubspec.yaml',
-      ]);
       expect(
-        () => parseCandidateFiles('$header\n$tree'),
+        parseCandidateFiles(
+          '$header\n$tree\n\n$footer',
+          expectedVersion: '0.1.0-dev.1',
+        ),
+        ['lib/a.dart', 'pubspec.yaml'],
+      );
+      expect(
+        () => parseCandidateFiles(
+          '$header\n$tree',
+          expectedVersion: '0.1.0-dev.1',
+        ),
         throwsFormatException,
       );
     }
     expect(
-      () => parseCandidateFiles('$header\n|-- lib\n$footer'),
+      () => parseCandidateFiles(
+        '$header\n|-- lib\n$footer',
+        expectedVersion: '0.1.0-dev.1',
+      ),
       throwsFormatException,
     );
   });

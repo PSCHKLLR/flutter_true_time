@@ -24,6 +24,49 @@ const requiredGates = <String>[
 ];
 const candidateGates = {'archive_consumer', 'owner_archive_approval'};
 const candidateDartVersion = '3.13.7';
+final _releaseVersion = RegExp(
+  r'^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)'
+  r'(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?'
+  r'(?:\+[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?$',
+);
+
+void _validateReleaseVersion(String version) {
+  final match = _releaseVersion.firstMatch(version);
+  if (match == null ||
+      (match[4] ?? '')
+          .split('.')
+          .any(
+            (part) =>
+                RegExp(r'^[0-9]+$').hasMatch(part) &&
+                part.length > 1 &&
+                part.startsWith('0'),
+          )) {
+    throw FormatException('Invalid release version: $version');
+  }
+}
+
+/// Reads canonical, unquoted top-level package name and version fields.
+String readReleaseVersion(String pubspec) {
+  final text = pubspec.replaceAll('\r\n', '\n');
+  final names = RegExp(
+    r'^name:(.*)$',
+    multiLine: true,
+  ).allMatches(text).toList();
+  final versions = RegExp(
+    r'^version:(.*)$',
+    multiLine: true,
+  ).allMatches(text).toList();
+  if (names.length != 1 ||
+      names.single[1] != ' flutter_true_time' ||
+      versions.length != 1 ||
+      !versions.single[1]!.startsWith(' ')) {
+    throw const FormatException('Unexpected package name/version');
+  }
+  final version = versions.single[1]!.substring(1);
+  _validateReleaseVersion(version);
+  return version;
+}
+
 const requiredCandidateFiles = {
   'pubspec.yaml',
   'README.md',
@@ -44,13 +87,25 @@ const requiredCandidateFiles = {
 };
 
 /// Parses the pinned pub CLI's ASCII or Unicode tree, including its end marker.
-List<String> parseCandidateFiles(String output) {
+List<String> parseCandidateFiles(
+  String output, {
+  required String expectedVersion,
+}) {
+  _validateReleaseVersion(expectedVersion);
   final lines = const LineSplitter().convert(output);
-  final header = lines.indexWhere(
-    (line) => RegExp(
-      r'^Publishing flutter_true_time 0\.1\.0-dev\.1(?: to https://pub\.dev)?:$',
-    ).hasMatch(line),
+  final headers = lines
+      .where((line) => line.startsWith('Publishing '))
+      .toList();
+  final headerPattern = RegExp(
+    '^Publishing flutter_true_time ${RegExp.escape(expectedVersion)}'
+    r'(?: to https://pub\.dev)?:$',
   );
+  if (headers.length != 1 || !headerPattern.hasMatch(headers.single)) {
+    throw const FormatException(
+      'Unexpected or ambiguous pub package/version header',
+    );
+  }
+  final header = lines.indexOf(headers.single);
   final footer = lines.indexWhere(
     (line) => line.startsWith('Total compressed archive size:'),
   );
@@ -142,6 +197,7 @@ List<String> selectCandidateFiles(Directory root) {
     throw StateError('Use Dart $candidateDartVersion for candidate selection');
   }
   final pubspec = File('${root.path}/pubspec.yaml').readAsStringSync();
+  final version = readReleaseVersion(pubspec);
   if (RegExp(r'^publish_to:', multiLine: true).hasMatch(pubspec)) {
     throw StateError('Candidate must omit publish_to');
   }
@@ -158,7 +214,7 @@ List<String> selectCandidateFiles(Directory root) {
       '${result.stdout}\n${result.stderr}',
     );
   }
-  return parseCandidateFiles(result.stdout as String);
+  return parseCandidateFiles(result.stdout as String, expectedVersion: version);
 }
 
 const inputRoots = <String>[
@@ -310,12 +366,11 @@ List<String> checkRelease(
   final pubspec = File(
     '${root.path}/pubspec.yaml',
   ).readAsStringSync().replaceAll('\r\n', '\n');
-  if (!RegExp(
-        r'^name: flutter_true_time$',
-        multiLine: true,
-      ).hasMatch(pubspec) ||
-      !RegExp(r'^version: 0.1.0-dev.1$', multiLine: true).hasMatch(pubspec)) {
-    problems.add('Unexpected package name/version');
+  String? version;
+  try {
+    version = readReleaseVersion(pubspec);
+  } on FormatException catch (error) {
+    problems.add('Unexpected package name/version: ${error.message}');
   }
   final guarded = RegExp(
     r'^publish_to: none$',
@@ -329,6 +384,11 @@ List<String> checkRelease(
   }
   if (manifest['schema'] != 2) {
     return [...problems, 'Regenerate the version-2 release manifest'];
+  }
+  if (version != null && manifest['version'] != version) {
+    problems.add(
+      'Manifest package version does not match pubspec; regenerate manifest',
+    );
   }
   final expected = Map<String, dynamic>.from(manifest['inputs'] as Map);
   if (sourceDigest(expected) != manifest['sourceDigest']) {
@@ -369,7 +429,8 @@ List<String> checkRelease(
     }
     final gate = gates[name];
     if (name == 'physical_lifecycle' &&
-        manifest['version'] == '0.1.0-dev.1' &&
+        version == '0.1.0-dev.1' &&
+        manifest['version'] == version &&
         gate is Map &&
         gate['status'] == 'waived') {
       continue;

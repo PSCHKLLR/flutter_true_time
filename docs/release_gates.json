@@ -1,8 +1,8 @@
 {
   "schema": 2,
-  "version": "0.1.0-dev.1",
+  "version": "2.0.4",
   "developmentInputs": false,
-  "sourceDigest": "9a5138b4f014057bc017fcc9d7cd26612eb76640cf1f0781467670c881a3c8a3",
+  "sourceDigest": "d3cd397e525233ceb439e457889f11b1be04d91e7eba77a87129efd47a002ad0",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -682,7 +682,7 @@
     },
     "test/release_verification_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "6e2b31d5ea43ff5827d1e3ceb31ddc0037909eec99e9e873112261956d09e246"
+      "sha256": "682a3516680511b56a9705f76bd29b2aa431bcd5cfe8e78c183d0f0f862fdec9"
     },
     "test/sources_test.dart": {
       "mode": "utf8-lf",
@@ -706,7 +706,7 @@
     },
     "tool/release_support.dart": {
       "mode": "utf8-lf",
-      "sha256": "0c088e2970f22eaec5460cb9b503725e44b5b68469f89c5c40d595fd0039de76"
+      "sha256": "45b5f4ddece4b180c47932b4646dd7879f9f4f9f724b8877a3b672a74511bcaa"
     },
     "tool/source_digest.dart": {
       "mode": "utf8-lf",
@@ -714,7 +714,7 @@
     },
     "tool/update_release_manifest.dart": {
       "mode": "utf8-lf",
-      "sha256": "d4ba714bff56b99f8fdabe60f42576d8eb9262d38a51d140ee28d0434a575947"
+      "sha256": "4a474cf1ecf6ddbb6d11ecbaf5d33d67551c57a297275d189c58aa5ae5d6978a"
     },
     "tool/web_smoke.dart": {
       "mode": "utf8-lf",
@@ -804,8 +804,8 @@
       }
     },
     "physical_lifecycle": {
-      "status": "waived",
-      "note": "Physical hardware testing is deferred at the owner's direction for 0.1.0-dev.1.",
+      "status": "pending",
+      "note": "Source changed; fresh qualification evidence required.",
       "historicalEvidence": {
         "evidence": "docs/evidence/first-release-qualification.json",
         "sha256": "ae7852f900838323a2f57618c51d72ecfdcff5607c1ccfcf5dc186808bbe188e",
