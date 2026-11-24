@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.0.5
 
 - Derive release-tool versions from pubspec, reject mismatched manifests and Pub dry-run headers, and retain qualification requirements for stable and prerelease candidates (#6).
 - Add tag-triggered pub.dev publishing with OIDC, strict compatibility checks, clean-consumer verification, and matching GitHub Releases. Display published version badges in the README.
