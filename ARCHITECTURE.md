@@ -8,6 +8,8 @@ The Flutter facade observes lifecycle state. Foreground scheduling is independen
 
 Optional persistence uses a typed version-2 complete record and a serialized backend. Matching clock domain, public boot evidence, installation scope, trust-policy fingerprint, accepted source/provider mapping, freshness, and uncertainty are required for restoration. A caller timeout never releases the actual writer queue. One namespace has one writer per isolate; share the backend object when multiple engines intentionally share state.
 
+Only fully accepted restores advance the local write-sequence counter. Sequences are exact integers in 1..9007199254740991 across native and JavaScript consumers, wrapping to 1 at the limit. The writer queue preserves order across rollover; sequence values do not provide global ordering or rollback protection.
+
 Initialization and synchronization join a shared, bounded epoch lookup within each continuity generation. Continuity loss replaces that lookup; late results from an older generation cannot populate the current epoch. A cycle deadline stops only that cycle's wait, while disposal releases all lifetime-bound lookup waiters.
 
 Android's small Java bootstrap plugin reads BOOT_COUNT and an AtomicFile installation marker in noBackupFilesDir. Linux reads the kernel boot UUID. Other platforms use Dart-only registrations and deliberately report no verified restart epoch. Public hot-path clock sampling uses conditional FFI adapters; web imports neither sockets nor native FFI.

@@ -132,6 +132,7 @@ class AnchorRecord {
   ///
   /// Supply a UTC timestamp and durations from the same clock domain.
   /// The constructor copies [sourceIds] and [providerGroups] into immutable lists.
+  /// [sequence] must be between 1 and [maxSequence], inclusive.
   AnchorRecord({
     required this.utc,
     required this.monotonic,
@@ -143,7 +144,18 @@ class AnchorRecord {
     required List<String> providerGroups,
     this.epoch,
   }) : sourceIds = List.unmodifiable(sourceIds),
-       providerGroups = List.unmodifiable(providerGroups);
+       providerGroups = List.unmodifiable(providerGroups) {
+    if (sequence < 1 || sequence > maxSequence) {
+      throw ArgumentError.value(
+        sequence,
+        'sequence',
+        'Must be in 1..$maxSequence',
+      );
+    }
+  }
+
+  /// Largest supported sequence, keeping the counter in JavaScript's safe range.
+  static const int maxSequence = 9007199254740991;
 
   /// The UTC timestamp at the anchor.
   final DateTime utc;
@@ -160,7 +172,11 @@ class AnchorRecord {
   /// The fingerprint of the sources and time policy used to accept the anchor.
   final String policyFingerprint;
 
-  /// The positive sequence number assigned to this anchor by the engine.
+  /// A local counter in 1..[maxSequence], wrapping to 1 after [maxSequence].
+  ///
+  /// Only accepted restores advance the engine's counter. A restart without an
+  /// accepted record starts at 1. Storage queue order, not this counter, orders
+  /// writes; it is not a globally unique identifier or an anti-rollback proof.
   final int sequence;
 
   /// Identifiers of the sources that contributed to the accepted anchor.
@@ -210,6 +226,7 @@ class AnchorRecord {
         mono < 0 ||
         uncertainty < 0 ||
         sequence < 1 ||
+        sequence > maxSequence ||
         domain.isEmpty ||
         policy.isEmpty ||
         ids.isEmpty ||

@@ -275,7 +275,6 @@ class TrueTimeEngine {
             _anchor == null &&
             restorationGeneration == _generation) {
           final record = AnchorRecord.fromMap(value), current = _snapshot();
-          _sequence = max(_sequence, record.sequence);
           final acceptedIds = sources.map((s) => s.id).toSet();
           final acceptedGroups = sources
               .map((s) => knownProviderGroup(s.providerGroup))
@@ -295,6 +294,7 @@ class TrueTimeEngine {
             final error =
                 record.uncertainty + current.uncertainty + _drift(age);
             if (age <= config.maxAnchorAge && error <= config.maxUncertainty) {
+              _sequence = max(_sequence, record.sequence);
               _anchor = _Anchor(
                 record.utc,
                 ClockSnapshot(record.monotonic, current.sessionId),
@@ -633,13 +633,14 @@ class TrueTimeEngine {
       estimate();
       _emit(TimeEventKind.synchronized);
       if (store != null) {
+        _sequence = _sequence == AnchorRecord.maxSequence ? 1 : _sequence + 1;
         final record = AnchorRecord(
           utc: anchor.utc,
           monotonic: anchor.at.elapsed,
           uncertainty: anchor.uncertainty,
           clockDomain: clock.capabilities.domain,
           policyFingerprint: _fingerprint,
-          sequence: ++_sequence,
+          sequence: _sequence,
           sourceIds: anchor.sources,
           providerGroups: anchor.groups,
           epoch: _epoch,
