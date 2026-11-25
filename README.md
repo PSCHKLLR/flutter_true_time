@@ -59,6 +59,8 @@ UTC may move backward after a correction. Use a monotonic timer for durations; t
 
 Defaults remain: 30-minute foreground refresh, 3-second source timeout, 5-second cycle deadline, two sources from two named providers, 24-hour anchor-age limit, 5-second uncertainty limit, and 100-ppm drift budget. Uncertainty grows by 360 ms per offline hour at that budget, in addition to sampling and source error. This is an engineering estimate under stated assumptions, not an accuracy or security guarantee.
 
+`TrueTimeConfig.maximumUncertainty` is the portable arithmetic limit (9007199254740991 microseconds). Values or projected bounds beyond it fail explicitly with `uncertain`; representable bounds above your configured policy remain stale estimates. A `schedulingFailed` event means automatic refresh/retry or diagnostic registration failed. The completed network result and anchor are retained; a later sync retries refresh registration and resume retries diagnostic registration.
+
 ## Persistence capability
 
 | Platform | Clock | Offline restore after app restart |

@@ -14,6 +14,8 @@ An anchor consists of UTC, a paired monotonic instant, uncertainty, accepted sou
 
 Include network precision, round-trip bounds, local sample/reference quantization, sampling overhead, and drift. The offline drift increment is elapsed microseconds multiplied by driftPpm / 1,000,000, rounded upward. Local clock capabilities expose domain, resolution, sleep continuity, and whether a boot-epoch provider can be used.
 
+Uncertainty is supported from zero through 9007199254740991 microseconds (`TrueTimeConfig.maximumUncertainty`), inclusive. Engine construction rejects a higher configured maximum. Check contributions and sums before addition; reject nonfinite or unsupported drift before integer conversion. Read/estimate/now fail with `TrueTimeException` code `uncertain` if the computed bound exceeds this range, rather than wrapping, rounding away integer bits, or reporting ready. Representable uncertainty above the configured policy still yields a stale estimate. Consensus uses exact integer endpoints, spans, and midpoints on native and JavaScript targets. Record construction/decoding rejects unsupported uncertainty, and restore rejects a base uncertainty above the current policy before projection; rejected records do not advance write sequences.
+
 Windows uses QPC/frequency with overflow-safe tick conversion; Android/Linux use CLOCK_BOOTTIME; Apple uses mach_continuous_time. Unknown native capabilities fall back conservatively to a session-only Stopwatch, with a documented portable uncertainty allowance. Physical sleep/resume qualification is mandatory before support claims.
 
 ## State and synchronization
@@ -32,6 +34,8 @@ Cancellation wrappers observe supplied operation futures even if their signal is
 
 NTP validates header, originate nonce, packet endpoint, server timestamp order, precision/dispersion, and eras within 2020–2100. HTTPS Date is a coarse fallback requiring valid TLS, fresh no-store responses, usable headers, and browser CORS access. No response receives an authenticated/NTS label.
 
+Synchronous receive and packet-validation failures settle the NTP query with the original error and stack, then release its owned listener and socket. Queued callbacks cannot complete a response twice if cancellation has already settled it; failures do not escape into the callback zone or wait for the source deadline.
+
 Defaults: refresh 30 minutes; source timeout 3 seconds; cycle deadline 5 seconds; minimum two sources/two known provider groups; maximum anchor age 24 hours; maximum uncertainty 5 seconds; drift budget 100 ppm. Retry uses capped exponential backoff and jitter.
 
 ## Lifecycle and diagnostics
@@ -41,6 +45,8 @@ Track foreground state separately from clock validity. Native continuous anchors
 An injected foreground wall-clock reader can detect jumps and timezone changes. It is used only for diagnostics, never as a trusted time source. The default diagnostic interval is 30 seconds and jump threshold 2 seconds plus sampling allowances.
 
 If the optional wall-clock reader throws, skip that diagnostic poll without emitting a change event and clear the diagnostic baseline. Initialization and resume continue; scheduled polling retries at the next interval. Recovery establishes a new baseline so gaps cannot produce misleading wall-clock jump events. Monotonic sampling errors retain their existing failure behavior.
+
+If an injected scheduler throws while registering refresh/retry or diagnostic polling, emit `TimeEventKind.schedulingFailed` with the task purpose and retain the network sync outcome, last network error, and anchor. Complete all coalesced cycle callers normally; initialization and resume continue. No task is registered for that failed attempt and there is no immediate retry loop. A later manual sync retries refresh/retry registration; resume retries diagnostic registration. Applications can observe this event to detect loss of automatic work.
 
 ## Persistence and restart policy
 

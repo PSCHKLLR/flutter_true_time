@@ -1,6 +1,23 @@
 import 'dart:async';
 import 'package:flutter_true_time/core.dart';
 
+/// Captures detached callback errors without letting a regression escape tests.
+Future<List<Object>> captureAsyncErrors(Future<void> Function() action) async {
+  final errors = <Object>[];
+  final done = Completer<void>();
+  runZonedGuarded(() async {
+    try {
+      await action();
+      await Future<void>.delayed(Duration.zero);
+      done.complete();
+    } catch (error, stack) {
+      done.completeError(error, stack);
+    }
+  }, (error, stack) => errors.add(error));
+  await done.future;
+  return errors;
+}
+
 class FakeClock implements MonotonicClock {
   Duration elapsed = Duration.zero;
   Duration resolution = Duration.zero;

@@ -118,11 +118,79 @@ void expectReleased(OwnershipSocket socket, {required bool listened}) {
 
 Future<void> drainCallbacks() => Future<void>.delayed(Duration.zero);
 
+class ReceiveFailureSocket extends OwnershipSocket {
+  ReceiveFailureSocket({this.onReceive});
+  final void Function()? onReceive;
+  final failure = const SocketException('injected receive failure');
+  @override
+  Datagram? receive() {
+    super.receive();
+    onReceive?.call();
+    throw failure;
+  }
+}
+
 void main() {
   final address = InternetAddress.loopbackIPv4;
   final cancelled = throwsA(
     isA<TrueTimeException>().having((error) => error.code, 'code', 'cancelled'),
   );
+
+  for (final cancelDuringReceive in [false, true]) {
+    test(
+      'receive failure releases ownership; cancellation race=$cancelDuringReceive',
+      () async {
+        final errors = await captureAsyncErrors(() async {
+          final signal = CancellationSignal();
+          final socket = ReceiveFailureSocket(
+            onReceive: cancelDuringReceive ? () => signal.cancel('test') : null,
+          );
+          final query = transport.queryNtp(
+            'test.invalid',
+            123,
+            FakeClock(),
+            const Duration(seconds: 2),
+            cancellation: signal,
+            lookupHost: (_) async => [address],
+            bindSocket: (_, _) async => socket,
+          );
+          final assertion = expectLater(
+            query.timeout(const Duration(milliseconds: 500)),
+            cancelDuringReceive ? cancelled : throwsA(same(socket.failure)),
+          );
+          await socket.sent.future;
+          socket.controller.add(RawSocketEvent.read);
+          await assertion;
+          expectReleased(socket, listened: true);
+          expect(socket.receives, 1);
+        });
+        expect(errors, isEmpty);
+      },
+    );
+  }
+
+  test('receive failure preserves its original stack', () async {
+    final socket = ReceiveFailureSocket();
+    final query = transport.queryNtp(
+      'test.invalid',
+      123,
+      FakeClock(),
+      const Duration(seconds: 2),
+      lookupHost: (_) async => [address],
+      bindSocket: (_, _) async => socket,
+    );
+    final assertion = query.then<void>(
+      (_) => fail('Expected receive failure'),
+      onError: (Object error, StackTrace stack) {
+        expect(error, same(socket.failure));
+        expect(stack.toString(), contains('ReceiveFailureSocket.receive'));
+      },
+    );
+    await socket.sent.future;
+    socket.controller.add(RawSocketEvent.read);
+    await assertion.timeout(const Duration(milliseconds: 500));
+    expectReleased(socket, listened: true);
+  });
 
   test('cancellation during DNS never starts a socket bind', () async {
     final lookup = Completer<List<InternetAddress>>();
