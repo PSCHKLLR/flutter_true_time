@@ -64,9 +64,19 @@ These budgets belong to separate registry and consumer jobs after upload. A veri
 
 The workflow verifies builds/tests and publication identity. It does not claim that historical device, provenance, or privacy qualification gaps are resolved. The release checker reads the current pubspec version and still requires current qualification evidence; this workflow does not manufacture passed gate records.
 
+### Published-package smoke coverage
+
+For matching main pushes and PR changes (the smoke workflow, release helper scripts, or example), one metadata job resolves pub.dev's latest stable version once and passes that exact version to both Flutter 3.41.0 and 3.47.9 consumers. A separate historical lane tests 2.0.0 on both SDKs. Current-release metadata, resolution, hosted-version assertions, and test failures fail the workflow; historical consumer failures are advisory. No fallback version is used if registry metadata is unavailable, malformed, retracted, or identifies a prerelease as latest. The metadata job has a two-minute timeout and its single registry request is capped at 20 seconds.
+
+Manual **Published package smoke tests** runs accept an optional `version`: blank selects latest stable; a supplied value must be an exact semantic version (stable or prerelease, with optional build metadata). Constraints, whitespace, and malformed versions fail before consumer jobs start. Both SDKs receive the same selected value even if a new release appears during the run. The metadata and consumer job summaries name the version, lane, and failure policy.
+
+Publication's reusable `workflow_call` requires `version` and defaults `release` to true. Callers must retain that release mode: an empty or invalid version fails before registry lookup, only that exact version is tested, and every consumer must pass before GitHub Release creation. Publication never silently tests latest or runs an advisory historical lane. Version selection performs no upload or tag mutation. Existing registry-propagation budgets apply to exact consumer resolution after selection.
+
+These smoke-job names include lane and version for visibility; the compatibility workflow's pinned job names and required-check configuration are unchanged. Requiring the new current-release checks in branch protection is a separate repository policy change.
+
 ## Historical qualification procedure
 
-The 2.0.0 release renames the public API to `TrueTime`, `TrueTimeEngine`, `TrueTimeConfig`, and `TrueTimeException`. Its release review and remaining qualification limits are recorded in [REVIEW_REPORT.md](REVIEW_REPORT.md). The standalone published-package smoke workflow targets 2.0.0; release runs supply the exact version being published. Historical qualification records do not establish qualification for later versions.
+The 2.0.0 release renames the public API to `TrueTime`, `TrueTimeEngine`, `TrueTimeConfig`, and `TrueTimeException`. Its release review and remaining qualification limits are recorded in [REVIEW_REPORT.md](REVIEW_REPORT.md). Historical qualification records do not establish qualification for later versions.
 
 `flutter_true_time 0.1.0-dev.1` was published on 14 November 2026. [Published package](https://pub.dev/packages/flutter_true_time/versions/0.1.0-dev.1) · [Smoke test workflow](../.github/workflows/published-package.yml)
 
@@ -88,6 +98,6 @@ The owner waived the physical lifecycle gate for `0.1.0-dev.1` only. Simulator, 
 6. Once prerequisites pass, prepare a clean isolated Git checkout with the intended version and publication enabled. Run `dart run tool/release_check.dart --technical --candidate` before generating the candidate manifest.
 7. With Flutter 3.47.9 / Dart 3.13.7, run `dart run tool/release_check.dart --candidate-manifest` and save its JSON output outside the package root. It uses a successful `dart pub publish --dry-run` and hashes every selected file byte-for-byte. Inspect the file list, top-level notices, platform sources and privacy resources. The package excludes `docs/`, `tool/` and the repository-only release tests. Keep the candidate frozen during selection, testing, and review. A clean Git status and matching runtime digest can still coexist with different line endings in selected files. Use the same frozen checkout to select and stage consumer inputs, and verify the staged bytes against its candidate manifest.
 8. Test clean consumers using the selected contents on both SDK lanes and every advertised platform. Record archive-consumer and owner-approval evidence as separate JSON files under `docs/evidence/`, each containing the manifest's `candidateDigest` plus the test results or approval details. Record each evidence file's hash and the runtime `sourceDigest` in its gate. Run `dart run tool/release_check.dart --candidate` using Dart 3.13.7. It reruns the pub dry run and checks the fresh digest against both evidence records. Any change to selected paths or bytes requires fresh validation and approval.
-9. Publish with explicit owner authorization and authorized credentials. Update the smoke workflow version after publication and verify installation from pub.dev on both SDK lanes. Close all six-platform gates before promoting to `0.1.0`.
+9. Publish with explicit owner authorization and authorized credentials. Verify installation from pub.dev on both SDK lanes; standalone smoke checks automatically select the latest stable version. Close all six-platform gates before promoting to `0.1.0`.
 
 The checker verifies source/evidence integrity and recorded statuses; a human must verify the evidence's meaning. References: [Dart publishing](https://dart.dev/tools/pub/publishing), [pub.dev policy](https://pub.dev/policy).

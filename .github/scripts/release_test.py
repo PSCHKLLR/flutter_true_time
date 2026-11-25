@@ -7,7 +7,107 @@ from unittest.mock import patch
 import subprocess
 from urllib.error import HTTPError
 
-from release import metadata, verify
+from release import main, metadata, smoke_versions, verify
+
+
+class SmokeVersionTests(unittest.TestCase):
+    def setUp(self):
+        self.index = {
+            'name': 'flutter_true_time',
+            'latest': {'version': '2.0.6', 'pubspec': {'name': 'flutter_true_time'}},
+            'versions': [{'version': '2.0.0'}, {'version': '2.0.6'},
+                         {'version': '2.1.0-dev.1'}],
+        }
+
+    def fetch(self, url, timeout):
+        self.assertEqual(url, 'https://pub.dev/api/packages/flutter_true_time')
+        self.assertEqual(timeout, 20)
+        return io.StringIO(json.dumps(self.index))
+
+    def test_latest_stable_is_frozen_separately_from_advisory_history(self):
+        with patch('release.urlopen', side_effect=self.fetch) as fetch:
+            lanes = smoke_versions(fetch=fetch)
+        self.assertEqual(fetch.call_count, 1)
+        self.assertEqual(lanes, [
+            {'lane': 'current', 'version': '2.0.6', 'advisory': False},
+            {'lane': 'historical', 'version': '2.0.0', 'advisory': True},
+        ])
+
+    def test_exact_stable_and_prerelease_inputs_never_query_latest(self):
+        for version in ['2.0.6', '2.1.0-dev.1+build.2']:
+            for release in [False, True]:
+                with patch('release.urlopen') as fetch:
+                    lanes = smoke_versions(version, release=release, fetch=fetch)
+                fetch.assert_not_called()
+                self.assertEqual(lanes[0]['version'], version)
+                self.assertFalse(lanes[0]['advisory'])
+                self.assertEqual(len(lanes), 1 if release else 2)
+
+    def test_empty_release_and_invalid_overrides_fail_before_registry_io(self):
+        for requested, release in [('', True), ('^2.0.6', False),
+                                   ('2.0', True), ('2.0.6\nlanes=[]', False),
+                                   ('2.1.0-dev.01', True)]:
+            with patch('release.urlopen') as fetch:
+                with self.assertRaises(ValueError):
+                    smoke_versions(requested, release=release, fetch=fetch)
+                fetch.assert_not_called()
+
+    def test_malformed_or_unavailable_latest_is_rejected(self):
+        valid = json.loads(json.dumps(self.index))
+        for invalid in [None, [], {}, {**valid, 'name': 'other'},
+                        {**valid, 'latest': None}, {**valid, 'versions': []},
+                        {**valid, 'versions': 'wrong'},
+                        {**valid, 'versions': [None, {'version': '2.0.6'}]}]:
+            self.index = invalid
+            with self.assertRaises(ValueError):
+                smoke_versions(fetch=self.fetch)
+        for version in [None, '^2.0.6', '2.0.6\ninvalid', '2.1.0-dev.1']:
+            self.index = {**valid, 'latest': {**valid['latest'], 'version': version}}
+            with self.assertRaises(ValueError):
+                smoke_versions(fetch=self.fetch)
+        for latest in [{'version': '2.0.6'},
+                       {**valid['latest'], 'pubspec': {'name': 'other'}},
+                       {**valid['latest'], 'retracted': True}]:
+            self.index = {**valid, 'latest': latest}
+            with self.assertRaises(ValueError):
+                smoke_versions(fetch=self.fetch)
+        self.index = {**valid, 'versions': [{'version': '2.0.6', 'retracted': True}]}
+        with self.assertRaises(ValueError):
+            smoke_versions(fetch=self.fetch)
+
+    def test_registry_errors_fail_without_historical_fallback(self):
+        for error in [HTTPError('url', 503, 'unavailable', None, None), TimeoutError()]:
+            with patch('release.urlopen', side_effect=error) as fetch:
+                with self.assertRaises(type(error)):
+                    smoke_versions(fetch=fetch)
+                self.assertEqual(fetch.call_count, 1)
+        with self.assertRaises(ValueError):
+            smoke_versions(fetch=lambda *args, **kwargs: io.StringIO('not json'))
+
+    def test_command_exports_validated_matrix_and_summary(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output, summary = Path(directory) / 'output', Path(directory) / 'summary'
+            with patch.dict('release.os.environ', {
+                'REQUESTED_VERSION': '2.1.0-dev.1', 'RELEASE_SMOKE': 'true',
+                'GITHUB_OUTPUT': str(output), 'GITHUB_STEP_SUMMARY': str(summary),
+            }), patch('release.sys.argv', ['release.py', 'smoke-versions']):
+                main()
+            lanes = json.loads(output.read_text(encoding='utf-8').removeprefix('lanes='))
+            self.assertEqual(lanes, [
+                {'lane': 'release', 'version': '2.1.0-dev.1', 'advisory': False}])
+            self.assertIn('2.1.0-dev.1 (required)', summary.read_text(encoding='utf-8'))
+
+    def test_empty_reusable_input_exports_no_matrix_or_summary(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output, summary = Path(directory) / 'output', Path(directory) / 'summary'
+            with patch.dict('release.os.environ', {
+                'REQUESTED_VERSION': '', 'RELEASE_SMOKE': 'true',
+                'GITHUB_OUTPUT': str(output), 'GITHUB_STEP_SUMMARY': str(summary),
+            }), patch('release.sys.argv', ['release.py', 'smoke-versions']):
+                with self.assertRaises(ValueError):
+                    main()
+            self.assertFalse(output.exists())
+            self.assertFalse(summary.exists())
 
 
 class RetryClock:

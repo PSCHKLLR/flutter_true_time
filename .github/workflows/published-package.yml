@@ -13,27 +13,61 @@ on:
       - '.github/scripts/release*'
       - 'example/**'
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Exact consumer version (blank selects latest stable from pub.dev)'
+        required: false
+        type: string
   workflow_call:
     inputs:
       version:
         required: true
         type: string
+      release:
+        description: 'Reusable publication mode; callers must retain the true default'
+        type: boolean
+        default: true
 
 permissions:
   contents: read
 
 jobs:
+  versions:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    outputs:
+      lanes: ${{ steps.select.outputs.lanes }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - run: python3 -m unittest discover -s .github/scripts -p 'release_test.py'
+      - name: Freeze published versions for both SDKs
+        id: select
+        env:
+          REQUESTED_VERSION: ${{ inputs.version }}
+          RELEASE_SMOKE: ${{ inputs.release || false }}
+        run: python3 .github/scripts/release.py smoke-versions
+
   smoke:
+    needs: versions
+    name: smoke (${{ matrix.package.lane }}, ${{ matrix.flutter }}, ${{ matrix.package.version }})
     timeout-minutes: 15
-    continue-on-error: ${{ !inputs.version }}
+    continue-on-error: ${{ matrix.package.advisory }}
     runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
         flutter: ['3.41.0', '3.47.9']
+        package: ${{ fromJSON(needs.versions.outputs.lanes) }}
     env:
-      PUBLISHED_VERSION: ${{ inputs.version || '2.0.0' }}
+      PUBLISHED_VERSION: ${{ matrix.package.version }}
     steps:
+      - name: Report tested version and failure policy
+        env:
+          LANE: ${{ matrix.package.lane }}
+          ADVISORY: ${{ matrix.package.advisory }}
+        run: |
+          echo "### $LANE / Flutter ${{ matrix.flutter }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "flutter_true_time $PUBLISHED_VERSION; advisory=$ADVISORY" >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/checkout@v7.0.1
       - uses: subosito/flutter-action@v2.23.0
         with:
