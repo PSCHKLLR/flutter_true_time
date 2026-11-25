@@ -10,10 +10,17 @@ const releaseUsage =
 Default: preview the release without changing files or Git refs.
   --notes <text>  Add a changelog bullet (or use existing Unreleased notes).
   --write         Update versions, changelog, and qualification manifest locally.
-  --publish       Commit a bump, push main, then create and push an annotated
-                  tag to origin, starting the publishing workflow.
+  --publish       Publish the reviewed version from clean, updated main by
+                  pushing its annotated tag to origin (use current).
 
-Use current --publish to tag an already-committed version without bumping.
+Protected-main release flow:
+  1. Create a release branch and use patch, minor, or major with --write.
+  2. Review, commit, push the branch, and open a PR to main.
+  3. Pass required checks, resolve conversations, and merge the PR.
+  4. Update clean main, then use current --publish after explicit authorization.
+
+Combining a bump with --publish requires direct main pushes and is only for
+repositories that permit them. Use the PR flow in this repository.
 Writes require a clean checkout. Publishing also requires main at origin/main.
 --publish is explicit authorization to publish through GitHub Actions.''';
 
@@ -237,8 +244,15 @@ void executeRelease(Directory root, ReleasePlan plan, {bool publish = false}) {
       _git(root, ['push', 'origin', 'HEAD:refs/heads/main']);
     } on StateError catch (error) {
       throw StateError(
-        '$error\nLocal release commit retained. '
-        'The release tag was not created or pushed.',
+        '$error\nThe release tag was not created or pushed. '
+        'Local release commit retained.\n'
+        'If this commit needs review, retain it on a release branch:\n'
+        '  git switch -c codex/release-${plan.version}\n'
+        '  git push -u origin codex/release-${plan.version}\n'
+        'Open a PR to main, pass required checks, resolve conversations, '
+        'and merge. Then update clean main and run current --publish '
+        'after explicit publication authorization. '
+        'Do not bypass protection, force-push, or tag the unmerged commit.',
       );
     }
     _git(root, ['tag', '-a', plan.tag, '-m', 'Release ${plan.version}']);
@@ -294,9 +308,10 @@ void main(List<String> args) {
       );
       stdout.writeln(
         plan.files.isEmpty
-            ? 'Use --publish to tag and push from a clean main checkout.'
-            : 'Use --write to prepare files, or --publish to commit, '
-                  'tag, and push from a clean main checkout.',
+            ? 'After PR merge and explicit publication authorization, '
+                  'use current --publish from clean, updated main.'
+            : 'Use --write on a release branch, then review, commit, push, '
+                  'and merge a PR to main before current --publish.',
       );
       return;
     }
@@ -304,7 +319,9 @@ void main(List<String> args) {
     stdout.writeln(
       publish
           ? 'Pushed ${plan.tag}; follow the Publish package and GitHub Release workflow.'
-          : 'Prepared ${plan.version}; review and commit the four release files.',
+          : 'Prepared ${plan.version}; review and commit the four release '
+                'files on a release branch, push, and merge a PR to main '
+                'before current --publish.',
     );
   } catch (error) {
     stderr.writeln(error);

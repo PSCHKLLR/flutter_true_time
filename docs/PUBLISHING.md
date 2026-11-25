@@ -6,7 +6,7 @@ Version bumps prepare source changes; they do not publish. The README's pub.dev 
 
 One-time uploader setup: open [the package Admin tab](https://pub.dev/packages/flutter_true_time/admin), enable publishing from GitHub Actions, set repository `PSCHKLLR/flutter_true_time`, and use tag pattern `v{{version}}`. The workflow uses short-lived OIDC credentials rather than a stored publisher secret. It does not currently require a GitHub deployment environment. See [Dart's automated publishing instructions](https://dart.dev/tools/pub/automated-publishing).
 
-Use the repository release command for an approved release:
+Main requires a PR, all 17 pinned compatibility checks, an up-to-date branch, and resolved conversations, with no administrator bypass. Prepare release changes on a branch and merge them through that policy before publication. Use the repository release command:
 
 ```sh
 # Preview the next patch using committed Unreleased changelog notes.
@@ -15,25 +15,49 @@ dart run tool/release.dart patch
 # Or supply a release note directly; this still only previews.
 dart run tool/release.dart patch --notes "Describe the fix"
 
-# Prepare four files locally for review and a PR, without a commit or tag.
+# Start from clean, updated main and create a release branch.
+git switch main
+git pull --ff-only origin main
+git switch -c codex/release-next
+
+# Prepare four files locally, without a commit or tag.
 dart run tool/release.dart patch --write
 
-# After that version bump is reviewed, committed, and merged to main:
-dart run tool/release.dart current --publish
+# Review the diff, then commit and push only the release files.
+git diff
+git add pubspec.yaml example/pubspec.yaml CHANGELOG.md docs/release_gates.json
+git commit -m "chore: prepare release"
+git push -u origin codex/release-next
 
-# Alternatively, bump, commit, tag, and push in one command from clean main:
-dart run tool/release.dart patch --notes "Describe the fix" --publish
+# Open a PR to main, pass required checks, resolve conversations, and merge.
+# Only after merge AND explicit publication authorization:
+git switch main
+git pull --ff-only origin main
+dart run tool/release.dart current --publish
 ```
 
 `minor` and `major` also reset the lower version components. Automatic bumps require a stable starting version; manually prepared prereleases can use `current --publish`. Bumps update both pubspec files, promote Unreleased notes (or insert supplied notes), and regenerate the qualification manifest without manufacturing passed evidence. `--write` requires a clean checkout and leaves those four files for review. The default preview changes no files or refs.
 
-`--publish` is explicit publication authorization. It requires a clean main checkout matching `origin/main`, the default pub.dev publication target, and an unused release tag. It pushes main successfully before creating and pushing the annotated tag. A rejected main push never starts publication. If the tag push fails, the version commit remains on main and the local tag remains for review; retry only that tag push after resolving the failure. The command never force-pushes or replaces tags. Existing qualification limits still apply.
+`--publish` is explicit publication authorization. It requires a clean main checkout matching `origin/main`, the default pub.dev publication target, and an unused release tag. With `current`, the version commit is already merged; the command checks the manifest and pushes main (normally an up-to-date no-op) successfully before creating and pushing the annotated tag. A rejected main push never starts publication. If the tag push fails, the version commit remains on main and the local tag remains for review; retry only that tag push after resolving the failure. The command never force-pushes or replaces tags. Existing qualification limits still apply.
+
+Combining `patch`, `minor`, or `major` with `--publish` remains supported only for repositories that permit direct main pushes. It creates a local version commit and attempts to push it directly to main, so it is incompatible with this repository's protected-main policy. Use the branch/PR route above.
 
 The command requires Dart dependencies (`flutter pub get`) and an authenticated Git remote named `origin`. It can run from Windows, macOS, or Linux. Do not run `--publish` to retry a release that already has a tag: rerun failed Actions jobs as described below.
 
-Manual equivalent:
+### Recovery after a rejected main push
 
-1. Merge its version, changelog entry, and source changes to main.
+The local version commit is retained, and no release tag is created or pushed. If a direct-bump attempt left a new commit on local main, retain that commit on a release branch (use a new branch name if it already exists):
+
+```sh
+git switch -c codex/release-recovery
+git push -u origin codex/release-recovery
+```
+
+Open a PR from that branch to main, pass required checks, resolve conversations, and merge. After merge, return to main and fetch `origin`. If the PR was squash-merged or rebased, local main may still contain the original version commit; preserve it on the recovery branch, then use `git switch -C main origin/main` from a clean checkout to align main with the reviewed remote history. Otherwise `git pull --ff-only origin main` suffices. Confirm clean main matches `origin/main` before retrying `current --publish` with explicit publication authorization. Never bypass protection, force-push, or create a publication tag for the unmerged commit. If `current` itself was rejected despite already matching main, investigate remote permissions or policy first; do not create a replacement version commit.
+
+### Manual equivalent
+
+1. Merge its version, changelog entry, and source changes to main through a passing PR, and obtain explicit publication authorization.
 2. Create and push a tag matching pubspec exactly, for example `git tag -a v2.0.4 -m "Release 2.0.4"` and `git push origin v2.0.4`.
 3. Watch [Publish package and GitHub Release](../.github/workflows/publish.yml). It verifies package/tag/changelog identity and main ancestry, runs a Pub dry run, and requires all compatibility jobs (including normally advisory jobs) to succeed.
 4. The workflow publishes to pub.dev, waits for registry confirmation, and tests clean consumers on both pinned Flutter SDKs. Only then does it create the matching GitHub Release using changelog notes. Stable releases are marked Latest only when they match the registry's latest version; prereleases never replace Latest.
@@ -41,6 +65,8 @@ Manual equivalent:
 Manual Run workflow performs validation only, even when a tag ref is selected. Only a pushed release tag can start an upload. There is no automatic upload on every merge or version bump.
 
 ### Compatibility event coverage
+
+Required-check configuration pins the compatibility job names. If a workflow change renames jobs or changes matrix values that contribute to those names, maintain the repository's branch-protection/required-check configuration as part of that change. Wait for the replacement checks to run and require their exact names; do not remove protection or bypass checks to merge.
 
 | Event | Compatibility matrix | Failure policy |
 | --- | --- | --- |
