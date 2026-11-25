@@ -57,15 +57,19 @@ void main() {
             await Future<void>.delayed(Duration.zero);
             expect(
               events
-                  .where((e) => e.kind == TimeEventKind.schedulingFailed)
+                  .where(
+                    (e) =>
+                        e.kind == TimeEventKind.schedulingFailed &&
+                        e.detail!.contains('Automatic refresh'),
+                  )
                   .single
                   .detail,
               contains('Automatic refresh'),
             );
-            expect(scheduler.calls, 1);
+            expect(scheduler.calls, greaterThanOrEqualTo(1));
             scheduler.fail = false;
             expect((await engine.forceResync()).success, success);
-            expect(scheduler.tasks, hasLength(1));
+            expect(scheduler.tasks, hasLength(success ? 2 : 1));
           } finally {
             await engine.dispose();
             await subscription.cancel();
@@ -109,7 +113,7 @@ void main() {
           engine.suspend();
           engine.resume();
           expect((await engine.forceResync()).success, isTrue);
-          expect(scheduler.tasks, hasLength(2));
+          expect(scheduler.tasks, hasLength(3));
         } finally {
           await engine.dispose();
           await subscription.cancel();

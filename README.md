@@ -57,6 +57,8 @@ Native defaults query time.cloudflare.com and ntp.netnod.se (distinct configured
 
 UTC may move backward after a correction. Use a monotonic timer for durations; these timestamps do not provide unique IDs or globally ordered events.
 
+Foreground `availabilityChanged` events include scheduled age/drift expiry, even without reads or automatic refresh. Background delivery can be delayed; resume resamples availability. Clock sampling failures and error-bound changes require a subsequent snapshot to discover. See the [expiry contract](docs/SPECIFICATION.md#foreground-availability-expiry).
+
 Defaults remain: 30-minute foreground refresh, 3-second source timeout, 5-second cycle deadline, two sources from two named providers, 24-hour anchor-age limit, 5-second uncertainty limit, and 100-ppm drift budget. Uncertainty grows by 360 ms per offline hour at that budget, in addition to sampling and source error. This is an engineering estimate under stated assumptions, not an accuracy or security guarantee.
 
 `TrueTimeConfig.maximumUncertainty` is the portable arithmetic limit (9007199254740991 microseconds). Values or projected bounds beyond it fail explicitly with `uncertain`; representable bounds above your configured policy remain stale estimates. A `schedulingFailed` event means automatic refresh/retry or diagnostic registration failed. The completed network result and anchor are retained; a later sync retries refresh registration and resume retries diagnostic registration.

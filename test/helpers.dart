@@ -100,13 +100,19 @@ class FakeStore implements AnchorStore {
 }
 
 class FakeScheduler implements TimeScheduler {
-  Duration? delay;
-  void Function()? callback;
+  final _tasks = <Object, (Duration, void Function())>{};
+  (Duration, void Function())? get _next {
+    if (_tasks.isEmpty) return null;
+    return (_tasks.values.toList()..sort((a, b) => a.$1.compareTo(b.$1))).first;
+  }
+
+  Duration? get delay => _next?.$1;
+  void Function()? get callback => _next?.$2;
   @override
   ScheduledTask schedule(Duration value, void Function() action) {
-    delay = value;
-    callback = action;
-    return FakeTask(() => callback = null);
+    final id = Object();
+    _tasks[id] = (value, action);
+    return FakeTask(() => _tasks.remove(id));
   }
 }
 

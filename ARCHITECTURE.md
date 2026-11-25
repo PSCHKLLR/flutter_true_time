@@ -10,6 +10,8 @@ At most 1,024 configured sources are supported. Collection checks an independent
 
 The Flutter facade observes lifecycle state. Foreground scheduling is independent from clock continuity: native continuous anchors remain readable in the background, while session-only clocks invalidate. Injected wall-clock observations produce informational events only.
 
+A separate foreground expiry task publishes age/drift availability transitions even when automatic refresh is disabled and no caller reads the clock. It searches the same strict policy thresholds and ceil-rounded drift used by reads, resamples on delivery, and retains one task per anchor/error bound. Long delays use one-day checkpoints to fit browser/native timers. New anchors, continuity loss, suspension, and disposal cancel or replace expiry work; resume resamples immediately. No wall clock projects UTC.
+
 Scheduler registration is optional maintenance: failures emit `schedulingFailed`, preserve network results and accepted anchors, and never strand cycle completers. Later sync/resume calls can register maintenance again. NTP receive callbacks contain synchronous transport failures, preserve their stacks, and check completion after injected code to tolerate cancellation races.
 
 Optional persistence uses a typed version-2 complete record and a serialized backend. Matching clock domain, public boot evidence, installation scope, trust-policy fingerprint, accepted source/provider mapping, freshness, and uncertainty are required for restoration. A caller timeout never releases the actual writer queue. One namespace has one writer per isolate; share the backend object when multiple engines intentionally share state.
