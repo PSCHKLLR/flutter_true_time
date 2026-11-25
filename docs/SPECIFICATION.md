@@ -50,6 +50,14 @@ If the optional wall-clock reader throws, skip that diagnostic poll without emit
 
 If an injected scheduler throws while registering refresh/retry or diagnostic polling, emit `TimeEventKind.schedulingFailed` with the task purpose and retain the network sync outcome, last network error, and anchor. Complete all coalesced cycle callers normally; initialization and resume continue. No task is registered for that failed attempt and there is no immediate retry loop. A later manual sync retries refresh/retry registration; resume retries diagnostic registration. Applications can observe this event to detect loss of automatic work.
 
+## Foreground availability expiry
+
+For a live or restored ready anchor, a separate task on the injected `TimeScheduler` publishes `availabilityChanged` when deterministic anchor-age or drift uncertainty exceeds policy, even with `autoRefresh: false` and no external reads. Equality remains ready: the scheduled crossing is the first invalid integer microsecond, using the same ceil-rounded drift and latest sampled clock-error bound as reads. Early callbacks rearm; delayed callbacks resample current monotonic time and emit only changed availability. Delays longer than one day use one-day checkpoints to stay within browser/native timer limits. Refresh and diagnostic tasks remain independent.
+
+New anchors and changed sampled error bounds recompute expiry; repeated reads with the same anchor/error reuse one task. Continuity loss, suspension, and disposal cancel expiry and make old callbacks inert. Continuous anchors can remain readable while suspended, but background event delivery is not guaranteed; resume immediately resamples before starting fresh synchronization. Session-only suspension still invalidates continuity. OS timer suspension can delay delivery until the event loop resumes.
+
+Changes in sampling error or clock continuity can only be discovered by a new snapshot. Expiry callbacks contain sampling failures and report `schedulingFailed`; a later read, sync, or resume can retry. Registration failures similarly preserve the accepted anchor and emit `schedulingFailed`. If drift arithmetic becomes unsupported at expiry, availability becomes stale while reads retain their existing explicit `uncertain` failure. No wall-clock timestamps or busy polling are used for UTC projection.
+
 ## Persistence and restart policy
 
 Persistence is opt-in with an application-specific namespace. Use a single writer per namespace/isolate, or share the same AnchorStore object across engines. The secure backend stores a complete version-2 record. It contains UTC/monotonic anchor, uncertainty, source/provider evidence, clock domain, verified epoch/installation scope, trust-policy fingerprint, and write sequence.

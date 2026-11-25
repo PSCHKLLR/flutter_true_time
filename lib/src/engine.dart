@@ -155,6 +155,10 @@ class TrueTimeEngine {
   Completer<SyncOutcome>? _replacement;
   _Cycle? _active;
   ScheduledTask? _refresh, _diagnostic;
+  ScheduledTask? _expiry;
+  _Anchor? _expiryAnchor;
+  Duration? _expiryError;
+  int _expiryToken = 0;
   WallClockSample? _previousWall;
   ClockSnapshot? _previousWallMono;
   bool _disposed = false, _foreground;
@@ -205,6 +209,7 @@ class TrueTimeEngine {
   }
 
   void _loseContinuity(String reason) {
+    _cancelExpiry();
     _anchor = null;
     _epoch = null;
     _epochLookup = null;
@@ -397,6 +402,7 @@ class TrueTimeEngine {
         ? TimeAvailability.stale
         : TimeAvailability.ready;
     _availability(availability);
+    _scheduleExpiry(anchor, snapshot, availability);
     return TimeReading(
       utc: anchor.utc.add(age),
       uncertainty: error,
@@ -916,6 +922,84 @@ class TrueTimeEngine {
     );
   }
 
+  void _cancelExpiry() {
+    _expiryToken++;
+    _expiry?.cancel();
+    _expiry = null;
+    _expiryAnchor = null;
+    _expiryError = null;
+  }
+
+  void _scheduleExpiry(
+    _Anchor anchor,
+    ClockSnapshot snapshot,
+    TimeAvailability availability,
+  ) {
+    if (!_foreground || availability != TimeAvailability.ready) {
+      _cancelExpiry();
+      return;
+    }
+    if (identical(anchor, _expiryAnchor) &&
+        snapshot.uncertainty == _expiryError &&
+        _expiry != null) {
+      return;
+    }
+    _cancelExpiry();
+    // Search exact integer ages using the same ceil-rounded drift as reads.
+    // BigInt avoids overflow at the strict age-policy boundary.
+    var low = BigInt.from(
+      (snapshot.elapsed - anchor.at.elapsed).inMicroseconds,
+    );
+    var high = BigInt.from(config.maxAnchorAge.inMicroseconds) + BigInt.one;
+    bool expired(BigInt age) {
+      if (age > BigInt.from(config.maxAnchorAge.inMicroseconds)) return true;
+      try {
+        return _uncertainty([
+              anchor.uncertainty,
+              snapshot.uncertainty,
+              _drift(Duration(microseconds: age.toInt())),
+            ]) >
+            config.maxUncertainty;
+      } on TrueTimeException {
+        return true;
+      }
+    }
+
+    while (high - low > BigInt.one) {
+      final middle = low + ((high - low) >> 1);
+      if (expired(middle)) {
+        high = middle;
+      } else {
+        low = middle;
+      }
+    }
+    final delay =
+        high -
+        BigInt.from((snapshot.elapsed - anchor.at.elapsed).inMicroseconds);
+    final token = _expiryToken;
+    _expiryAnchor = anchor;
+    _expiryError = snapshot.uncertainty;
+    // Long delays are checkpointed at one day to fit native/browser timers.
+    final maximumDelay = BigInt.from(const Duration(days: 1).inMicroseconds);
+    final scheduledDelay = delay > maximumDelay ? maximumDelay : delay;
+    _expiry = _registerTask(Duration(microseconds: scheduledDelay.toInt()), () {
+      if (_disposed || !_foreground || token != _expiryToken) return;
+      _expiry = null;
+      try {
+        estimate();
+      } catch (error) {
+        if (error is TrueTimeException && error.code == 'uncertain') {
+          _availability(TimeAvailability.stale);
+        } else {
+          _emit(
+            TimeEventKind.schedulingFailed,
+            'Availability expiry sampling failed',
+          );
+        }
+      }
+    }, 'Availability expiry');
+  }
+
   void _schedule(Duration delay) {
     _refresh?.cancel();
     if (autoRefresh && !_disposed && _foreground) {
@@ -990,6 +1074,7 @@ class TrueTimeEngine {
   void suspend() {
     _checkOpen();
     _foreground = false;
+    _cancelExpiry();
     _refresh?.cancel();
     _diagnostic?.cancel();
     _previousWall = null;
@@ -1000,6 +1085,14 @@ class TrueTimeEngine {
   void resume() {
     _checkOpen();
     _foreground = true;
+    try {
+      estimate();
+    } catch (_) {
+      _emit(
+        TimeEventKind.schedulingFailed,
+        'Resume availability sampling failed',
+      );
+    }
     _startDiagnostics();
     unawaited(sync());
   }
@@ -1012,6 +1105,7 @@ class TrueTimeEngine {
   Future<void> dispose() async {
     if (_disposed) return;
     _disposed = true;
+    _cancelExpiry();
     _generation++;
     _anchor = null;
     _refresh?.cancel();

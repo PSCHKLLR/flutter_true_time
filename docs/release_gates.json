@@ -2,7 +2,7 @@
   "schema": 2,
   "version": "2.0.6",
   "developmentInputs": false,
-  "sourceDigest": "c6fe79ae48fa41ee34b62f90d46007b0e562b7b05b7afa86abf72058f126a7b5",
+  "sourceDigest": "5242349cab27ff9e2bc649015a5d41912a5b80b28d6a7769450f8372610e20a6",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -22,7 +22,7 @@
     },
     ".github/workflows/compatibility.yml": {
       "mode": "utf8-lf",
-      "sha256": "2cba06dae13b4c679cdece03f8e49f9f857c79b95f989296c0cd365bb1aacf3b"
+      "sha256": "d51b145a20e29592bfe0770e09aef564c493d76715935aa5cae9eb8af3abaf7c"
     },
     ".github/workflows/publish.yml": {
       "mode": "utf8-lf",
@@ -582,7 +582,7 @@
     },
     "lib/src/engine.dart": {
       "mode": "utf8-lf",
-      "sha256": "30f7f93407baf4bea708e7eaa94363fb37deae9cd7f0413c763030bdde538b81"
+      "sha256": "f3c230c78737e8a9a51d382f880e817c103b836513fe217722fa06996dc3d7a4"
     },
     "lib/src/epoch_io.dart": {
       "mode": "utf8-lf",
@@ -632,6 +632,10 @@
       "mode": "utf8-lf-development-guard",
       "sha256": "47f25379a07c538de0b1de0b89466b65c1a94ef2f944600cc6d52f4bfec31284"
     },
+    "test/availability_expiry_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "918a1b1b744801853073740ffd37fa006c34c9bafa5588b8207db242abb5c2c3"
+    },
     "test/cancellation_test.dart": {
       "mode": "utf8-lf",
       "sha256": "3d1820507d32c071baa28a76ce6459d0af4f09daa988d9c65209352f39748c58"
@@ -666,7 +670,7 @@
     },
     "test/helpers.dart": {
       "mode": "utf8-lf",
-      "sha256": "0435b6e74e15890a1b8113ce9f9b36678fc229d80f4d0a05f6554cbfabf31854"
+      "sha256": "a3a860f615b456999e4a3d020d44e62e8f09180a71f11acce9bd7b1da09793a7"
     },
     "test/native_sources_test.dart": {
       "mode": "utf8-lf",
@@ -702,7 +706,7 @@
     },
     "test/scheduler_failure_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "132b86574dbc5e35147b95ffd511e61f77a92eb1b7b0572f22eaaa2ec21db168"
+      "sha256": "84eec5e5f5e18944d8fd481fa435758f6ebc680f276aa9ab1e627ca798b84d89"
     },
     "test/sources_test.dart": {
       "mode": "utf8-lf",

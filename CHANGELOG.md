@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Publish foreground age/drift availability expiry without requiring reads, with independent cancellable scheduling for live/restored anchors and immediate resume resampling (#8).
 - Bound persistence to one active and one newest pending complete record per shared backend; fail superseded saves explicitly while preserving backend ownership, load barriers, snapshots, and in-memory time (#9).
 - Make release-branch preparation, PR checks, merge, and authorized publication from updated main the standard release flow; explain recovery of retained version commits after a rejected main push (#33).
 - Test the latest stable published package on both pinned Flutter SDKs, with validated manual version overrides and separate advisory 2.0.0 coverage; keep publication consumers pinned to their exact release (#24).
