@@ -53,6 +53,40 @@ def metadata(root, ref):
     return version, bool(match[1]), notes
 
 
+def smoke_versions(requested='', *, release=False, fetch=urlopen):
+    """Freeze one current version, retaining advisory history only outside releases."""
+    if not requested and release:
+        raise ValueError('Reusable release smoke tests require an exact version')
+    if requested:
+        _version(requested)
+        version = requested
+    else:
+        with fetch('https://pub.dev/api/packages/flutter_true_time', timeout=20) as response:
+            index = json.load(response)
+        if (not isinstance(index, dict) or index.get('name') != 'flutter_true_time' or
+                not isinstance(index.get('latest'), dict) or
+                not isinstance(index['latest'].get('version'), str) or
+                not isinstance(index['latest'].get('pubspec'), dict) or
+                index['latest']['pubspec'].get('name') != 'flutter_true_time' or
+                not isinstance(index.get('versions'), list) or
+                any(not isinstance(item, dict) or not isinstance(item.get('version'), str)
+                    for item in index['versions'])):
+            raise ValueError('Registry returned malformed latest-release metadata')
+        version = index['latest']['version']
+        if _version(version)[1]:
+            raise ValueError('Registry latest release must be stable')
+        if not any(isinstance(item, dict) and item.get('version') == version and
+                   not item.get('retracted', False) for item in index['versions']):
+            raise ValueError('Registry latest release is unavailable or retracted')
+        if index['latest'].get('retracted', False):
+            raise ValueError('Registry latest release is retracted')
+    lanes = [{'lane': 'release' if release else 'current', 'version': version,
+              'advisory': False}]
+    if not release:
+        lanes.append({'lane': 'historical', 'version': '2.0.0', 'advisory': True})
+    return lanes
+
+
 class _NotVisible(Exception):
     """Only a recognized propagation/transient registry condition is retryable."""
 
@@ -149,7 +183,20 @@ def resolve(version, attempts=6, pause=time.sleep, *, budget=180,
 
 
 def main():
-    if sys.argv[1:] == ["metadata"]:
+    if sys.argv[1:] == ['smoke-versions']:
+        lanes = smoke_versions(os.environ.get('REQUESTED_VERSION', ''),
+                               release=os.environ.get('RELEASE_SMOKE') == 'true')
+        if os.environ.get('GITHUB_OUTPUT'):
+            with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as output:
+                output.write(f'lanes={json.dumps(lanes)}\n')
+        summary = '\n'.join(
+            f"- {lane['lane']}: flutter_true_time {lane['version']} "
+            f"({'advisory' if lane['advisory'] else 'required'})" for lane in lanes)
+        if os.environ.get('GITHUB_STEP_SUMMARY'):
+            with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as output:
+                output.write(f'## Published package versions\n\n{summary}\n')
+        print(summary)
+    elif sys.argv[1:] == ["metadata"]:
         root = Path.cwd()
         version, prerelease, notes = metadata(root, os.environ.get("GITHUB_REF", ""))
         destination = root / ".dart_tool" / "release-notes.md"
@@ -165,7 +212,7 @@ def main():
     elif len(sys.argv) == 3 and sys.argv[1] == 'resolve':
         resolve(sys.argv[2])
     else:
-        raise SystemExit("Use metadata, verify <version>, or resolve <version>")
+        raise SystemExit("Use metadata, smoke-versions, verify <version>, or resolve <version>")
 
 
 if __name__ == "__main__":

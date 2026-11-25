@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Test the latest stable published package on both pinned Flutter SDKs, with validated manual version overrides and separate advisory 2.0.0 coverage; keep publication consumers pinned to their exact release (#24).
+
 ## 2.0.6
 
 - Use an O(n log n) endpoint sweep for consensus, enforce elapsed collection budgets even for immediate sources, yield during long collections, and reject more than 1,024 configured sources (#20).
