@@ -2,7 +2,7 @@
   "schema": 2,
   "version": "2.0.6",
   "developmentInputs": false,
-  "sourceDigest": "3f8c94a9ed46028e8849380b96805e5f3a27981466dfc3abf115cbb11ce065a9",
+  "sourceDigest": "0676b12ee54378b496c61cdd4b1f1c60f7b5649b6dcb970e8c77d3529c92bc70",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -690,7 +690,7 @@
     },
     "test/release_command_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "b5738d608b9270c5f826612ff887b5874f820f9340ce9380f0b0fd751aaabd75"
+      "sha256": "1dfc4989138990485a0b16cc5f58dfe566da1395b8790ed472fdb99d6ba534f7"
     },
     "test/release_verification_test.dart": {
       "mode": "utf8-lf",

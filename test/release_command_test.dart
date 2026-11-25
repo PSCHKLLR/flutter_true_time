@@ -130,28 +130,50 @@ void main() {
     expect(git(['diff', '--cached', '--name-only']), isEmpty);
   });
 
-  test('CLI guidance prepares a PR before publishing from updated main', () {
-    final script = File('tool/release.dart').absolute.path;
-    final packages = File('.dart_tool/package_config.json').absolute.path;
-    for (final args in [
-      ['--help'],
-      ['patch'],
-      ['patch', '--write'],
-    ]) {
-      final result = Process.runSync(Platform.resolvedExecutable, [
-        '--packages=$packages',
-        script,
-        ...args,
-      ], workingDirectory: root.path);
-      expect(result.exitCode, 0, reason: '${result.stderr}');
-      expect(result.stdout, contains('release branch'));
-      expect(result.stdout, contains('PR'));
-      expect(result.stdout, contains('current --publish'));
-    }
-    expect(git(['tag', '--list']), isEmpty);
-    expect(git(['tag', '--list'], at: remote), isEmpty);
-    expect(read('pubspec.yaml'), contains('version: 2.0.6\n'));
-  });
+  test(
+    'CLI guidance prepares a PR before publishing from updated main',
+    () async {
+      final script = File('tool/release.dart').absolute.path;
+      final packages = File('.dart_tool/package_config.json').absolute.path;
+      final flutterRoot = Platform.environment['FLUTTER_ROOT'];
+      final executable = flutterRoot == null
+          ? Platform.resolvedExecutable
+          : '$flutterRoot/bin/cache/dart-sdk/bin/dart${Platform.isWindows ? '.exe' : ''}';
+      for (final args in [
+        ['--help'],
+        ['patch'],
+        ['patch', '--write'],
+      ]) {
+        final child = await Process.start(executable, [
+          '--packages=$packages',
+          script,
+          ...args,
+        ], workingDirectory: root.path);
+        final output = child.stdout.transform(utf8.decoder).join();
+        final error = child.stderr.transform(utf8.decoder).join();
+        var finished = false;
+        try {
+          final code = await child.exitCode.timeout(
+            const Duration(seconds: 20),
+          );
+          finished = true;
+          expect(code, 0, reason: await error);
+          final text = await output;
+          expect(text, contains('release branch'));
+          expect(text, contains('PR'));
+          expect(text, contains('current --publish'));
+        } finally {
+          if (!finished) {
+            child.kill();
+            await child.exitCode;
+          }
+        }
+      }
+      expect(git(['tag', '--list']), isEmpty);
+      expect(git(['tag', '--list'], at: remote), isEmpty);
+      expect(read('pubspec.yaml'), contains('version: 2.0.6\n'));
+    },
+  );
 
   test(
     'branch preparation publishes only after its version commit is merged',
