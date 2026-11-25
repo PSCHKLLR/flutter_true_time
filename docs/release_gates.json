@@ -2,7 +2,7 @@
   "schema": 2,
   "version": "2.0.6",
   "developmentInputs": false,
-  "sourceDigest": "5242349cab27ff9e2bc649015a5d41912a5b80b28d6a7769450f8372610e20a6",
+  "sourceDigest": "69f8a0e20a13e70f3bc1b3eccbba53977b6de79bbe75e47d2cfb8a8a3c61ddb7",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -582,7 +582,7 @@
     },
     "lib/src/engine.dart": {
       "mode": "utf8-lf",
-      "sha256": "f3c230c78737e8a9a51d382f880e817c103b836513fe217722fa06996dc3d7a4"
+      "sha256": "6b1a9ed3cc62893718db9811fa0bc2662cf8cdb472c87d5e95f3596ec7a7286c"
     },
     "lib/src/epoch_io.dart": {
       "mode": "utf8-lf",
@@ -662,7 +662,7 @@
     },
     "test/epoch_lookup_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "f67cbe0b76a419479fc7c51ed9edcf1fcc3d09b0c37333a6f3283aeb4596f014"
+      "sha256": "ee42d3673c2cf367930bd80b6e0bd906235a1652cfc9831ceb93fc4c43f0748f"
     },
     "test/first_release_test.dart": {
       "mode": "utf8-lf",
@@ -694,7 +694,7 @@
     },
     "test/readiness_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "3dd9012aa46a924b0578be2a442769a2f20a17ce6963e31f2f7f872a075cc20e"
+      "sha256": "8013027e71133f397f806e2b95ff3fb31df242f792a54d262d1d35bdee464c20"
     },
     "test/release_command_test.dart": {
       "mode": "utf8-lf",
@@ -711,6 +711,10 @@
     "test/sources_test.dart": {
       "mode": "utf8-lf",
       "sha256": "36cf6f5b2ecd0af9707e8005ee3fc4a1a4c6abeb99ee7af8b8dcfb1eebc0fdde"
+    },
+    "test/startup_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "360a2d56a93df97175120906ce563337c1a7cd419453d9cb0229a28925ff69d2"
     },
     "test/uncertainty_test.dart": {
       "mode": "utf8-lf",

@@ -41,6 +41,8 @@ Future<void> main() async {
 
 Omit persistence for an in-memory clock. Use an application-specific namespace and one writer per namespace/isolate; share an AnchorStore object when multiple engines intentionally share state. The Android bridge declares INTERNET permission through its library manifest. Sandboxed macOS applications need the network client entitlement.
 
+Foreground startup attempts restoration and fresh synchronization concurrently. Fresh readiness does not wait for epoch/storage I/O, and valid restored state can also satisfy readiness early. Initialization completes after its bounded restoration attempt and does not imply readiness; use `waitUntilReady()` for the independent readiness wait.
+
 Native defaults query time.cloudflare.com and ntp.netnod.se (distinct configured provider labels). Network/server policies may prevent consensus. These servers are external services, and the labels do not cryptographically prove operational independence. See [Cloudflare](https://developers.cloudflare.com/time-services/ntp/usage/) and [Netnod](https://www.netnod.se/ntp/connect-to-ntp-servers).
 
 ## Read contract

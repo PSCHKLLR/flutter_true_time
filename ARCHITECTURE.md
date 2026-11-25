@@ -22,6 +22,8 @@ Only fully accepted restores advance the local write-sequence counter. Sequences
 
 Initialization and synchronization join a shared, bounded epoch lookup within each continuity generation. Continuity loss replaces that lookup; late results from an older generation cannot populate the current epoch. A cycle deadline stops only that cycle's wait, while disposal releases all lifetime-bound lookup waiters.
 
+Foreground initialization starts restoration and fresh synchronization concurrently. Transport collection and live readiness do not wait for epoch or storage I/O. Restoration shares one source-timeout budget across epoch lookup and load; initialization completes when this bounded attempt ends. Persistence joins the shared epoch lookup only within the cycle's remaining deadline, after publishing the fresh anchor. Late restoration cannot replace fresh time or cross continuity generations.
+
 Android's small Java bootstrap plugin reads BOOT_COUNT and an AtomicFile installation marker in noBackupFilesDir. Linux reads the kernel boot UUID. Other platforms use Dart-only registrations and deliberately report no verified restart epoch. Public hot-path clock sampling uses conditional FFI adapters; web imports neither sockets nor native FFI.
 
 SwiftPM/native Apple resources are supplied by the storage dependency; this package has no custom Swift binary or private sysctl. Final Apple privacy/resource behavior is an archive-level qualification gate.

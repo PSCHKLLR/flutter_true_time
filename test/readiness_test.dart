@@ -314,6 +314,7 @@ void main() {
         clock: clock,
         store: store,
         autoRefresh: false,
+        foreground: false,
       );
       try {
         final waiting = engine.waitUntilReady(

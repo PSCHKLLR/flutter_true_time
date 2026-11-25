@@ -278,14 +278,28 @@ class TrueTimeEngine {
   }
 
   Future<void> _initialize() async {
+    final restoration = _restore();
+    try {
+      if (!_disposed && _foreground) {
+        unawaited(sync());
+        _startDiagnostics();
+      }
+    } finally {
+      await restoration;
+    }
+  }
+
+  Future<void> _restore() async {
+    final budget = Stopwatch()..start();
     final restorationGeneration = _generation;
     await _ensureEpoch();
-    if (store != null && !_disposed) {
+    final remaining = config.sourceTimeout - budget.elapsed;
+    if (store != null &&
+        !_disposed &&
+        restorationGeneration == _generation &&
+        remaining > Duration.zero) {
       try {
-        final value = await _lifetime.withTimeout(
-          store!.load(),
-          config.sourceTimeout,
-        );
+        final value = await _lifetime.withTimeout(store!.load(), remaining);
         if (!_disposed &&
             value != null &&
             _anchor == null &&
@@ -334,10 +348,6 @@ class TrueTimeEngine {
           'Stored anchor unavailable, invalid, or incompatible',
         );
       }
-    }
-    if (!_disposed && _foreground) {
-      unawaited(sync());
-      _startDiagnostics();
     }
   }
 
@@ -648,7 +658,7 @@ class TrueTimeEngine {
     final samples = <({TimeSource source, TimeSample sample})>[];
     final endpoints = <String>{};
     try {
-      await cycle.signal.race(_ensureEpoch());
+      final epochLookup = _ensureEpoch();
       final initial = _snapshot();
       if (cycle.generation != _generation) {
         cycle.signal.cancel('continuityLost');
@@ -725,6 +735,19 @@ class TrueTimeEngine {
       estimate();
       _emit(TimeEventKind.synchronized);
       if (store != null) {
+        // Readiness does not wait for epoch I/O. Persistence joins the shared
+        // lookup only within this cycle's remaining budget.
+        try {
+          await cycle.signal.race(epochLookup);
+        } on TrueTimeException {
+          if (cycle.signal.reason != 'deadline') rethrow;
+        }
+        if (_disposed || cycle.generation != _generation) {
+          throw const TrueTimeException(
+            'cancelled',
+            'Cycle invalidated before persistence',
+          );
+        }
         _sequence = _sequence == AnchorRecord.maxSequence ? 1 : _sequence + 1;
         final record = AnchorRecord(
           utc: anchor.utc,
