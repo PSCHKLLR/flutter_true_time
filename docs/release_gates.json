@@ -2,7 +2,7 @@
   "schema": 2,
   "version": "2.0.6",
   "developmentInputs": false,
-  "sourceDigest": "0676b12ee54378b496c61cdd4b1f1c60f7b5649b6dcb970e8c77d3529c92bc70",
+  "sourceDigest": "c6fe79ae48fa41ee34b62f90d46007b0e562b7b05b7afa86abf72058f126a7b5",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -22,7 +22,7 @@
     },
     ".github/workflows/compatibility.yml": {
       "mode": "utf8-lf",
-      "sha256": "1e373c77faafc1ec19079602a7acd94d635371c18ca2650428a2d41064e1481e"
+      "sha256": "2cba06dae13b4c679cdece03f8e49f9f857c79b95f989296c0cd365bb1aacf3b"
     },
     ".github/workflows/publish.yml": {
       "mode": "utf8-lf",
@@ -582,7 +582,7 @@
     },
     "lib/src/engine.dart": {
       "mode": "utf8-lf",
-      "sha256": "cc1182ce84359cba6280d47b15f9bfc1d5ed266ea5ba16a2d990e1ab169038af"
+      "sha256": "30f7f93407baf4bea708e7eaa94363fb37deae9cd7f0413c763030bdde538b81"
     },
     "lib/src/epoch_io.dart": {
       "mode": "utf8-lf",
@@ -614,7 +614,7 @@
     },
     "lib/src/persistence.dart": {
       "mode": "utf8-lf",
-      "sha256": "9ce2617cddcc19ea80b2f56f8d81ff432e68cd4d6be9edeb14edbe8959d88a53"
+      "sha256": "d3f487867286caf9bbb208c6ed945717342a040b744b8a1c61bcbd1f07dcb2d5"
     },
     "lib/src/provider_group.dart": {
       "mode": "utf8-lf",
@@ -679,6 +679,10 @@
     "test/ntp_test.dart": {
       "mode": "utf8-lf",
       "sha256": "ccdc4cc1813a7da6268662fe0e2aed3adfaf6182ec19e0ba91d8768e32dc9b97"
+    },
+    "test/persistence_queue_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "b634dab0e964adf120cf3011bf9f93282b5f705b243cd32ecb2bd8c1bc655f93"
     },
     "test/persistence_sequence_test.dart": {
       "mode": "utf8-lf",

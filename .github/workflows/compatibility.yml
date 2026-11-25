@@ -179,7 +179,7 @@ jobs:
       - run: flutter pub get
       - run: flutter --version --machine > toolchain.json
       - run: dart --packages=.dart_tool/package_config.json tool/source_digest.dart > source-fingerprint.json
-      - run: flutter pub run test:test --platform chrome test/sources_test.dart test/persistence_sequence_test.dart test/uncertainty_test.dart test/scheduler_failure_test.dart test/consensus_scaling_test.dart
+      - run: flutter pub run test:test --platform chrome test/sources_test.dart test/persistence_sequence_test.dart test/persistence_queue_test.dart test/uncertainty_test.dart test/scheduler_failure_test.dart test/consensus_scaling_test.dart
         env:
           CHROME_EXECUTABLE: /usr/bin/google-chrome
       - run: flutter build web --release

@@ -95,8 +95,14 @@ abstract interface class AnchorStore {
   Future<void> save(Map<String, Object?> record);
 }
 
-/// Shares a writer queue for engines using the same store object. The queue is
-/// released only when the REAL backend write settles, never by a caller timeout.
+/// Shares one active and at most one pending write per backend object/isolate.
+///
+/// The active write owns the backend until it settles, even after caller timeout
+/// or engine disposal. A newer complete record replaces a not-yet-started record;
+/// the replaced save fails with `TrueTimeException('storageSuperseded', ...)`.
+/// A successful save means that specific snapshot was written by the backend.
+/// Engines sharing a backend share this policy, regardless of record policy or
+/// sequence; separate backend objects/namespaces have independent queues.
 class SerializingAnchorStore implements AnchorStore {
   SerializingAnchorStore._(this.backend);
   static final Expando<SerializingAnchorStore> _shared = Expando();
@@ -105,23 +111,76 @@ class SerializingAnchorStore implements AnchorStore {
     return _shared[backend] ??= SerializingAnchorStore._(backend);
   }
   final AnchorStore backend;
-  Future<void> _tail = Future<void>.value();
+  _AnchorWrite? _active, _pending;
+
+  /// Waits for preceding writes (or their pending replacement) to settle before
+  /// reading. Later writes may already be active when the atomic read occurs.
   @override
   Future<Map<String, Object?>?> load() async {
-    await _tail;
+    await (_pending ?? _active)?.settled.future;
     return backend.load();
   }
 
+  /// Snapshots [record] before queueing. Superseded saves fail promptly, without
+  /// waiting for a stalled backend, and never claim a durable write.
   @override
   Future<void> save(Map<String, Object?> record) {
     // Snapshot before queueing: callers cannot mutate delayed writes.
     final copy = Map<String, Object?>.from(
       jsonDecode(jsonEncode(record)) as Map,
     );
-    final operation = _tail.then((_) => backend.save(copy));
-    _tail = operation.then<void>((_) {}, onError: (Object _, StackTrace _) {});
-    return operation;
+    final previous = _pending;
+    final write = _AnchorWrite(copy, previous?.settled);
+    if (_active == null) {
+      _start(write);
+    } else {
+      _pending = write;
+      previous?.result.completeError(
+        const TrueTimeException(
+          'storageSuperseded',
+          'A newer pending anchor replaced this record before it was written',
+        ),
+        StackTrace.current,
+      );
+    }
+    return write.result.future;
   }
+
+  void _start(_AnchorWrite write) {
+    _active = write;
+    unawaited(_write(write));
+  }
+
+  Future<void> _write(_AnchorWrite write) async {
+    try {
+      await backend.save(write.record);
+      write.result.complete();
+    } catch (error, stack) {
+      write.result.completeError(error, stack);
+    } finally {
+      _active = null;
+      final next = _pending;
+      _pending = null;
+      if (next != null) _start(next);
+      write.settled.complete();
+    }
+  }
+}
+
+class _AnchorWrite {
+  _AnchorWrite(this.record, Completer<void>? settled)
+    : settled = settled ?? Completer<void>() {
+    // Observe late backend/supersession errors even if a caller has stopped
+    // waiting. The original future still delivers the failure to its caller.
+    unawaited(
+      result.future.then<void>((_) {}, onError: (Object _, StackTrace _) {}),
+    );
+  }
+
+  final Map<String, Object?> record;
+  final result = Completer<void>();
+  // Pending replacements share a read barrier, not save-success completion.
+  final Completer<void> settled;
 }
 
 /// A version-2 persisted UTC anchor and the evidence needed to check a restore.
