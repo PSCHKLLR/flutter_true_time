@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Make release-branch preparation, PR checks, merge, and authorized publication from updated main the standard release flow; explain recovery of retained version commits after a rejected main push (#33).
 - Test the latest stable published package on both pinned Flutter SDKs, with validated manual version overrides and separate advisory 2.0.0 coverage; keep publication consumers pinned to their exact release (#24).
 
 ## 2.0.6

@@ -130,6 +130,62 @@ void main() {
     expect(git(['diff', '--cached', '--name-only']), isEmpty);
   });
 
+  test('CLI guidance prepares a PR before publishing from updated main', () {
+    final script = File('tool/release.dart').absolute.path;
+    final packages = File('.dart_tool/package_config.json').absolute.path;
+    for (final args in [
+      ['--help'],
+      ['patch'],
+      ['patch', '--write'],
+    ]) {
+      final result = Process.runSync(Platform.resolvedExecutable, [
+        '--packages=$packages',
+        script,
+        ...args,
+      ], workingDirectory: root.path);
+      expect(result.exitCode, 0, reason: '${result.stderr}');
+      expect(result.stdout, contains('release branch'));
+      expect(result.stdout, contains('PR'));
+      expect(result.stdout, contains('current --publish'));
+    }
+    expect(git(['tag', '--list']), isEmpty);
+    expect(git(['tag', '--list'], at: remote), isEmpty);
+    expect(read('pubspec.yaml'), contains('version: 2.0.6\n'));
+  });
+
+  test(
+    'branch preparation publishes only after its version commit is merged',
+    () {
+      git(['switch', '-c', 'codex/release-next']);
+      executeRelease(root, planRelease(root, 'patch'));
+      git([
+        'add',
+        'pubspec.yaml',
+        'example/pubspec.yaml',
+        'CHANGELOG.md',
+        'docs/release_gates.json',
+      ]);
+      git(['commit', '-qm', 'Prepare reviewed release']);
+      git(['push', '-qu', 'origin', 'codex/release-next']);
+      final reviewed = git(['rev-parse', 'HEAD']);
+      expect(
+        () => executeRelease(root, planRelease(root, 'current'), publish: true),
+        throwsStateError,
+      );
+      expect(git(['tag', '--list']), isEmpty);
+      expect(git(['tag', '--list'], at: remote), isEmpty);
+
+      // Simulate the reviewed PR merge in the isolated fixture remote.
+      git(['update-ref', 'refs/heads/main', reviewed], at: remote);
+      git(['switch', 'main']);
+      git(['pull', '--ff-only', 'origin', 'main']);
+      executeRelease(root, planRelease(root, 'current'), publish: true);
+      expect(git(['rev-parse', 'HEAD']), reviewed);
+      expect(git(['rev-parse', 'refs/tags/v2.0.6^{}'], at: remote), reviewed);
+      expect(git(['status', '--porcelain']), isEmpty);
+    },
+  );
+
   test('refuses dirty files, staged files, and untracked files', () {
     for (final kind in ['unstaged', 'staged', 'untracked']) {
       final plan = planRelease(root, 'patch');
@@ -161,7 +217,7 @@ void main() {
     expect(git(['status', '--porcelain']), isEmpty);
   });
 
-  test('publish commits the bump and pushes main before its annotated tag', () {
+  test('legacy direct-push mode commits main before its annotated tag', () {
     executeRelease(root, planRelease(root, 'patch'), publish: true);
     final head = git(['rev-parse', 'HEAD']);
     expect(git(['rev-parse', 'refs/heads/main'], at: remote), head);
@@ -249,6 +305,26 @@ void main() {
     expect(git(['tag', '--list']), isEmpty);
     expect(read('pubspec.yaml'), contains('version: 2.0.6\n'));
     expect(git(['status', '--porcelain']), isEmpty);
+    expect(rejection.toString(), contains('git switch -c codex/release-2.0.6'));
+    expect(
+      rejection.toString(),
+      contains('git push -u origin codex/release-2.0.6'),
+    );
+    expect(rejection.toString(), contains('Open a PR to main'));
+    expect(rejection.toString(), contains('current --publish'));
+    expect(rejection.toString(), contains('Do not bypass protection'));
+
+    // Follow the recovery guidance while the remote still rejects main pushes.
+    final retained = git(['rev-parse', 'HEAD']);
+    git(['switch', '-c', 'codex/release-2.0.6']);
+    git(['push', '-u', 'origin', 'codex/release-2.0.6']);
+    expect(
+      git(['rev-parse', 'refs/heads/codex/release-2.0.6'], at: remote),
+      retained,
+    );
+    expect(git(['rev-parse', 'refs/heads/main'], at: remote), before);
+    expect(git(['tag', '--list'], at: remote), isEmpty);
+    expect(git(['tag', '--list']), isEmpty);
   });
 
   test('rejected tag push retains the published main commit for recovery', () {
