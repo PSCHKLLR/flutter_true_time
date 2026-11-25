@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Reject unsupported uncertainty values and checked-sum/drift overflow; compute consensus endpoints exactly on native and web targets (#30).
+- Deliver synchronous UDP receive failures with their original stack and release the owned socket/listener, including cancellation races (#31).
+- Keep sync futures and lifecycle calls usable when scheduler registration throws; report `schedulingFailed` diagnostics and retry registration on later sync/resume (#32).
 - Replace the UDP cancellation test's immediate ephemeral-port rebind with deterministic socket/listener ownership checks, a real leaking-socket negative fixture, and repeated macOS coverage (#22).
 - Wait for both pub.dev version metadata and package indexing, and retry only exact-version visibility failures in clean consumers within bounded propagation budgets (#21).
 - Keep rejected restore records from changing fresh-write sequences; validate the portable positive sequence range and wrap safely at its maximum while preserving writer ordering (#19).

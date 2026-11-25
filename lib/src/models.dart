@@ -11,6 +11,7 @@ enum TimeEventKind {
   persistenceUnavailable,
   wallClockChanged,
   timezoneChanged,
+  schedulingFailed,
 }
 
 class TrueTimeException implements Exception {
@@ -70,6 +71,9 @@ class SyncOutcome {
 }
 
 class TrueTimeConfig {
+  /// Largest uncertainty in exact microseconds on both native Dart and the web.
+  static const maximumUncertainty = Duration(microseconds: 9007199254740991);
+
   const TrueTimeConfig({
     this.refreshInterval = const Duration(minutes: 30),
     this.sourceTimeout = const Duration(seconds: 3),
@@ -103,6 +107,7 @@ class TrueTimeConfig {
         minimumProviderGroups < 1 ||
         minimumProviderGroups > minimumSources ||
         maxConcurrentSources < 1 ||
+        maxUncertainty > maximumUncertainty ||
         !driftPpm.isFinite ||
         driftPpm < 0) {
       throw ArgumentError('Invalid trusted time policy');

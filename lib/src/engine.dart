@@ -289,10 +289,14 @@ class TrueTimeEngine {
               record.sourceIds.every(acceptedIds.contains) &&
               record.providerGroups.every(acceptedGroups.contains) &&
               _sameSelectedGroups(record) &&
-              current.elapsed >= record.monotonic) {
+              current.elapsed >= record.monotonic &&
+              record.uncertainty <= config.maxUncertainty) {
             final age = current.elapsed - record.monotonic;
-            final error =
-                record.uncertainty + current.uncertainty + _drift(age);
+            final error = _uncertainty([
+              record.uncertainty,
+              current.uncertainty,
+              _drift(age),
+            ]);
             if (age <= config.maxAnchorAge && error <= config.maxUncertainty) {
               _sequence = max(_sequence, record.sequence);
               _anchor = _Anchor(
@@ -331,9 +335,36 @@ class TrueTimeEngine {
         record.providerGroups.every(selected.contains);
   }
 
-  Duration _drift(Duration elapsed) => Duration(
-    microseconds: (elapsed.inMicroseconds * config.driftPpm / 1000000).ceil(),
-  );
+  Duration _uncertainty(List<Duration> terms) {
+    final limit = TrueTimeConfig.maximumUncertainty.inMicroseconds;
+    var total = 0;
+    for (final term in terms) {
+      final value = term.inMicroseconds;
+      // Check before adding: native integers can wrap and JS can lose bits.
+      if (value < 0 || value > limit - total) {
+        throw const TrueTimeException(
+          'uncertain',
+          'Uncertainty exceeds supported range',
+        );
+      }
+      total += value;
+    }
+    return Duration(microseconds: total);
+  }
+
+  Duration _drift(Duration elapsed) {
+    final value = elapsed.inMicroseconds * config.driftPpm / 1000000;
+    if (!value.isFinite ||
+        value < 0 ||
+        value > TrueTimeConfig.maximumUncertainty.inMicroseconds) {
+      throw const TrueTimeException(
+        'uncertain',
+        'Drift exceeds supported range',
+      );
+    }
+    return Duration(microseconds: value.ceil());
+  }
+
   TimeReading? estimate() {
     _checkOpen();
     final snapshot = _snapshot(), anchor = _anchor;
@@ -345,7 +376,11 @@ class TrueTimeEngine {
       return null;
     }
     final age = snapshot.elapsed - anchor.at.elapsed;
-    final error = anchor.uncertainty + snapshot.uncertainty + _drift(age);
+    final error = _uncertainty([
+      anchor.uncertainty,
+      snapshot.uncertainty,
+      _drift(age),
+    ]);
     final availability =
         age > config.maxAnchorAge || error > config.maxUncertainty
         ? TimeAvailability.stale
@@ -480,40 +515,60 @@ class TrueTimeEngine {
     _inFlight = null;
     final replacement = _replacement;
     _replacement = null;
-    if (replacement != null) {
-      if (!_disposed && _foreground) {
-        _launch().then(
-          replacement.complete,
-          onError: replacement.completeError,
-        );
-      } else {
+    try {
+      if (replacement != null) {
+        if (!_disposed && _foreground) {
+          _launch().then(
+            replacement.complete,
+            onError: replacement.completeError,
+          );
+        } else {
+          replacement.complete(
+            SyncOutcome(
+              success: false,
+              failures: const {},
+              error: const TrueTimeException(
+                'cancelled',
+                'Clock is disposed or backgrounded',
+              ),
+            ),
+          );
+        }
+      } else if (!_disposed && _foreground) {
+        if (outcome.success) {
+          _failureCount = 0;
+          _schedule(config.refreshInterval);
+        } else {
+          _failureCount++;
+          final cap = min(
+            config.maxRetryDelay.inMilliseconds,
+            1000 * pow(2, min(_failureCount - 1, 20)),
+          ).toInt();
+          _schedule(
+            Duration(
+              milliseconds: max(1, (_random.nextDouble() * cap).round()),
+            ),
+          );
+        }
+      }
+    } catch (_) {
+      _emit(TimeEventKind.schedulingFailed, 'Post-sync scheduling failed');
+      if (replacement != null && !replacement.isCompleted) {
         replacement.complete(
           SyncOutcome(
             success: false,
             failures: const {},
             error: const TrueTimeException(
-              'cancelled',
-              'Clock is disposed or backgrounded',
+              'schedulingFailed',
+              'Replacement cycle could not start',
             ),
           ),
         );
       }
-    } else if (!_disposed && _foreground) {
-      if (outcome.success) {
-        _failureCount = 0;
-        _schedule(config.refreshInterval);
-      } else {
-        _failureCount++;
-        final cap = min(
-          config.maxRetryDelay.inMilliseconds,
-          1000 * pow(2, min(_failureCount - 1, 20)),
-        ).toInt();
-        _schedule(
-          Duration(milliseconds: max(1, (_random.nextDouble() * cap).round())),
-        );
-      }
+    } finally {
+      // Optional scheduling must never strand a completed network cycle.
+      completion.complete(outcome);
     }
-    completion.complete(outcome);
   }
 
   Future<TimeSample> _query(TimeSource source, _Cycle cycle) async {
@@ -701,17 +756,21 @@ class TrueTimeEngine {
     List<({TimeSource source, TimeSample sample})> samples,
     ClockSnapshot reference,
   ) {
-    final intervals = <({int low, int high, TimeSource source})>[];
+    final intervals = <({BigInt low, BigInt high, TimeSource source})>[];
     for (final item in samples) {
       final elapsed = reference.elapsed - item.sample.at.elapsed;
       if (elapsed < Duration.zero) continue;
       final center =
-          item.sample.utc.microsecondsSinceEpoch + elapsed.inMicroseconds;
-      final width =
-          item.sample.uncertainty.inMicroseconds +
-          item.sample.at.uncertainty.inMicroseconds +
-          reference.uncertainty.inMicroseconds +
-          (elapsed.inMicroseconds * config.driftPpm / 1000000).ceil();
+          BigInt.from(item.sample.utc.microsecondsSinceEpoch) +
+          BigInt.from(elapsed.inMicroseconds);
+      final width = BigInt.from(
+        _uncertainty([
+          item.sample.uncertainty,
+          item.sample.at.uncertainty,
+          reference.uncertainty,
+          _drift(elapsed),
+        ]).inMicroseconds,
+      );
       intervals.add((
         low: center - width,
         high: center + width,
@@ -721,9 +780,9 @@ class TrueTimeEngine {
     // Sweep endpoints and open spans; touching closed intervals count as overlap.
     final points = intervals.expand((i) => [i.low, i.high]).toSet().toList()
       ..sort();
-    final candidates = <List<({int low, int high, TimeSource source})>>[];
+    final candidates = <List<({BigInt low, BigInt high, TimeSource source})>>[];
     var bestCount = 0;
-    void consider(int point) {
+    void consider(BigInt point) {
       final active = intervals
           .where((i) => i.low <= point && point <= i.high)
           .toList();
@@ -744,19 +803,21 @@ class TrueTimeEngine {
 
     for (var i = 0; i < points.length; i++) {
       consider(points[i]);
-      if (i + 1 < points.length && points[i + 1] - points[i] > 1) {
-        consider((points[i] + points[i + 1]) ~/ 2);
+      if (i + 1 < points.length && points[i + 1] - points[i] > BigInt.one) {
+        consider((points[i] + points[i + 1]) ~/ BigInt.two);
       }
     }
     if (candidates.isEmpty) {
       throw const TrueTimeException('noConsensus', 'No group-diverse quorum');
     }
     final first = candidates.first;
-    final low = first.map((i) => i.low).reduce(max),
-        high = first.map((i) => i.high).reduce(min);
+    BigInt larger(BigInt a, BigInt b) => a > b ? a : b;
+    BigInt smaller(BigInt a, BigInt b) => a < b ? a : b;
+    final low = first.map((i) => i.low).reduce(larger),
+        high = first.map((i) => i.high).reduce(smaller);
     for (final candidate in candidates.skip(1)) {
-      final a = candidate.map((i) => i.low).reduce(max),
-          b = candidate.map((i) => i.high).reduce(min);
+      final a = candidate.map((i) => i.low).reduce(larger),
+          b = candidate.map((i) => i.high).reduce(smaller);
       if (a > high || b < low) {
         throw const TrueTimeException(
           'ambiguousConsensus',
@@ -764,21 +825,28 @@ class TrueTimeEngine {
         );
       }
     }
-    final width = max(
-      (high - low + 1) ~/ 2,
-      reference.uncertainty.inMicroseconds +
-          clock.capabilities.resolution.inMicroseconds,
+    final width = larger(
+      (high - low + BigInt.one) ~/ BigInt.two,
+      BigInt.from(
+        _uncertainty([
+          reference.uncertainty,
+          clock.capabilities.resolution,
+        ]).inMicroseconds,
+      ),
     );
-    if (width > config.maxUncertainty.inMicroseconds) {
+    final center = (low + high) ~/ BigInt.two;
+    if (width > BigInt.from(config.maxUncertainty.inMicroseconds) ||
+        center.abs() >
+            BigInt.from(TrueTimeConfig.maximumUncertainty.inMicroseconds)) {
       throw const TrueTimeException(
         'uncertain',
         'Consensus exceeds uncertainty policy',
       );
     }
     return _Anchor(
-      DateTime.fromMicrosecondsSinceEpoch((low + high) ~/ 2, isUtc: true),
+      DateTime.fromMicrosecondsSinceEpoch(center.toInt(), isUtc: true),
       reference,
-      Duration(microseconds: width),
+      Duration(microseconds: width.toInt()),
       List.unmodifiable(first.map((i) => i.source.id).toList()..sort()),
       List.unmodifiable(
         first
@@ -794,9 +862,22 @@ class TrueTimeEngine {
   void _schedule(Duration delay) {
     _refresh?.cancel();
     if (autoRefresh && !_disposed && _foreground) {
-      _refresh = _scheduler.schedule(delay, () {
+      _refresh = _registerTask(delay, () {
         if (!_disposed && _foreground) unawaited(sync());
-      });
+      }, 'Automatic refresh');
+    }
+  }
+
+  ScheduledTask? _registerTask(
+    Duration delay,
+    void Function() callback,
+    String purpose,
+  ) {
+    try {
+      return _scheduler.schedule(delay, callback);
+    } catch (_) {
+      _emit(TimeEventKind.schedulingFailed, '$purpose registration failed');
+      return null;
     }
   }
 
@@ -842,7 +923,11 @@ class TrueTimeEngine {
     _diagnostic?.cancel();
     if (_disposed || !_foreground || wallClock == null) return;
     pollDiagnostics();
-    _diagnostic = _scheduler.schedule(diagnosticInterval, _startDiagnostics);
+    _diagnostic = _registerTask(
+      diagnosticInterval,
+      _startDiagnostics,
+      'Diagnostic poll',
+    );
   }
 
   void suspend() {

@@ -2,7 +2,7 @@
   "schema": 2,
   "version": "2.0.5",
   "developmentInputs": false,
-  "sourceDigest": "0445bf483f675d676627c95f9bf5f6a2ab5135bccf05572bc70ad4069a0b13da",
+  "sourceDigest": "a9741f21d158547cf9fc493c7ab7e99bc3c2fd3280a9ed2275973ab32da3d6ab",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -22,7 +22,7 @@
     },
     ".github/workflows/compatibility.yml": {
       "mode": "utf8-lf",
-      "sha256": "4d6648171bb87e1e1a5b25a4c8310e8b28730a861749c37b867327a695e2e813"
+      "sha256": "a57d2463fb26afdfc3d51695c499dba3e6e951bc2a229f1e2e5b746562d61f9b"
     },
     ".github/workflows/publish.yml": {
       "mode": "utf8-lf",
@@ -582,7 +582,7 @@
     },
     "lib/src/engine.dart": {
       "mode": "utf8-lf",
-      "sha256": "cd284aa77604c050c90466b49074b894158dd6301c93fdfc95b23969fa6d9da4"
+      "sha256": "e1d7722701664b03d63e24ebc254ef23eea5e250d5b296c126ba03418e0183e6"
     },
     "lib/src/epoch_io.dart": {
       "mode": "utf8-lf",
@@ -602,11 +602,11 @@
     },
     "lib/src/models.dart": {
       "mode": "utf8-lf",
-      "sha256": "1cfcd41571a3c40a07149c0007fd8068471fcf1b539da8d76a3c7f67fbe61714"
+      "sha256": "aa44d6ac9e4747238b287827202a09241f77936f09f311a19402e905b1024a63"
     },
     "lib/src/ntp_io.dart": {
       "mode": "utf8-lf",
-      "sha256": "ed598afb104457ad2a10366b1f180d6b4c63b626dc76e9af69f26a6b9cb63153"
+      "sha256": "9c6b97da4ccb415b0cccec45722e9f21200936327fa9124a1d97546464e90b43"
     },
     "lib/src/ntp_stub.dart": {
       "mode": "utf8-lf",
@@ -614,7 +614,7 @@
     },
     "lib/src/persistence.dart": {
       "mode": "utf8-lf",
-      "sha256": "8bce8a7472505dece83238556abee3aefc67d55475e64ef2afaf166e0a9f28f7"
+      "sha256": "9ce2617cddcc19ea80b2f56f8d81ff432e68cd4d6be9edeb14edbe8959d88a53"
     },
     "lib/src/provider_group.dart": {
       "mode": "utf8-lf",
@@ -662,7 +662,7 @@
     },
     "test/helpers.dart": {
       "mode": "utf8-lf",
-      "sha256": "69259ee77b48527d2ca51482d389bc9c95a82d68d3ca3c949c7b10d4fe0b3218"
+      "sha256": "0435b6e74e15890a1b8113ce9f9b36678fc229d80f4d0a05f6554cbfabf31854"
     },
     "test/native_sources_test.dart": {
       "mode": "utf8-lf",
@@ -670,7 +670,7 @@
     },
     "test/ntp_ownership_test.dart": {
       "mode": "utf8-lf",
-      "sha256": "933953cede5390be80fac4abd045448ceab802c0d71ec61e1994e186eea980ab"
+      "sha256": "ebeaf187a8e5cf514c7617e15a04d28bb808c0b681f06a4d1bf9e5fbc031820f"
     },
     "test/ntp_test.dart": {
       "mode": "utf8-lf",
@@ -692,9 +692,17 @@
       "mode": "utf8-lf",
       "sha256": "682a3516680511b56a9705f76bd29b2aa431bcd5cfe8e78c183d0f0f862fdec9"
     },
+    "test/scheduler_failure_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "132b86574dbc5e35147b95ffd511e61f77a92eb1b7b0572f22eaaa2ec21db168"
+    },
     "test/sources_test.dart": {
       "mode": "utf8-lf",
       "sha256": "36cf6f5b2ecd0af9707e8005ee3fc4a1a4c6abeb99ee7af8b8dcfb1eebc0fdde"
+    },
+    "test/uncertainty_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "ebadb2e8a147df847c3cb303323e91cd83c784e220181bb156fe5371d1c6108e"
     },
     "test_flutter/facade_test.dart": {
       "mode": "utf8-lf",

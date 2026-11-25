@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:crypto/crypto.dart';
 import 'clock.dart';
+import 'models.dart';
 import 'provider_group.dart';
 
 /// Identifies a boot session within an installation and monotonic clock domain.
@@ -133,6 +134,7 @@ class AnchorRecord {
   /// Supply a UTC timestamp and durations from the same clock domain.
   /// The constructor copies [sourceIds] and [providerGroups] into immutable lists.
   /// [sequence] must be between 1 and [maxSequence], inclusive.
+  /// [uncertainty] must be in 0..[TrueTimeConfig.maximumUncertainty].
   AnchorRecord({
     required this.utc,
     required this.monotonic,
@@ -151,6 +153,10 @@ class AnchorRecord {
         'sequence',
         'Must be in 1..$maxSequence',
       );
+    }
+    if (uncertainty < Duration.zero ||
+        uncertainty > TrueTimeConfig.maximumUncertainty) {
+      throw ArgumentError.value(uncertainty, 'uncertainty');
     }
   }
 
@@ -225,6 +231,7 @@ class AnchorRecord {
         utc.year > 2100 ||
         mono < 0 ||
         uncertainty < 0 ||
+        uncertainty > TrueTimeConfig.maximumUncertainty.inMicroseconds ||
         sequence < 1 ||
         sequence > maxSequence ||
         domain.isEmpty ||

@@ -73,13 +73,14 @@ Future<TimeSample> queryNtp(
     final subscription = bound.listen(
       (event) {
         if (event != RawSocketEvent.read || result.isCompleted) return;
-        final packet = bound.receive();
-        if (packet == null ||
-            packet.address.address != address.address ||
-            packet.port != port) {
-          return;
-        }
         try {
+          final packet = bound.receive();
+          if (result.isCompleted ||
+              packet == null ||
+              packet.address.address != address.address ||
+              packet.port != port) {
+            return;
+          }
           final end = clock.snapshot();
           final data = packet.data;
           if (data.length < 48 ||
@@ -133,6 +134,7 @@ Future<TimeSample> queryNtp(
                     ((rootDelay / 2 + dispersion + precision) * 1000000).ceil(),
               ) +
               rtt ~/ 2;
+          if (result.isCompleted) return;
           result.complete(
             TimeSample(
               utc: receive.add(transmit.difference(receive) ~/ 2),
@@ -148,7 +150,7 @@ Future<TimeSample> queryNtp(
             ),
           );
         } catch (error, stack) {
-          result.completeError(error, stack);
+          if (!result.isCompleted) result.completeError(error, stack);
         }
       },
       onError: (Object error, StackTrace stack) {
