@@ -75,7 +75,7 @@ Up to 1,024 sources (`TrueTimeEngine.maximumSources`) are supported; larger list
 
 A reboot never authorizes reuse by comparing uptime alone. Missing epoch evidence, changed policy, expired/corrupt records, inaccessible storage, and restored backup mismatches fail closed. Apple removed app access to the iOS boot-session UUID; secure storage does not supply that proof.
 
-Storage writes are serialized until the actual backend operation settles. A caller timeout does not release that writer. An unresponsive backend can delay persistence; an otherwise valid in-memory clock continues. Opaque third-party sources that ignore cancellation retain their concurrency permit until their real Future settles.
+Storage keeps one active write and at most one pending complete record per shared backend. The newest pending record replaces older pending work; replaced saves fail with `storageSuperseded` and engines report `storageFailed`, while the in-memory clock remains usable. Caller timeout or disposal does not release the active writer; it proceeds to the newest pending record only after the backend settles. See the [persistence contract](docs/SPECIFICATION.md#persistence-and-restart-policy) for completion, shared-policy, and load ordering semantics. Opaque third-party sources that ignore cancellation retain their concurrency permit until their real Future settles.
 
 ## Browser setup
 

@@ -778,7 +778,7 @@ class TrueTimeEngine {
     } catch (_) {
       _emit(
         TimeEventKind.storageFailed,
-        'Anchor retained in memory; persistence failed or timed out',
+        'Anchor retained in memory; persistence failed, timed out, or was superseded',
       );
     }
   }
