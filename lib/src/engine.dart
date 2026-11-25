@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:collection';
 import 'dart:math';
 import 'cancellation.dart';
 import 'clock.dart';
@@ -83,6 +84,9 @@ class _QueryPool {
 }
 
 class TrueTimeEngine {
+  /// Bounds collection and post-deadline consensus finalization work.
+  static const maximumSources = 1024;
+
   TrueTimeEngine({
     required List<TimeSource> sources,
     MonotonicClock? clock,
@@ -104,6 +108,13 @@ class TrueTimeEngine {
        _foreground = foreground,
        _pool = _QueryPool(config.maxConcurrentSources) {
     config.validate();
+    if (sources.length > maximumSources) {
+      throw ArgumentError.value(
+        sources.length,
+        'sources',
+        'At most $maximumSources sources are supported',
+      );
+    }
     if (diagnosticInterval <= Duration.zero ||
         wallClockJumpThreshold <= Duration.zero) {
       throw ArgumentError('Diagnostic durations must be positive');
@@ -571,13 +582,18 @@ class TrueTimeEngine {
     }
   }
 
-  Future<TimeSample> _query(TimeSource source, _Cycle cycle) async {
+  Future<TimeSample> _query(
+    TimeSource source,
+    _Cycle cycle,
+    void Function() checkDeadline,
+  ) async {
     await _pool.acquire(cycle.signal);
     final signal = CancellationSignal();
     final detach = cycle.signal.onCancel(
       () => signal.cancel(cycle.signal.reason),
     );
     final actual = Future<TimeSample>.sync(() {
+      checkDeadline();
       signal.throwIfCancelled();
       return source.query(clock, config.sourceTimeout, cancellation: signal);
     });
@@ -612,6 +628,12 @@ class TrueTimeEngine {
 
   Future<SyncOutcome> _runSync(_Cycle cycle) async {
     final budget = Stopwatch()..start();
+    void checkDeadline() {
+      if (budget.elapsed >= config.syncDeadline) {
+        cycle.signal.cancel('deadline');
+      }
+    }
+
     final deadline = Timer(
       config.syncDeadline,
       () => cycle.signal.cancel('deadline'),
@@ -628,12 +650,16 @@ class TrueTimeEngine {
       cycle.signal.throwIfCancelled();
       var cursor = 0;
       Future<void> worker() async {
+        var sinceYield = 0;
         while (!cycle.signal.isCancelled &&
             !_disposed &&
             cursor < sources.length) {
+          checkDeadline();
+          if (cycle.signal.isCancelled) break;
           final source = sources[cursor++];
           try {
-            final sample = await _query(source, cycle);
+            final sample = await _query(source, cycle, checkDeadline);
+            checkDeadline();
             cycle.signal.throwIfCancelled();
             if (!sample.utc.isUtc ||
                 sample.utc.year < 2020 ||
@@ -660,6 +686,11 @@ class TrueTimeEngine {
           } catch (e) {
             failures[source.id] = e.toString();
           }
+          // Give timers/lifecycle callbacks a turn even for immediate sources.
+          if (++sinceYield == 32) {
+            sinceYield = 0;
+            await Future<void>.delayed(Duration.zero);
+          }
         }
       }
 
@@ -682,7 +713,7 @@ class TrueTimeEngine {
           'Clock continuity changed during synchronization',
         );
       }
-      final anchor = _consensus(samples, reference);
+      final anchor = _consensus(samples, reference, checkDeadline);
       _anchor = anchor;
       _lastError = null;
       estimate();
@@ -755,9 +786,11 @@ class TrueTimeEngine {
   _Anchor _consensus(
     List<({TimeSource source, TimeSample sample})> samples,
     ClockSnapshot reference,
+    void Function() checkDeadline,
   ) {
     final intervals = <({BigInt low, BigInt high, TimeSource source})>[];
     for (final item in samples) {
+      checkDeadline();
       final elapsed = reference.elapsed - item.sample.at.elapsed;
       if (elapsed < Duration.zero) continue;
       final center =
@@ -777,56 +810,80 @@ class TrueTimeEngine {
         source: item.source,
       ));
     }
-    // Sweep endpoints and open spans; touching closed intervals count as overlap.
-    final points = intervals.expand((i) => [i.low, i.high]).toSet().toList()
-      ..sort();
-    final candidates = <List<({BigInt low, BigInt high, TimeSource source})>>[];
-    var bestCount = 0;
-    void consider(BigInt point) {
-      final active = intervals
-          .where((i) => i.low <= point && point <= i.high)
-          .toList();
-      final groups = active
-          .map((i) => knownProviderGroup(i.source.providerGroup))
-          .whereType<String>()
-          .toSet();
-      if (active.length < config.minimumSources ||
-          groups.length < config.minimumProviderGroups) {
-        return;
+    // Add starts before considering a point, then remove ends: closed intervals
+    // that touch count together. Every open-span active set is a subset of an
+    // endpoint set, so a maximum-support quorum always occurs at an endpoint.
+    final events = <BigInt, ({List<int> starts, List<int> ends})>{};
+    for (var i = 0; i < intervals.length; i++) {
+      (events[intervals[i].low] ??= (starts: [], ends: [])).starts.add(i);
+      (events[intervals[i].high] ??= (starts: [], ends: [])).ends.add(i);
+    }
+    final points = events.keys.toList()..sort();
+    final lows = SplayTreeMap<BigInt, int>(),
+        highs = SplayTreeMap<BigInt, int>();
+    final groups = <String, int>{};
+    final providerGroups = intervals
+        .map((i) => knownProviderGroup(i.source.providerGroup))
+        .toList();
+    var activeCount = 0, bestCount = 0, ambiguous = false;
+    BigInt? winner, low, high;
+    void adjust<K>(Map<K, int> counts, K key, int delta) {
+      final count = (counts[key] ?? 0) + delta;
+      if (count == 0) {
+        counts.remove(key);
+      } else {
+        counts[key] = count;
       }
-      if (active.length > bestCount) {
-        candidates.clear();
-        bestCount = active.length;
-      }
-      if (active.length == bestCount) candidates.add(active);
     }
 
-    for (var i = 0; i < points.length; i++) {
-      consider(points[i]);
-      if (i + 1 < points.length && points[i + 1] - points[i] > BigInt.one) {
-        consider((points[i] + points[i + 1]) ~/ BigInt.two);
+    void change(int index, int delta) {
+      final interval = intervals[index];
+      activeCount += delta;
+      adjust(lows, interval.low, delta);
+      adjust(highs, interval.high, delta);
+      final group = providerGroups[index];
+      if (group != null) adjust(groups, group, delta);
+    }
+
+    for (final point in points) {
+      checkDeadline();
+      final event = events[point]!;
+      for (final index in event.starts) {
+        change(index, 1);
+      }
+      if (activeCount >= config.minimumSources &&
+          groups.length >= config.minimumProviderGroups) {
+        final a = lows.lastKey()!, b = highs.firstKey()!;
+        if (activeCount > bestCount) {
+          bestCount = activeCount;
+          winner = point;
+          low = a;
+          high = b;
+          ambiguous = false;
+        } else if (activeCount == bestCount && (a > high! || b < low!)) {
+          ambiguous = true;
+        }
+      }
+      for (final index in event.ends) {
+        change(index, -1);
       }
     }
-    if (candidates.isEmpty) {
+    if (winner == null) {
       throw const TrueTimeException('noConsensus', 'No group-diverse quorum');
     }
-    final first = candidates.first;
-    BigInt larger(BigInt a, BigInt b) => a > b ? a : b;
-    BigInt smaller(BigInt a, BigInt b) => a < b ? a : b;
-    final low = first.map((i) => i.low).reduce(larger),
-        high = first.map((i) => i.high).reduce(smaller);
-    for (final candidate in candidates.skip(1)) {
-      final a = candidate.map((i) => i.low).reduce(larger),
-          b = candidate.map((i) => i.high).reduce(smaller);
-      if (a > high || b < low) {
-        throw const TrueTimeException(
-          'ambiguousConsensus',
-          'Equally supported disjoint intervals',
-        );
-      }
+    if (ambiguous) {
+      throw const TrueTimeException(
+        'ambiguousConsensus',
+        'Equally supported disjoint intervals',
+      );
     }
+    // Materialize evidence once, only for the first winning endpoint.
+    final first = intervals
+        .where((i) => i.low <= winner! && winner <= i.high)
+        .toList();
+    BigInt larger(BigInt a, BigInt b) => a > b ? a : b;
     final width = larger(
-      (high - low + BigInt.one) ~/ BigInt.two,
+      (high! - low! + BigInt.one) ~/ BigInt.two,
       BigInt.from(
         _uncertainty([
           reference.uncertainty,

@@ -4,6 +4,8 @@ Version 2.0.0 renames the facade, engine, configuration, and exception types to 
 
 The shared Dart readiness path returns the same reading it validated as ready on every platform, including at age and uncertainty boundaries. This correction does not change platform support or establish physical-device qualification; see the [readiness contract](SPECIFICATION.md#state-and-synchronization).
 
+Consensus scaling, source-count validation, starved-timer deadline handling, and exhaustive interval-oracle regressions run in core lanes and Chrome on both pinned SDKs. The 1,024-source limit applies to all platforms. [Windows AOT scaling measurements](CONSENSUS_PERFORMANCE.md) describe host observations, not mobile latency or a real-time deadline qualification.
+
 Checked uncertainty arithmetic and exact consensus intervals share a portable maximum of 2^53 - 1 microseconds. Overflow, drift, restore, and scheduler-registration regressions run in the core lanes and Chrome on both pinned SDKs. Native ownership tests also cover synchronous receive failure, original stack propagation, and cancellation races. These checks do not add platform or physical-device qualification; see the [uncertainty contract](SPECIFICATION.md#anchor-and-uncertainty) and [scheduling failure behavior](SPECIFICATION.md#lifecycle-and-diagnostics).
 
 Persisted sequences use the same bounded exact integer range on native and JavaScript targets. The sequence regressions run in the core SDK/OS lanes and in Chrome on both pinned SDKs. Older version-2 records above `AnchorRecord.maxSequence` are rejected and require fresh synchronization; see the [persistence contract](SPECIFICATION.md#persistence-and-restart-policy).

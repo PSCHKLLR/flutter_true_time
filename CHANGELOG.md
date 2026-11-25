@@ -1,7 +1,8 @@
 # Changelog
 
-## Unreleased
+## 2.0.6
 
+- Use an O(n log n) endpoint sweep for consensus, enforce elapsed collection budgets even for immediate sources, yield during long collections, and reject more than 1,024 configured sources (#20).
 - Reject unsupported uncertainty values and checked-sum/drift overflow; compute consensus endpoints exactly on native and web targets (#30).
 - Deliver synchronous UDP receive failures with their original stack and release the owned socket/listener, including cancellation races (#31).
 - Keep sync futures and lifecycle calls usable when scheduler registration throws; report `schedulingFailed` diagnostics and retry registration on later sync/resume (#32).

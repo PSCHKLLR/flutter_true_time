@@ -61,6 +61,8 @@ Defaults remain: 30-minute foreground refresh, 3-second source timeout, 5-second
 
 `TrueTimeConfig.maximumUncertainty` is the portable arithmetic limit (9007199254740991 microseconds). Values or projected bounds beyond it fail explicitly with `uncertain`; representable bounds above your configured policy remain stale estimates. A `schedulingFailed` event means automatic refresh/retry or diagnostic registration failed. The completed network result and anchor are retained; a later sync retries refresh registration and resume retries diagnostic registration.
 
+Up to 1,024 sources (`TrueTimeEngine.maximumSources`) are supported; larger lists fail at construction. The sync deadline stops collection, including immediate-source chains. Previously accepted evidence may finish bounded consensus and queue persistence afterward; synchronous custom callbacks cannot be preempted. See the [deadline contract](docs/SPECIFICATION.md#state-and-synchronization) and [scaling measurements](docs/CONSENSUS_PERFORMANCE.md).
+
 ## Persistence capability
 
 | Platform | Clock | Offline restore after app restart |

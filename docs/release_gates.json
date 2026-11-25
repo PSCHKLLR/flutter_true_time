@@ -1,8 +1,8 @@
 {
   "schema": 2,
-  "version": "2.0.5",
+  "version": "2.0.6",
   "developmentInputs": false,
-  "sourceDigest": "a9741f21d158547cf9fc493c7ab7e99bc3c2fd3280a9ed2275973ab32da3d6ab",
+  "sourceDigest": "62dc0774a87ee0b5a2cb739fc5cafc1d522a23f051a2bad89b3ced2bd805ef5d",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -22,7 +22,7 @@
     },
     ".github/workflows/compatibility.yml": {
       "mode": "utf8-lf",
-      "sha256": "a57d2463fb26afdfc3d51695c499dba3e6e951bc2a229f1e2e5b746562d61f9b"
+      "sha256": "1e373c77faafc1ec19079602a7acd94d635371c18ca2650428a2d41064e1481e"
     },
     ".github/workflows/publish.yml": {
       "mode": "utf8-lf",
@@ -450,7 +450,7 @@
     },
     "example/pubspec.yaml": {
       "mode": "utf8-lf",
-      "sha256": "48f6b58f01f1930c8aa323c0314fb644823b2c71c06233806061aa015b43e3cf"
+      "sha256": "5969bdca54fe9cba467197679e04ac7df74ee76f2650da4735fe13a39a5e20d3"
     },
     "example/test/widget_test.dart": {
       "mode": "utf8-lf",
@@ -582,7 +582,7 @@
     },
     "lib/src/engine.dart": {
       "mode": "utf8-lf",
-      "sha256": "e1d7722701664b03d63e24ebc254ef23eea5e250d5b296c126ba03418e0183e6"
+      "sha256": "cc1182ce84359cba6280d47b15f9bfc1d5ed266ea5ba16a2d990e1ab169038af"
     },
     "lib/src/epoch_io.dart": {
       "mode": "utf8-lf",
@@ -630,7 +630,7 @@
     },
     "pubspec.yaml": {
       "mode": "utf8-lf-development-guard",
-      "sha256": "15926e342f7ff9e3941b7122b7f69947936b366017d7a309826892b7d5684e97"
+      "sha256": "47f25379a07c538de0b1de0b89466b65c1a94ef2f944600cc6d52f4bfec31284"
     },
     "test/cancellation_test.dart": {
       "mode": "utf8-lf",
@@ -639,6 +639,10 @@
     "test/configure_android_test.dart": {
       "mode": "utf8-lf",
       "sha256": "c87fa8d20c5cab2d6cf5b6979463400d23c7d7bffad4b40d86c9d00d3eb7df34"
+    },
+    "test/consensus_scaling_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "d6e490586bd8384fbd5150893206087052f35209eca43bba8af49470a9f71c66"
     },
     "test/diagnostics_test.dart": {
       "mode": "utf8-lf",
@@ -711,6 +715,10 @@
     "tool/benchmark.dart": {
       "mode": "utf8-lf",
       "sha256": "c1a14e9c2488ed933cfb94864b2eec336054988979e574ff0d6524cbab0812d7"
+    },
+    "tool/benchmark_consensus.dart": {
+      "mode": "utf8-lf",
+      "sha256": "f61ac3193243a47b90c6ac9a9da5980c1a8a4a0e3e7a7d3073cbde8b3ac20aa4"
     },
     "tool/configure_android.dart": {
       "mode": "utf8-lf",
