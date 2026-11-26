@@ -2,7 +2,7 @@
   "schema": 2,
   "version": "2.0.6",
   "developmentInputs": false,
-  "sourceDigest": "69f8a0e20a13e70f3bc1b3eccbba53977b6de79bbe75e47d2cfb8a8a3c61ddb7",
+  "sourceDigest": "e57905b9a0eb2adee10d9fe9d49f51882780e9112d1b1bcb350469104b20d15d",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -144,9 +144,17 @@
       "mode": "utf8-lf",
       "sha256": "eb589a17a2bbf99dd0e0cc6bd9b1d729ea4127eee81cfe9292e41aa9287d3856"
     },
+    "example/integration_test/read_benchmark_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "92f9a684a84677a479b6d60edcf65c043a623755eb0aa90dfb0b938796db248f"
+    },
     "example/integration_test/restart_test.dart": {
       "mode": "utf8-lf",
       "sha256": "cbddc21e942838885bb75016fe5644280388a9a6b08e18d525a46a49447fef9d"
+    },
+    "example/integration_test/support/read_benchmark.dart": {
+      "mode": "utf8-lf",
+      "sha256": "3948753649ecd736ecdfdff58e521ee43eaeb9fc59993a3215b827d2c6840718"
     },
     "example/ios/.gitignore": {
       "mode": "utf8-lf",
@@ -731,6 +739,10 @@
     "tool/benchmark_consensus.dart": {
       "mode": "utf8-lf",
       "sha256": "f61ac3193243a47b90c6ac9a9da5980c1a8a4a0e3e7a7d3073cbde8b3ac20aa4"
+    },
+    "tool/benchmark_native_reads.dart": {
+      "mode": "utf8-lf",
+      "sha256": "f60b2c3d86a7f637419a84c8a0263a785ef90c35d356fedf1855b553d6aea154"
     },
     "tool/configure_android.dart": {
       "mode": "utf8-lf",
