@@ -69,6 +69,7 @@ jobs:
             coverage/lcov.info
   android:
     runs-on: ubuntu-24.04
+    timeout-minutes: 100
     strategy:
       fail-fast: false
       matrix:
@@ -91,6 +92,8 @@ jobs:
         run: flutter config --jdk-dir "$JAVA_HOME"
       - run: dart --packages=.dart_tool/package_config.json tool/source_digest.dart > source-fingerprint.json
       - run: dart run tool/configure_android.dart ${{ matrix.lane }}
+      - name: Test Android build retry policy
+        run: python3 -m unittest discover -s .github/scripts -p 'android_build_test.py'
       - name: Install the NDK required by both pinned Flutter SDKs
         shell: bash
         run: |
@@ -110,22 +113,25 @@ jobs:
           java -version 2> java-version.txt
       - name: Compile native read benchmark entry point (not device qualification)
         run: >-
+          python3 ../.github/scripts/android_build.py --logs ../android-build-logs/benchmark --
           flutter build apk --release --target=lib/native_read_benchmark.dart
           --dart-define=BENCHMARK_DEVICE=CI-build-only
           --dart-define=BENCHMARK_REVISION=${{ github.sha }}
         working-directory: example
-      - run: flutter build apk --release
+      - run: python3 ../.github/scripts/android_build.py --logs ../android-build-logs/apk -- flutter build apk --release
         working-directory: example
-      - run: flutter build appbundle --release
+      - run: python3 ../.github/scripts/android_build.py --logs ../android-build-logs/appbundle -- flutter build appbundle --release
         working-directory: example
       - name: Record resolved Gradle version
         run: |
           chmod +x example/android/gradlew
           (cd example/android && ./gradlew --version) > gradle-version.txt
       - uses: actions/upload-artifact@v7.0.2
+        if: always()
         with:
           name: android-${{ matrix.lane }}
           path: |
+            android-build-logs/
             toolchain.json
             source-fingerprint.json
             pubspec.lock
