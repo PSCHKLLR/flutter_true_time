@@ -1,8 +1,8 @@
 import 'dart:ffi';
 import 'dart:io';
-import 'dart:math';
 import 'package:ffi/ffi.dart';
 import 'clock.dart';
+import 'native_clock_resources.dart';
 
 final class _Timespec extends Struct {
   @Long()
@@ -32,34 +32,35 @@ MonotonicClock createClock() {
             Int32 Function(Pointer<Int64>),
             int Function(Pointer<Int64>)
           >('QueryPerformanceFrequency');
-      final value = calloc<Int64>();
-      late int hz;
+      final scratch = NativeClockScratch(sizeOf<Int64>());
       try {
-        if (frequency(value) == 0 || value.value <= 0) {
-          throw StateError('QPC unavailable');
-        }
-        hz = value.value;
-      } finally {
-        calloc.free(value);
-      }
-      return _NativeClock(
-        () {
-          final tick = calloc<Int64>();
-          try {
-            if (counter(tick) == 0) throw StateError('QPC failed');
-            final count = tick.value;
-            // Avoid overflowing signed 64-bit arithmetic on long-running machines.
-            return (count ~/ hz) * 1000000 + (count % hz) * 1000000 ~/ hz;
-          } finally {
-            calloc.free(tick);
+        final hz = scratch.read((pointer) {
+          final value = pointer.cast<Int64>();
+          if (frequency(value) == 0 || value.value <= 0) {
+            throw StateError('QPC unavailable');
           }
-        },
-        ClockCapabilities(
-          domain: 'windows.qpc.us.v1',
-          resolution: Duration(microseconds: (1000000 / hz).ceil()),
-          includesSleep: true,
-        ),
-      );
+          return value.value;
+        });
+        int sample(Pointer<Void> pointer) {
+          final tick = pointer.cast<Int64>();
+          if (counter(tick) == 0) throw StateError('QPC failed');
+          final count = tick.value;
+          // Preserve quotient/remainder conversion for long-running hosts.
+          return (count ~/ hz) * 1000000 + (count % hz) * 1000000 ~/ hz;
+        }
+
+        return NativeSamplingClock(
+          () => scratch.read(sample),
+          ClockCapabilities(
+            domain: 'windows.qpc.us.v1',
+            resolution: Duration(microseconds: (1000000 / hz).ceil()),
+            includesSleep: true,
+          ),
+        );
+      } catch (_) {
+        scratch.close();
+        rethrow;
+      }
     }
     if (Platform.isLinux || Platform.isAndroid) {
       final libc = DynamicLibrary.open(
@@ -75,39 +76,40 @@ MonotonicClock createClock() {
             Int32 Function(Int32, Pointer<_Timespec>),
             int Function(int, Pointer<_Timespec>)
           >('clock_getres');
-      final value = calloc<_Timespec>();
-      late Duration resolution;
+      final scratch = NativeClockScratch(sizeOf<_Timespec>());
       try {
-        if (getres(7, value) != 0) {
-          throw StateError('Clock resolution unavailable');
-        }
-        resolution = Duration(
-          microseconds:
-              value.ref.seconds * 1000000 + (value.ref.nanos / 1000).ceil(),
-        );
-      } finally {
-        calloc.free(value);
-      }
-      final os = Platform.isAndroid ? 'android' : 'linux';
-      return _NativeClock(
-        () {
-          final t = calloc<_Timespec>();
-          try {
-            if (gettime(7, t) != 0) {
-              throw StateError('CLOCK_BOOTTIME unavailable');
+        final resolution = Duration(
+          microseconds: scratch.read((pointer) {
+            final value = pointer.cast<_Timespec>();
+            if (getres(7, value) != 0) {
+              throw StateError('Clock resolution unavailable');
             }
-            return t.ref.seconds * 1000000 + t.ref.nanos ~/ 1000;
-          } finally {
-            calloc.free(t);
+            return value.ref.seconds * 1000000 +
+                (value.ref.nanos / 1000).ceil();
+          }),
+        );
+        int sample(Pointer<Void> pointer) {
+          final t = pointer.cast<_Timespec>();
+          if (gettime(7, t) != 0) {
+            throw StateError('CLOCK_BOOTTIME unavailable');
           }
-        },
-        ClockCapabilities(
-          domain: '$os.clock_boottime.us.v1',
-          resolution: resolution,
-          includesSleep: true,
-          supportsBootEpoch: true,
-        ),
-      );
+          return t.ref.seconds * 1000000 + t.ref.nanos ~/ 1000;
+        }
+
+        final os = Platform.isAndroid ? 'android' : 'linux';
+        return NativeSamplingClock(
+          () => scratch.read(sample),
+          ClockCapabilities(
+            domain: '$os.clock_boottime.us.v1',
+            resolution: resolution,
+            includesSleep: true,
+            supportsBootEpoch: true,
+          ),
+        );
+      } catch (_) {
+        scratch.close();
+        rethrow;
+      }
     }
     if (Platform.isIOS || Platform.isMacOS) {
       final lib = DynamicLibrary.process();
@@ -130,7 +132,7 @@ MonotonicClock createClock() {
       } finally {
         calloc.free(base);
       }
-      return _NativeClock(
+      return NativeSamplingClock(
         () {
           final count = ticks();
           return ((count ~/ denom) * numer +
@@ -148,29 +150,4 @@ MonotonicClock createClock() {
     /* Unknown native capability must not authorize restoration. */
   }
   return StopwatchClock();
-}
-
-class _NativeClock implements MonotonicClock {
-  _NativeClock(this._micros, this.capabilities) {
-    _micros();
-  }
-  final int Function() _micros;
-  @override
-  final ClockCapabilities capabilities;
-  final String _id =
-      Random.secure().nextInt(0x7fffffff).toString() +
-      identityHashCode(Object()).toString();
-  @override
-  bool get includesSleep => capabilities.includesSleep;
-  @override
-  ClockSnapshot snapshot() {
-    final watch = Stopwatch()..start();
-    final value = _micros();
-    watch.stop();
-    return ClockSnapshot(
-      Duration(microseconds: value),
-      _id,
-      uncertainty: capabilities.resolution + watch.elapsed,
-    );
-  }
 }

@@ -108,6 +108,12 @@ jobs:
         run: |
           flutter --version --machine > toolchain.json
           java -version 2> java-version.txt
+      - name: Compile native read benchmark entry point (not device qualification)
+        run: >-
+          flutter build apk --release --target=lib/native_read_benchmark.dart
+          --dart-define=BENCHMARK_DEVICE=CI-build-only
+          --dart-define=BENCHMARK_REVISION=${{ github.sha }}
+        working-directory: example
       - run: flutter build apk --release
         working-directory: example
       - run: flutter build appbundle --release
@@ -151,6 +157,12 @@ jobs:
       - run: flutter test --no-pub
         working-directory: example
       - run: flutter build ios --simulator --debug
+        working-directory: example
+      - name: Compile native read benchmark entry point (not device qualification)
+        run: >-
+          flutter build ios --release --no-codesign --target=lib/native_read_benchmark.dart
+          --dart-define=BENCHMARK_DEVICE=CI-build-only
+          --dart-define=BENCHMARK_REVISION=${{ github.sha }}
         working-directory: example
       - run: flutter build ios --release --no-codesign
         working-directory: example

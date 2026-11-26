@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Reuse isolate-local native scratch and sampling watches while preserving reentrant reads, immutable snapshots, uncertainty, and shared-clock lifetime; add reproducible host/mobile performance fixtures. Representative mobile qualification for #10 remains pending.
 - Start synchronization alongside restoration and expose fresh readiness before epoch/storage I/O completes, retaining bounded persistence waits and generation-safe restoration (#7).
 - Publish foreground age/drift availability expiry without requiring reads, with independent cancellable scheduling for live/restored anchors and immediate resume resampling (#8).
 - Bound persistence to one active and one newest pending complete record per shared backend; fail superseded saves explicitly while preserving backend ownership, load barriers, snapshots, and in-memory time (#9).

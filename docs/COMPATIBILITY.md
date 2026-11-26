@@ -6,6 +6,8 @@ The shared Dart readiness path returns the same reading it validated as ready on
 
 Concurrent startup is shared Dart behavior. Core regressions cover blocked epoch/load operations, fresh readiness before persistence, restoration/network races, late-generation rejection, bounded waits, and disposal. Injected tests do not qualify physical storage or network latency.
 
+Native scratch/watch reuse preserves the existing platform clock domains, conversions, uncertainty formula, and conservative fallback. Tests cover reentrant scratch isolation, failure cleanup, immutable snapshots, isolate-send rejection, and shared-clock disposal. [Native read performance](NATIVE_READ_PERFORMANCE.md) keeps Windows host observations separate from the still-pending representative Android/iOS release-build latency and allocation qualification for #10.
+
 Foreground availability expiry uses the shared injected scheduler on all platforms. Core and Chrome lanes cover age/drift equality boundaries, restored anchors, resync, lifecycle cancellation, sampling changes/failures, and long-delay checkpoints. These deterministic checks do not qualify OS background delivery or physical-device timer behavior.
 
 Consensus scaling, source-count validation, starved-timer deadline handling, and exhaustive interval-oracle regressions run in core lanes and Chrome on both pinned SDKs. The 1,024-source limit applies to all platforms. [Windows AOT scaling measurements](CONSENSUS_PERFORMANCE.md) describe host observations, not mobile latency or a real-time deadline qualification.

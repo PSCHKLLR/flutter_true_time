@@ -2,7 +2,7 @@
   "schema": 2,
   "version": "2.0.6",
   "developmentInputs": false,
-  "sourceDigest": "69f8a0e20a13e70f3bc1b3eccbba53977b6de79bbe75e47d2cfb8a8a3c61ddb7",
+  "sourceDigest": "9de5004b99dd287571ebb427f07b6350b27a80705524f3385e99a84e98fdcc89",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -22,7 +22,7 @@
     },
     ".github/workflows/compatibility.yml": {
       "mode": "utf8-lf",
-      "sha256": "d51b145a20e29592bfe0770e09aef564c493d76715935aa5cae9eb8af3abaf7c"
+      "sha256": "9cd24f15d35b9771833bee6f12b8f319c52f95826d2fc2935a393e98396f3bff"
     },
     ".github/workflows/publish.yml": {
       "mode": "utf8-lf",
@@ -144,9 +144,17 @@
       "mode": "utf8-lf",
       "sha256": "eb589a17a2bbf99dd0e0cc6bd9b1d729ea4127eee81cfe9292e41aa9287d3856"
     },
+    "example/integration_test/read_benchmark_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "72f8109b472763bd12edd1a014dd554bc8d4e7cc5174b8335ee3f8dc8acc1c9d"
+    },
     "example/integration_test/restart_test.dart": {
       "mode": "utf8-lf",
       "sha256": "cbddc21e942838885bb75016fe5644280388a9a6b08e18d525a46a49447fef9d"
+    },
+    "example/integration_test/support/benchmark_driver.dart": {
+      "mode": "utf8-lf",
+      "sha256": "fdff9aae08ea314d591647ef3a04fa6f0247d7c924d13cdadf6d456c2810409c"
     },
     "example/ios/.gitignore": {
       "mode": "utf8-lf",
@@ -311,6 +319,14 @@
     "example/lib/main.dart": {
       "mode": "utf8-lf",
       "sha256": "a9e1ed40d307ebe30bef4e444c27ac6827d41bcbf00c1df53318c7e6ca976121"
+    },
+    "example/lib/native_read_benchmark.dart": {
+      "mode": "utf8-lf",
+      "sha256": "be318441af3f4a1cd9d92b959ee0e2fec6419e67fa3a5ba18e49d710eb942c3f"
+    },
+    "example/lib/src/native_read_fixture.dart": {
+      "mode": "utf8-lf",
+      "sha256": "3948753649ecd736ecdfdff58e521ee43eaeb9fc59993a3215b827d2c6840718"
     },
     "example/linux/.gitignore": {
       "mode": "utf8-lf",
@@ -570,7 +586,7 @@
     },
     "lib/src/clock_native.dart": {
       "mode": "utf8-lf",
-      "sha256": "da92479d62b753d747c04b1fe9e05ca05a749dbcac536ab8918e79a715ee6b7e"
+      "sha256": "beb69285ad23298d27026a2955e4b4169eb8f4ed867e892190550a1ac946c435"
     },
     "lib/src/clock_portable.dart": {
       "mode": "utf8-lf",
@@ -603,6 +619,10 @@
     "lib/src/models.dart": {
       "mode": "utf8-lf",
       "sha256": "aa44d6ac9e4747238b287827202a09241f77936f09f311a19402e905b1024a63"
+    },
+    "lib/src/native_clock_resources.dart": {
+      "mode": "utf8-lf",
+      "sha256": "c414f534ab9f04a9be5fab5c6756d33c05bc3d45e64d9b97240122889b8a328d"
     },
     "lib/src/ntp_io.dart": {
       "mode": "utf8-lf",
@@ -672,6 +692,14 @@
       "mode": "utf8-lf",
       "sha256": "a3a860f615b456999e4a3d020d44e62e8f09180a71f11acce9bd7b1da09793a7"
     },
+    "test/native_clock_resources_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "03564a6ff8af0c40c321210b3415515c536da687598221c5f23e3ce52f866568"
+    },
+    "test/native_gc_summary_test.dart": {
+      "mode": "utf8-lf",
+      "sha256": "9eeea27fb1f561bfedc1c69c76882c750367f7e65515348fe538b4b81f288840"
+    },
     "test/native_sources_test.dart": {
       "mode": "utf8-lf",
       "sha256": "d4e787157f1ea2ef8991e979e14a716a2c889743344a0b7a65601ea1c7cb07c2"
@@ -732,6 +760,14 @@
       "mode": "utf8-lf",
       "sha256": "f61ac3193243a47b90c6ac9a9da5980c1a8a4a0e3e7a7d3073cbde8b3ac20aa4"
     },
+    "tool/benchmark_native_gc.dart": {
+      "mode": "utf8-lf",
+      "sha256": "6e807664191328283f959d1f06ec226bf9e9a5517c337e1fe3286f4b703919ce"
+    },
+    "tool/benchmark_native_reads.dart": {
+      "mode": "utf8-lf",
+      "sha256": "1e043a0a179c0080fd167f8004bb2c7ba8e9eb1ed2dd6e5a8a63566759c523e6"
+    },
     "tool/configure_android.dart": {
       "mode": "utf8-lf",
       "sha256": "a386c91423d291684368cb297663ec6f2978d9cda5e957e379fe594521342cd5"
@@ -751,6 +787,10 @@
     "tool/source_digest.dart": {
       "mode": "utf8-lf",
       "sha256": "56808bb764e42251bd1d0ba43c69fddc6de1dea7911d1034699ef90362daefe6"
+    },
+    "tool/summarize_native_gc.dart": {
+      "mode": "utf8-lf",
+      "sha256": "011637a648b91fbc92c5ee03e9af235f6b41b91c8b5ea7fe91a5c0824df3922a"
     },
     "tool/update_release_manifest.dart": {
       "mode": "utf8-lf",
