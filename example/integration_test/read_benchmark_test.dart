@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
-import 'support/read_benchmark.dart';
+import 'package:flutter_true_time_example/src/native_read_fixture.dart';
 
 void main() {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
@@ -11,6 +11,10 @@ void main() {
     }
     const device = String.fromEnvironment('BENCHMARK_DEVICE');
     const revision = String.fromEnvironment('BENCHMARK_REVISION');
+    const foreground = bool.fromEnvironment(
+      'BENCHMARK_FOREGROUND',
+      defaultValue: true,
+    );
     if (device.isEmpty || revision.isEmpty) {
       throw StateError(
         'Record BENCHMARK_DEVICE and BENCHMARK_REVISION dart-defines',
@@ -18,7 +22,7 @@ void main() {
     }
     final results = <Map<String, Object?>>[];
     for (final mode in ['baseline', 'snapshot', 'read', 'now']) {
-      results.add(await benchmarkReads(mode: mode));
+      results.add(await benchmarkReads(mode: mode, foreground: foreground));
     }
     binding.reportData = {
       'schema': 1,

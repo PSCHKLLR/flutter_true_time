@@ -25,6 +25,8 @@ Physical sleep and resume testing is deferred for this release. For any lifecycl
 
 ## Read performance
 
+Issue #10 adds a shared offline fixture, a standalone release app with JSON export, a profile integration driver, and separate host GC telemetry. Follow the [native measurement procedure](NATIVE_READ_PERFORMANCE.md) for paired before/after runs. Representative Android and iOS release-build latency, allocation/GC, and native resource observations remain pending until executed on physical targets.
+
 Measure synchronous `now()` and `read()` on representative release builds. Record the hardware, OS, SDK, clock adapter, build mode, warmup, iteration count, latency distribution and allocations per read. Use an allocation profiler appropriate to the target and distinguish sampled results from exact counts. `tool/benchmark.dart` provides a Windows/Linux/macOS AOT latency smoke measurement when compiled with `dart compile exe`. Record representative mobile and browser results separately. Attach the methodology and raw results to the `read_performance` gate.
 
 ## Browser

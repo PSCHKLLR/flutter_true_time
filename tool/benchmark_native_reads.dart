@@ -1,7 +1,9 @@
 // ignore_for_file: avoid_print
 import 'dart:convert';
 import 'dart:io';
-import '../example/integration_test/support/read_benchmark.dart';
+// The host tool deliberately shares the example's exact offline workload.
+// ignore: avoid_relative_lib_imports
+import '../example/lib/src/native_read_fixture.dart';
 
 Future<void> main(List<String> args) async {
   const allowed = {

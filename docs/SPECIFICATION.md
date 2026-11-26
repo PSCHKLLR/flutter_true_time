@@ -18,6 +18,8 @@ Uncertainty is supported from zero through 9007199254740991 microseconds (`TrueT
 
 Windows uses QPC/frequency with overflow-safe tick conversion; Android/Linux use CLOCK_BOOTTIME; Apple uses mach_continuous_time. Unknown native capabilities fall back conservatively to a session-only Stopwatch, with a documented portable uncertainty allowance. Physical sleep/resume qualification is mandatory before support claims.
 
+Native sampling returns a new immutable snapshot and bounds local error by clock resolution plus the measured synchronous sampling duration. Internal scratch buffers and the overhead Stopwatch may be reused within one clock. Reentrant reads require separate scratch/watch state, and native pointer owners must not cross isolates. An engine does not free an injected clock when disposed; clock-owned native storage is finalized when unreachable. Buffer reuse must not change clock domains, continuity, tick conversion, or fallback behavior.
+
 ## State and synchronization
 
 Availability is unavailable, ready, or stale, independently from synchronization activity. A failed refresh preserves a valid anchor. Informational wall-clock/timezone changes must not invalidate it. Epoch change, monotonic regression, and suspension of a noncontinuous clock invalidate continuity.
