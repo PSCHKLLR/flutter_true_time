@@ -69,3 +69,22 @@ dart tool/summarize_native_gc.dart <raw-log.txt>
 The parser preserves marked scavenge rows and rejects missing collection IDs, unsupported collection kinds, or ambiguous markers. It sums young used-before minus the preceding used-after over complete intervals, omitting initial/final partial intervals, and divides by the full measured call count. VM heap values are rounded to 0.1 MiB; the reported worst-case rounding contribution is intervals × 0.1 MiB / calls. Missing edge spans are a separate limitation. Baseline without collections reports no bytes-per-call estimate, rather than claiming zero allocation. Reported GC durations are also rounded; sums/maxima describe the instrumented collection observations, not individual-call latency or a complete pause profile.
 
 This estimates observed young-generation growth, including allocator accounting. It excludes native and old-generation allocation and does not establish exact managed allocation bytes or object counts. Instrumented GC runs are separate from uninstrumented latency runs. See the [Dart 3.14 VM reporting implementation](https://github.com/dart-lang/sdk/blob/3.14.0/runtime/vm/heap/heap.cc) and [AOT runtime instructions](https://dart.dev/tools/dartaotruntime).
+
+## Recorded Windows comparison
+
+The [paired latency artifact](evidence/native-read-paired-windows.json) compares runtime `305b204` with `d42520c`, using the identical fixture content and Dart 3.14.0 AOT on Windows x64 / Intel Core i5-7300HQ. Before/after executions alternate within each repetition. Ranges below span the three run medians in microseconds per call; each median is computed over batch means.
+
+| Foreground maintenance | Operation | Before | After |
+| --- | --- | --- | --- |
+| Disabled | snapshot | 0.355–0.380 | 0.233–0.249 |
+| Disabled | read | 0.480–0.492 | 0.335–0.339 |
+| Disabled | now | 0.446–0.470 | 0.331–0.365 |
+| Enabled | snapshot | 0.371–0.387 | 0.244–0.250 |
+| Enabled | read | 0.594–0.663 | 0.349–0.369 |
+| Enabled | now | 0.678–0.785 | 0.350–0.386 |
+
+Loop/callback baseline medians ranged 0.00565–0.01258 µs. Thermal/power state was uncontrolled, and other host verification/SDK preparation could contend with these runs. The results support a host improvement for this workload, not a universal speedup or individual-call tail guarantee. Foreground runs also include timer cancellation/rearming when the sampled error bound changes; the changed sampling duration affects that work, so their larger improvement cannot be attributed solely to removed object allocation.
+
+The [paired GC artifact](evidence/native-read-gc-paired-windows.json) retains all 48 marked runs as raw numeric rows plus summaries, source/fixture/parser/snapshot hashes, and toolchain identity. Before and after groups ran sequentially, separately from the latency runs. With foreground maintenance disabled, observed young growth was approximately 208 → 144 bytes/snapshot and 462 → 398 bytes/read or now. The respective rounding contributions were at most about 10.4 → 7.2 and 23.2 → 19.9 bytes/call; omitted edge spans remain additional uncertainty. Foreground read/now observations ranged about 683–705 → 435–448 bytes/call, including timer maintenance. No-read controls produced no marked scavenges and therefore no growth estimate. These are rounded young-heap observations, not exact allocation totals or proof of native allocator behavior.
+
+Local validation passed 253 Dart core tests, 258 Flutter core/facade tests, two example tests, and formatting. Analysis of the changed files passed; whole-example analysis on the installed newer SDK also reports the pre-existing Material import deprecation in `example/lib/main.dart`. The attempted Windows standalone release-app build could not run without a suitable Visual Studio toolchain. Android/iOS CI now compiles the benchmark entry point separately from the demo; no build check establishes runtime/device qualification. Representative mobile timing, allocation/GC, and native-resource profiling remain pending, so #10 is not closed by this comparison.

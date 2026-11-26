@@ -2,7 +2,7 @@
   "schema": 2,
   "version": "2.0.6",
   "developmentInputs": false,
-  "sourceDigest": "65205fe428ed9ea0bc4588faad688acb135a3e37baca4b5d576ff6243c878a4a",
+  "sourceDigest": "9de5004b99dd287571ebb427f07b6350b27a80705524f3385e99a84e98fdcc89",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
@@ -22,7 +22,7 @@
     },
     ".github/workflows/compatibility.yml": {
       "mode": "utf8-lf",
-      "sha256": "d51b145a20e29592bfe0770e09aef564c493d76715935aa5cae9eb8af3abaf7c"
+      "sha256": "9cd24f15d35b9771833bee6f12b8f319c52f95826d2fc2935a393e98396f3bff"
     },
     ".github/workflows/publish.yml": {
       "mode": "utf8-lf",
