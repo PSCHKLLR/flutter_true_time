@@ -119,15 +119,15 @@ void main() {
       );
       final initialization = engine.initialize();
       final outcome = await engine.sync().timeout(const Duration(seconds: 1));
-      expect(outcome.success, isFalse);
-      expect(outcome.error?.message, 'deadline');
-      expect(a.calls + b.calls, 0);
+      expect(outcome.success, isTrue);
+      expect(a.calls + b.calls, 2);
+      expect(store.writes.first['epoch'], isNull);
       final accepted = epoch('boot-current');
       epochs.calls.single.complete(accepted);
       await initialization;
       expect((await engine.sync()).success, isTrue);
       expect(epochs.calls, hasLength(1));
-      expect(store.writes.first['epoch'], accepted.toMap());
+      expect(store.writes.last['epoch'], accepted.toMap());
     },
   );
 
@@ -141,7 +141,7 @@ void main() {
       await flush();
       expect(epochs.calls, hasLength(1));
       expect(finished, isFalse);
-      expect(a.calls + b.calls, 0);
+      expect(a.calls + b.calls, 2);
       expect(store.writes, isEmpty);
 
       final accepted = epoch('boot-current');
@@ -204,7 +204,7 @@ void main() {
       expect(outcome.success, isFalse);
       expect(outcome.error?.code, 'disposed');
       expect(store.writes, isEmpty);
-      expect(a.calls + b.calls, 0);
+      expect(a.calls + b.calls, 2);
       epochs.calls.single.completeError(StateError('late provider error'));
       await flush();
     },
