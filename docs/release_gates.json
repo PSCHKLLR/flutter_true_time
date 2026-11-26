@@ -2,11 +2,19 @@
   "schema": 2,
   "version": "2.0.6",
   "developmentInputs": false,
-  "sourceDigest": "9de5004b99dd287571ebb427f07b6350b27a80705524f3385e99a84e98fdcc89",
+  "sourceDigest": "227db9070d41c79a8be4becbe4432023cdc6da6c2fe9e37b8f6a01c8a1a5ee9c",
   "inputs": {
     ".gitattributes": {
       "mode": "utf8-lf",
       "sha256": "f935b1749bfe535cd77fa4a4bad01f90f87742d96c8fd1a8e82658497caa51e8"
+    },
+    ".github/scripts/android_build.py": {
+      "mode": "utf8-lf",
+      "sha256": "0f59e43fd50526cb8615567f225d52400af947ae45001c091000e87892630bda"
+    },
+    ".github/scripts/android_build_test.py": {
+      "mode": "utf8-lf",
+      "sha256": "29075376a0f9792009706b17dd2a7188397aff5be10ef618ebec2f060b4f8e7c"
     },
     ".github/scripts/release.py": {
       "mode": "utf8-lf",
@@ -22,11 +30,11 @@
     },
     ".github/workflows/compatibility.yml": {
       "mode": "utf8-lf",
-      "sha256": "9cd24f15d35b9771833bee6f12b8f319c52f95826d2fc2935a393e98396f3bff"
+      "sha256": "6dc5e28cd2c5a5e4570310b9df61f91dcd2d1565b274b86fa8690ade7503baac"
     },
     ".github/workflows/publish.yml": {
       "mode": "utf8-lf",
-      "sha256": "4181615716b5d72995f0aeac5e3a409bd6f0e2caebcfda470400182c34b366aa"
+      "sha256": "bb37b7e92ee26ad2c7c607aade9f3160b218a953a28a2347c1233963ac0f5e39"
     },
     ".github/workflows/published-package.yml": {
       "mode": "utf8-lf",

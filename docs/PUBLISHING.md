@@ -80,6 +80,14 @@ Superseded standalone PR matrices are cancelled by PR number. Main pushes, manua
 
 If publication succeeds but consumer verification or GitHub Release creation fails, rerun failed jobs after fixing the cause. Do not rerun a successful upload or move an existing release tag. A registry upload is not rolled back by a later failed job.
 
+### Android dependency rate limits
+
+All three Android compatibility lanes use `.github/scripts/android_build.py` for the benchmark APK, demo APK, and appbundle, in both standalone and strict reusable runs. Each build command has at most three attempts within one 30-minute monotonic budget, including execution and waits. Explicit Maven Central GET/HEAD HTTP 429 failures receive 30–40 seconds then 60–70 seconds of backoff before a fresh Flutter/Gradle invocation. Compilation failures, unrelated HTTP errors, timeouts, and unrecognized failures are not retried. Exhaustion preserves the final build exit code; a command deadline returns 124 and terminates the owned Linux process group. The Android job has a 100-minute outer timeout for three commands plus setup.
+
+Each attempt's combined output is saved under `android-build-logs/<benchmark|apk|appbundle>/attempt-N.log` and printed after the attempt finishes. Android artifacts upload logs and available toolchain information even after a failed build. Local deterministic tests run with `python3 -m unittest discover -s .github/scripts -p 'android_build_test.py'`; Linux CI also exercises real subprocess logging and timeout cleanup.
+
+Gradle dependency caching was evaluated separately and deferred: bounded retries address the observed 429 failure without restoring executable dependency artifacts across jobs. Any future cache must define trusted writers, read-only fork access, lane/toolchain keys, and an allowlist excluding credentials and generated project outputs. No dependency versions or qualification statuses change through retries.
+
 ### Registry propagation and consumer retries
 
 Registry verification requires both the exact version's identity endpoint and its entry in the package index. It shares one 600-second monotonic budget across at most 60 attempts, both requests, and pauses of up to 10 seconds. Each request is capped at 20 seconds or the remaining budget. Missing index entries, HTTP 404/429/500/502/503/504, and connection/time-out failures can be retried; malformed metadata, package/version mismatches, and other HTTP errors fail immediately. Attempt numbers, remaining time, and reasons are logged.
